@@ -1,5 +1,6 @@
-# bera-bd-showcase runtime deps (Cloud rebuild trigger)
-streamlit>=1.39,<1.51
-pandas>=2.0,<2.3
-matplotlib>=3.7
-networkx>=3.0
+# 전핀 — Cloud 빌드 빠르고 결정론적(전부 python-3.12 wheel, 컴파일/리졸버 churn 없음)
+streamlit==1.50.0
+pandas==2.3.1
+numpy==1.26.4
+matplotlib==3.9.4
+networkx==3.2.1
