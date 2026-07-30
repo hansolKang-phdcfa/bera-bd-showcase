@@ -1,3 +1,4 @@
+# bera-bd-showcase runtime deps (Cloud rebuild trigger)
 streamlit>=1.39,<1.51
 pandas>=2.0,<2.3
 matplotlib>=3.7
