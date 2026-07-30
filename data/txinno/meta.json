@@ -1,0 +1,11 @@
+{
+  "asset": "Txinno TXN10128 (oral ENPP1 inhibitor, cGAS-STING 면역항암)",
+  "ta_label": "항암(종양) · 면역",
+  "indications_display": "solid tumor, pancreatic cancer, colorectal cancer, lung cancer, non-small cell lung, melanoma",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  }
+}

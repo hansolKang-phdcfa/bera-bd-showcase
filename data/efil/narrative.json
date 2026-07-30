@@ -1,0 +1,35 @@
+{
+  "_README": "EFIL BioScience EFIL-201 내러티브 슬롯 — 웹조사(2026-07 검증) 기반 초안. 분석가 편집 대상. grade FACT=검증, EST=단일출처/정황.",
+  "자산 개요": {
+    "grade": "FACT",
+    "keymsg": "EFIL BioScience(에필바이오사이언스, 한국 경북, 2021)의 리드 EFIL-201 = ACAT1(Acyl-CoA:cholesterol acyltransferase 1) 억제제 small molecule, 비만/대사. 3개 자산 전부 동일 타깃 ACAT1. 전부 preclinical.",
+    "cards": [
+      ["EFIL-201 (ACAT1 억제제)", "비만/대사 대상 경구 small molecule. 타깃 ACAT1(=SOAT1). preclinical"],
+      ["Avasimibe (GLP-1 병용)", "Prader-Willi 대상. ★Avasimibe+semaglutide(GLP-1) 병용 체중감소 시너지 연구=GLP-1 애드온 포지션. Avasimibe=Pfizer 죽상경화 후보 재용도화(정황)"],
+      ["회사/포트폴리오", "Private, <10명, 지주형(2021). EFIL-301(거세저항성 전립선암)=개발 중단. 파이프라인 전부 ACAT1"]
+    ],
+    "body": [
+      "적응증 축: 비만/대사(GLP-1 시대 hot). 차별화=ACAT1 기전 경구 애드온",
+      "★주의(엔진): 자사 US 특허 0건(Synapse)+Avasimibe=오래된 공개화합물(물질특허 신규성 낮음)→회사명 co-citation 매우 얇음(gather로 실측)"
+    ]
+  },
+  "임상 & 검증": {
+    "grade": "EST",
+    "keymsg": "전 자산 preclinical(EFIL-301 중단). 임상 readout 전=데이터 리스크 높음. ★precedent 약함: 비만 ACAT1 억제제 빅파마 딜 확인 안 됨, ACAT/avasimibe는 과거 심혈관서 실패 이력.",
+    "body": [
+      "개발단계: EFIL-201·Avasimibe preclinical, EFIL-301 discontinued(CRPC)",
+      "검증 근거: GLP-1 병용 체중감소 시너지 연구 데이터(전임상). 독립 임상효능 미확보",
+      "★리스크 명시: ACAT1/avasimibe 계열은 심혈관 영역서 실패 전례 → DD에서 기전 타당성 집중 질의 예상"
+    ]
+  },
+  "전략 권고": {
+    "grade": "REC",
+    "keymsg": "엔진 결과 종합(gather 후 확정): 비만/대사 acquirer 축. GLP-1 병용 포지션 → GLP-1 프랜차이즈 보유사(Novo Nordisk·Eli Lilly) 우선. ★단 직접 precedent 부재로 신뢰도 낮음, gather 후 재검증 필수.",
+    "body": [
+      "Lead 트랙(가설): Novo Nordisk·Eli Lilly=GLP-1 프랜차이즈, 경구 애드온 보완재 관심 가능. Pfizer·Amgen·Boehringer=비만 파이프라인 확장 중",
+      "포지션: in-license보다 병용 파트너십(GLP-1 애드온) 각이 자연스러움",
+      "딜 각: preclinical+precedent 약함=upfront 최소·데이터 마일스톤 위주, 옵션딜",
+      "★확정 전 gather 필요: precedent 약해 AoI/LO 실데이터가 특히 중요(가설 의존도 높음)"
+    ]
+  }
+}

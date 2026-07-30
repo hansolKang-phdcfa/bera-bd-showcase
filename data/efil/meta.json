@@ -1,0 +1,11 @@
+{
+  "asset": "EFIL BioScience EFIL-201 (ACAT1 inhibitor, obesity/metabolic)",
+  "ta_label": "대사 · 소화기/간",
+  "indications_display": "obesity, overweight, weight management, metabolic syndrome, NASH, MASH",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  }
+}

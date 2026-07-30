@@ -1,0 +1,11 @@
+{
+  "asset": "ArborMed ARBM-101 (copper modulator, Wilson disease)",
+  "ta_label": "소화기/간 · 대사",
+  "indications_display": "Wilson disease, hepatolenticular degeneration, copper overload, copper accumulation, hepatic copper, rare liver disease",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  }
+}

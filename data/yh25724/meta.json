@@ -1,0 +1,11 @@
+{
+  "asset": "YH25724 (GLP-1/FGF21, MASH)",
+  "ta_label": "소화기/간 · 대사",
+  "indications_display": "MASH, NASH, nonalcoholic steatohepatitis, metabolic dysfunction-associated steatohepatitis, fatty liver, liver fibrosis",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "_README": "CoBX Bio 내러티브 슬롯 — 웹조사(2026-07 검증) 기반 초안. 분석가 편집 대상. grade FACT=검증, EST=단일출처/추정.",
+  "자산 개요": {
+    "grade": "FACT",
+    "keymsg": "CoBX Bio(코비엑스바이오, 한국 서울, 2024 설립)=항암 표적치료 신생사. 두 프로그램: Menin(MEN1) 공유결합 억제제 + GSPT1 분자접착(molecular glue) 분해제. small molecule, discovery/preclinical. 플랫폼 RaPIDome(화학단백체+AI). ★라플라스 파트너스 pre-Series A 투자사(2025-09, 76억).",
+    "cards": [
+      ["Menin 공유결합 억제제", "MEN1(menin-MLL) 표적 covalent 억제. 기존 가역억제제 내성 극복 지향. 급성백혈병(NPM1/KMT2A) 계열 추정"],
+      ["GSPT1 분자접착 분해제", "GSPT1(eRF3a) 표적 CRBN 기반 molecular glue degrader. 암세포 생존 차단. BMS CC-90009로 임상 진입한 타깃(그 시험은 2024 종료)"],
+      ["회사/플랫폼", "Private, 서울, 2024 설립(매우 초기). RaPIDome=화학단백체학+분자모델링+AI로 기전·내성경로 규명. pre-Series A 76억(한투·라플라스·Solid X·Company K·KB 등)"]
+    ],
+    "body": [
+      "적응증 축: 항암(Menin=급성백혈병, GSPT1=암세포 생존). 두 타깃 모두 hot(Menin=Syndax revumenib 승인·Kura ziftomenib)",
+      "★주의(엔진): 2024 신생=등록 US 특허 사실상 0(가출원 수준) → 회사명 기반 co-citation 거의 불가. 타깃 landscape 특허 경유 신호만 가능(gather로 실측)"
+    ]
+  },
+  "임상 & 검증": {
+    "grade": "EST",
+    "keymsg": "discovery/preclinical(임상 진입 전, 2024 설립). 에셋 코드명 미공개·구체 적응증 불확실. 검증 근거는 타깃 validation(Menin·GSPT1 둘 다 빅파마/임상 검증 타깃)과 라플라스 등 투자 유치.",
+    "body": [
+      "개발단계: discovery~preclinical. 공개 임상데이터·에셋 코드명 없음",
+      "타깃 validation: Menin=Syndax revumenib(FDA 승인 2024-11)·Kura ziftomenib(Kyowa 도입). GSPT1=BMS CC-90009(최초 임상 GSPT1 degrader, 단 해당 시험은 2024 효능부족으로 종료=타깃 진입 선례이나 검증 완료 아님)",
+      "★리스크: 초기 단계+에셋 세부 미공개 → DD에서 플랫폼 재현성·기전 데이터 집중 질의 예상"
+    ]
+  },
+  "전략 권고": {
+    "grade": "REC",
+    "keymsg": "엔진 결과 종합(gather 후 확정): 항암(백혈병) targeted therapy acquirer 축. ★강한 precedent = Kura Oncology↔Kyowa Kirin(ziftomenib, upfront $330M·마일스톤 최대 $1.16B, 2024-11) → Menin 영역 빅파마 도입 의지 실증. Menin/degrader 프랜차이즈 보유사 우선.",
+    "body": [
+      "Lead 트랙: Kyowa Kirin(ziftomenib 도입 실적)·Syndax(revumenib, Menin 리더)·BMS(CC-90009 GSPT1·Celgene degrader 유산)=직접 precedent/역량",
+      "인접: Novartis·AbbVie·J&J·Roche=백혈병/혈액암 프랜차이즈, molecular glue degrader 확장 중",
+      "딜 각: discovery 단계=옵션딜/플랫폼 딜(RaPIDome), upfront 최소+마일스톤 후행. 타깃별 분할 가능",
+      "★확정 전 gather 필요: 위는 precedent 기반 가설. 초기사라 특허/임상 신호 얇을 수 있음 → AoI/LO는 실데이터로 재검증"
+    ]
+  }
+}

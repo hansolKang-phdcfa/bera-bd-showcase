@@ -1,0 +1,11 @@
+{
+  "asset": "Bilix Brixelle (BX-001N, PEGylated bilirubin nanoparticle, 심근/신장 IR·항염)",
+  "ta_label": "심혈관 · 비뇨 · 항염/진통 · A61P39",
+  "indications_display": "ischemia reperfusion, ischemia-reperfusion, reperfusion injury, myocardial infarction, cardioprotection, acute kidney injury",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  }
+}

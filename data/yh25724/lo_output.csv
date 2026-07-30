@@ -1,0 +1,9 @@
+rank,company,license_out_score,gap,interest,activity
+1,Amgen,0.75,1.0,1.0,0.0
+2,Boehringer,0.5427,0.836,0.0,0.6
+3,Eli Lilly,0.4418,0.091,0.7,0.4
+4,Roche,0.4291,0.655,0.0,0.4
+5,Merck,0.4109,0.745,0.0,0.2
+6,GSK,0.3691,0.055,0.0,1.0
+7,Pfizer,0.29,0.2,0.4,0.0
+8,Novo Nordisk,0.2764,0.218,0.0,0.4

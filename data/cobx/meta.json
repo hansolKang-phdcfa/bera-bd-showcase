@@ -1,0 +1,11 @@
+{
+  "asset": "CoBX Bio (Menin covalent inhibitor / GSPT1 molecular glue degrader, oncology)",
+  "ta_label": "항암(종양) · 면역",
+  "indications_display": "acute myeloid leukemia, AML, leukemia, NPM1, KMT2A, MLL-rearranged",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  }
+}

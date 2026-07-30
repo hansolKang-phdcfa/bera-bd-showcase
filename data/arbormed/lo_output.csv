@@ -1,0 +1,8 @@
+rank,company,license_out_score,gap,interest,activity
+1,Vertex,0.4875,1.0,0.125,0.0
+2,Takeda,0.4599,0.171,1.0,0.0
+3,Novartis,0.3997,0.32,0.625,0.0
+4,Sanofi,0.2894,0.238,0.354,0.0
+5,AstraZeneca,0.2803,0.265,0.292,0.0
+6,Ultragenyx,0.2375,0.0,0.042,0.5
+7,GSK,0.1973,0.099,0.208,0.0

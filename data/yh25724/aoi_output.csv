@@ -1,0 +1,13 @@
+rank,company,aoi_score,clinical_signal,citation_signal,need_signal
+1,Amgen,0.714,0.0,1.0,1.0
+2,Boehringer,0.53,0.6,0.0,0.836
+3,Roche,0.395,0.4,0.0,0.655
+4,Merck,0.377,0.2,0.0,0.745
+5,Eli Lilly,0.353,0.4,0.7,0.091
+6,GSK,0.309,1.0,0.0,0.055
+7,Madrigal,0.286,1.0,0.0,0.0
+8,Novo Nordisk,0.208,0.4,0.0,0.218
+9,Pfizer,0.2,0.0,0.4,0.2
+10,Gilead,0.132,0.0,0.0,0.309
+11,Viking,0.0,0.0,0.0,0.0
+12,Intercept,0.0,0.0,0.0,0.0

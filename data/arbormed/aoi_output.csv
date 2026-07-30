@@ -1,0 +1,13 @@
+rank,company,aoi_score,clinical_signal,citation_signal,need_signal
+1,Vertex,0.464,0.0,0.125,1.0
+2,Takeda,0.359,0.0,1.0,0.171
+3,Novartis,0.316,0.0,0.625,0.32
+4,Orphalan,0.286,1.0,0.0,0.0
+5,Mallinckrodt,0.208,0.0,0.729,0.0
+6,Sanofi,0.203,0.0,0.354,0.238
+7,AstraZeneca,0.197,0.0,0.292,0.265
+8,Ultragenyx,0.155,0.5,0.042,0.0
+9,GSK,0.102,0.0,0.208,0.099
+10,Ipsen,0.03,0.0,0.104,0.0
+11,Chiesi,0.0,0.0,0.0,0.0
+12,Recordati,0.0,0.0,0.0,0.0

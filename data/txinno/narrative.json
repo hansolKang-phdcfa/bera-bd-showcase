@@ -1,0 +1,37 @@
+{
+  "_README": "티씨노 내러티브 슬롯 — LLM 초안(웹조사+엔진결과) → 분석가(서준희) 편집. build_spec이 title 키로 매칭해 덱 narrative 슬라이드를 채움. ★사실 확정 전 확인 필요(특히 임상단계·파이프라인·딜조건). grade=FACT는 웹출처 있음/REC는 엔진기반 권고.",
+  "자산 개요": {
+    "grade": "FACT",
+    "keymsg": "Txinno TXN10128 — 경구 ENPP1 저해제. ENPP1이 2'3'-cGAMP를 가수분해하는 것을 차단 → 종양미세환경에서 cGAS-STING 선천면역 활성 유지 → I형 인터페론·항종양면역 증폭. anti-PD-(L)1 병용 시너지. 티씨노바이오사이언스(2020 설립, private)",
+    "cards": [
+      ["ENPP1-STING 기전", "ENPP1은 STING 리간드 2'3'-cGAMP를 분해하는 효소. TXN10128이 ENPP1 저해 → cGAMP 유지 → cGAS-STING 경로 재활성 → 선천면역 켜짐. '선천면역 체크포인트' 컨셉"],
+      ["경구 소분자", "STING agonist(주사·전신독성 이슈) 대비 경구 ENPP1 저해제 = 투여편의+안전성 각. AACR/MCT LBA009: 경구 ENPP1i가 STING 활성 복원 + ICB 병용 항종양(MC38 syngeneic)"],
+      ["규제/적응증", "FDA 췌장암 희귀의약품지정(ODD). P1 다기관(Asan·SNUH·Samsung·Bundang·Chungbuk) 용량증량+확장. 표적=진행성/전이성 고형암(췌장·대장·폐)"],
+      ["플랫폼/파이프라인", "2개 자체 신약평가 플랫폼 + 총 6개 파이프라인. ★TXN10128 외 5개 자산은 비공개(웹 미확인 — 확정 전 회사 확인 필요)"]
+    ],
+    "body": [
+      "펀딩: 누적 ~260억원(Series A 70억 + B 100억, 한투파·컴퍼니케이·솔리더스·데일리·메디톡스벤처). DIPS 초격차 스타트업 1000+ 선정(5억/3년)",
+      "차별점: cGAS-STING을 agonist가 아닌 'ENPP1 저해(경구)'로 켜는 각 = 현 STING agonist 임상 난항의 우회로. 단 ENPP1 경구저해제 경쟁 다수(아래 CI)"
+    ]
+  },
+  "임상 & 검증": {
+    "grade": "FACT",
+    "keymsg": "검증축 — ①경구 ENPP1i STING 복원 + ICB병용 전임상 항종양(AACR LBA009) ②FDA 췌장암 ODD ③핫한 타깃(ENPP1/STING) = 빅파마 딜 precedent 존재(AbbVie←Mavupharma 경구 ENPP1 인수)",
+    "body": [
+      "전임상: 경구 ENPP1 저해 → 종양미세환경 STING 활성 복원, anti-PD-L1 병용 시 MC38 모델 항종양 시너지(AACR/MCT LBA009). ★임상 효능데이터는 P1 진행중 = 확정 전",
+      "타깃 검증: ENPP1-STING는 선천면역 항암의 검증된 축. STING agonist는 다수 빅파마가 시도(Merck MK-1454·BMS·GSK·Novartis/Aduro ADU-S100·Eisai·Takeda) → 영역 관심 밀도 높음",
+      "딜 precedent: ★AbbVie가 Mavupharma(경구 ENPP1 저해제 MAVU-104) 인수(2019) = 빅파마가 실제로 경구 ENPP1를 산 최근접 선례 → TXN10128 buyer 예측의 핵심 앵커",
+      "촉매: P1 용량증량/확장 데이터 + 병용 코호트 readout = 재평가 분기점. private이라 SEC 딜데이터 없음(예측형 케이스)"
+    ]
+  },
+  "전략 권고": {
+    "grade": "REC",
+    "keymsg": "엔진 결과 종합(★예측형=LO 이력 없음, greenfield 타깃발굴): STING/IO 프랜차이즈 buyer가 citation 상위. LO 각=경구 ENPP1 부재 빅파마, Co-dev 각=STING/ICB 자산 보유사(병용 시너지)",
+    "body": [
+      "Lead 트랙(AoI/citation 상위 buyer): STING agonist 임상 이력사(Merck·BMS·GSK·Novartis·Eisai·Takeda) — 선천면역 프랜차이즈. angle=자체 ICB/STING 보유사엔 Co-dev(병용각), 경구 ENPP1 부재사엔 in-license",
+      "★AbbVie 주목: Mavupharma 인수로 경구 ENPP1 각 확보한 유일 빅파마 = 후속 자산 in-license 또는 경쟁 관점 양면. 엔진 anchor signature가 AbbVie/precedent buyer를 집어내는지 검증",
+      "CI(경쟁): ENPP1 경구저해제 직접경쟁 다수(Stingray SR-8541A·Riboscience RBS2418·Insilico ISM5939·Angarus·Avammune) — cocitation/landscape에서 확인. 차별화=경구 PK·병용 폭·적응증 선점",
+      "딜 구조: P1 단계 = 조기 옵션딜/마일스톤 중심 현실적. private이라 territory/지분 유연. KR 3-tier로 국내 소분자 항암 co-dev 후보 병행 검토"
+    ]
+  }
+}

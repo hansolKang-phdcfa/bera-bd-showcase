@@ -1,0 +1,298 @@
+{
+  "pairs": [
+    {
+      "company_1": "CovX Technologies Ireland Limited",
+      "company_2": "PFIZER INC.",
+      "jaccard": 1.0,
+      "intersection": 17,
+      "union": 17
+    },
+    {
+      "company_1": "LANDOS BIOPHARMA, INC.",
+      "company_2": "NImmune Biopharma, Inc.",
+      "jaccard": 1.0,
+      "intersection": 19,
+      "union": 19
+    },
+    {
+      "company_1": "I20 THERAPEUTICS, INC.",
+      "company_2": "I2O THERAPEUTICS, INC.",
+      "jaccard": 0.9,
+      "intersection": 54,
+      "union": 60
+    },
+    {
+      "company_1": "NEW YORK UNIVERSITY",
+      "company_2": "Salk Institute for Biological Studies",
+      "jaccard": 0.42,
+      "intersection": 21,
+      "union": 50
+    },
+    {
+      "company_1": "Novartis AG",
+      "company_2": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "jaccard": 0.1875,
+      "intersection": 6,
+      "union": 32
+    },
+    {
+      "company_1": "NGM Biopharmaceuticals, Inc.",
+      "company_2": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "jaccard": 0.1553,
+      "intersection": 16,
+      "union": 103
+    },
+    {
+      "company_1": "NEW YORK UNIVERSITY",
+      "company_2": "NGM Biopharmaceuticals, Inc.",
+      "jaccard": 0.1284,
+      "intersection": 14,
+      "union": 109
+    },
+    {
+      "company_1": "ELI LILLY AND COMPANY",
+      "company_2": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "jaccard": 0.125,
+      "intersection": 5,
+      "union": 40
+    },
+    {
+      "company_1": "BEIJING QL BIOPHARMACEUTICAL CO., LTD.",
+      "company_2": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "jaccard": 0.1231,
+      "intersection": 8,
+      "union": 65
+    },
+    {
+      "company_1": "CovX Technologies Ireland Limited",
+      "company_2": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "jaccard": 0.1026,
+      "intersection": 4,
+      "union": 39
+    },
+    {
+      "company_1": "PFIZER INC.",
+      "company_2": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "jaccard": 0.1026,
+      "intersection": 4,
+      "union": 39
+    },
+    {
+      "company_1": "NGM Biopharmaceuticals, Inc.",
+      "company_2": "Salk Institute for Biological Studies",
+      "jaccard": 0.0984,
+      "intersection": 12,
+      "union": 122
+    },
+    {
+      "company_1": "CovX Technologies Ireland Limited",
+      "company_2": "NEW YORK UNIVERSITY",
+      "jaccard": 0.093,
+      "intersection": 4,
+      "union": 43
+    },
+    {
+      "company_1": "NEW YORK UNIVERSITY",
+      "company_2": "PFIZER INC.",
+      "jaccard": 0.093,
+      "intersection": 4,
+      "union": 43
+    },
+    {
+      "company_1": "CovX Technologies Ireland Limited",
+      "company_2": "NGM Biopharmaceuticals, Inc.",
+      "jaccard": 0.0891,
+      "intersection": 9,
+      "union": 101
+    },
+    {
+      "company_1": "NGM Biopharmaceuticals, Inc.",
+      "company_2": "PFIZER INC.",
+      "jaccard": 0.0891,
+      "intersection": 9,
+      "union": 101
+    },
+    {
+      "company_1": "AMGEN INC.",
+      "company_2": "NGM Biopharmaceuticals, Inc.",
+      "jaccard": 0.0817,
+      "intersection": 17,
+      "union": 208
+    },
+    {
+      "company_1": "CovX Technologies Ireland Limited",
+      "company_2": "Novartis AG",
+      "jaccard": 0.0741,
+      "intersection": 2,
+      "union": 27
+    },
+    {
+      "company_1": "CovX Technologies Ireland Limited",
+      "company_2": "Salk Institute for Biological Studies",
+      "jaccard": 0.0741,
+      "intersection": 4,
+      "union": 54
+    },
+    {
+      "company_1": "Novartis AG",
+      "company_2": "PFIZER INC.",
+      "jaccard": 0.0741,
+      "intersection": 2,
+      "union": 27
+    },
+    {
+      "company_1": "PFIZER INC.",
+      "company_2": "Salk Institute for Biological Studies",
+      "jaccard": 0.0741,
+      "intersection": 4,
+      "union": 54
+    },
+    {
+      "company_1": "REGENERON PHARMACEUTICALS, INC.",
+      "company_2": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "jaccard": 0.0732,
+      "intersection": 3,
+      "union": 41
+    },
+    {
+      "company_1": "BEIJING QL BIOPHARMACEUTICAL CO., LTD.",
+      "company_2": "NGM Biopharmaceuticals, Inc.",
+      "jaccard": 0.0687,
+      "intersection": 9,
+      "union": 131
+    },
+    {
+      "company_1": "AMGEN INC.",
+      "company_2": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "jaccard": 0.0676,
+      "intersection": 10,
+      "union": 148
+    },
+    {
+      "company_1": "BEIJING QL BIOPHARMACEUTICAL CO., LTD.",
+      "company_2": "CovX Technologies Ireland Limited",
+      "jaccard": 0.0667,
+      "intersection": 4,
+      "union": 60
+    }
+  ],
+  "centrality": [
+    {
+      "company": "CovX Technologies Ireland Limited",
+      "centrality": 1.586
+    },
+    {
+      "company": "PFIZER INC.",
+      "centrality": 1.586
+    },
+    {
+      "company": "SUNSHINE LAKE PHARMA CO., LTD.",
+      "centrality": 1.0404
+    },
+    {
+      "company": "LANDOS BIOPHARMA, INC.",
+      "centrality": 1.0
+    },
+    {
+      "company": "NImmune Biopharma, Inc.",
+      "centrality": 1.0
+    },
+    {
+      "company": "I20 THERAPEUTICS, INC.",
+      "centrality": 0.9625
+    },
+    {
+      "company": "I2O THERAPEUTICS, INC.",
+      "centrality": 0.9571
+    },
+    {
+      "company": "NEW YORK UNIVERSITY",
+      "centrality": 0.8748
+    },
+    {
+      "company": "NGM Biopharmaceuticals, Inc.",
+      "centrality": 0.8547
+    },
+    {
+      "company": "Salk Institute for Biological Studies",
+      "centrality": 0.7946
+    },
+    {
+      "company": "Novartis AG",
+      "centrality": 0.4867
+    },
+    {
+      "company": "BEIJING QL BIOPHARMACEUTICAL CO., LTD.",
+      "centrality": 0.46
+    },
+    {
+      "company": "ELI LILLY AND COMPANY",
+      "centrality": 0.4148
+    },
+    {
+      "company": "AMGEN INC.",
+      "centrality": 0.3239
+    },
+    {
+      "company": "REGENERON PHARMACEUTICALS, INC.",
+      "centrality": 0.1695
+    },
+    {
+      "company": "Novo Nordisk A/S",
+      "centrality": 0.1529
+    },
+    {
+      "company": "Gilead Sciences, Inc.",
+      "centrality": 0.0333
+    },
+    {
+      "company": "BASF AS",
+      "centrality": 0.027
+    },
+    {
+      "company": "Epitracker, Inc.",
+      "centrality": 0.027
+    },
+    {
+      "company": "Yale University",
+      "centrality": 0.0238
+    }
+  ],
+  "target_similarity": [
+    {
+      "company": "Novartis AG",
+      "jaccard": 0.0048,
+      "overlap": 1,
+      "target_total": 199
+    },
+    {
+      "company": "BEIJING QL BIOPHARMACEUTICAL CO., LTD.",
+      "jaccard": 0.0041,
+      "overlap": 1,
+      "target_total": 199
+    },
+    {
+      "company": "NGM Biopharmaceuticals, Inc.",
+      "jaccard": 0.0034,
+      "overlap": 1,
+      "target_total": 199
+    },
+    {
+      "company": "Coherus BioSciences, Inc.",
+      "jaccard": 0.0032,
+      "overlap": 1,
+      "target_total": 199
+    }
+  ],
+  "yuhan_max_jaccard": 0.0048,
+  "n_companies": 42,
+  "meta": {
+    "keywords": [
+      "FGF21",
+      "fibroblast growth factor 21",
+      "steatohepatitis"
+    ],
+    "target": "%yuhan corporation%",
+    "note": "정본=bera_core.bd.cocitation.cocitation_abstract"
+  }
+}

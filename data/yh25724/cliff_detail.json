@@ -1,0 +1,422 @@
+{
+  "cliff": {
+    "Gilead": [
+      {
+        "patent_id": "8008264",
+        "title": "1′-substituted carba-nucleoside analogs for antiviral treatment",
+        "est_expiry": "2029-04-22",
+        "cites": 111
+      },
+      {
+        "patent_id": "8012941",
+        "title": "Carba-nucleoside analogs for antiviral treatment",
+        "est_expiry": "2029-04-22",
+        "cites": 102
+      },
+      {
+        "patent_id": "8318682",
+        "title": "1′substituted carba-nucleoside analogs for antiviral treatment",
+        "est_expiry": "2031-08-02",
+        "cites": 98
+      },
+      {
+        "patent_id": "8415308",
+        "title": "1′-substituted-carba-nucleoside prodrugs for antiviral treatment",
+        "est_expiry": "2031-05-26",
+        "cites": 95
+      },
+      {
+        "patent_id": "8455451",
+        "title": "2'-fluoro substituted carba-nucleoside analogs for antiviral treatment",
+        "est_expiry": "2031-03-17",
+        "cites": 92
+      },
+      {
+        "patent_id": "8415322",
+        "title": "Modified fluorinated nucleoside analogues",
+        "est_expiry": "2030-09-09",
+        "cites": 75
+      },
+      {
+        "patent_id": "8642756",
+        "title": "Nucleoside phosphoramidates",
+        "est_expiry": "2030-05-20",
+        "cites": 69
+      },
+      {
+        "patent_id": "8551973",
+        "title": "Nucleoside analogs",
+        "est_expiry": "2029-12-23",
+        "cites": 68
+      }
+    ],
+    "Pfizer": [
+      {
+        "patent_id": "7642350",
+        "title": "Purine derivatives",
+        "est_expiry": "2026-05-03",
+        "cites": 70
+      },
+      {
+        "patent_id": "8106197",
+        "title": "Aminoheteroaryl compounds as protein kinase inhibitors",
+        "est_expiry": "2026-11-14",
+        "cites": 47
+      },
+      {
+        "patent_id": "7998978",
+        "title": "Substituted 2-amino-fused heterocyclic compounds",
+        "est_expiry": "2027-04-19",
+        "cites": 41
+      },
+      {
+        "patent_id": "7405226",
+        "title": "Cycloalkyl-hydroxyl compounds and compositions for cholesterol managem",
+        "est_expiry": "2026-06-26",
+        "cites": 34
+      },
+      {
+        "patent_id": "8415459",
+        "title": "Antibody to GDF8 and uses thereof",
+        "est_expiry": "2028-10-31",
+        "cites": 31
+      },
+      {
+        "patent_id": "7964607",
+        "title": "Pyrazolo[3,4-d]pyrimidine compounds",
+        "est_expiry": "2028-05-09",
+        "cites": 30
+      },
+      {
+        "patent_id": "7795447",
+        "title": "Imidazole compounds for the treatment of neurodegenerative disorders",
+        "est_expiry": "2028-01-09",
+        "cites": 28
+      },
+      {
+        "patent_id": "8633206",
+        "title": "Pyrrolo[2,3-D]pyrimidine compounds",
+        "est_expiry": "2030-10-13",
+        "cites": 27
+      }
+    ],
+    "Merck": [
+      {
+        "patent_id": "7202224",
+        "title": "Nucleoside derivatives as inhibitors of RNA-dependent RNA viral polyme",
+        "est_expiry": "2026-07-31",
+        "cites": 142
+      },
+      {
+        "patent_id": "8188234",
+        "title": "1D05 PCSK9 antagonists",
+        "est_expiry": "2029-02-06",
+        "cites": 87
+      },
+      {
+        "patent_id": "8188233",
+        "title": "1B20 PCSK9 antagonists",
+        "est_expiry": "2029-02-06",
+        "cites": 82
+      },
+      {
+        "patent_id": "8344114",
+        "title": "Antagonists of PCSK9",
+        "est_expiry": "2031-09-23",
+        "cites": 53
+      },
+      {
+        "patent_id": "8598320",
+        "title": "Anti-PCSK9 and methods for treating lipid and cholesterol disorders",
+        "est_expiry": "2028-10-27",
+        "cites": 51
+      },
+      {
+        "patent_id": "7470664",
+        "title": "HCV NS3 protease inhibitors",
+        "est_expiry": "2026-07-12",
+        "cites": 49
+      },
+      {
+        "patent_id": "8871759",
+        "title": "Inhibitors of hepatitis C virus replication",
+        "est_expiry": "2030-03-25",
+        "cites": 49
+      },
+      {
+        "patent_id": "7951795",
+        "title": "Constrained spirocyclic compounds as CGRP receptor antagonists",
+        "est_expiry": "2027-12-05",
+        "cites": 43
+      }
+    ],
+    "Eli Lilly": [
+      {
+        "patent_id": "7632499",
+        "title": "Anti-myostatin antibodies",
+        "est_expiry": "2026-10-05",
+        "cites": 51
+      },
+      {
+        "patent_id": "7612067",
+        "title": "Imidazopyridazine compounds",
+        "est_expiry": "2026-03-20",
+        "cites": 35
+      },
+      {
+        "patent_id": "7619069",
+        "title": "Antibodies to TGF-beta 1",
+        "est_expiry": "2027-10-19",
+        "cites": 33
+      },
+      {
+        "patent_id": "7635760",
+        "title": "Anti-myostatin antibodies",
+        "est_expiry": "2026-10-05",
+        "cites": 29
+      },
+      {
+        "patent_id": "7968686",
+        "title": "Glucagon receptor antagonists",
+        "est_expiry": "2029-03-17",
+        "cites": 21
+      }
+    ],
+    "Boehringer": [
+      {
+        "patent_id": "8119648",
+        "title": "8-[3-amino-piperidin-1-yl]-xanthines, the preparation thereof and thei",
+        "est_expiry": "2028-06-20",
+        "cites": 98
+      },
+      {
+        "patent_id": "8178541",
+        "title": "8-[3-amino-piperidin-1-yl]-xanthines, the preparation thereof and thei",
+        "est_expiry": "2028-06-20",
+        "cites": 97
+      },
+      {
+        "patent_id": "7595397",
+        "title": "Compounds which modulate the CB2 receptor",
+        "est_expiry": "2026-12-08",
+        "cites": 75
+      },
+      {
+        "patent_id": "8106060",
+        "title": "8-(3-amino-piperidin-1-yl)-xanthines, their preparation, and their use",
+        "est_expiry": "2026-07-30",
+        "cites": 67
+      },
+      {
+        "patent_id": "7476671",
+        "title": "2-amino-imidazo[4,5-d]pyridazin-4-ones, their preparation and their us",
+        "est_expiry": "2026-12-12",
+        "cites": 63
+      },
+      {
+        "patent_id": "8071583",
+        "title": "Pyrrolo[3,2-D] pyrimidines as DPP-IV inhibitors for the treatment of d",
+        "est_expiry": "2027-08-07",
+        "cites": 62
+      },
+      {
+        "patent_id": "7683160",
+        "title": "Glucopyranosyl-substituted benzyl-benzene derivatives, medicaments con",
+        "est_expiry": "2026-08-29",
+        "cites": 60
+      },
+      {
+        "patent_id": "7713938",
+        "title": "Crystalline form of 1-chloro-4-(β-D-glucopyranos-1-yl)-2-[4-((S)-tetra",
+        "est_expiry": "2026-04-19",
+        "cites": 55
+      }
+    ],
+    "Amgen": [
+      {
+        "patent_id": "8030457",
+        "title": "Antigen binding proteins to proprotein convertase subtilisin kexin typ",
+        "est_expiry": "2028-08-22",
+        "cites": 124
+      },
+      {
+        "patent_id": "8168762",
+        "title": "Antigen binding proteins to proprotein convertase subtilisin kexin typ",
+        "est_expiry": "2031-10-03",
+        "cites": 81
+      },
+      {
+        "patent_id": "7541383",
+        "title": "Asthma and allergic inflammation modulators",
+        "est_expiry": "2027-11-26",
+        "cites": 79
+      },
+      {
+        "patent_id": "7807159",
+        "title": "Antibodies to myostatin",
+        "est_expiry": "2026-04-24",
+        "cites": 66
+      },
+      {
+        "patent_id": "7947646",
+        "title": "Variant activin receptor polypeptides",
+        "est_expiry": "2028-03-05",
+        "cites": 61
+      },
+      {
+        "patent_id": "8907071",
+        "title": "Toxin peptide therapeutic agents",
+        "est_expiry": "2030-11-02",
+        "cites": 59
+      },
+      {
+        "patent_id": "7667008",
+        "title": "Fibroblast growth factor-like polypeptides and variants thereof",
+        "est_expiry": "2027-04-11",
+        "cites": 59
+      },
+      {
+        "patent_id": "8642546",
+        "title": "FGF21 mutant fusion polypeptides and uses thereof",
+        "est_expiry": "2031-12-15",
+        "cites": 57
+      }
+    ],
+    "Novo Nordisk": [
+      {
+        "patent_id": "7541373",
+        "title": "Aryl carbonyl derivatives as therapeutic agents",
+        "est_expiry": "2026-03-01",
+        "cites": 123
+      },
+      {
+        "patent_id": "8088731",
+        "title": "Use of GLP-1 compound for treatment of critically ill patients",
+        "est_expiry": "2029-07-02",
+        "cites": 56
+      },
+      {
+        "patent_id": "8063015",
+        "title": "Glycopegylation methods and proteins/peptides produced by the methods",
+        "est_expiry": "2029-07-01",
+        "cites": 55
+      },
+      {
+        "patent_id": "8114833",
+        "title": "Propylene glycol-containing peptide formulations which are optimal for",
+        "est_expiry": "2026-05-17",
+        "cites": 43
+      },
+      {
+        "patent_id": "7582769",
+        "title": "Dicycloalkyl urea glucokinase activators",
+        "est_expiry": "2026-07-07",
+        "cites": 34
+      },
+      {
+        "patent_id": "7879985",
+        "title": "Antibodies against human NKG2D and uses thereof",
+        "est_expiry": "2029-10-23",
+        "cites": 28
+      },
+      {
+        "patent_id": "9278123",
+        "title": "Solid compositions comprising a GLP-1 agonist and a salt of N-(8-(2-hy",
+        "est_expiry": "2031-12-16",
+        "cites": 27
+      },
+      {
+        "patent_id": "8129343",
+        "title": "Acylated GLP-1 compounds",
+        "est_expiry": "2026-03-20",
+        "cites": 27
+      }
+    ],
+    "Roche": [
+      {
+        "patent_id": "7902197",
+        "title": "Pyrrolopyrazine kinase inhibitors",
+        "est_expiry": "2029-02-20",
+        "cites": 103
+      },
+      {
+        "patent_id": "8562991",
+        "title": "Antibody molecules that bind to IL-6 receptor",
+        "est_expiry": "2029-09-25",
+        "cites": 83
+      },
+      {
+        "patent_id": "7691977",
+        "title": "Anti-VEGF antibodies",
+        "est_expiry": "2026-10-19",
+        "cites": 69
+      },
+      {
+        "patent_id": "8562992",
+        "title": "Immunoglobulin variants and uses thereof",
+        "est_expiry": "2028-10-22",
+        "cites": 67
+      },
+      {
+        "patent_id": "7754699",
+        "title": "Antiviral nucleosides",
+        "est_expiry": "2026-12-08",
+        "cites": 64
+      },
+      {
+        "patent_id": "7939531",
+        "title": "Pyrrolopyrazine kinase inhibitors",
+        "est_expiry": "2029-02-20",
+        "cites": 59
+      },
+      {
+        "patent_id": "7932254",
+        "title": "Pyrrolopyrazine kinase inhibitors",
+        "est_expiry": "2029-02-20",
+        "cites": 58
+      },
+      {
+        "patent_id": "7708994",
+        "title": "Therapy of autoimmune disease in a patient with an inadequate response",
+        "est_expiry": "2026-05-24",
+        "cites": 57
+      }
+    ],
+    "GSK": [
+      {
+        "patent_id": "7960563",
+        "title": "Indazoles used to treat estrogen receptor beta mediated disorders",
+        "est_expiry": "2028-03-05",
+        "cites": 33
+      },
+      {
+        "patent_id": "8063071",
+        "title": "Chemical compounds",
+        "est_expiry": "2027-10-31",
+        "cites": 29
+      },
+      {
+        "patent_id": "8697685",
+        "title": "Chemical compounds",
+        "est_expiry": "2029-11-18",
+        "cites": 24
+      }
+    ],
+    "Madrigal": [],
+    "Viking": [],
+    "Intercept": []
+  },
+  "meta": {
+    "source": "patents.duckdb",
+    "min_citations": 20,
+    "expiry_window": [
+      2026,
+      2031
+    ],
+    "ta_filter": [
+      "A61P1/16",
+      "A61P3/"
+    ],
+    "top_per_company": 8
+  }
+}

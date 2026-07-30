@@ -1,0 +1,11 @@
+{
+  "asset": "AprilBio SAFA (APB-A1 anti-CD40L / APB-R3 IL-18BP, 면역질환)",
+  "ta_label": "면역 · 항염/진통",
+  "indications_display": "autoimmune, systemic lupus, lupus, rheumatoid arthritis, thyroid eye disease, atopic dermatitis",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  }
+}
