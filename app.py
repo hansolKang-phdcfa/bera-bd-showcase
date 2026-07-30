@@ -101,9 +101,8 @@ with st.expander("📖 용어 설명 — 처음이면 펼쳐보세요"):
 - **Patent Cliff**: 바이어 원천특허 만료(★=FDA Orange Book 검증 실만료·약물명 / ○=출원+20 근사).
 - **grade**: 🟢FACT · 🔵REC · 🟡EST.""")
 
-tab_brief, tab_p, tab_ci = st.tabs(["📄 자산 개요", "🤝 파트너링 대상 발굴", "🔬 CI 분석"])
-
-with tab_brief:
+st.header("📄 자산 개요")
+with st.container():
     nar = _json(d, "narrative.json") or {}
     for title in [k for k in nar if not k.startswith("_")]:
         s = nar[title]; g = s.get("grade")
@@ -119,7 +118,9 @@ with tab_brief:
             st.markdown(f"- {b}")
         st.divider()
 
-with tab_p:
+st.divider()
+st.header("🤝 파트너링 대상 발굴")
+with st.container():
     aoi = _csv(d, "aoi_output.csv")
     if aoi is not None:
         st.markdown("**Revealed AoI — 파트너 타깃 랭킹**")
@@ -166,7 +167,9 @@ with tab_p:
         st.divider(); st.markdown("**Comparable License-Out 딜 — 경제성 벤치**")
         st.dataframe(pd.DataFrame(deals["lo_comparables"]), hide_index=True, width="stretch")
 
-with tab_ci:
+st.divider()
+st.header("🔬 CI 분석")
+with st.container():
     ta = m.get("ta_label", "")
     st.markdown(f"**Patent Cliff — 원천특허 만료** (★=OB 검증 실만료·약물명 / ○=근사) · TA 「{ta}」")
     cr = cliff_rows(d)
