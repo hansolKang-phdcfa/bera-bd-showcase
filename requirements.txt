@@ -1,6 +1,5 @@
-# 전핀 — Cloud 빌드 빠르고 결정론적(전부 python-3.12 wheel, 컴파일/리졸버 churn 없음)
-streamlit==1.50.0
-pandas==2.3.1
-numpy==1.26.4
-matplotlib==3.9.4
-networkx==3.2.1
+# Python 3.14(Cloud 기본)에서 wheel 있는 최신 버전. 전핀 old버전은 3.14 wheel 부재→소스빌드(oven).
+streamlit>=1.50
+pandas>=2.2
+matplotlib>=3.10
+networkx>=3.2

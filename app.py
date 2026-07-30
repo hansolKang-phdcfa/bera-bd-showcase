@@ -125,7 +125,7 @@ with tab_p:
         st.markdown("**Revealed AoI — 파트너 타깃 랭킹**")
         c1, c2 = st.columns([3, 2])
         with c1:
-            st.dataframe(aoi, hide_index=True, use_container_width=True)
+            st.dataframe(aoi, hide_index=True, width="stretch")
         with c2:
             st.bar_chart(aoi.set_index("company")["aoi_score"], color=BLUE, horizontal=True)
         st.pyplot(viz.aoi_contrib_fig(aoi.to_dict("records"), m.get("weights", {})))
@@ -135,7 +135,7 @@ with tab_p:
         st.divider(); st.markdown("**License-Out Buyer 랭킹**")
         lc1, lc2 = st.columns([2, 3])
         with lc1:
-            st.dataframe(lo, hide_index=True, use_container_width=True)
+            st.dataframe(lo, hide_index=True, width="stretch")
         with lc2:
             st.pyplot(viz.lo_candidates_fig(lo.to_dict("records")))
     ang = _csv(d, "angle_output.csv")
@@ -154,7 +154,7 @@ with tab_p:
         st.divider(); st.markdown("**Specialty Access (G3) — 상업화 준비도**")
         ac1, ac2 = st.columns([2, 3])
         with ac1:
-            st.dataframe(acc, hide_index=True, use_container_width=True)
+            st.dataframe(acc, hide_index=True, width="stretch")
         with ac2:
             st.pyplot(viz.access_fig(acc.to_dict("records")))
     bd = _json(d, "bd_trend.json")
@@ -164,7 +164,7 @@ with tab_p:
     deals = _json(d, "lo_comparables.json")
     if deals and deals.get("lo_comparables"):
         st.divider(); st.markdown("**Comparable License-Out 딜 — 경제성 벤치**")
-        st.dataframe(pd.DataFrame(deals["lo_comparables"]), hide_index=True, use_container_width=True)
+        st.dataframe(pd.DataFrame(deals["lo_comparables"]), hide_index=True, width="stretch")
 
 with tab_ci:
     ta = m.get("ta_label", "")
@@ -179,7 +179,7 @@ with tab_ci:
         st.pyplot(viz.cliff_timeline_fig(cr, (2026, 2031)))
         with st.expander("cliff 상세 표"):
             st.dataframe(pd.DataFrame(cr)[["company", "ob_drug", "patent_id", "est_expiry", "cites", "source"]],
-                         hide_index=True, use_container_width=True)
+                         hide_index=True, width="stretch")
     else:
         st.info("cliff 스냅샷 없음.")
     coc = _json(d, "cocitation.json")
