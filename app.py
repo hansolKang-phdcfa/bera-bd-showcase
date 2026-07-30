@@ -88,8 +88,19 @@ if not assets:
     st.error("data/ 자산 없음."); st.stop()
 
 with st.sidebar:
-    st.header("자산")
-    asset = st.selectbox("분석 자산", list(assets))
+    st.header("분석 자산")
+    st.caption("자산을 눌러 선택")
+    names = list(assets)
+    if st.session_state.get("asset") not in assets:
+        st.session_state["asset"] = names[0]
+    for name in names:
+        label = name.split("(")[0].strip()  # 짧은 이름(괄호 앞)
+        cur = name == st.session_state["asset"]
+        if st.button(label, key=f"pick_{name}", width="stretch",
+                     type=("primary" if cur else "secondary")):
+            st.session_state["asset"] = name
+            st.rerun()
+    asset = st.session_state["asset"]
     m = assets[asset]; d = m["_dir"]
 
 st.subheader(asset)
