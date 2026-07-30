@@ -199,8 +199,18 @@ with tab_ci:
         st.divider()
         st.markdown(f"**Cross-modality 경쟁·co-dev — 적응증 「{ta}」, 다른 모달리티** (상업사)")
         if m.get("indications_display"):
-            st.caption(f"적응증: {m['indications_display']}")
+            st.caption(f"적응증(좁힘 질환/타깃): {m['indications_display']}")
         st.pyplot(viz.crossmod_fig(cm))
+        _cmm = cm.get("meta", {})
+        st.caption(f"자산 모달리티={_cmm.get('own_modality')} → **다른 모달리티**"
+                   f"({', '.join(_cmm.get('other_modalities', []))})로 위 적응증을 치는 상업사. "
+                   f"cocitation(같은 인용공간)·KR(IPC)이 못 잡는 축 = 경쟁 위협이자 잠재 co-dev"
+                   f"(예: 소분자 자산인데 CAR-T/ADC로 같은 병 치는 회사).")
+        with st.expander("cross-modality 상세 표"):
+            st.dataframe(pd.DataFrame([{"회사": r["company"], "건수": r["n_patents"],
+                                        "모달리티": " · ".join(r.get("modalities", []))}
+                                       for r in cm.get("crossmod", [])]),
+                         hide_index=True, width="stretch")
 
 st.divider()
 st.caption("BERA BD · 스냅샷 시각화 전용(엔진 코드 미포함) · 초안, 미팅급은 큐레이션 필요")
