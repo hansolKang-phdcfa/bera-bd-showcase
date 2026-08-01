@@ -405,31 +405,43 @@ def access_fig(access_rows):
 
 
 def crossmod_fig(cm, top=14):
-    """Cross-modality 경쟁·co-dev — 같은 적응증을 자산과 다른 모달리티로 치는 상업사(특허 건수).
-    cm=crossmod.json. 막대=회사별 건수, 라벨=주 모달리티(항체/CAR-T/ADC 등)."""
+    """Cross-modality — 회사별 모달리티별 특허 건수 stacked 막대(색=모달리티). by_modality 사용."""
+    from matplotlib.patches import Patch
     rows = cm.get("crossmod", []) if isinstance(cm, dict) else cm
     rows = [r for r in rows if (r.get("n_patents", 0) or 0) > 0][:top][::-1]
     if not rows:
         return _empty("cross-modality 데이터 없음")
+    mods = list((cm.get("meta", {}).get("other_modalities") if isinstance(cm, dict) else None) or [])
+    for r in rows:
+        for mm in (r.get("by_modality") or {}):
+            if mm not in mods:
+                mods.append(mm)
+    PAL = [BLUE, "#E8544B", "#F5A623", "#2BB673", "#7B61FF", "#00A3B4", "#C86DD7", GRAY]
+    mcol = {mm: PAL[i % len(PAL)] for i, mm in enumerate(mods)}
     comp = [_short(r["company"]) for r in rows]
-    vals = [r["n_patents"] for r in rows]
-    y = range(len(comp))
-    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.44 * len(comp)), dpi=140)
+    y = list(range(len(rows)))
+    fig, ax = plt.subplots(figsize=(11.5, 0.7 + 0.44 * len(rows)), dpi=140)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
-    ax.barh(y, vals, color=BLUE, height=0.64)
-    for i, r in enumerate(rows):
-        mods = "·".join(r.get("modalities", [])[:3])
-        ax.text(vals[i] + max(vals) * 0.01, i, f"{vals[i]}  ({mods})", va="center",
-                fontsize=8, color=BLACK)
-    ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=9.5, color=BLACK)
-    ax.set_xlim(0, max(vals) * 1.45)
-    ax.set_xlabel("다른 모달리티 특허 건수 (같은 적응증)", fontsize=9.5, color=GRAY)
+    left = [0.0] * len(rows)
+    for mm in mods:
+        vals = [float((r.get("by_modality") or {}).get(mm, 0) or 0) for r in rows]
+        if sum(vals) == 0:
+            continue
+        ax.barh(y, vals, left=left, color=mcol[mm], height=0.64)
+        left = [l + v for l, v in zip(left, vals)]
+    xmax = max(left) or 1
+    for i in y:
+        ax.text(left[i] + xmax * 0.008, i, f"{int(left[i])}", va="center", fontsize=8, color=BLACK)
+    ax.set_yticks(y); ax.set_yticklabels(comp, fontsize=9.5, color=BLACK)
+    ax.set_xlabel("모달리티별 특허 건수 — stacked (같은 적응증, 다른 모달리티)", fontsize=9, color=GRAY)
     ax.tick_params(axis="x", labelsize=9, colors=GRAY)
-    for sp in ["top", "right", "left"]:
+    for sp in ("top", "right", "left"):
         ax.spines[sp].set_visible(False)
-    ax.spines["bottom"].set_color(GRAY)
-    ax.set_title("Cross-modality 경쟁·co-dev — 같은 적응증, 다른 모달리티 (상업사)",
-                 fontsize=13, fontweight="bold", color=BLACK, pad=10)
+    used = [mm for mm in mods if any((r.get("by_modality") or {}).get(mm) for r in rows)]
+    ax.legend(handles=[Patch(color=mcol[mm], label=mm) for mm in used], loc="lower right",
+              fontsize=8, frameon=False, title="모달리티", ncol=2)
+    ax.set_title("Cross-modality — 회사별 모달리티 분해 (색=모달리티)",
+                 fontsize=12, fontweight="bold", color=BLACK, pad=10)
     fig.tight_layout()
     return fig
 

@@ -233,20 +233,20 @@ with st.container():
         st.pyplot(viz.field_heat_fig({"field_heat": _fp_ci["field_heat"]}))
         st.divider()
     ta = m.get("ta_label", "")
-    st.markdown(f"**Patent Cliff — 원천특허 만료** (★=OB 검증 실만료·약물명 / ○=근사) · TA 「{ta}」")
-    cr = cliff_rows(d)
-    if cr:
-        drugs = [(r["ob_drug"], r["company"], r["est_expiry"]) for r in cr if r.get("ob_ds") and r.get("ob_drug")]
-        if drugs:
-            st.markdown("**OB 검증 = 어떤 약(API)의 cliff:** " +
-                        "  ·  ".join(f"**{x}** ({c},~{e})" for x, c, e in drugs[:12]))
-            st.caption("↑ 자산 타깃과 실제 관련되는 약의 만료가 진짜 BD 기회(무관 약=broad-TA 노이즈).")
-        st.pyplot(viz.cliff_timeline_fig(cr, (2026, 2031)))
-        with st.expander("cliff 상세 표"):
+    with st.expander("🔒 Patent Cliff (구 · 하드코딩 14곳 · broad-TA 노이즈) — 참고용", expanded=False):
+        st.caption("⚠️ AoI/LO처럼 하드코딩 14 buyer 기준 + broad-TA라 자산 무관 약(예: TRINTELLIX=Lundbeck 항우울제)도 "
+                   "섞이는 약한 신호. '바이어 원천특허 만료=파이프라인 공백' 가설 — 참고용. (★=OB 검증 실만료 / ○=근사)")
+        cr = cliff_rows(d)
+        if cr:
+            drugs = [(r["ob_drug"], r["company"], r["est_expiry"]) for r in cr if r.get("ob_ds") and r.get("ob_drug")]
+            if drugs:
+                st.markdown("**OB 검증 = 어떤 약(API)의 cliff:** " +
+                            "  ·  ".join(f"**{x}** ({c},~{e})" for x, c, e in drugs[:12]))
+            st.pyplot(viz.cliff_timeline_fig(cr, (2026, 2031)))
             st.dataframe(pd.DataFrame(cr)[["company", "ob_drug", "patent_id", "est_expiry", "cites", "source"]],
                          hide_index=True, width="stretch")
-    else:
-        st.info("cliff 스냅샷 없음.")
+        else:
+            st.caption("cliff 스냅샷 없음.")
     # co-citation(Jaccard 네트워크) 제거 — 초기 한국자산엔 대부분 빈칸/독자공간이라 무의미(사용자 피드백).
     #   경쟁지형 = 위 '경쟁 서열' + 아래 3개(KR발굴/3-tier/Cross-modality)로 대체.
     krc = _json(d, "kr_cocitation.json")

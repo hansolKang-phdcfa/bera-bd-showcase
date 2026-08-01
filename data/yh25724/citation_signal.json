@@ -1,0 +1,41 @@
+{
+  "citation": {
+    "Gilead": {
+      "mash": 4
+    },
+    "Pfizer": {
+      "fgf21": 4
+    },
+    "Merck": {
+      "mash": 2
+    },
+    "Eli Lilly": {
+      "mash": 2,
+      "fgf21": 7
+    },
+    "Boehringer": {
+      "mash": 2
+    },
+    "Amgen": {
+      "fgf21": 10
+    },
+    "Novo Nordisk": {
+      "mash": 2
+    },
+    "Roche": {},
+    "GSK": {
+      "mash": 3
+    },
+    "Madrigal": {},
+    "Viking": {
+      "mash": 1
+    },
+    "Intercept": {
+      "mash": 1
+    }
+  },
+  "meta": {
+    "source": "patents.duckdb + pinned yh_anchors.csv",
+    "n_anchors": 388
+  }
+}
