@@ -216,16 +216,21 @@ st.divider()
 st.header("🔬 CI 분석")
 with st.container():
     _comp = _nar_top.get("_competition")
-    if _comp and _comp.get("players"):
+    if _comp and (_comp.get("players") or _comp.get("tracks")):
         st.markdown("### 🏁 경쟁 서열 — 기전 × 개발 단계 (누가 앞섰나)")
         explain_box(
-            what=f"이 자산과 같은 기전의 실제 경쟁 자산을 개발 단계로 줄세움 (웹 검증·큐레이션). {_comp.get('axis', '')}",
+            what="이 자산과 같은 기전의 실제 경쟁 자산을 개발 단계로 줄세움 (웹 검증·큐레이션).",
             how="X축=개발 단계(오른쪽=앞섬), ★파랑=우리 자산, 회색=활성 경쟁, 빨강X=이전세대 실패/중단. "
                 "co-citation Jaccard가 아니라 '누가 실제로 앞서 있나'를 직접.",
-            message="선두·차별화·타이밍이 한눈에. (특허 필드풀=누가 있나, 이 서열=임상단계+기전 검증 얹음)")
-        st.pyplot(viz.competition_ladder_fig(_comp))
-        if _comp.get("excluded"):
-            st.caption("제외: " + "　·　".join(f"{e['company']} — {e['reason']}" for e in _comp["excluded"]))
+            message="선두·차별화·타이밍이 한눈에. **다에셋 회사는 에셋마다 타깃·경쟁이 달라 ▸별로 분리** 표시.")
+        for _t in (_comp.get("tracks") or [_comp]):
+            if _t.get("asset"):
+                st.markdown(f"**▸ {_t['asset']}**" + (f"  ·  {_t['axis']}" if _t.get("axis") else ""))
+            elif _t.get("axis"):
+                st.caption(_t["axis"])
+            st.pyplot(viz.competition_ladder_fig(_t))
+            if _t.get("excluded"):
+                st.caption("제외: " + "　·　".join(f"{e['company']} — {e['reason']}" for e in _t["excluded"]))
         st.divider()
     _fp_ci = _json(d, "field_pool.json")
     if _fp_ci and _fp_ci.get("field_heat"):
