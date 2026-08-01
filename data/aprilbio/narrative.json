@@ -608,49 +608,49 @@
   },
   "자산 개요": {
     "grade": "FACT",
-    "keymsg": "AprilBio SAFA(anti-Serum Albumin Fab) — Fab이 혈청 알부민에 결합→FcRn 재순환→반감기 20~25일(2~4주 1회). Fc 제거로 효과기능(ADCC/CDC) 부작용 회피. APB-A1(anti-CD40L)·APB-R3(IL-18BP) 2자산 플랫폼(KOSDAQ 397030)",
+    "keymsg": "AprilBio = SAFA(anti-Serum Albumin Fab) 반감기연장 + REMAP 다중특이 확장 플랫폼. Fab이 혈청알부민 결합→FcRn 재순환→반감기 20~25일(2~4주 1회), Fc 제거로 효과기능(ADCC/CDC) 부작용 회피. ★신규 딜 대상 = 라이브 자산(APB-R4 IL-2 자가면역·REMAP TL1A×IL-23 IBD·HER2×PD-L1 ADC·APB-R2 FSHR·APB-A2 CD73). APB-A1(anti-CD40L)·APB-R3(IL-18BP)은 이미 LO 완료 = 플랫폼 검증 근거지 딜 대상 아님. KOSDAQ 397030",
     "cards": [
       [
         "SAFA 기전",
         "인간 Fab이 혈청 알부민에 특이결합 → 알부민-Fab 복합체가 FcRn 재순환 경로 → 분해 회피·서방출. 공식 반감기 20~25일 = 2~4주 1회 투여"
       ],
       [
-        "Fc 제거 이점",
-        "Fc 없앰 → ADCC/CDC 효과기능 제거(부작용↓) + 미생물 발현 생산성↑. 반감기는 알부민 결합으로 유지"
+        "REMAP 다중특이 확장",
+        "SAFA 위에 다중특이(이중항체·ADC)를 얹는 확장 플랫폼. 라이브 자산 REMAP TL1A×IL-23(IBD)·HER2×PD-L1(고형암 ADC)이 여기 해당. 반감기연장 multispecific 확장성이 자산가치의 핵심"
       ],
       [
-        "APB-A1 (anti-CD40L)",
-        "CD40L Fab의 SAFA 융합 → CD40L/CD40 신호 차단. 룬드벡 기술이전 $448M(2021, upfront $16M). 갑상선안병증(TED) 1b — 글로벌 권리는 룬드벡 보유(신규 딜 대상 아님)"
+        "라이브 자산 (신규 딜 대상)",
+        "APB-R4(IL-2R 자가면역)·REMAP TL1A×IL-23(IBD)·HER2×PD-L1 ADC(고형암)·APB-R2(FSHR 불임)·APB-A2(CD73 항암). 전부 전임상~초기. 공통점은 SAFA/REMAP 플랫폼뿐 — 필드는 제각각"
       ],
       [
-        "APB-R3 (IL-18BP)",
-        "IL-18 결합단백 SAFA 융합. 에보뮨 기술이전 $475M(2024, upfront $15M). 아토피피부염(AD) 2a 완료"
+        "검증·LO 완료 (딜 대상 아님)",
+        "APB-A1(anti-CD40L)→룬드벡 $448M(2021, upfront $16M)·APB-R3(IL-18BP)→에보뮨 $475M(2024, upfront $15M). 빅파마 실사 통과 = SAFA de-risk. 단 글로벌 권리 이미 이전 = 신규 딜 대상 아님"
       ]
     ],
     "body": [
-      "파이프라인: SAFA 2자산 — APB-A1 TED 1b(룬드벡 보유) / APB-R3 AD 2a(에보뮨 보유). 목표는 자산별 다적응증 P2 확장(UC 등 계획 단계). 차세대 SAFA(격주 GLP-1·ADC 등) 개발 중",
-      "차별점: 저빈도 투여로 기성 항체 대비 편의성 — 단 APB-R3는 현재 IV 투여(듀피젠트는 SC). 플랫폼 확장성이 자산가치의 핵심"
+      "파이프라인 구조: 검증 자산(APB-A1 TED 1b·APB-R3 AD 2a)은 LO 완료, 신규 딜은 라이브 자산(전임상~초기). 자산가치의 핵심은 개별 자산보다 SAFA/REMAP 플랫폼의 다중타깃 확장성",
+      "차별점: 알부민 결합 반감기연장(저빈도 투여) + REMAP 다중특이 확장. 단 라이브 자산 전부 전임상이라 각 필드에서 후발 — '자산'보다 '플랫폼'이 딜의 무게중심"
     ]
   },
   "임상 & 검증": {
     "grade": "FACT",
-    "keymsg": "SAFA 검증 — ①APB-R3 아토피 2a 위약보정 EASI −33%(wk12, 5mg IV 2회) ②빅파마 LO 2건($448M+$475M) ③알부민-FcRn 기전으로 2~4주 1회 지속성",
+    "keymsg": "임상 데이터는 이미 LO된 A1/R3의 것 = SAFA 플랫폼 검증. 라이브 딜 자산(APB-R4·REMAP)은 전임상이라 자체 임상 데이터 없음 → 딜 논리 = '플랫폼이 검증됐으니 라이브 자산 리스크↓'. ①APB-R3 AD 2a 위약보정 EASI −33%(wk12) ②빅파마 LO 2건($448M+$475M) ③반감기 20~25일 지속성",
     "body": [
-      "임상효능: APB-R3 아토피 2a 탑라인(2026.02) — 5mg IV 2회 투여로 12주차 위약보정 EASI 33% 개선, IGA 0/1 23%(n=70). (듀피젠트 8회/16주 대비는 cross-trial·다른 지표 비교 → 방향성 참고)",
-      "플랫폼 de-risk: 룬드벡·에보뮨 2건 기술이전으로 SAFA가 빅파마 실사 통과 → 후속 자산 리스크↓ (추가 기술이전 기대는 경영진 전망)",
+      "임상효능(검증 자산): APB-R3 아토피 2a 탑라인(2026.02) — 5mg IV 2회로 12주차 위약보정 EASI 33% 개선, IGA 0/1 23%(n=70). (듀피젠트 cross-trial 비교는 방향성 참고). ★단 이건 이미 LO된 자산 — 딜 대상인 라이브 자산은 전임상",
+      "플랫폼 de-risk → 라이브 전이: 룬드벡·에보뮨 2건 LO로 SAFA가 빅파마 실사 통과 → 신규 딜 대상인 라이브 자산의 플랫폼 리스크↓. 단 라이브 자산 자체의 타깃·임상 리스크는 별개(전임상, 각 필드 후발)",
       "기전 지속성: 공식 반감기 20~25일 = 2~4주 1회 투여 근거. APB-A1 TED 1b 14주차 효능 확인이 지속성 방증",
-      "촉매: APB-A1 TED 1b — 룬드벡이 ENDO 2026(6월)서 14주차 안구돌출 감소 중간분석 발표. 풀데이터가 플랫폼 재평가 분기점"
+      "촉매: APB-A1 TED 1b — 룬드벡이 ENDO 2026(6월)서 14주차 안구돌출 감소 중간분석 발표(자산은 룬드벡 보유지만 SAFA 플랫폼 재평가 신호). REMAP PoC(BIO USA 2026)가 라이브 자산 밸류업 분기점"
     ]
   },
   "전략 권고": {
     "grade": "REC",
-    "keymsg": "엔진 결과 종합: 글로벌 CD40L/IL-18 인접 = Sanofi·BMS·Amgen·Roche(인용+면역임상), 국내 co-dev = Genexine·Alteogen·Hanmi(융합단백질). ★APB-A1은 룬드벡 보유 → 신규 딜 대상은 APB-R3 잔여권리·차세대 자산·신적응증",
+    "keymsg": "★신규 딜 대상 = 라이브 자산(A1/R3 아님). 개별 자산 전부 후발(전임상~초기)이라 '자산 딜'보다 SAFA/REMAP '플랫폼 딜'이 현실적. 특정 타깃 각이면 APB-R4(IL-2 자가면역)가 그나마 필드 검증 진행 중. 누구 = (a)반감기연장 multispecific 플랫폼 원하는 곳 (b)IL-2 자가면역·TL1A IBD 늦은 빅파마",
     "body": [
-      "대상 정리: APB-A1은 룬드벡 글로벌 라이선스 완료 → 신규 파트너링 대상은 (a) APB-R3 잔여 지역권리 (b) 차세대 SAFA 자산 (c) 신규 적응증",
-      "Lead 트랙(CD40L 인접): Sanofi(frexalimab 최선두)·BMS·Amgen(dazodalibep)·UCB — 면역 프랜차이즈 + 도메인 인용. angle=Co-dev(자체 항체역량 보유)",
-      "LO 각: 도메인 인용 낮은 buyer(Pfizer·Takeda 등) = 역량 gap → 자산 in-license 각",
-      "국내 co-dev(KR 3-tier): Genexine(하이브리드 Fc)·Alteogen·Hanmi(LAPScovery)·GI이노베이션 = SAFA 인접 융합단백질 → 공동개발/크로스라이선스",
-      "딜 구조: 2a 플랫폼 검증 데이터 후 적응증별 옵션딜 + 지역 분할. 차세대 SAFA 신규 기술이전이 하반기 밸류업 촉매"
+      "1순위 = 플랫폼 딜: 개별 라이브 자산이 다 후발이라 SAFA/REMAP(다중타깃 확장) 자체가 매력. 타이밍 = REMAP PoC(BIO USA 2026) 후",
+      "타깃 각 A — APB-R4(IL-2 자가면역): 필드 검증 진행(Nektar rezpeg Ph3·Amgen efavaleukin Ph2). 단 April 전임상 후미. 딜 선례 Lilly-Nektar $150M/$400M",
+      "타깃 각 B — REMAP TL1A×IL-23(IBD): 타깃 검증 확실(Merck←Prometheus $10.8B). 단 이중항체 lane 후발(Xencor·Roche/Pfizer Ph1)",
+      "국내 co-dev(플랫폼 인접, 기전 무관): Genexine(하이브리드 Fc)·Alteogen·Hanmi(LAPScovery)·GI이노베이션 = 반감기연장 융합단백질 인접 → 공동개발/크로스라이선스",
+      "딜 구조: 라이브 자산 전임상이라 옵션딜/플랫폼 딜 + 마일스톤 후행. 차세대 SAFA·REMAP PoC가 하반기 밸류업 촉매"
     ]
   }
 }
