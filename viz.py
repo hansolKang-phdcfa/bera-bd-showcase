@@ -407,10 +407,14 @@ def access_fig(access_rows):
 def crossmod_fig(cm, top=14):
     """Cross-modality — 회사별 모달리티별 특허 건수 stacked 막대(색=모달리티). by_modality 사용."""
     from matplotlib.patches import Patch
+    import re
+    _ACAD = re.compile(r'univ|institut|hospital|united states|department|dept of|helmholtz|zentrum|'
+                       r'national inst|cancer (center|institut)|academ|foundation|대학|연구|병원|정부', re.I)
     rows = cm.get("crossmod", []) if isinstance(cm, dict) else cm
-    rows = [r for r in rows if (r.get("n_patents", 0) or 0) > 0][:top][::-1]
+    rows = [r for r in rows if (r.get("n_patents", 0) or 0) > 0 and not _ACAD.search(r.get("company", ""))]
+    rows = rows[:top][::-1]
     if not rows:
-        return _empty("cross-modality 데이터 없음")
+        return _empty("cross-modality 상업사 데이터 없음(학계 제외 후)")
     mods = list((cm.get("meta", {}).get("other_modalities") if isinstance(cm, dict) else None) or [])
     for r in rows:
         for mm in (r.get("by_modality") or {}):
