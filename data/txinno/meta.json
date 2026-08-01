@@ -7,5 +7,24 @@
     "clinical": 0.2857,
     "deal": 0.0,
     "need": 0.4286
+  },
+  "kr_domains": {
+    "oncology": [
+      "A61P35"
+    ],
+    "immunostimulant": [
+      "A61P37"
+    ],
+    "fused_pyrimidine": [
+      "A61K31/519"
+    ],
+    "phosphorus_smallmol": [
+      "A61K31/675",
+      "C07F9"
+    ],
+    "fused_heterocycle": [
+      "C07D487",
+      "C07D471"
+    ]
   }
 }

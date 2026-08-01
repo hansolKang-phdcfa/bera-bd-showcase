@@ -7,5 +7,23 @@
     "clinical": 0.2857,
     "deal": 0.0,
     "need": 0.4286
+  },
+  "kr_domains": {
+    "metabolic": [
+      "A61P3"
+    ],
+    "liver": [
+      "A61P1"
+    ],
+    "peptide": [
+      "C07K14",
+      "A61K38"
+    ],
+    "fusion_protein": [
+      "C07K19"
+    ],
+    "antibody": [
+      "C07K16"
+    ]
   }
 }

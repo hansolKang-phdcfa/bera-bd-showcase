@@ -165,22 +165,23 @@ with st.container():
         _fk = ", ".join(fpool.get("meta", {}).get("keywords", []))
         _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
                 for x in fpool["field_pool"] if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
-        st.markdown("### 🎯 데이터 기반 파트너 후보")
+        st.markdown("### 🎯 특허 모멘텀 기반 파트너 후보")
         explain_box(
             what=f"「{_fk}」 기전에 실제 특허 활동하는 상업사를 데이터로 발굴(소형 바이오텍 포함, 학계 제외).",
-            how="도메인 anchor 인용 특허 수=관심 규모, filing momentum=가속/냉각(막대 **색**). 가속(파랑)=LO 타이밍.",
+            how="○ 직전 평균/년(anchor 인용) → ● 최근 평균/년 덤벨. **파랑=가속(LO 타이밍)/회색=냉각**. 규모+추세를 한 그래프에.",
             message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보. 특허 없는 순수 임상/딜 플레이어는 미포착.")
-        st.pyplot(viz.field_pool_fig(fpool))
+        st.pyplot(viz.momentum_fig([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
         st.divider()
-    # 임상 momentum (특허 momentum은 위 필드풀 막대 색으로 이미 표시 = 중복 제거)
-    cmom = _json(d, "clinical_momentum.json")
-    if cmom and cmom.get("momentum"):
+    # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
+    cfm = _json(d, "clinical_field_momentum.json")
+    if cfm and cfm.get("momentum"):
+        _inds = " · ".join(cfm.get("meta", {}).get("indications", []))
         st.markdown("### 📈 임상 시험 개시 추세 (가속/냉각) — *특허* momentum과 다른 축")
         explain_box(
-            what="회사별로 이 적응증에 **임상시험**을 개시한 추세(최근 3년 vs 직전 5년). ★특허 momentum은 위 필드풀 막대 **색**으로 이미 표시.",
-            how="○ 직전 → ● 최근 덤벨. 파랑=임상 활동 데워짐, 회색=냉각.",
-            message="특허(위 색)+임상(여기) 둘 다 가속 = 그 회사가 이 영역에 진심 = 최우선 접근.")
-        st.pyplot(viz.momentum_fig(cmom.get("momentum", [])))
+            what=f"적응증 **「{_inds}」**에 임상시험을 개시한 **전체 INDUSTRY sponsor**({cfm.get('meta', {}).get('n_sponsors', 0)}곳, ct.gov)의 추세. 특허 momentum(위 막대 색)과 다른 임상 축.",
+            how="○ 직전 → ● 최근(임상 개시 건수) 덤벨. 파랑=임상 데워짐, 회색=냉각. ★14곳 아니라 적응증 검색=전체 sponsor 데이터기반.",
+            message=f"「{_inds}」에서 지금 임상 가속 중 = 이 병에 진심. 특허(위)+임상(여기) 둘 다 가속이면 최우선.")
+        st.pyplot(viz.momentum_fig(cfm.get("momentum", [])))
         st.divider()
     with st.expander("구 엔진 스코어 (하드코딩 14곳 · AoI/LO/angle) — 참고용, 데이터 풀이 대체"):
         st.caption("⚠️ 하드코딩 14 buyer 기준이라 분석 타깃과 연관 약하고 대형사 편중. 위 데이터 풀이 대체.")
@@ -258,7 +259,9 @@ with st.container():
     kr = _json(d, "kr_tiers.json")
     if kr:
         st.divider(); st.markdown("### 🇰🇷 KR 3-tier — 기술 분류(IPC)로 본 국내 경쟁 계층")
-        st.caption("질문: 기전 키워드 아니라 **기술 분류(IPC)**로 봤을 때 국내 경쟁 계층? Tier1 직접/Tier2 인접/Tier3 다른 modality(=잠재 co-dev). 위 'KR 발굴'(키워드)과 달리 넓은 기술지형.")
+        _ipc = " · ".join(f"{k}({', '.join(v)})" for k, v in (m.get("kr_domains") or {}).items())
+        st.caption(f"질문: 기전 키워드 아니라 **기술 분류(IPC)**로 봤을 때 국내 경쟁 계층? Tier1 직접/Tier2 인접/Tier3 다른 modality(=잠재 co-dev). "
+                   f"위 'KR 발굴'(키워드)과 달리 넓은 기술지형." + (f"　★사용 IPC: {_ipc}" if _ipc else ""))
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
         st.pyplot(viz.kr_tier_fig(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt)))

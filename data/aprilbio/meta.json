@@ -7,5 +7,26 @@
     "clinical": 0.2857,
     "deal": 0.0,
     "need": 0.4286
+  },
+  "kr_domains": {
+    "autoimmune": [
+      "A61P37"
+    ],
+    "antiinflammatory": [
+      "A61P29"
+    ],
+    "dermatology": [
+      "A61P17"
+    ],
+    "antibody": [
+      "C07K16"
+    ],
+    "fusion_protein": [
+      "C07K19"
+    ],
+    "interleukin": [
+      "C07K14/54",
+      "A61K38/20"
+    ]
   }
 }

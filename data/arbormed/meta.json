@@ -7,5 +7,23 @@
     "clinical": 0.2857,
     "deal": 0.0,
     "need": 0.4286
+  },
+  "kr_domains": {
+    "digestive_liver": [
+      "A61P1"
+    ],
+    "metabolic": [
+      "A61P3"
+    ],
+    "smallmol_organic": [
+      "A61K31"
+    ],
+    "metal_complex": [
+      "C07F",
+      "A61K33"
+    ],
+    "heterocycle": [
+      "C07D"
+    ]
   }
 }

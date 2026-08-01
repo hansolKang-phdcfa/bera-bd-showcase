@@ -7,5 +7,27 @@
     "clinical": 0.2857,
     "deal": 0.0,
     "need": 0.4286
+  },
+  "kr_domains": {
+    "cardiovascular": [
+      "A61P9"
+    ],
+    "renal": [
+      "A61P13"
+    ],
+    "antiinflammatory": [
+      "A61P29"
+    ],
+    "antioxidant": [
+      "A61P39"
+    ],
+    "nanoparticle_delivery": [
+      "A61K9/51",
+      "A61K9/14",
+      "A61K9/16"
+    ],
+    "carrier_conjugate": [
+      "A61K47"
+    ]
   }
 }
