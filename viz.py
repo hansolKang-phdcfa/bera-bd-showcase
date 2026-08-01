@@ -491,3 +491,125 @@ def bd_trend_fig(bd):
              transform=ax2.transAxes, ha="center", fontsize=8, color=GRAY)
     fig.tight_layout()
     return fig
+
+def kr_cocitation_fig(data, top=12):
+    """KR 경쟁사 발굴 — kr_patents 정밀키워드 매칭 랭킹(초기 한국자산 US cocitation 빈칸 대체).
+    자국(KR) 강조/해외(KR 출원) 구분. data=kr_cocitation.json."""
+    from matplotlib.patches import Patch
+    comps = (data or {}).get("kr_competitors", [])[:top]
+    if not comps:
+        return _empty("KR 경쟁사 매칭 없음 — 키워드 정밀도 확인")
+    comps = comps[::-1]
+    names = [c["company"].replace(" CO LTD", "").replace(" INC", "").replace(" CORP", "")[:28]
+             for c in comps]
+    vals = [c.get("n_patents", 0) for c in comps]
+    KR_C = "#E8544B"
+    cols = [KR_C if c.get("country") == "KR" else BLUE for c in comps]
+    fig, ax = plt.subplots(figsize=(10, 0.7 + 0.44 * len(comps)), dpi=140)
+    fig.patch.set_facecolor("white"); ax.set_facecolor("white")
+    ax.barh(range(len(comps)), vals, color=cols)
+    xmax = max(vals) or 1
+    for i, v in enumerate(vals):
+        ax.text(v + xmax * 0.012, i, str(v), va="center", fontsize=8.5, color=GRAY)
+    ax.set_yticks(range(len(comps))); ax.set_yticklabels(names, fontsize=9.5, color=BLACK)
+    ax.set_xlabel("KR 특허 출원 건수 (같은 기전/타깃 키워드)", fontsize=9.5, color=GRAY)
+    ax.tick_params(axis="x", labelsize=9, colors=GRAY)
+    ax.legend(handles=[Patch(color=KR_C, label="KR(자국)"), Patch(color=BLUE, label="해외(KR 출원)")],
+              fontsize=8, loc="lower right", frameon=False)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    ax.set_xlim(0, xmax * 1.16)
+    fig.tight_layout()
+    return fig
+
+
+def field_pool_fig(data, top=16):
+    """데이터 기반 필드 풀 — 도메인 활동 주체(하드코딩 buyer 대체). 색=momentum(가속 BLUE/냉각 GRAY), (학계) 태그."""
+    from matplotlib.patches import Patch
+    pool = (data or {}).get("field_pool", [])[:top]
+    if not pool:
+        return _empty("필드 풀 없음 — 키워드 확인")
+    pool = pool[::-1]
+
+    def lab(p):
+        nm = p["company"].replace(", Inc.", "").replace(" Inc.", "").replace(" LLC", "").replace(" Ltd.", "")[:28]
+        return nm + (" (학계)" if p.get("kind") == "academic" else "")
+    names = [lab(p) for p in pool]
+    vals = [p["n_patents"] for p in pool]
+    tcol = {"가속": BLUE, "냉각": GRAY, "유지": LGRAY}
+    cols = [tcol.get(p.get("trend"), LGRAY) for p in pool]
+    fig, ax = plt.subplots(figsize=(10, 0.6 + 0.42 * len(pool)), dpi=140)
+    fig.patch.set_facecolor("white"); ax.set_facecolor("white")
+    ax.barh(range(len(pool)), vals, color=cols)
+    xmax = max(vals) or 1
+    for i, p in enumerate(pool):
+        ax.text(vals[i] + xmax * 0.01, i, p.get("trend", ""), va="center",
+                fontsize=7.5, color=tcol.get(p.get("trend"), GRAY))
+    ax.set_yticks(range(len(pool))); ax.set_yticklabels(names, fontsize=9, color=BLACK)
+    ax.set_xlabel("도메인 anchor 인용 특허 수 (활동 규모)", fontsize=9.5, color=GRAY)
+    ax.legend(handles=[Patch(color=BLUE, label="가속"), Patch(color=GRAY, label="냉각"),
+                       Patch(color=LGRAY, label="유지")], fontsize=8, loc="lower right",
+              frameon=False, title="momentum")
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    ax.set_xlim(0, xmax * 1.18); fig.tight_layout()
+    return fig
+
+
+def field_heat_fig(data):
+    """타깃 필드 열기 곡선 — 도메인 인용 특허 수/년(검증·과열 추세)."""
+    heat = (data or {}).get("field_heat", {})
+    if not heat:
+        return _empty("필드 열기 데이터 없음")
+    yrs = sorted(int(y) for y in heat)
+    vals = [heat[str(y)] for y in yrs]
+    fig, ax = plt.subplots(figsize=(9, 3.0), dpi=140)
+    fig.patch.set_facecolor("white"); ax.set_facecolor("white")
+    ax.fill_between(yrs, vals, color=BLUE, alpha=0.16)
+    ax.plot(yrs, vals, color=BLUE, lw=2, marker="o", ms=4)
+    ax.set_xlabel("filing 연도", fontsize=9.5, color=GRAY)
+    ax.set_ylabel("도메인 인용 특허/년", fontsize=9.5, color=GRAY)
+    ax.set_title("타깃 필드 열기 곡선 (검증·과열 추세)", fontsize=11, color=BLACK, pad=10)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    ax.tick_params(labelsize=8, colors=GRAY); fig.tight_layout()
+    return fig
+
+
+def competition_ladder_fig(data):
+    """경쟁 서열 맵 — 기전 동일 시 개발 단계로 줄세우기(co-citation Jaccard network 대체).
+    타깃 강조(파랑 ★), 활성 경쟁사(회색), 이전세대 실패/중단(빨강 X). data=_competition."""
+    STAGE_X = {"중단": -1.2, "전임상": 0, "Preclinical": 0, "IND": 1, "IND (Phase 1)": 1,
+               "Phase 1": 2, "Ph1": 2, "Phase 2": 3.5, "Ph2": 3.5, "Phase 3": 5, "Ph3": 5,
+               "Market": 6.5, "승인": 6.5, "시판": 6.5}
+    xof = lambda s: STAGE_X.get(s, 0)
+    players = list((data or {}).get("players", []))
+    prior = [dict(p, _prior=True) for p in (data or {}).get("prior_gen", [])]
+    rows = players + prior
+    if not rows:
+        return _empty("경쟁 서열 데이터 없음 (임상단계 enrichment 필요)")
+    rows = sorted(rows, key=lambda r: xof(r.get("stage")))  # 아래=초기, 위=선두
+    n = len(rows)
+    fig, ax = plt.subplots(figsize=(10.5, 0.7 + 0.52 * n), dpi=140)
+    fig.patch.set_facecolor("white"); ax.set_facecolor("white")
+    for i, r in enumerate(rows):
+        x = xof(r.get("stage"))
+        tgt, pg = r.get("is_target"), r.get("_prior")
+        col = BLUE if tgt else ("#E8544B" if pg else GRAY)
+        ax.plot([-1.35, x], [i, i], color=SOFT, lw=1, zorder=1)
+        ax.scatter(x, i, s=(340 if tgt else 150), c=col, edgecolors="white", lw=1.4,
+                   marker=("X" if pg else "o"), zorder=3)
+        lbl = f"{r['company']} ({r.get('asset', '')})" + ("  ★자산" if tgt else "")
+        ax.text(-1.5, i, lbl, ha="right", va="center", fontsize=9.2,
+                color=(BLUE if tgt else BLACK), fontweight=("bold" if tgt else "normal"))
+        if r.get("note"):
+            ax.text(x + 0.18, i, r["note"], va="center", fontsize=7.6, color=GRAY)
+    ax.set_yticks([]); ax.set_ylim(-0.7, n - 0.3)
+    ticks = [("중단", -1.2), ("전임상", 0), ("Ph1", 2), ("Ph2", 3.5), ("Ph3", 5), ("시판", 6.5)]
+    ax.set_xticks([t[1] for t in ticks]); ax.set_xticklabels([t[0] for t in ticks], fontsize=9, color=GRAY)
+    ax.set_xlim(-3.4, 8.2)
+    ax.set_xlabel("개발 단계 →  (오른쪽=앞선 경쟁)", fontsize=9.5, color=GRAY)
+    for s in ("top", "right", "left"):
+        ax.spines[s].set_visible(False)
+    fig.tight_layout()
+    return fig

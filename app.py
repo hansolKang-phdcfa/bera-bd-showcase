@@ -81,6 +81,14 @@ def cliff_rows(d):
 
 
 # ── UI ──
+def explain_box(what, how, message):
+    """분석 친절 해설 — 무엇을/어떻게/그래서. 비전문가도 파악."""
+    with st.container(border=True):
+        st.markdown(f"📥 **뭘 분석했나** — {what}")
+        st.markdown(f"⚙️ **어떻게** — {how}")
+        st.markdown(f"💡 **그래서 (메시지)** — {message}")
+
+
 st.title("🧬 BERA BD — 스냅샷 대시보드")
 st.caption("커밋된 분석 스냅샷 시각화(라이브 계산·DB 없음). 초안(draft) — 미팅급은 큐레이션 필요.")
 assets = discover()
@@ -104,6 +112,26 @@ with st.sidebar:
     m = assets[asset]; d = m["_dir"]
 
 st.subheader(asset)
+
+# ── 종합 판단 (Thesis) — 신호를 묶은 판단·권고 (데이터 있을 때만) ──
+_nar_top = _json(d, "narrative.json") or {}
+_th = _nar_top.get("_thesis")
+if _th:
+    st.markdown("### 🎯 종합 판단 (Thesis) — 신호를 묶은 판단·권고")
+    with st.container(border=True):
+        if _th.get("situation"):
+            st.markdown(f"**① 상황** &nbsp; {_th['situation']}")
+        if _th.get("insight"):
+            st.success(f"💡 **② 핵심 인사이트 (비자명)** &nbsp; {_th['insight']}")
+        if _th.get("lo_play"):
+            st.markdown(f"**③ LO play — 누구·왜·언제** &nbsp; {_th['lo_play']}")
+        if _th.get("risk"):
+            st.markdown(f"**④ 핵심 리스크** &nbsp; {_th['risk']}")
+        if _th.get("evidence"):
+            st.caption("근거 신호: " + "　·　".join(_th["evidence"]))
+    st.caption("↑ 이게 결론. 아래는 이 판단의 근거. (초안 — 애널리스트 검수)")
+    st.divider()
+
 with st.expander("📖 용어 설명 — 처음이면 펼쳐보세요"):
     st.markdown("""
 - **AoI**(타겟기업 관심도) = need(원천특허 만료=다급) + citation(우리 기술 인용=관심) + clinical(활성 임상=상용화 핏).
@@ -132,6 +160,18 @@ with st.container():
 st.divider()
 st.header("🤝 파트너링 대상 발굴")
 with st.container():
+    fpool = _json(d, "field_pool.json")
+    if fpool and fpool.get("field_pool"):
+        _fk = ", ".join(fpool.get("meta", {}).get("keywords", []))
+        _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
+                for x in fpool["field_pool"] if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
+        st.markdown("### 🎯 데이터 기반 파트너 후보 (하드코딩 14곳 대체)")
+        explain_box(
+            what=f"「{_fk}」 기전에 실제 특허 활동하는 제약주체 {len(fpool['field_pool'])}곳 (데이터로 발굴, 소형 바이오텍 포함).",
+            how="도메인 anchor 인용 특허 수=관심 규모, filing momentum=가속/냉각. 가속(파랑)=LO 타이밍. (학계)=라이선스원.",
+            message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보. 특허 없는 순수 임상/딜 플레이어는 미포착.")
+        st.pyplot(viz.field_pool_fig(fpool))
+        st.divider()
     aoi = _csv(d, "aoi_output.csv")
     if aoi is not None:
         st.markdown("**Revealed AoI — 파트너 타깃 랭킹**")
@@ -181,6 +221,23 @@ with st.container():
 st.divider()
 st.header("🔬 CI 분석")
 with st.container():
+    _comp = _nar_top.get("_competition")
+    if _comp and _comp.get("players"):
+        st.markdown("### 🏁 경쟁 서열 — 기전 × 개발 단계 (누가 앞섰나)")
+        explain_box(
+            what=f"이 자산과 같은 기전의 실제 경쟁 자산을 개발 단계로 줄세움 (웹 검증·큐레이션). {_comp.get('axis', '')}",
+            how="X축=개발 단계(오른쪽=앞섬), ★파랑=우리 자산, 회색=활성 경쟁, 빨강X=이전세대 실패/중단. "
+                "co-citation Jaccard가 아니라 '누가 실제로 앞서 있나'를 직접.",
+            message="선두·차별화·타이밍이 한눈에. (특허 필드풀=누가 있나, 이 서열=임상단계+기전 검증 얹음)")
+        st.pyplot(viz.competition_ladder_fig(_comp))
+        if _comp.get("excluded"):
+            st.caption("제외: " + "　·　".join(f"{e['company']} — {e['reason']}" for e in _comp["excluded"]))
+        st.divider()
+    _fp_ci = _json(d, "field_pool.json")
+    if _fp_ci and _fp_ci.get("field_heat"):
+        st.markdown("### 🌡️ 타깃 필드 열기 — 검증·과열 추세 (데이터 기반)")
+        st.pyplot(viz.field_heat_fig({"field_heat": _fp_ci["field_heat"]}))
+        st.divider()
     ta = m.get("ta_label", "")
     st.markdown(f"**Patent Cliff — 원천특허 만료** (★=OB 검증 실만료·약물명 / ○=근사) · TA 「{ta}」")
     cr = cliff_rows(d)
@@ -202,6 +259,13 @@ with st.container():
         if float(coc.get("target_max_jaccard") or coc.get("yuhan_max_jaccard") or 0) < 0.003:
             st.warning("⚠️ 타깃 특허 풋프린트 희박(초기사) → 상위 노드는 키워드노이즈 가능, 참고용.")
         st.pyplot(viz.cocitation_network_fig(coc, asset.split("(")[0].split()[0][:12]))
+    krc = _json(d, "kr_cocitation.json")
+    if krc and krc.get("kr_competitors"):
+        st.divider(); st.markdown("**KR 경쟁사 발굴 — 같은 기전/타깃 KR 특허 (US cocitation 빈칸 대체)**")
+        _kw = ", ".join(krc.get("meta", {}).get("keywords", []))
+        st.caption(f"US 등록특허 없는 초기 한국자산은 KR 특허 초록 정밀키워드(「{_kw}」)로 경쟁사 발굴. "
+                   f"자사 {krc.get('self_count', 0)}건 · {krc.get('n_companies', 0)}개사. 빨강=국내/파랑=해외.")
+        st.pyplot(viz.kr_cocitation_fig(krc))
     kr = _json(d, "kr_tiers.json")
     if kr:
         st.divider(); st.markdown("**KR 경쟁 3-tier**")

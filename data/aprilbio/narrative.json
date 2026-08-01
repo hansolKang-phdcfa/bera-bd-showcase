@@ -1,37 +1,67 @@
 {
-  "_README": "에이프릴 내러티브 슬롯 내용 — LLM 초안(웹조사+엔진결과) → 분석가 편집. build_spec이 title 키로 매칭해 덱 narrative 슬라이드를 채움. 사실은 확정 전 확인 필요.",
+  "_README": "에이프릴 내러티브 슬롯 내용 — LLM 초안(웹조사+엔진결과) → 분석가 편집 → 팩트체크 정정(2026-07-31, 1차출처 검증). build_spec이 title 키로 매칭해 덱 narrative 슬라이드를 채움.",
+  "_thesis": {
+    "grade": "REC",
+    "situation": "SAFA 플랫폼(반감기연장 융합, 20~25일). APB-A1(anti-CD40L)→룬드벡 $448M·APB-R3(IL-18BP)→에보뮨 $475M 둘 다 아웃라이선스 완료. 신규 딜은 차세대 REMAP 자체보유분(TL1A×IL-23 IBD 이중항체·HER2×PD-L1 ADC·APB-R4 IL-2R). TL1A는 초대형 딜(Merck-Prometheus $10.8B·Roche-Telavant $7.1B)로 검증된 IBD 최핫 타깃.",
+    "insight": "잔여권리(APB-A1/R3 이미 나감)가 아니라 차세대 REMAP, 특히 TL1A×IL-23이 진짜 LO 각이고 — TL1A 클래스는 $10.8B 딜로 검증됐다. ★단 냉정한 반전: monospecific TL1A는 이미 Ph3 3개(Merck tulisokibart 선두, 2026-06 계열최초 UC 3상 성공)로 성숙=후발 불가. April이 낀 건 별도의 TL1A×IL-23 이중항체 lane인데, 거기서도 April은 선두가 아니다 — Roche/Pfizer(p40×TL1A)·Xencor(XmAb412) Ph1이 앞서고 April은 전임상/PoC. 게다가 유일한 차별축인 SAFA 반감기도 Xencor XmAb412가 60~70일로 맞받아 moat이 얕다. 즉 '핫한 클래스'는 맞지만 'April 자산이 유리한 LO'는 아니다.",
+    "lo_play": "누구=TL1A/IBD에 늦었거나 multispecific 플랫폼을 원하는 빅파마. 왜=검증된 TL1A 클래스 + SAFA multispecific 확장성(REMAP 최대 4타깃). 언제=BIO USA 2026 REMAP PoC 공개·데이터 확보 후. ★핵심=자산 경쟁열위를 우회하려면 개별자산 딜보다 SAFA '플랫폼 딜'(기술 라이선스) 각이 현실적.",
+    "risk": "①TL1A×IL-23 lane에서 전임상 후발(Roche/Pfizer·Xencor Ph1이 앞섬). ②SAFA 반감기 차별화 얕음(Xencor도 60~70일 주장). ③APB-A1/R3 이미 나가 신규딜은 차세대뿐. ④REMAP 자산 데이터·코드·단계 비공개=asset-level 우위 미입증.",
+    "evidence": [
+      "TL1A 딜 검증: Merck←Prometheus $10.8B(2023)·Roche←Telavant $7.1B upfront(2023)·Teva/Sanofi duvakitug+Blackstone $400M",
+      "monospecific TL1A 성숙: Merck tulisokibart 2026-06 계열최초 UC Ph3 성공(후발 불가)",
+      "이중항체 lane April 후발: Xencor XmAb412 Ph1(2026 Q3)·Roche/Pfizer Ph1 vs April 전임상/PoC",
+      "반감기 moat 얕음: Xencor XmAb412도 반감기 60~70일 주장",
+      "APB-A1(룬드벡 TED Ph1b)·APB-R3(에보뮨 아토피 Ph2a positive) 아웃라이선스 완료 = 신규딜 대상 아님"
+    ]
+  },
+  "_competition": {
+    "grade": "FACT",
+    "axis": "TL1A 계열(IBD) — monospecific은 이미 Ph3 성숙, April의 승부처는 TL1A×IL-23 이중항체 lane(전임상~Ph1). REMAP은 그 lane 후발.",
+    "players": [
+      {"company": "Merck(←Prometheus)", "asset": "tulisokibart", "stage": "Phase 3", "note": "monospecific TL1A · 2026-06 계열최초 UC Ph3 성공 · $10.8B 딜", "is_target": false},
+      {"company": "Teva/Sanofi", "asset": "duvakitug", "stage": "Phase 3", "note": "monospecific TL1A", "is_target": false},
+      {"company": "Roche(←Telavant)", "asset": "afimkibart(RVT-3101)", "stage": "Phase 3", "note": "monospecific TL1A · $7.1B 딜", "is_target": false},
+      {"company": "Roche/Pfizer", "asset": "p40×TL1A 이중항체", "stage": "Phase 1", "note": "이중항체 lane", "is_target": false},
+      {"company": "Xencor", "asset": "XmAb412(TL1A×IL-23)", "stage": "Phase 1", "note": "2026 Q3 FIH · 반감기 60~70일(SAFA 맞받음)", "is_target": false},
+      {"company": "Ailux", "asset": "ALX001(TL1A×IL-23)", "stage": "전임상", "note": "2+2 포맷", "is_target": false},
+      {"company": "AprilBio", "asset": "REMAP TL1A×IL-23", "stage": "전임상", "note": "SAFA 반감기연장 · BIO USA 2026 PoC 공개", "is_target": true}
+    ],
+    "prior_gen": [],
+    "excluded": []
+  },
   "자산 개요": {
     "grade": "FACT",
-    "keymsg": "AprilBio SAFA(anti-Serum Albumin Fab) — Fab이 혈청 알부민에 결합→FcRn 재순환→반감기 19~25일(2~4주 1회). Fc 제거로 효과기능(ADCC/CDC) 부작용 회피. APB-A1(CD40L)·APB-R3(IL-18BP) 2자산·4개 P2",
+    "keymsg": "AprilBio SAFA(anti-Serum Albumin Fab) — Fab이 혈청 알부민에 결합→FcRn 재순환→반감기 20~25일(2~4주 1회). Fc 제거로 효과기능(ADCC/CDC) 부작용 회피. APB-A1(anti-CD40L)·APB-R3(IL-18BP) 2자산 플랫폼(KOSDAQ 397030)",
     "cards": [
-      ["SAFA 기전", "인간 Fab이 혈청 알부민에 특이결합 → 알부민-Fab 복합체가 FcRn 재순환 경로 → 분해 회피·서방출. 반감기 19~25일 = 2~4주 1회 투여"],
+      ["SAFA 기전", "인간 Fab이 혈청 알부민에 특이결합 → 알부민-Fab 복합체가 FcRn 재순환 경로 → 분해 회피·서방출. 공식 반감기 20~25일 = 2~4주 1회 투여"],
       ["Fc 제거 이점", "Fc 없앰 → ADCC/CDC 효과기능 제거(부작용↓) + 미생물 발현 생산성↑. 반감기는 알부민 결합으로 유지"],
-      ["APB-A1 (anti-CD40L)", "CD40L의 Fc 제거+SAFA 융합 → CD40L/CD40 신호 차단. 룬드벡 $448M. 갑상선안병증(TED) 1b + 자가면역 확장"],
-      ["APB-R3 (IL-18BP)", "IL-18 결합단백 SAFA 융합. 에보뮨 $475M. 아토피피부염(AD) 2a + 확장"]
+      ["APB-A1 (anti-CD40L)", "CD40L Fab의 SAFA 융합 → CD40L/CD40 신호 차단. 룬드벡 기술이전 $448M(2021, upfront $16M). 갑상선안병증(TED) 1b — 글로벌 권리는 룬드벡 보유(신규 딜 대상 아님)"],
+      ["APB-R3 (IL-18BP)", "IL-18 결합단백 SAFA 융합. 에보뮨 기술이전 $475M(2024, upfront $15M). 아토피피부염(AD) 2a 완료"]
     ],
     "body": [
-      "파이프라인: 2자산 × 2적응증 = 4개 P2 동시 + 궤양성대장염(UC) P2 2026 개시 + 차세대 REMAP 플랫폼으로 진화",
-      "차별점: 저빈도 투여로 기성 항체(듀피젠트 등)와 동등 효능 → 플랫폼 확장성이 자산가치의 핵심"
+      "파이프라인: SAFA 2자산 — APB-A1 TED 1b(룬드벡 보유) / APB-R3 AD 2a(에보뮨 보유). 목표는 자산별 다적응증 P2 확장(UC 등 계획 단계). 차세대 SAFA(격주 GLP-1·ADC 등) 개발 중",
+      "차별점: 저빈도 투여로 기성 항체 대비 편의성 — 단 APB-R3는 현재 IV 투여(듀피젠트는 SC). 플랫폼 확장성이 자산가치의 핵심"
     ]
   },
   "임상 & 검증": {
     "grade": "FACT",
-    "keymsg": "SAFA 3중 검증 — ①APB-R3 아토피 2a 임상효능(2회주사 EASI −33% = 듀피젠트 8회) ②빅파마 LO 2건($448M+$475M) ③인체 반감기 ~19일 입증(FcRn 기전 작동)",
+    "keymsg": "SAFA 검증 — ①APB-R3 아토피 2a 위약보정 EASI −33%(wk12, 5mg IV 2회) ②빅파마 LO 2건($448M+$475M) ③알부민-FcRn 기전으로 2~4주 1회 지속성",
     "body": [
-      "임상효능: APB-R3 아토피 2a 탑라인(2026.02) — 2회 주사로 12주차 EASI 33% 감소(듀피젠트 8회/16주 35~36%와 유사). 저빈도 투여로 동등 효능 = SAFA 지속성 임상 입증",
-      "플랫폼 de-risk: 룬드벡·에보뮨 2건 기술이전으로 SAFA가 이미 빅파마 실사 통과 → 후속 자산 리스크↓, 추가 기술이전 3건 기대(경영진)",
-      "기전 검증: 인체 반감기 ~19일 확인 = 알부민-FcRn 재순환 기전이 실제 작동. Fc 제거에도 지속성 유지 입증",
-      "촉매: APB-A1 갑상선안병증(TED) 1b 최종(2026 2Q말) + 6·9월 풀데이터 = 플랫폼 재평가 분기점(2026='데이터 기반 재평가 원년')"
+      "임상효능: APB-R3 아토피 2a 탑라인(2026.02) — 5mg IV 2회 투여로 12주차 위약보정 EASI 33% 개선, IGA 0/1 23%(n=70). (듀피젠트 8회/16주 대비는 cross-trial·다른 지표 비교 → 방향성 참고)",
+      "플랫폼 de-risk: 룬드벡·에보뮨 2건 기술이전으로 SAFA가 빅파마 실사 통과 → 후속 자산 리스크↓ (추가 기술이전 기대는 경영진 전망)",
+      "기전 지속성: 공식 반감기 20~25일 = 2~4주 1회 투여 근거. APB-A1 TED 1b 14주차 효능 확인이 지속성 방증",
+      "촉매: APB-A1 TED 1b — 룬드벡이 ENDO 2026(6월)서 14주차 안구돌출 감소 중간분석 발표. 풀데이터가 플랫폼 재평가 분기점"
     ]
   },
   "전략 권고": {
     "grade": "REC",
-    "keymsg": "엔진 결과 종합: 글로벌 LO/Co-dev = Roche·BMS·Amgen(CD40L·IL-18 인용+면역임상), 국내 co-dev = Genexine·Alteogen·Hanmi(융합단백질 플랫폼)",
+    "keymsg": "엔진 결과 종합: 글로벌 CD40L/IL-18 인접 = Sanofi·BMS·Amgen·Roche(인용+면역임상), 국내 co-dev = Genexine·Alteogen·Hanmi(융합단백질). ★APB-A1은 룬드벡 보유 → 신규 딜 대상은 APB-R3 잔여권리·차세대 자산·신적응증",
     "body": [
-      "Lead 트랙(AoI/LO 상위): Roche·BMS·Amgen·UCB — 면역 프랜차이즈 + 도메인 인용 축적. angle=Co-dev(자체 항체역량 보유)→플랫폼 공동개발 각",
+      "대상 정리: APB-A1은 룬드벡 글로벌 라이선스 완료 → 신규 파트너링 대상은 (a) APB-R3 잔여 지역권리 (b) 차세대 SAFA 자산 (c) 신규 적응증",
+      "Lead 트랙(CD40L 인접): Sanofi(frexalimab 최선두)·BMS·Amgen(dazodalibep)·UCB — 면역 프랜차이즈 + 도메인 인용. angle=Co-dev(자체 항체역량 보유)",
       "LO 각: 도메인 인용 낮은 buyer(Pfizer·Takeda 등) = 역량 gap → 자산 in-license 각",
       "국내 co-dev(KR 3-tier): Genexine(하이브리드 Fc)·Alteogen·Hanmi(LAPScovery)·GI이노베이션 = SAFA 인접 융합단백질 → 공동개발/크로스라이선스",
-      "딜 구조: 2a 플랫폼 검증 데이터 후 적응증별 옵션딜 + 지역 분할. 차세대 REMAP 신규 기술이전 하반기 본격화(경영진 3건 기대)"
+      "딜 구조: 2a 플랫폼 검증 데이터 후 적응증별 옵션딜 + 지역 분할. 차세대 SAFA 신규 기술이전이 하반기 밸류업 촉매"
     ]
   }
 }

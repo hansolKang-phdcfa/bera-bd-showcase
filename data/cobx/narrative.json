@@ -1,12 +1,97 @@
 {
   "_README": "CoBX Bio 내러티브 슬롯 — 웹조사(2026-07 검증) 기반 초안. 분석가 편집 대상. grade FACT=검증, EST=단일출처/추정.",
+  "_thesis": {
+    "grade": "REC",
+    "situation": "CoBX Bio(캅스바이오, 2024 설립, ex-Voronoi 연구진·RaPIDome 플랫폼, 라플라스파트너스 투자). 자산 2개 모두 전임상: (a) Menin 공유결합(covalent) 저해제/degrader → AML(NPM1·KMT2A) (b) GSPT1/ZFP91 이중 molecular glue → 췌장암. Menin 영역은 revumenib(2024)·ziftomenib(2025) 승인 러시.",
+    "insight": "revumenib·ziftomenib 승인 후 진입이 늦은 게 아니다 — 그 둘은 reversible(가역) 저해제고, CoBX는 covalent(공유결합) lane인데 그 lane이 비어있다. 유일한 선행 covalent(Biomea icovamenib)가 2025-02 항암을 접고 당뇨로 피벗했기 때문. ★그리고 revumenib/ziftomenib의 떠오르는 실패모드 = on-target MEN1 내성변이(M327I 등) → covalent·degrader가 그 2세대 해답. 즉 CoBX는 '붐비는 가역 lane의 me-too'가 아니라 '곧 생길 내성을 노리는 유일 활성 covalent' = 진짜 white space. (GSPT1 자산은 별개 — 췌장암·독성으로 정체된 클래스라 신중.)",
+    "lo_play": "누구=Menin 승인약 보유했으나 내성 대비 2세대 없는 곳(Syndax·Kura/Kyowa)·Menin 놓친 빅파마. 왜=covalent/degrader=post-revumenib 내성 해답. 언제=전임상이라 이르나 임상서 내성 데이터 쌓일수록 가치↑. 딜 벤치=Kura-Kyowa ziftomenib $330M upfront/$1.16B(단 그건 Ph2, 전임상 covalent는 수천만불 수준).",
+    "risk": "①covalency의 임상 우위 미입증(icovamenib이 입증 전 항암 이탈, 사유 불명=기전 문제 가능성). ②전임상·코드명/데이터/L-O 없음=승인약과 수년 격차. ③GSPT1 자산=췌장암·독성정체 클래스(CC-90009 2024 종료, clean precedent 없음). ④항암 covalent라 만성 안전성 창 미검증.",
+    "evidence": [
+      "Menin 승인러시: revumenib(2024-11 KMT2A·2025-10 NPM1)·ziftomenib(2025-11) 둘 다 reversible",
+      "★covalent lane 공백: 유일 선행 Biomea icovamenib 2025-02 항암 이탈→당뇨 피벗",
+      "내성=covalent 표적: revumenib/ziftomenib 실패모드=on-target MEN1 내성변이",
+      "딜 벤치: Kura-Kyowa ziftomenib $330M upfront/$1.16B(Ph2 기준)",
+      "GSPT1 독성정체: CC-90009(Celgene/BMS) 2024 종료, 생존자 전부 조직특이 전달로 피벗"
+    ]
+  },
+  "_competition": {
+    "grade": "FACT",
+    "axis": "Menin 저해제(AML) — 승인 2종은 reversible, CoBX는 covalent lane(사실상 단독). 내성 대비 2세대 각.",
+    "players": [
+      {
+        "company": "Syndax",
+        "asset": "revumenib(Revuforj)",
+        "stage": "승인",
+        "note": "reversible · 2024/2025 승인(KMT2A·NPM1)",
+        "is_target": false
+      },
+      {
+        "company": "Kura/Kyowa Kirin",
+        "asset": "ziftomenib(Komzifti)",
+        "stage": "승인",
+        "note": "reversible · 2025-11 승인 · $330M 딜",
+        "is_target": false
+      },
+      {
+        "company": "J&J",
+        "asset": "bleximenib",
+        "stage": "Phase 2",
+        "note": "reversible · 내성변이 활성",
+        "is_target": false
+      },
+      {
+        "company": "Sumitomo",
+        "asset": "enzomenib(DSP-5336)",
+        "stage": "Phase 2",
+        "note": "reversible",
+        "is_target": false
+      },
+      {
+        "company": "Servier(←BioNova)",
+        "asset": "BN104",
+        "stage": "Phase 2",
+        "note": "reversible · 2025 인수",
+        "is_target": false
+      },
+      {
+        "company": "CoBX Bio",
+        "asset": "Menin covalent 저해제/degrader",
+        "stage": "전임상",
+        "note": "★covalent(공유결합) · 내성 대비 · 한국",
+        "is_target": true
+      }
+    ],
+    "prior_gen": [
+      {
+        "company": "Biomea",
+        "asset": "icovamenib(BMF-219)",
+        "stage": "중단",
+        "note": "유일 선행 covalent · 2025-02 항암 이탈→당뇨"
+      }
+    ],
+    "excluded": [
+      {
+        "company": "Daiichi DS-1594",
+        "reason": "reversible · ~2024 중단"
+      }
+    ]
+  },
   "자산 개요": {
     "grade": "FACT",
     "keymsg": "CoBX Bio(코비엑스바이오, 한국 서울, 2024 설립)=항암 표적치료 신생사. 두 프로그램: Menin(MEN1) 공유결합 억제제 + GSPT1 분자접착(molecular glue) 분해제. small molecule, discovery/preclinical. 플랫폼 RaPIDome(화학단백체+AI). ★라플라스 파트너스 pre-Series A 투자사(2025-09, 76억).",
     "cards": [
-      ["Menin 공유결합 억제제", "MEN1(menin-MLL) 표적 covalent 억제. 기존 가역억제제 내성 극복 지향. 급성백혈병(NPM1/KMT2A) 계열 추정"],
-      ["GSPT1 분자접착 분해제", "GSPT1(eRF3a) 표적 CRBN 기반 molecular glue degrader. 암세포 생존 차단. BMS CC-90009로 임상 진입한 타깃(그 시험은 2024 종료)"],
-      ["회사/플랫폼", "Private, 서울, 2024 설립(매우 초기). RaPIDome=화학단백체학+분자모델링+AI로 기전·내성경로 규명. pre-Series A 76억(한투·라플라스·Solid X·Company K·KB 등)"]
+      [
+        "Menin 공유결합 억제제",
+        "MEN1(menin-MLL) 표적 covalent 억제. 기존 가역억제제 내성 극복 지향. 급성백혈병(NPM1/KMT2A) 계열 추정"
+      ],
+      [
+        "GSPT1 분자접착 분해제",
+        "GSPT1(eRF3a) 표적 CRBN 기반 molecular glue degrader. 암세포 생존 차단. BMS CC-90009로 임상 진입한 타깃(그 시험은 2024 종료)"
+      ],
+      [
+        "회사/플랫폼",
+        "Private, 서울, 2024 설립(매우 초기). RaPIDome=화학단백체학+분자모델링+AI로 기전·내성경로 규명. pre-Series A 76억(한투·라플라스·Solid X·Company K·KB 등)"
+      ]
     ],
     "body": [
       "적응증 축: 항암(Menin=급성백혈병, GSPT1=암세포 생존). 두 타깃 모두 hot(Menin=Syndax revumenib 승인·Kura ziftomenib)",

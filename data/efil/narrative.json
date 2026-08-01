@@ -1,12 +1,84 @@
 {
   "_README": "EFIL BioScience EFIL-201 내러티브 슬롯 — 웹조사(2026-07 검증) 기반 초안. 분석가 편집 대상. grade FACT=검증, EST=단일출처/정황.",
+  "_thesis": {
+    "grade": "REC",
+    "situation": "EFIL-201 = ACAT(회사주장 ACAT1) 저해제, 비만, 전임상. 한국 소형사(2021 설립·소수 인력·단일 VC). 임상데이터·IND·구조식 공개 전무. 심혈관 ACAT 저해제(avasimibe·pactimibe)는 2003~06 Ph3 실패로 폐기된 역사.",
+    "insight": "'비만 ACAT1 저해제'는 경쟁자가 거의 없는 white space다 — 근데 그게 강점이자 경고다. 임상까지 간 유일 ACAT1(nevanimibe/ATR-101)은 비만이 아니라 부신질환용이고, 실은 부신을 죽이는 약(부신피질암 치료제)이다. 즉 ACAT1 저해의 클래스 급소 = 부신독성. 아무도 비만 ACAT1을 안 하는 건 기회일 수도, 못 하는 이유일 수도. + GLP-1 시대에 단독으론 못 싸운다(비-인크레틴 단독 6~7% vs GLP-1 15~20%) → 현실 각은 경구 GLP-1 병용 add-on / 대사 comorbidity(MASH·이상지질) / 희귀 과식증(Prader-Willi).",
+    "lo_play": "누구=경구 GLP-1 백본에 얹을 add-on 원하는 비만 빅파마(Novo·Lilly가 병용자산 쇼핑 중). 왜=GLP-1과 직교하는 대사-면역-간 축. 언제=부신독성 clean + 병용 효능 데이터 확보 후(지금은 이르다·딜 레디니스 낮음). ★ACAT 특이 딜 선례 0=밸류 앵커 없음.",
+    "risk": "①★부신독성=ACAT1 클래스 급소(ATR-101이 부신 죽이는 약). ②항비만 효능 규모 미검증(ACAT1 KO 마우스는 체중 불변·지방만↓). ③avasimibe/pactimibe Ph3 실패 유산. ④전임상·데이터 공백=딜 레디니스 낮음·정보 얇음(회사/특허DB 수준).",
+    "evidence": [
+      "ACAT 심혈관 Ph3 실패史: avasimibe 2003·pactimibe 2006(pro-atherogenic 중단)",
+      "유일 임상 ACAT1(nevanimibe)=부신질환·부신을 죽이는 약(비만 아님)",
+      "비만 ACAT1=임상 무경력 white space",
+      "GLP-1 지배: 비-인크레틴 단독 불가=병용 add-on만 현실",
+      "ACAT 특이 딜 선례 0=밸류 앵커 부재"
+    ]
+  },
+  "_competition": {
+    "grade": "FACT",
+    "axis": "ACAT/SOAT 저해제 — 심혈관은 Ph3 실패로 폐기, 비만 ACAT1은 임상 무경력(EFIL 사실상 단독이나 데이터 공백).",
+    "players": [
+      {
+        "company": "Millendo",
+        "asset": "nevanimibe(ATR-101)",
+        "stage": "Phase 2",
+        "note": "ACAT1 · ★부신질환(비만 아님)·부신독성",
+        "is_target": false
+      },
+      {
+        "company": "Kowa",
+        "asset": "K-604",
+        "stage": "전임상",
+        "note": "ACAT1 · NASH/죽상경화/AD",
+        "is_target": false
+      },
+      {
+        "company": "(Pfizer 유산)",
+        "asset": "avasimibe(리퍼포징)",
+        "stage": "전임상",
+        "note": "비선택 · Ph3 실패→암/PWS 리퍼포징",
+        "is_target": false
+      },
+      {
+        "company": "EFIL BioScience",
+        "asset": "EFIL-201",
+        "stage": "전임상",
+        "note": "ACAT(주장 ACAT1) · 비만 · 데이터 공백",
+        "is_target": true
+      }
+    ],
+    "prior_gen": [
+      {
+        "company": "Daiichi Sankyo",
+        "asset": "pactimibe(CS-505)",
+        "stage": "중단",
+        "note": "ACAT1/2 dual · Ph3 pro-atherogenic 중단"
+      },
+      {
+        "company": "Pierre Fabre/Lilly",
+        "asset": "eflucimibe",
+        "stage": "중단",
+        "note": "안전성 통과 후 개발포기"
+      }
+    ],
+    "excluded": []
+  },
   "자산 개요": {
     "grade": "FACT",
     "keymsg": "EFIL BioScience(에필바이오사이언스, 한국 경북, 2021)의 리드 EFIL-201 = ACAT1(Acyl-CoA:cholesterol acyltransferase 1) 억제제 small molecule, 비만/대사. 3개 자산 전부 동일 타깃 ACAT1. 전부 preclinical.",
     "cards": [
-      ["EFIL-201 (ACAT1 억제제)", "비만/대사 대상 경구 small molecule. 타깃 ACAT1(=SOAT1). preclinical"],
-      ["Avasimibe (GLP-1 병용)", "Prader-Willi 대상. ★Avasimibe+semaglutide(GLP-1) 병용 체중감소 시너지 연구=GLP-1 애드온 포지션. Avasimibe=Pfizer 죽상경화 후보 재용도화(정황)"],
-      ["회사/포트폴리오", "Private, <10명, 지주형(2021). EFIL-301(거세저항성 전립선암)=개발 중단. 파이프라인 전부 ACAT1"]
+      [
+        "EFIL-201 (ACAT1 억제제)",
+        "비만/대사 대상 경구 small molecule. 타깃 ACAT1(=SOAT1). preclinical"
+      ],
+      [
+        "Avasimibe (GLP-1 병용)",
+        "Prader-Willi 대상. ★Avasimibe+semaglutide(GLP-1) 병용 체중감소 시너지 연구=GLP-1 애드온 포지션. Avasimibe=Pfizer 죽상경화 후보 재용도화(정황)"
+      ],
+      [
+        "회사/포트폴리오",
+        "Private, <10명, 지주형(2021). EFIL-301(거세저항성 전립선암)=개발 중단. 파이프라인 전부 ACAT1"
+      ]
     ],
     "body": [
       "적응증 축: 비만/대사(GLP-1 시대 hot). 차별화=ACAT1 기전 경구 애드온",

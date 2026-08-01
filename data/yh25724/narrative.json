@@ -1,0 +1,32 @@
+{
+  "_README": "YH25724 내러티브 슬롯 — 웹 fact-check(2026-08-01) 기반. build_spec이 title 키로 매칭. _thesis/_competition은 대시보드 상단·CI 서열에 렌더. grade FACT=검증출처, REC=엔진/판단.",
+  "_thesis": {
+    "grade": "REC",
+    "situation": "YH25724 = GLP-1/FGF21 이중작용제(BI 3006337, 유한+제넥신 HyFc). 2019년 베링거인겔하임에 $870M 기술이전 → 2025-03 반환(베링거 MASH 전략적 판단, 수령금 non-refundable). 유한 자체개발 전환, 한국 Phase 1 IND(2026-05). MASH는 resmetirom(2024 승인)·semaglutide(2025 승인)·FGF21 3종·인크레틴 다수가 앞선 초레드오션.",
+    "insight": "'GLP-1/FGF21 이중'은 차별화가 아니라 붐비는 교차점 — 두 기전 다 이미 승인약/Ph3 다수. ★근데 2025년 반전: FGF21 순수 3종이 빅파마에 전량 인수됐다 — Akero efruxifermin→Novo(~$5.2B), 89bio pegozafermin→Roche($3.5B), Boston efimosfermin→GSK(~$2B). 즉 독립 FGF21 자산의 씨가 말랐다. YH25724는 Ph1 재출발 후발이지만, 남은 몇 안 되는 독립 FGF21-함유 자산이라는 희소가치가 (clean Ph1 데이터가 나오면) 생길 여지. ★함정: 베링거 반환은 자산 실패가 아니라 파이프라인 중복(베링거 survodutide 보유)일 수 있으나, '빅파마가 붐비는 MASH서 접었다'는 부정 신호로도 읽힌다 — 단정 불가.",
+    "lo_play": "누구=MASH 스펙트럼 전략을 원하나 FGF21 자산을 놓친 곳(3종 다 나갔으니 후발 빅파마·아시아·중화권). 왜=FGF21 희소성 + GLP-1 병합(대사+간섬유화 단일분자). 언제=Ph1 clean 데이터 확보 후(지금은 이르다). 단 순수 FGF21이 아니라 이중작용이라 '병용 대비 우위' 입증이 열쇠.",
+    "risk": "①초레드오션 후발(승인 2 + Ph3 6개가 앞섬). ②이중작용 단일분자의 병용 대비 임상우위 미입증(Novo는 semaglutide+efruxifermin 병용으로 같은 곳 감). ③베링거 반환=부정 신호 가능. ④human 유효성 데이터 없음(Ph1 재출발, 베링거 Ph1은 안전성·PK 중심).",
+    "evidence": [
+      "★딜 정정: 2019 파트너는 베링거인겔하임($870M)이지 길리어드 아님(길리어드 $785M은 별개 저분자). 2025-03 반환",
+      "FGF21 2025 consolidation: Akero→Novo $5.2B · 89bio→Roche $3.5B · Boston→GSK $2B",
+      "경쟁 서열: resmetirom·semaglutide 승인 + FGF21 3종·survodutide Ph3가 앞섬, YH25724는 Ph1 재출발",
+      "차별화 미입증: GLP-1/FGF21 이중의 병용 대비 임상우위 head-to-head 없음"
+    ]
+  },
+  "_competition": {
+    "grade": "FACT",
+    "axis": "MASH(대사이상 지방간염) — 기전 혼재(THR-β/GLP-1/FGF21/인크레틴), 개발 단계로 서열. YH25724=GLP-1+FGF21 이중.",
+    "players": [
+      {"company": "Novo Nordisk", "asset": "semaglutide(Wegovy)", "stage": "승인", "note": "GLP-1 · 2025-08 MASH 승인", "is_target": false},
+      {"company": "Madrigal", "asset": "resmetirom(Rezdiffra)", "stage": "승인", "note": "THR-β · 2024-03 최초 MASH 승인", "is_target": false},
+      {"company": "Akero(→Novo)", "asset": "efruxifermin", "stage": "Phase 3", "note": "FGF21 · Novo ~$5.2B 인수", "is_target": false},
+      {"company": "89bio(→Roche)", "asset": "pegozafermin", "stage": "Phase 3", "note": "FGF21 · Roche $3.5B 인수", "is_target": false},
+      {"company": "Boehringer/Zealand", "asset": "survodutide", "stage": "Phase 3", "note": "glucagon/GLP-1 이중", "is_target": false},
+      {"company": "Eli Lilly", "asset": "retatrutide", "stage": "Phase 2", "note": "GIP/GLP-1/glucagon 삼중", "is_target": false},
+      {"company": "Viking", "asset": "VK2809", "stage": "Phase 2", "note": "THR-β", "is_target": false},
+      {"company": "유한양행", "asset": "YH25724", "stage": "Phase 1", "note": "GLP-1/FGF21 이중 · 베링거 반환 후 자체개발", "is_target": true}
+    ],
+    "prior_gen": [],
+    "excluded": []
+  }
+}

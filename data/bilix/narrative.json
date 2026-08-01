@@ -1,13 +1,106 @@
 {
   "_README": "빌릭스 내러티브 슬롯 — LLM 초안(웹조사+엔진결과) → 분석가(서준희) 편집. build_spec이 title 키로 매칭해 덱 narrative 슬라이드를 채움. ★사실은 확정 전 확인 필요(특히 임상수치·적응증 단계·딜조건). grade=FACT는 웹출처 있음/REC는 엔진기반 권고.",
+  "_thesis": {
+    "grade": "REC",
+    "situation": "BX-001N(Brixelle) = PEG-빌리루빈-3α 나노입자(내인성 항산화제를 용해도·표적화로 druggable화, Advanced Science 2025). ★선도 적응증 = 심장수술연관 급성신손상(CSA-AKI, 신장 IR)·신장이식(심근 IR/AMI는 확장). 호주 Ph1 완료(NCT06097702, 51명), 한국 Ph2a(CSA-AKI) 진행. KAIST 전상용 스핀아웃(2018, CEO 김명립).",
+    "insight": "빌리루빈=내인성 최강 항산화제(Nrf2/HO-1 축)를 용해도·손상조직 표적화로 druggable화한 우아한 기전. ★근데 재관류손상/장기보호는 확인된 임상 무덤 — cardioprotection 승인약 0, 대형 Ph3 연쇄실패(elamipretide EMBRACE-STEMI·cyclosporine CIRCUS·최근 FDY-5301 IOCYTE 2025). 유일 성공 modality는 약이 아니라 기계관류(TransMedics·OrganOx). ★빌릭스의 영리한 수 = 심근 IR(무덤)이 아니라 CSA-AKI라는 좁고 측정가능한 수술 세팅을 선도로 잡음. ★★단 바로 그 자리에 직접 경쟁자 Renibus RBT-1이 같은 Nrf2/HO-1 축으로 Ph3(FDA BTD)까지 가 있다 = 축이 임상 도달(검증)이자 빌릭스 차별점 침식(위협). 즉 무덤은 피했지만 선도 자리엔 이미 Ph3 선행자가 있고 HO-1 축은 독점이 아니다.",
+    "lo_play": "누구=CSA-AKI/신장보호·이식 관심 제약·이식 관류사. 왜=근본원인(내인성 세포보호 복원)을 노리는 첫 나노 접근. 언제=Ph2a PoC(~2027) 후 조기 아웃라이선싱(회사 전략). 단 Renibus RBT-1 Ph3 결과가 판을 가른다. ★나노메디슨 딜 경고: 1세대 타깃 나노입자는 프리미엄 M&A 거의 없이 소멸(BIND→Pfizer ~$40M 헐값). '풍부한 comp'가 아니라 '모두 실패한 미충족需' 논리로.",
+    "risk": "①영역=cardioprotection/IR 무덤(elamipretide=직접 유사 기전 실패). ②★직접경쟁 Renibus RBT-1이 같은 HO-1 축 Ph3 선행(차별점 침식). ③HO-1 축 비독점. ④human 효능 미증명(Ph2a 진행, 회사발표 수치 비검증)·미국 IND granted 모호·나노메디슨 프리미엄 딜 희소.",
+    "evidence": [
+      "자산 실재: 호주 Ph1 완료(NCT06097702, 51명)·한국 Ph2a CSA-AKI 진행·Advanced Science 2025 peer-review",
+      "★직접경쟁: Renibus RBT-1(동일 Nrf2/HO-1 축) CSA-AKI Ph3 PROTECT·FDA BTD로 선행",
+      "cardioprotection 무덤: elamipretide·cyclosporine·FDY-5301(2025) 전멸, 재관류손상 승인약 0",
+      "실제 성공은 약 아닌 기계관류 기기(TransMedics·OrganOx)",
+      "나노메디슨 딜 경고: BIND→Pfizer ~$40M 헐값, 1세대 타깃 나노입자 프리미엄 M&A 희소"
+    ]
+  },
+  "_competition": {
+    "grade": "FACT",
+    "axis": "심장수술연관 급성신손상(CSA-AKI)/장기보호 — 빌릭스 선도 적응증. 재관류손상 승인약 0(무덤), 단 CSA-AKI 포켓엔 경쟁 활발. 직접경쟁 Renibus가 같은 HO-1 축 Ph3.",
+    "players": [
+      {
+        "company": "Renibus",
+        "asset": "RBT-1",
+        "stage": "Phase 3",
+        "note": "★직접경쟁 · 동일 Nrf2/HO-1 축 · FDA BTD · CSA-AKI",
+        "is_target": false
+      },
+      {
+        "company": "Alexion",
+        "asset": "ravulizumab",
+        "stage": "Phase 3",
+        "note": "보체 C5 · 심장수술 AKI(ARTEMIS)",
+        "is_target": false
+      },
+      {
+        "company": "CalciMedica",
+        "asset": "Auxora",
+        "stage": "Phase 2",
+        "note": "CRAC 채널 · 2026 중단→재개(흔들림)",
+        "is_target": false
+      },
+      {
+        "company": "Bilix",
+        "asset": "BX-001N(빌리루빈 나노입자)",
+        "stage": "Phase 2",
+        "note": "Ph1 완료(호주)→Ph2a CSA-AKI · 한국·KAIST",
+        "is_target": true
+      },
+      {
+        "company": "Dimerix",
+        "asset": "DMX-652",
+        "stage": "Phase 1",
+        "note": "AKI · Ph2-ready",
+        "is_target": false
+      }
+    ],
+    "prior_gen": [
+      {
+        "company": "Faraday",
+        "asset": "FDY-5301",
+        "stage": "중단",
+        "note": "Ph3 IOCYTE AMI-3(2300명) 2025 유효성 실패"
+      },
+      {
+        "company": "Stealth",
+        "asset": "elamipretide(SS-31)",
+        "stage": "중단",
+        "note": "★미토콘드리아 펩타이드 · EMBRACE-STEMI 실패→Barth 피벗"
+      },
+      {
+        "company": "Novartis 등",
+        "asset": "cyclosporine",
+        "stage": "중단",
+        "note": "CIRCUS·CYCLE Ph3 실패"
+      }
+    ],
+    "excluded": [
+      {
+        "company": "기계관류(TransMedics OCS·OrganOx)",
+        "reason": "약 아닌 기기 · 이식 IR서 유일 실제성공 = 빌릭스 현실 파트너 각(경쟁 아님)"
+      }
+    ]
+  },
   "자산 개요": {
     "grade": "FACT",
     "keymsg": "Bilix Brixelle(BX-001N) — PEG화 합성 bilirubin-3α 자가조립 나노입자(BRNP). 내인성 항산화물질 빌리루빈을 정맥 투여 가능한 나노의약으로 전환 → ROS 스캐빈징+항염, 염증부위 누출혈관에 축적. IV 반감기 ~124h. 코어기술=전상용(KAIST), 김명립 대표(2018 설립)",
     "cards": [
-      ["BRNP 기전", "합성 bilirubin-3α를 PEG 접합해 나노입자 자가조립 → 정맥투여 가능. 활성산소(ROS) 소거 + 항염 → 허혈-재관류 손상부위 세포보호. 내인성 분자 기반이라 안전성 프로파일 우호적"],
-      ["플랫폼 확장성", "단일 물질(빌리루빈 나노입자)로 심근IR·신장IR·이식·장기보호·염증성질환(IBD·아토피 등) 다적응증 — 항산화/항염 공통 축. 확장성이 자산가치 핵심"],
-      ["리드 임상 (CSA-AKI)", "심장수술연관 급성신손상 P2a(Korea, MFDS IND). Cohort1(저용량/저위험 n=15): AKI 0% vs 대조군 67%. Cohort2(고용량/고위험) 2026 하반기 개시"],
-      ["호주 P1", "건강인 대상 SAD/MAD 정맥투여 무작위 이중맹검 위약대조 완료 — 안전성/내약성 양호(NCT06097702). 호주 선택=FDA 이전 가능한 인종 프로파일 확보"]
+      [
+        "BRNP 기전",
+        "합성 bilirubin-3α를 PEG 접합해 나노입자 자가조립 → 정맥투여 가능. 활성산소(ROS) 소거 + 항염 → 허혈-재관류 손상부위 세포보호. 내인성 분자 기반이라 안전성 프로파일 우호적"
+      ],
+      [
+        "플랫폼 확장성",
+        "단일 물질(빌리루빈 나노입자)로 심근IR·신장IR·이식·장기보호·염증성질환(IBD·아토피 등) 다적응증 — 항산화/항염 공통 축. 확장성이 자산가치 핵심"
+      ],
+      [
+        "리드 임상 (CSA-AKI)",
+        "심장수술연관 급성신손상 P2a(Korea, MFDS IND). Cohort1(저용량/저위험 n=15): AKI 0% vs 대조군 67%. Cohort2(고용량/고위험) 2026 하반기 개시"
+      ],
+      [
+        "호주 P1",
+        "건강인 대상 SAD/MAD 정맥투여 무작위 이중맹검 위약대조 완료 — 안전성/내약성 양호(NCT06097702). 호주 선택=FDA 이전 가능한 인종 프로파일 확보"
+      ]
     ],
     "body": [
       "적응증 로드맵: 심장수술 급성신손상(활성 P2a) → 급성심근경색/심근 IR(계획) → 이식·뇌졸중·GvHD → 장기적 IBD·아토피·대사질환",
