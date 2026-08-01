@@ -122,7 +122,7 @@ if _th:
         if _th.get("situation"):
             st.markdown(f"**① 상황** &nbsp; {_th['situation']}")
         if _th.get("insight"):
-            st.success(f"💡 **② 핵심 인사이트 (비자명)** &nbsp; {_th['insight']}")
+            st.success(f"💡 **② 핵심 인사이트** &nbsp; {_th['insight']}")
         if _th.get("lo_play"):
             st.markdown(f"**③ LO play — 누구·왜·언제** &nbsp; {_th['lo_play']}")
         if _th.get("risk"):
