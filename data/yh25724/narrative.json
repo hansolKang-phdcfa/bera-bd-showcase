@@ -17,16 +17,110 @@
     "grade": "FACT",
     "axis": "MASH(대사이상 지방간염) — 기전 혼재(THR-β/GLP-1/FGF21/인크레틴), 개발 단계로 서열. YH25724=GLP-1+FGF21 이중.",
     "players": [
-      {"company": "Novo Nordisk", "asset": "semaglutide(Wegovy)", "stage": "승인", "note": "GLP-1 · 2025-08 MASH 승인", "is_target": false},
-      {"company": "Madrigal", "asset": "resmetirom(Rezdiffra)", "stage": "승인", "note": "THR-β · 2024-03 최초 MASH 승인", "is_target": false},
-      {"company": "Akero(→Novo)", "asset": "efruxifermin", "stage": "Phase 3", "note": "FGF21 · Novo ~$5.2B 인수", "is_target": false},
-      {"company": "89bio(→Roche)", "asset": "pegozafermin", "stage": "Phase 3", "note": "FGF21 · Roche $3.5B 인수", "is_target": false},
-      {"company": "Boehringer/Zealand", "asset": "survodutide", "stage": "Phase 3", "note": "glucagon/GLP-1 이중", "is_target": false},
-      {"company": "Eli Lilly", "asset": "retatrutide", "stage": "Phase 2", "note": "GIP/GLP-1/glucagon 삼중", "is_target": false},
-      {"company": "Viking", "asset": "VK2809", "stage": "Phase 2", "note": "THR-β", "is_target": false},
-      {"company": "유한양행", "asset": "YH25724", "stage": "Phase 1", "note": "GLP-1/FGF21 이중 · 베링거 반환 후 자체개발", "is_target": true}
+      {
+        "company": "Novo Nordisk",
+        "asset": "semaglutide(Wegovy)",
+        "stage": "승인",
+        "note": "GLP-1 · 2025-08 MASH 승인",
+        "is_target": false
+      },
+      {
+        "company": "Madrigal",
+        "asset": "resmetirom(Rezdiffra)",
+        "stage": "승인",
+        "note": "THR-β · 2024-03 최초 MASH 승인",
+        "is_target": false
+      },
+      {
+        "company": "Akero(→Novo)",
+        "asset": "efruxifermin",
+        "stage": "Phase 3",
+        "note": "FGF21 · Novo ~$5.2B 인수",
+        "is_target": false
+      },
+      {
+        "company": "89bio(→Roche)",
+        "asset": "pegozafermin",
+        "stage": "Phase 3",
+        "note": "FGF21 · Roche $3.5B 인수",
+        "is_target": false
+      },
+      {
+        "company": "Boehringer/Zealand",
+        "asset": "survodutide",
+        "stage": "Phase 3",
+        "note": "glucagon/GLP-1 이중",
+        "is_target": false
+      },
+      {
+        "company": "Eli Lilly",
+        "asset": "retatrutide",
+        "stage": "Phase 2",
+        "note": "GIP/GLP-1/glucagon 삼중",
+        "is_target": false
+      },
+      {
+        "company": "Viking",
+        "asset": "VK2809",
+        "stage": "Phase 2",
+        "note": "THR-β",
+        "is_target": false
+      },
+      {
+        "company": "유한양행",
+        "asset": "YH25724",
+        "stage": "Phase 1",
+        "note": "GLP-1/FGF21 이중 · 베링거 반환 후 자체개발",
+        "is_target": true
+      }
     ],
     "prior_gen": [],
     "excluded": []
+  },
+  "자산 개요": {
+    "grade": "FACT",
+    "keymsg": "YH25724 = GLP-1/FGF21 이중작용제(개발코드 BI 3006337, 유한양행 + 제넥신 HyFc 반감기연장 융합). GLP-1(대사·체중)과 FGF21(간지방·섬유화)을 단일분자로 겨냥 = MASH(대사이상 지방간염). 2019 베링거인겔하임 $870M 규모 기술이전 → 2025-03 반환(베링거 MASH 전략적 판단, 수령금 non-refundable) → 유한 자체개발 전환, 한국 Ph1 IND(2026-05). ★2019 파트너는 베링거지 길리어드 아님(길리어드 $785M은 별개 저분자)",
+    "cards": [
+      [
+        "GLP-1/FGF21 이중작용",
+        "단일분자로 GLP-1(포만·체중·혈당)+FGF21(간지방·섬유화 직접 개선)을 동시 겨냥 → MASH의 대사·간 두 축을 하나로. 단 '이중'은 차별화보다 붐비는 교차점 — 두 기전 다 승인약/Ph3 다수"
+      ],
+      [
+        "HyFc 반감기연장",
+        "제넥신 HyFc(hybrid Fc) 융합 = 반감기 연장·투여 편의. FGF21은 자연 반감기가 짧아 연장 플랫폼이 관건인 계열"
+      ],
+      [
+        "딜 이력 (베링거)",
+        "2019 베링거인겔하임 $870M 규모 기술이전 → 2025-03 반환. 수령금 non-refundable = 유한 현금은 확보. 반환은 자산 실패보다 베링거 파이프라인 중복(survodutide 보유) 가능성도 — 단정 불가"
+      ],
+      [
+        "개발 단계",
+        "유한 자체개발 전환, 한국 Phase 1 IND 2026-05. 베링거 Ph1(안전성·PK 중심) 이후 재출발 = human 유효성 데이터 아직 없음"
+      ]
+    ],
+    "body": [
+      "포지션: MASH는 resmetirom(2024 승인)·semaglutide(2025 승인) + FGF21 3종·인크레틴 다수가 앞선 초레드오션. YH25724는 Ph1 재출발 후발",
+      "차별점(잠재): 순수 FGF21이 아니라 GLP-1 병합 단일분자 — 단 병용요법(semaglutide+FGF21) 대비 우위는 미입증. 자산가치의 무게중심은 개별 경쟁력보다 'FGF21 희소성'(전략 권고 참조)"
+    ]
+  },
+  "임상 & 검증": {
+    "grade": "EST",
+    "keymsg": "human 유효성 데이터 없음(Ph1 재출발, 베링거 Ph1=안전성·PK 중심). 검증 근거 = ①베링거 $870M 딜이 한때 빅파마 실사 통과 ②GLP-1·FGF21 각 기전은 승인/Ph3로 검증된 축. ★단 베링거 반환(2025-03)은 부정 신호로도 읽힘 — 자산 실패 vs 파이프라인 중복, 단정 불가",
+    "body": [
+      "임상 단계: 유한 자체개발 한국 Ph1 IND(2026-05). 베링거 보유기 Ph1은 안전성·PK 중심 → 유효성 readout 전 = 데이터 리스크 높음",
+      "타깃 검증(간접): GLP-1(semaglutide MASH 승인)·FGF21(efruxifermin·pegozafermin Ph3)은 각각 검증된 축. 단 이중작용 단일분자의 병용 대비 head-to-head 우위는 미확인 — Novo는 semaglutide+efruxifermin '병용'으로 같은 목표를 감",
+      "딜 de-risk vs 반환 양면: 2019 베링거 $870M 기술이전 = 자산이 한때 빅파마 실사 통과(de-risk). 단 2025-03 반환 = 베링거가 붐비는 MASH서 접음 → 긍정(중복)·부정(자산) 해석 공존, 확정 불가. 수령금 non-refundable로 유한 현금은 남음",
+      "촉매: 한국 Ph1 clean 안전성·PK + (가능하면) 초기 유효성 신호 = 재평가 분기점. 'FGF21 희소성' 논리는 clean 데이터를 전제로만 성립"
+    ]
+  },
+  "전략 권고": {
+    "grade": "REC",
+    "keymsg": "★핵심 = 개별 경쟁력(후발)보다 '독립 FGF21 자산 희소성'. 2025년 FGF21 순수 3종이 전량 빅파마 인수(Akero→Novo ~$5.2B·89bio→Roche $3.5B·Boston→GSK ~$2B)로 독립 FGF21 씨가 마름 → YH25724는 남은 몇 안 되는 독립 FGF21-함유 자산. 누구 = MASH 전략을 원하나 FGF21을 놓친 후발 빅파마·아시아·중화권",
+    "body": [
+      "1순위 논리 = FGF21 희소성: 순수 FGF21 3종이 다 나갔으니, GLP-1 병합형이라도 독립 FGF21-함유 자산은 희소. 단 이 각은 Ph1 clean 데이터가 전제(지금은 이르다)",
+      "타깃: FGF21 인수전에 빠진 후발 빅파마 + 아시아·중화권 파트너. Novo·Roche·GSK는 이미 FGF21 확보 = 우선순위 낮음",
+      "숙제: '이중작용 단일분자 > 병용요법' 입증이 열쇠(Novo가 병용으로 같은 곳 감). 이게 없으면 희소성만으론 약함",
+      "딜 구조: Ph1 초기 = 옵션딜/마일스톤 후행, 지역 분할(아시아 자체 + 글로벌 파트너)이 현실적. 베링거 반환 이력은 딜 협상서 설명 필요(non-refundable 수령·중복 사유)"
+    ]
   }
 }
