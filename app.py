@@ -165,42 +165,35 @@ with st.container():
         _fk = ", ".join(fpool.get("meta", {}).get("keywords", []))
         _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
                 for x in fpool["field_pool"] if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
-        st.markdown("### 🎯 데이터 기반 파트너 후보 (하드코딩 14곳 대체)")
+        st.markdown("### 🎯 데이터 기반 파트너 후보")
         explain_box(
-            what=f"「{_fk}」 기전에 실제 특허 활동하는 제약주체 {len(fpool['field_pool'])}곳 (데이터로 발굴, 소형 바이오텍 포함).",
-            how="도메인 anchor 인용 특허 수=관심 규모, filing momentum=가속/냉각. 가속(파랑)=LO 타이밍. (학계)=라이선스원.",
+            what=f"「{_fk}」 기전에 실제 특허 활동하는 상업사를 데이터로 발굴(소형 바이오텍 포함, 학계 제외).",
+            how="도메인 anchor 인용 특허 수=관심 규모, filing momentum=가속/냉각(막대 **색**). 가속(파랑)=LO 타이밍.",
             message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보. 특허 없는 순수 임상/딜 플레이어는 미포착.")
         st.pyplot(viz.field_pool_fig(fpool))
         st.divider()
-    aoi = _csv(d, "aoi_output.csv")
-    if aoi is not None:
-        st.markdown("**Revealed AoI — 파트너 타깃 랭킹**")
-        c1, c2 = st.columns([3, 2])
-        with c1:
-            st.dataframe(aoi, hide_index=True, width="stretch")
-        with c2:
-            st.bar_chart(aoi.set_index("company")["aoi_score"], color=BLUE, horizontal=True)
-        st.pyplot(viz.aoi_contrib_fig(aoi.to_dict("records"), m.get("weights", {})))
-        st.caption("⚠️ need·citation은 volume비례→대형사 편중. raw top vs precedent Lead(개요 전략권고)와 함께 볼 것.")
-    lo = _csv(d, "lo_output.csv")
-    if lo is not None:
-        st.divider(); st.markdown("**License-Out Buyer 랭킹**")
-        lc1, lc2 = st.columns([2, 3])
-        with lc1:
-            st.dataframe(lo, hide_index=True, width="stretch")
-        with lc2:
-            st.pyplot(viz.lo_candidates_fig(lo.to_dict("records")))
-    ang = _csv(d, "angle_output.csv")
-    if ang is not None:
-        st.markdown("**Anchor Signature Angle — LO vs Co-dev**")
-        st.pyplot(viz.angle_venn_fig(ang.to_dict("records"), aoi.to_dict("records") if aoi is not None else None))
-    mom, cmom = _json(d, "momentum.json"), _json(d, "clinical_momentum.json")
-    if mom or cmom:
-        st.divider(); st.markdown("### 📈 Momentum — 가속/냉각 (추세)")
-        if mom:
-            st.markdown("**특허 anchor 인용**"); st.pyplot(viz.momentum_fig(mom.get("momentum", [])))
-        if cmom:
-            st.markdown("**임상 시험 개시**"); st.pyplot(viz.momentum_fig(cmom.get("momentum", [])))
+    # 임상 momentum (특허 momentum은 위 필드풀 막대 색으로 이미 표시 = 중복 제거)
+    cmom = _json(d, "clinical_momentum.json")
+    if cmom and cmom.get("momentum"):
+        st.markdown("### 📈 임상 시험 개시 추세 (가속/냉각) — *특허* momentum과 다른 축")
+        explain_box(
+            what="회사별로 이 적응증에 **임상시험**을 개시한 추세(최근 3년 vs 직전 5년). ★특허 momentum은 위 필드풀 막대 **색**으로 이미 표시.",
+            how="○ 직전 → ● 최근 덤벨. 파랑=임상 활동 데워짐, 회색=냉각.",
+            message="특허(위 색)+임상(여기) 둘 다 가속 = 그 회사가 이 영역에 진심 = 최우선 접근.")
+        st.pyplot(viz.momentum_fig(cmom.get("momentum", [])))
+        st.divider()
+    with st.expander("구 엔진 스코어 (하드코딩 14곳 · AoI/LO/angle) — 참고용, 데이터 풀이 대체"):
+        st.caption("⚠️ 하드코딩 14 buyer 기준이라 분석 타깃과 연관 약하고 대형사 편중. 위 데이터 풀이 대체.")
+        aoi = _csv(d, "aoi_output.csv")
+        if aoi is not None:
+            st.markdown("**Revealed AoI (14곳)**"); st.dataframe(aoi, hide_index=True, width="stretch")
+        lo = _csv(d, "lo_output.csv")
+        if lo is not None:
+            st.markdown("**License-Out Buyer 랭킹 (14곳)**"); st.dataframe(lo, hide_index=True, width="stretch")
+        ang = _csv(d, "angle_output.csv")
+        if ang is not None:
+            st.markdown("**Anchor Signature Angle (14곳)**")
+            st.pyplot(viz.angle_venn_fig(ang.to_dict("records"), aoi.to_dict("records") if aoi is not None else None))
     acc = _csv(d, "access_output.csv")
     if acc is not None:
         st.divider(); st.markdown("**Specialty Access (G3) — 상업화 준비도**")
@@ -253,22 +246,19 @@ with st.container():
                          hide_index=True, width="stretch")
     else:
         st.info("cliff 스냅샷 없음.")
-    coc = _json(d, "cocitation.json")
-    if coc:
-        st.divider(); st.markdown("**Co-citation — 경쟁 vs 상호보완**")
-        if float(coc.get("target_max_jaccard") or coc.get("yuhan_max_jaccard") or 0) < 0.003:
-            st.warning("⚠️ 타깃 특허 풋프린트 희박(초기사) → 상위 노드는 키워드노이즈 가능, 참고용.")
-        st.pyplot(viz.cocitation_network_fig(coc, asset.split("(")[0].split()[0][:12]))
+    # co-citation(Jaccard 네트워크) 제거 — 초기 한국자산엔 대부분 빈칸/독자공간이라 무의미(사용자 피드백).
+    #   경쟁지형 = 위 '경쟁 서열' + 아래 3개(KR발굴/3-tier/Cross-modality)로 대체.
     krc = _json(d, "kr_cocitation.json")
     if krc and krc.get("kr_competitors"):
-        st.divider(); st.markdown("**KR 경쟁사 발굴 — 같은 기전/타깃 KR 특허 (US cocitation 빈칸 대체)**")
+        st.divider(); st.markdown("### 🇰🇷 KR 경쟁사 발굴 — 같은 기전을 KR 특허에 쓰는 회사")
         _kw = ", ".join(krc.get("meta", {}).get("keywords", []))
-        st.caption(f"US 등록특허 없는 초기 한국자산은 KR 특허 초록 정밀키워드(「{_kw}」)로 경쟁사 발굴. "
+        st.caption(f"질문: 이 기전(「{_kw}」)을 KR 특허에 실제 쓰는 회사가 누구? = 국내+한국출원 글로벌 직접 경쟁. "
                    f"자사 {krc.get('self_count', 0)}건 · {krc.get('n_companies', 0)}개사. 빨강=국내/파랑=해외.")
         st.pyplot(viz.kr_cocitation_fig(krc))
     kr = _json(d, "kr_tiers.json")
     if kr:
-        st.divider(); st.markdown("**KR 경쟁 3-tier**")
+        st.divider(); st.markdown("### 🇰🇷 KR 3-tier — 기술 분류(IPC)로 본 국내 경쟁 계층")
+        st.caption("질문: 기전 키워드 아니라 **기술 분류(IPC)**로 봤을 때 국내 경쟁 계층? Tier1 직접/Tier2 인접/Tier3 다른 modality(=잠재 co-dev). 위 'KR 발굴'(키워드)과 달리 넓은 기술지형.")
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
         st.pyplot(viz.kr_tier_fig(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt)))

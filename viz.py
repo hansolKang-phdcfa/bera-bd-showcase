@@ -526,14 +526,13 @@ def kr_cocitation_fig(data, top=12):
 def field_pool_fig(data, top=16):
     """데이터 기반 필드 풀 — 도메인 활동 주체(하드코딩 buyer 대체). 색=momentum(가속 BLUE/냉각 GRAY), (학계) 태그."""
     from matplotlib.patches import Patch
-    pool = (data or {}).get("field_pool", [])[:top]
+    pool = [p for p in (data or {}).get("field_pool", []) if p.get("kind") != "academic"][:top]
     if not pool:
         return _empty("필드 풀 없음 — 키워드 확인")
     pool = pool[::-1]
 
     def lab(p):
-        nm = p["company"].replace(", Inc.", "").replace(" Inc.", "").replace(" LLC", "").replace(" Ltd.", "")[:28]
-        return nm + (" (학계)" if p.get("kind") == "academic" else "")
+        return p["company"].replace(", Inc.", "").replace(" Inc.", "").replace(" LLC", "").replace(" Ltd.", "")[:30]
     names = [lab(p) for p in pool]
     vals = [p["n_patents"] for p in pool]
     tcol = {"가속": BLUE, "냉각": GRAY, "유지": LGRAY}
