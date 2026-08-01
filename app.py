@@ -264,7 +264,8 @@ with st.container():
                    f"위 'KR 발굴'(키워드)과 달리 넓은 기술지형." + (f"　★사용 IPC: {_ipc}" if _ipc else ""))
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
-        st.pyplot(viz.kr_tier_fig(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt)))
+        st.pyplot(viz.kr_tier_fig(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt),
+                                  domains=list((m.get("kr_domains") or {}).keys())))
     cm = _json(d, "crossmod.json")
     if cm:
         st.divider()

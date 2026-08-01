@@ -285,47 +285,48 @@ def lo_candidates_fig(lo_rows, top=12):
     return fig
 
 
-def kr_tier_fig(kr_rows, top=18, tier_filter=None):
-    """KR 경쟁 3-tier — total_focus 가로막대, tier별 색(직접경쟁/인접/잠재 co-dev).
-    kr_rows=kr_tiers.json 리스트(assignee·tier·total_focus·tier_label).
-    tier_filter=1/2/3 이면 해당 티어만(대시보드 버튼용), None이면 전체."""
-    rows = [r for r in kr_rows if float(r.get("total_focus", 0) or 0) > 0
-            and r.get("tier") in (1, 2, 3)]
+def kr_tier_fig(kr_rows, top=18, tier_filter=None, domains=None):
+    """KR 경쟁 3-tier — 회사별 도메인(IPC)별 특허 건수 stacked 막대(색=도메인). y라벨 ·T=티어."""
+    from matplotlib.patches import Patch
+    rows = [r for r in kr_rows if float(r.get("total_focus", 0) or 0) > 0 and r.get("tier") in (1, 2, 3)]
     if tier_filter in (1, 2, 3):
         rows = [r for r in rows if r.get("tier") == tier_filter]
     if not rows:
         return _empty(f"KR {'Tier' + str(tier_filter) if tier_filter else '3-tier'} 데이터 없음")
+    META = {"assignee", "tier", "tier_label", "total_focus", "partner_role"}
+    if domains:
+        core = [d for d in domains if any(d in r for r in rows)]
+    else:
+        keys = set()
+        for r in rows:
+            keys |= set(r.keys())
+        core = sorted(k for k in keys if k not in META and not k.startswith("m_")
+                      and not k.startswith("recent"))
     rows = sorted(rows, key=lambda r: (r.get("tier", 9), -float(r.get("total_focus", 0))))[:top]
     rows = rows[::-1]
-    comp = [_short(r["assignee"]) for r in rows]
-    foc = [float(r.get("total_focus", 0)) for r in rows]
-    tcol = {1: BLUE, 2: GRAY, 3: LGRAY}
-    tlab = {1: "Tier1 직접경쟁", 2: "Tier2 영역인접", 3: "Tier3 잠재 co-dev"}
-    colors = [tcol.get(r.get("tier"), GRAY) for r in rows]
-    y = range(len(comp))
-    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.40 * len(comp)), dpi=140)
+    comp = [f"{_short(r['assignee'])}  ·T{r.get('tier')}" for r in rows]
+    PAL = [BLUE, "#E8544B", "#F5A623", "#2BB673", "#7B61FF", "#00A3B4", "#C86DD7", GRAY]
+    dcol = {d: PAL[i % len(PAL)] for i, d in enumerate(core)}
+    y = list(range(len(rows)))
+    fig, ax = plt.subplots(figsize=(11.5, 0.7 + 0.42 * len(rows)), dpi=140)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
-    ax.barh(y, foc, color=colors, height=0.66)
-    for i, v in enumerate(foc):
-        ax.text(v + max(foc) * 0.01, i, f"{int(v)}", va="center", ha="left",
-                fontsize=8.5, color=BLACK)
-    ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=9, color=BLACK)
-    ax.set_xlabel("도메인 특허 집중도 (total_focus)", fontsize=9.5, color=GRAY)
+    left = [0.0] * len(rows)
+    for d in core:
+        vals = [float(r.get(d, 0) or 0) for r in rows]
+        ax.barh(y, vals, left=left, color=dcol[d], height=0.66)
+        left = [l + v for l, v in zip(left, vals)]
+    xmax = max(left) or 1
+    for i in y:
+        ax.text(left[i] + xmax * 0.008, i, f"{int(left[i])}", va="center", fontsize=8, color=BLACK)
+    ax.set_yticks(y); ax.set_yticklabels(comp, fontsize=8.5, color=BLACK)
+    ax.set_xlabel("도메인(IPC)별 특허 건수 — stacked (한 특허가 여러 IPC면 각각 카운트)", fontsize=9, color=GRAY)
     ax.tick_params(axis="x", labelsize=9, colors=GRAY)
-    for sp in ["top", "right", "left"]:
+    for sp in ("top", "right", "left"):
         ax.spines[sp].set_visible(False)
-    ax.spines["bottom"].set_color(GRAY)
-    seen, handles = set(), []
-    from matplotlib.patches import Patch
-    for r in rows:
-        t = r.get("tier")
-        if t not in seen:
-            seen.add(t)
-            handles.append(Patch(color=tcol.get(t, GRAY), label=tlab.get(t, str(t))))
-    handles = sorted(handles, key=lambda h: h.get_label())
-    ax.legend(handles=handles, loc="lower right", fontsize=9, frameon=False)
-    ax.set_title("KR 경쟁 3-tier — 특허 집중도 × 티어 (지역 라이센시·경쟁 지형)",
-                 fontsize=13, fontweight="bold", color=BLACK, pad=10)
+    ax.legend(handles=[Patch(color=dcol[d], label=d) for d in core], loc="lower right",
+              fontsize=8, frameon=False, title="IPC 도메인", ncol=2)
+    ax.set_title("KR 3-tier — 회사별 IPC 도메인 분해 (색=도메인, ·T=티어)",
+                 fontsize=12, fontweight="bold", color=BLACK, pad=10)
     fig.tight_layout()
     return fig
 
