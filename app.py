@@ -169,7 +169,7 @@ with st.container():
         explain_box(
             what=f"「{_fk}」 기전에 실제 특허 활동하는 상업사를 데이터로 발굴(소형 바이오텍 포함, 학계 제외).",
             how="○ 직전 평균/년(anchor 인용) → ● 최근 평균/년 덤벨. **파랑=가속(LO 타이밍)/회색=냉각**. 규모+추세를 한 그래프에.",
-            message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보. 특허 없는 순수 임상/딜 플레이어는 미포착.")
+            message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보.")
         st.pyplot(viz.momentum_fig([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
         st.divider()
     # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
