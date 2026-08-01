@@ -160,8 +160,34 @@ with st.container():
 st.divider()
 st.header("🤝 파트너링 대상 발굴")
 with st.container():
+    # 다에셋 회사: 라이브 자산(트랙)마다 기전·적응증이 달라 파트너 후보를 별도 발굴
+    _pn = _nar_top.get("_competition") or {}
+    _ptracks = [t for t in (_pn.get("tracks") or []) if t.get("partnering")]
+    if _ptracks:
+        st.markdown("### 🎯 자산별 파트너 후보 — 트랙마다 기전·적응증이 달라 별도 발굴")
+        st.caption("이 회사는 라이브 자산이 서로 다른 필드에 있어 하나의 풀로 못 묶음. "
+                   "자산(트랙)별로 ①그 기전에 특허 활동하는 상업사 ②그 적응증에 임상 개시하는 sponsor를 각각 데이터로 발굴.")
+        for _t in _ptracks:
+            _pt = _t["partnering"]
+            st.markdown(f"#### ▸ {_t.get('asset', '')}")
+            _fk = ", ".join(_pt.get("field_pool_kw", []))
+            _pool = _pt.get("field_pool", [])
+            _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
+                    for x in _pool if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
+            explain_box(
+                what=f"「{_fk}」 기전에 실제 특허 활동하는 상업사를 데이터로 발굴(학계 제외).",
+                how="○ 직전/년 → ● 최근/년(anchor 인용) 덤벨. **파랑=가속(이 영역 데워짐=LO 타이밍)/회색=냉각**.",
+                message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보.")
+            st.pyplot(viz.momentum_fig([x for x in _pool if x.get("kind") != "academic"]))
+            _ind = _pt.get("clinical_ind", "")
+            _clin = _pt.get("clinical_momentum", [])
+            if _clin:
+                st.markdown(f"**📈 임상 개시 추세 — 「{_ind}」** (이 적응증에 임상 연 전체 INDUSTRY sponsor, ct.gov · *특허와 다른 축*)")
+                st.pyplot(viz.momentum_fig(_clin))
+            st.divider()
+
     fpool = _json(d, "field_pool.json")
-    if fpool and fpool.get("field_pool"):
+    if fpool and fpool.get("field_pool") and not _ptracks:
         _fk = ", ".join(fpool.get("meta", {}).get("keywords", []))
         _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
                 for x in fpool["field_pool"] if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
@@ -174,7 +200,7 @@ with st.container():
         st.divider()
     # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
     cfm = _json(d, "clinical_field_momentum.json")
-    if cfm and cfm.get("momentum"):
+    if cfm and cfm.get("momentum") and not _ptracks:
         _inds = " · ".join(cfm.get("meta", {}).get("indications", []))
         st.markdown("### 📈 임상 시험 개시 추세 (가속/냉각) — *특허* momentum과 다른 축")
         explain_box(
