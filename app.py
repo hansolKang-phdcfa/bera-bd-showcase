@@ -281,8 +281,15 @@ with st.container():
         st.pyplot(viz.bd_trend_fig(bd))
     deals = _json(d, "lo_comparables.json")
     if deals and deals.get("lo_comparables"):
-        st.divider(); st.markdown("**Comparable License-Out 딜 — 경제성 벤치**")
-        st.dataframe(pd.DataFrame(deals["lo_comparables"]), hide_index=True, width="stretch")
+        st.divider(); st.markdown("**License-Out 딜 경제성 — 치료영역·단계 매칭 시장 벤치**")
+        _lodf = pd.DataFrame(deals["lo_comparables"])
+        _locols = [c for c in ["lo_date", "buyer", "seller", "indication", "stage",
+                               "upfront_usd_m", "milestone_usd_m", "total_usd_m", "upfront_pct", "territory"]
+                   if c in _lodf.columns]
+        st.dataframe(_lodf[_locols] if _locols else _lodf, hide_index=True, width="stretch")
+        st.caption("자산의 치료영역·개발단계에 매칭된 실제 LO 딜의 경제성임(선지급·마일스톤·총액·선지급 비중). "
+                   "딜 본문에서 자동 인식된 개별 약물명·기전은 신뢰도가 낮아 표기하지 않음(특정 자산 comparable이 아니라 시장 단가 맥락). "
+                   "헤드라인 총액보다 upfront 비중(구조)이 핵심임.")
 
 st.divider()
 st.header("🔬 CI 분석")
