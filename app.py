@@ -181,15 +181,14 @@ with st.expander("📖 용어 설명 — 처음이면 펼쳐보세요"):
 - **AoI**(타겟기업 관심도) = need(원천특허 만료=다급) + citation(우리 기술 인용=관심) + clinical(활성 임상=상용화 핏).
 - **LO score**: 라이선스-인 후보(gap·interest·activity). **angle**: Co-dev(기전 역량) vs LO(gap).
 - **Momentum**: 추세(가속/냉각). **Cross-modality**: 같은 적응증, 다른 모달리티 상업사.
-- **Patent Cliff**: 바이어 원천특허 만료(★=FDA Orange Book 검증 실만료·약물명 / ○=출원+20 근사).
-- **grade**: 🟢FACT · 🔵REC · 🟡EST.""")
+- **Patent Cliff**: 바이어 원천특허 만료(★=FDA Orange Book 검증 실만료·약물명 / ○=출원+20 근사).""")
 
 st.header("📄 자산 개요")
 with st.container():
     nar = _json(d, "narrative.json") or {}
     for title in [k for k in nar if not k.startswith("_")]:
         s = nar[title]; g = s.get("grade")
-        st.markdown(f"### {title}" + (f"  ·  {GRADE_BADGE.get(g, g)}" if g else ""))
+        st.markdown(f"### {title}")
         if s.get("keymsg"):
             st.info(_para(s["keymsg"]))
         if s.get("cards"):
@@ -208,9 +207,8 @@ with st.container():
     _pn = _nar_top.get("_competition") or {}
     _ptracks = [t for t in (_pn.get("tracks") or []) if t.get("partnering")]
     if _ptracks:
-        st.markdown("### 🎯 자산별 파트너 후보 — 트랙마다 기전·적응증이 달라 별도 발굴")
-        st.caption("이 회사는 라이브 자산들이 서로 다른 기술 영역에 있어 하나의 후보군으로 묶기 어려움. "
-                   "그래서 자산(트랙)마다 (1) 그 기전에 특허 활동을 하는 상업사와 (2) 그 적응증에 임상을 개시하는 sponsor를 각각 데이터로 발굴함.")
+        st.markdown("### 🎯 자산별 파트너 후보")
+        st.caption("자산(트랙)마다 (1) 그 기전에 특허 활동하는 상업사와 (2) 그 적응증에 임상을 개시하는 sponsor를 각각 데이터로 발굴함.")
         for _t in _ptracks:
             _pt = _t["partnering"]
             st.markdown(f"#### ▸ {_t.get('asset', '')}")
