@@ -3,12 +3,12 @@
   "_thesis": {
     "grade": "REC",
     "situation": "EFIL-201은 ACAT(회사 주장으로는 ACAT1) 저해제로, 비만을 겨냥한 전임상 자산임.\n\n- 2021년 설립된 한국 소형사로 인력이 소수이고 단일 VC의 투자를 받음\n- 임상데이터·IND·구조식이 전혀 공개되지 않음\n- 심혈관 ACAT 저해제(avasimibe·pactimibe)는 2003~06년 Ph3 실패로 폐기된 역사가 있음",
-    "insight": "핵심은 '비만 ACAT1 저해제'가 경쟁자가 거의 없는 white space라는 점인데, 이는 강점인 동시에 경고임.\n\n- 임상까지 진입한 유일한 ACAT1 저해제(nevanimibe/ATR-101)는 비만이 아니라 부신질환용이며, 실제로는 부신을 사멸시키는 약(부신피질암 치료제)임\n- 즉 ACAT1 저해의 클래스 급소는 부신독성임\n- 아무도 비만 ACAT1을 시도하지 않는 것은 기회일 수도, 시도하지 못하는 이유일 수도 있음\n- GLP-1 시대에는 단독 요법으로 경쟁하기 어려움(비-인크레틴 단독 6~7%, GLP-1 15~20%)\n\n★현실적인 각도는 경구 GLP-1 병용 add-on, 대사 comorbidity(MASH·이상지질), 희귀 과식증(Prader-Willi)임.",
+    "insight": "핵심은 '비만 ACAT1 저해제'가 경쟁자가 거의 없는 white space라는 점인데, 이는 강점인 동시에 경고임.\n\n- 비만 적응증으로 임상에 진입한 ACAT1 저해제는 아직 없음. 임상 단계에 도달한 ACAT1 저해제(nevanimibe/ATR-101)조차 비만이 아니라 부신질환용이며, 실제로는 부신을 사멸시키는 약(부신피질암 치료제)임\n- 즉 ACAT1 저해의 클래스 급소는 부신독성임\n- 아무도 비만 ACAT1을 시도하지 않는 것은 기회일 수도, 시도하지 못하는 이유일 수도 있음\n- GLP-1 시대에는 단독 요법으로 경쟁하기 어려움(비-인크레틴 단독 6~7%, GLP-1 15~20%)\n\n★현실적인 각도는 경구 GLP-1 병용 add-on, 대사 comorbidity(MASH·이상지질), 희귀 과식증(Prader-Willi)임.",
     "lo_play": "- 누구: 경구 GLP-1 백본에 얹을 add-on을 원하는 비만 빅파마임(Novo·Lilly가 병용 자산을 물색 중)\n- 왜: GLP-1과 직교하는 대사·면역·간 축이기 때문임\n- 언제: 부신독성이 확인되고 병용 효능 데이터가 확보된 이후임(현시점은 이르고 딜 레디니스가 낮음)\n- ★ACAT 특이 딜 선례가 전무해 밸류 앵커가 부재함",
     "risk": "- ①★부신독성이 ACAT1 클래스의 급소임(ATR-101이 부신을 사멸시키는 약)\n- ②항비만 효능 규모가 미검증임(ACAT1 KO 마우스는 체중이 변하지 않고 지방만 감소함)\n- ③avasimibe/pactimibe의 Ph3 실패 유산이 있음\n- ④전임상 단계이고 데이터가 공백이라 딜 레디니스가 낮고 정보가 부족함(회사 및 특허DB 수준)",
     "evidence": [
       "ACAT 심혈관 Ph3 실패 이력이 있음. avasimibe는 2003년, pactimibe는 2006년에 중단됐고 pactimibe의 중단 사유는 pro-atherogenic이었음",
-      "임상에 진입한 유일한 ACAT1 저해제(nevanimibe)는 부신질환용이며 부신을 사멸시키는 약으로, 비만 대상이 아님",
+      "비만 적응증으로 임상에 진입한 ACAT1 저해제는 없음. 임상에 도달한 ACAT1 저해제(nevanimibe)도 부신질환용이며 부신을 사멸시키는 약으로, 비만 대상이 아님",
       "비만 ACAT1은 임상 무경력의 white space임",
       "GLP-1이 지배하는 시장에서 비-인크레틴 단독 요법은 불가능하며, 병용 add-on만이 현실적임",
       "ACAT 특이 딜 선례가 전무해 밸류 앵커가 부재함"
@@ -19,17 +19,17 @@
     "axis": "ACAT/SOAT 저해제 — 심혈관은 Ph3 실패로 폐기, 비만 ACAT1은 임상 무경력(EFIL 사실상 단독이나 데이터 공백).",
     "players": [
       {
-        "company": "Millendo",
+        "company": "Millendo(→Tempest)",
         "asset": "nevanimibe(ATR-101)",
         "stage": "Phase 2",
-        "note": "ACAT1 · ★부신질환(비만 아님)·부신독성",
+        "note": "ACAT1 · ★부신질환(비만 아님)·부신독성 · 중단",
         "is_target": false
       },
       {
         "company": "Kowa",
         "asset": "K-604",
-        "stage": "전임상",
-        "note": "ACAT1 · NASH/죽상경화/AD",
+        "stage": "Phase 2",
+        "note": "ACAT1 · 죽상경화 Ph2(완료)/NASH·AD 전임상",
         "is_target": false
       },
       {
@@ -91,7 +91,7 @@
     "body": [
       "개발단계: EFIL-201과 Avasimibe는 preclinical 단계이고, EFIL-301은 개발이 중단됨(CRPC)",
       "검증 근거: GLP-1 병용 체중감소 시너지 연구 데이터임(전임상). 독립적 임상효능은 아직 확보되지 않음",
-      "★리스크 명시: ACAT1 클래스의 급소는 부신독성임. 임상에 진입한 유일한 ACAT1 저해제(nevanimibe/ATR-101)는 비만약이 아니라 부신피질암 치료제이며 부신을 사멸시키는 약임. 비만 ACAT1 white space는 기회인 동시에 '시도하지 못하는 이유'일 수 있음. avasimibe/pactimibe의 심혈관 Ph3 실패 유산도 있음. DD에서 부신독성과 항비만 효능 규모(ACAT1 KO 마우스는 체중이 변하지 않음)를 집중 질의할 것으로 예상됨"
+      "★리스크 명시: ACAT1 클래스의 급소는 부신독성임. 비만 적응증으로 임상에 진입한 ACAT1 저해제는 없음. 임상에 도달한 ACAT1 저해제(nevanimibe/ATR-101)도 비만약이 아니라 부신피질암 치료제이며 부신을 사멸시키는 약임. 비만 ACAT1 white space는 기회인 동시에 '시도하지 못하는 이유'일 수 있음. avasimibe/pactimibe의 심혈관 Ph3 실패 유산도 있음. DD에서 부신독성과 항비만 효능 규모(ACAT1 KO 마우스는 체중이 변하지 않음)를 집중 질의할 것으로 예상됨"
     ]
   },
   "전략 권고": {

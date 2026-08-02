@@ -5,7 +5,7 @@
     "situation": "CoBX Bio(캅스바이오, 2024 설립)는 ex-Voronoi 연구진이 RaPIDome 플랫폼을 기반으로 창업한 회사로, 라플라스파트너스로부터 투자받음.\n\n- 자산 2개는 모두 전임상 단계임\n- (a) Menin 공유결합(covalent) 저해제·degrader로 AML(NPM1·KMT2A)을 겨냥함\n- (b) GSPT1/ZFP91 이중 molecular glue로 췌장암을 겨냥함\n- Menin 영역은 revumenib(2024)·ziftomenib(2025)이 잇따라 승인되며 관심이 집중된 영역임",
     "insight": "핵심은 revumenib·ziftomenib 승인 이후의 진입이 늦은 것이 아니라는 점임.\n\n- 두 승인약은 reversible(가역) 저해제인 반면, CoBX는 covalent(공유결합) lane에 위치하는데 이 lane은 비어 있음\n- lane이 비어 있는 이유는 유일한 선행 covalent였던 Biomea icovamenib이 2025-02 항암 개발을 중단하고 당뇨로 피벗했기 때문임\n- revumenib·ziftomenib에서 부상하는 실패모드는 on-target MEN1 내성변이(M327I 등)이며, covalent·degrader가 그에 대한 2세대 해답에 해당함\n\n★즉 CoBX는 경쟁이 포화된 가역 lane의 me-too가 아니라, 곧 생길 내성을 겨냥한 유일한 활성 covalent로서 실제 white space에 해당함.\n(GSPT1 자산은 별개로, 췌장암에서 독성으로 정체된 클래스이므로 신중히 접근해야 함.)",
     "lo_play": "- 대상: Menin 승인약을 보유했으나 내성에 대비한 2세대가 없는 곳(Syndax·Kura/Kyowa)과 Menin을 놓친 빅파마임\n- 근거: covalent·degrader가 post-revumenib 내성에 대한 해답이기 때문임\n- 시점: 전임상 단계라 이르지만, 임상에서 내성 데이터가 축적될수록 가치가 상승함\n- 딜 벤치마크: Kura-Kyowa ziftomenib은 upfront $330M, 최대 $1.16B였음. 다만 이는 Ph2 기준이고, 전임상 covalent는 수천만 달러 수준임",
-    "risk": "- ① covalency의 임상 우위가 아직 입증되지 않음(icovamenib이 입증 전 항암 개발에서 철수했고, 그 사유가 불명이어서 기전 문제 가능성을 배제하기 어려움)\n- ② 전임상 단계로 코드명·데이터·아웃라이선스 실적이 없어 승인약과 수년의 격차가 있음\n- ③ GSPT1 자산은 췌장암에서 독성으로 정체된 클래스에 해당함(CC-90009가 2024 종료됐고, 온전한 선례가 없음)\n- ④ 항암 covalent이므로 만성 안전성 창이 아직 검증되지 않음",
+    "risk": "- ① covalency의 임상 우위가 아직 입증되지 않음(icovamenib이 입증 전 항암 개발에서 철수했는데, 회사는 대사질환 집중을 위한 전략적 재편이라 밝혔고 안전성·효능 문제를 사유로 들지는 않음. 다만 covalent 자체의 항암 임상검증은 미완임)\n- ② 전임상 단계로 코드명·데이터·아웃라이선스 실적이 없어 승인약과 수년의 격차가 있음\n- ③ GSPT1 자산은 췌장암에서 독성으로 정체된 클래스에 해당함(CC-90009가 2024 종료됐고, 온전한 선례가 없음)\n- ④ 항암 covalent이므로 만성 안전성 창이 아직 검증되지 않음",
     "evidence": [
       "Menin 승인이 잇따르고 있음: revumenib(2024-11 KMT2A·2025-10 NPM1)과 ziftomenib(2025-11)은 모두 reversible 저해제임",
       "★covalent lane이 비어 있음: 유일한 선행 covalent였던 Biomea icovamenib이 2025-02 항암 개발에서 철수해 당뇨로 피벗함",
@@ -78,7 +78,7 @@
   },
   "자산 개요": {
     "grade": "FACT",
-    "keymsg": "CoBX Bio(코비엑스바이오, 한국 서울, 2024 설립)는 항암 표적치료 신생사임. 두 프로그램은 Menin(MEN1) 공유결합 억제제와 GSPT1 분자접착(molecular glue) 분해제임. 모두 small molecule이며 discovery·preclinical 단계임. 플랫폼은 화학단백체학과 AI를 결합한 RaPIDome임. ★라플라스 파트너스가 pre-Series A 투자사임(2025-09, 76억).",
+    "keymsg": "CoBX Bio(코비엑스바이오, 한국 서울, 2024 설립)는 항암 표적치료 신생사임. 두 프로그램은 Menin(MEN1) 공유결합 억제제와 GSPT1 분자접착(molecular glue) 분해제임. 모두 small molecule이며 discovery·preclinical 단계임. 플랫폼은 화학단백체학과 AI를 결합한 RaPIDome임. ★라플라스 파트너스가 pre-Series A(2025, 76억) 투자사이며 이후 Series B(2026-06, 292억)에도 후속 참여함(누적 약 368억).",
     "cards": [
       [
         "Menin 공유결합 억제제",
@@ -90,7 +90,7 @@
       ],
       [
         "회사/플랫폼",
-        "Private, 서울, 2024 설립으로 매우 초기 단계임. RaPIDome은 화학단백체학과 분자모델링, AI를 활용해 기전·내성경로를 규명함. pre-Series A로 76억을 조달함(한투·라플라스·Solid X·Company K·KB 등)"
+        "Private, 서울, 2024 설립임. RaPIDome은 화학단백체학과 분자모델링, AI를 활용해 기전·내성경로를 규명함. pre-Series A 76억에 이어 Series B 292억을 조달함(누적 약 368억; 한투·라플라스·Solid X·Company K·KB에 에이티넘·K2·키움 신규 합류)"
       ]
     ],
     "body": [
@@ -100,9 +100,9 @@
   },
   "임상 & 검증": {
     "grade": "EST",
-    "keymsg": "discovery·preclinical 단계임(임상 진입 전, 2024 설립). 에셋 코드명이 미공개이고 구체적 적응증도 불확실함. 검증 근거는 타깃 validation(Menin·GSPT1 모두 빅파마·임상에서 검증된 타깃)과 라플라스 등의 투자 유치임.",
+    "keymsg": "전임상 단계임(2024 설립; 2026년 국내 보도는 리드 자산을 전임상 후기~임상 1상 단계로 기술하나 임상등록은 미확인임). 에셋 코드명이 미공개이고 구체적 적응증도 불확실함. 검증 근거는 타깃 validation(Menin·GSPT1 모두 빅파마·임상에서 검증된 타깃)과 라플라스 등의 투자 유치임.",
     "body": [
-      "개발단계는 discovery부터 preclinical에 해당함. 공개된 임상데이터와 에셋 코드명이 없음",
+      "개발단계는 전임상에 해당함(2026년 보도는 전임상 후기~임상 1상 단계로 기술하나 임상등록 미확인). 공개된 임상데이터와 에셋 코드명이 없음",
       "타깃 validation: Menin은 Syndax revumenib(FDA 승인 2024-11)과 Kura ziftomenib(Kyowa 도입)으로 검증됨. GSPT1은 BMS CC-90009로 검증됨(최초의 임상 GSPT1 degrader이나, 해당 시험은 2024 효능부족으로 종료됨. 즉 타깃 진입 선례에는 해당하나 검증이 완료된 것은 아님)",
       "★리스크: 초기 단계이고 에셋 세부가 미공개여서, DD에서 플랫폼 재현성과 기전 데이터에 대한 집중 질의가 예상됨"
     ]

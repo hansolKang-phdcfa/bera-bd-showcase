@@ -2,12 +2,12 @@
   "_README": "빌릭스 내러티브 슬롯 — LLM 초안(웹조사+엔진결과) → 분석가(서준희) 편집. build_spec이 title 키로 매칭해 덱 narrative 슬라이드를 채움. ★사실은 확정 전 확인 필요(특히 임상수치·적응증 단계·딜조건). grade=FACT는 웹출처 있음/REC는 엔진기반 권고.",
   "_thesis": {
     "grade": "REC",
-    "situation": "- BX-001N(Brixelle)은 PEG-빌리루빈-3α 나노입자임(내인성 항산화제를 용해도와 표적화로 druggable화한 것으로, Advanced Science 2025 게재)\n- ★선도 적응증은 심장수술연관 급성신손상(CSA-AKI, 신장 IR)과 신장이식임(심근 IR/AMI는 확장 적응증)\n- 호주 Ph1 완료(NCT06097702, 51명), 한국 Ph2a(CSA-AKI) 진행 중임\n- KAIST 전상용 스핀아웃임(2018년 설립, CEO 김명립)",
+    "situation": "- BX-001N(Brixelle)은 PEG-빌리루빈-3α 나노입자임(내인성 항산화제를 용해도와 표적화로 druggable화한 것으로, Advanced Healthcare Materials 2025 게재)\n- ★선도 적응증은 심장수술연관 급성신손상(CSA-AKI, 신장 IR)과 신장이식임(심근 IR/AMI는 확장 적응증)\n- 호주 Ph1 완료(NCT06097702, 51명), 한국 Ph2a(CSA-AKI) 진행 중임\n- KAIST 전상용 스핀아웃임(2018년 설립, CEO 김명립)",
     "insight": "- 빌리루빈은 내인성 최강 항산화제(Nrf2/HO-1 축)를 용해도와 손상조직 표적화로 druggable화한 정교한 기전임\n- ★그러나 재관류손상과 장기보호는 임상 실패가 반복된 영역임. cardioprotection 승인약이 전무하고 대형 Ph3가 연이어 실패함(elamipretide EMBRACE-STEMI, cyclosporine CIRCUS, 최근 FDY-5301 IOCYTE 2025)\n- 유일하게 성공한 modality는 약물이 아니라 기계관류임(TransMedics, OrganOx)\n- ★빌릭스의 전략적 선택은 임상 실패가 반복된 심근 IR이 아니라 CSA-AKI라는 좁고 측정가능한 수술 세팅을 선도 적응증으로 잡은 것임\n- ★★다만 바로 그 자리에 직접 경쟁자 Renibus RBT-1이 같은 Nrf2/HO-1 축으로 Ph3(FDA BTD)까지 도달해 있음. 이는 해당 축이 임상에 도달했다는 검증인 동시에 빌릭스 차별점을 침식하는 위협임\n- ★즉 임상 실패가 반복된 영역은 피했으나, 선도 자리엔 이미 Ph3 선행자가 있고 HO-1 축은 독점이 아님",
     "lo_play": "- 대상은 CSA-AKI와 신장보호·이식에 관심 있는 제약사 및 이식 관류사임\n- 근거는 근본원인인 내인성 세포보호 복원을 노리는 첫 나노 접근이라는 점임\n- 시점은 Ph2a PoC(~2027) 이후 조기 아웃라이선싱임(회사 전략)\n- 다만 Renibus RBT-1의 Ph3 결과가 판도를 가름\n- ★나노메디슨 딜 경고: 1세대 타깃 나노입자는 프리미엄 M&A 거의 없이 소멸했음(BIND는 Pfizer에 약 $40M의 저가로 인수됨). 따라서 '풍부한 comp'가 아니라 '모두 실패한 미충족 수요' 논리로 접근해야 함",
     "risk": "- ① 해당 영역은 cardioprotection/IR에서 임상 실패가 반복된 곳임(elamipretide는 직접 유사 기전으로 실패함)\n- ② ★직접경쟁 Renibus RBT-1이 같은 HO-1 축으로 Ph3를 선행해 차별점을 침식함\n- ③ HO-1 축은 비독점임\n- ④ human 효능이 미증명 상태임(Ph2a 진행 중, 회사 발표 수치 비검증). 미국 IND granted 여부가 모호하고, 나노메디슨 프리미엄 딜은 희소함",
     "evidence": [
-      "자산 실재: 호주 Ph1 완료(NCT06097702, 51명), 한국 Ph2a CSA-AKI 진행, Advanced Science 2025 peer-review",
+      "자산 실재: 호주 Ph1 완료(NCT06097702, 51명), 한국 Ph2a CSA-AKI 진행, Advanced Healthcare Materials 2025 peer-review",
       "★직접경쟁: Renibus RBT-1(동일 Nrf2/HO-1 축)이 CSA-AKI Ph3 PROTECT와 FDA BTD로 선행함",
       "cardioprotection 임상 실패 반복: elamipretide·cyclosporine·FDY-5301(2025)이 전멸했고 재관류손상 승인약은 전무함",
       "실제 성공은 약물이 아니라 기계관류 기기임(TransMedics, OrganOx)",

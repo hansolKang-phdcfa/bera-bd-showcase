@@ -43,14 +43,14 @@
         "company": "Ultragenyx",
         "asset": "UX701",
         "stage": "Phase 2",
-        "note": "AAV 유전자치료(ATP7B) · Cyprus2+",
+        "note": "AAV 유전자치료(ATP7B) · Cyprus2+ pivotal Ph1/2/3(Stage 1)",
         "is_target": false
       },
       {
         "company": "Vivet/Pfizer",
         "asset": "VTX-801",
         "stage": "Phase 1",
-        "note": "AAV 유전자치료 · GATEWAY",
+        "note": "AAV 유전자치료 · GATEWAY Ph1/2",
         "is_target": false
       },
       {
@@ -73,19 +73,19 @@
   },
   "자산 개요": {
     "grade": "FACT",
-    "keymsg": "ArborMed(한국 아버메드, 2017년 설립)의 리드 자산 ARBM-101은 구리(Cu) modulator로, Wilson병(희귀 구리축적 간질환)을 겨냥한 small molecule임. preclinical 단계임(P1 준비). Helmholtz Zentrum München에서 in-license함. CEO 박교진은 前 레고켐바이오에서 Takeda로의 기술이전을 성사시킨 이력을 보유함.",
+    "keymsg": "ArborMed(한국 아버메드, 2017년 설립)의 리드 자산 ARBM-101은 구리(Cu) modulator로, Wilson병(희귀 구리축적 간질환)을 겨냥한 methanobactin SB2 기반 펩타이드임(정맥주사). preclinical 단계임(P1 준비). Helmholtz Zentrum München에서 in-license함. CEO 박교진은 前 레고켐바이오에서 Takeda로의 기술이전을 성사시킨 이력을 보유함.",
     "cards": [
       [
         "ARBM-101 (구리 modulator)",
-        "Wilson병(간렌즈핵변성)을 대상으로 하는 경구 small molecule임. 구리 킬레이션과 이동을 조절하는 기전임(정확한 분자기전은 미공개). 원천특허는 Helmholtz 명의임(in-license)"
+        "Wilson병(간렌즈핵변성)을 대상으로 하는 정맥주사 methanobactin SB2 펩타이드임. 구리에 결합해 담즙·분변으로 배출하는 기전임(정확한 분자기전은 미공개). 원천특허는 Helmholtz 명의임(in-license)"
       ],
       [
         "희귀질환 포트폴리오",
-        "ARBM-201(Pendrin/SLC26A4 억제·감각신경성난청, unverified)과 ARBM-301(anion transport·염증, unverified) 등 희귀질환에 집중함. 파이프라인 5개 중 4개가 small molecule임"
+        "ARBM-201(ARDS·급성호흡곤란증후군, unverified)과 ARBM-301(anion transport·Pendrin/SLC26A4·감각신경성난청, unverified) 등 희귀질환에 집중함. 파이프라인 5개 중 4개가 small molecule임"
       ],
       [
         "회사",
-        "비상장사이며 서울에 소재하고 2017년 설립, 10~50명 규모임. 미국 자회사 Arbormed Pharma를 보유함. 라플라스 Deep Dive 리포트 대상사임"
+        "비상장사이며 경기 성남(판교)에 소재하고 2017년 설립, 10~50명 규모임. 미국 자회사 Arbormed Pharma를 보유함. 라플라스 Deep Dive 리포트 대상사임"
       ]
     ],
     "body": [
