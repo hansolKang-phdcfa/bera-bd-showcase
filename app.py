@@ -95,8 +95,10 @@ def _md(s):
 
 
 def _para(s):
-    """긴 thesis/keymsg 벽 텍스트 완화 — 문장·번호(①②)·★ 단위 줄바꿈."""
+    """thesis/keymsg 렌더 — 개조식(명시적 줄바꿈)은 구조 보존, 구형 telegraphic은 문장·번호·★ 단위 자동 줄바꿈."""
     s = _md(s)
+    if "\n" in s:
+        return s.strip()
     for b in _BULLETS:
         s = s.replace(b, "\n\n" + b)
     s = s.replace("★", "\n\n★")
