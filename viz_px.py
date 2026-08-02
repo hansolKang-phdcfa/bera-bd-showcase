@@ -38,6 +38,19 @@ def _short(name):
     return n.title()[:24]
 
 
+def _ylab(name):
+    """차트 y축 라벨 — 긴 회사명은 중간 공백에서 2줄(<br>)로 접어 모바일 가로폭 절약. 풀네임은 hover에."""
+    s = _short(name)
+    if len(s) <= 13:
+        return s
+    spaces = [i for i, ch in enumerate(s) if ch == " "]
+    if spaces:
+        mid = len(s) / 2.0
+        sp = min(spaces, key=lambda i: abs(i - mid))
+        return s[:sp] + "<br>" + s[sp + 1:]
+    return s[:15] + "…"
+
+
 def _empty_px(msg):
     fig = go.Figure()
     fig.add_annotation(text=msg, showarrow=False, font=dict(size=14, color=GRAY, family=FONT))
@@ -71,7 +84,8 @@ def momentum_px(rows, top=12):
     rows = sorted(rows, key=lambda r: (r.get("recent_per_yr", 0) or 0))[-top:]
     if not rows:
         return _empty_px("momentum 데이터 없음 (anchor 피인용 희박)")
-    comps = [_disp(r["company"]) for r in rows]
+    comps = [_ylab(r["company"]) for r in rows]
+    full = [_disp(r["company"]) for r in rows]
     prior = [float(r.get("prior_per_yr", 0) or 0) for r in rows]
     recent = [float(r.get("recent_per_yr", 0) or 0) for r in rows]
     fig = go.Figure()
@@ -80,7 +94,7 @@ def momentum_px(rows, top=12):
                                  line=dict(color=SOFT, width=4), hoverinfo="skip", showlegend=False))
     fig.add_trace(go.Scatter(x=prior, y=comps, mode="markers", name="직전 평균/년",
                              marker=dict(color=LGRAY, size=10, line=dict(color="white", width=1)),
-                             hovertemplate="%{y}<br>직전 %{x:.1f}건/년<extra></extra>"))
+                             customdata=full, hovertemplate="%{customdata}<br>직전 %{x:.1f}건/년<extra></extra>"))
     for tr, col in [("가속", BLUE), ("냉각", GRAY), ("유지", LGRAY)]:
         idx = [i for i, r in enumerate(rows) if r.get("trend") == tr]
         if not idx:
@@ -89,10 +103,10 @@ def momentum_px(rows, top=12):
         fig.add_trace(go.Scatter(
             x=[recent[i] for i in idx], y=[comps[i] for i in idx], mode="markers", name=f"최근 · {tr}",
             marker=dict(color=col, size=17, line=dict(color="white", width=1.5)),
-            customdata=[[prior[i], (f"{a}x" if a not in (None, 0.0) else "—")] for i, a in zip(idx, acc)],
-            hovertemplate="%{y}<br>최근 %{x:.1f}건/년 · 직전 %{customdata[0]:.1f}<br>" + tr + " (%{customdata[1]})<extra></extra>"))
+            customdata=[[prior[i], (f"{a}x" if a not in (None, 0.0) else "—"), full[i]] for i, a in zip(idx, acc)],
+            hovertemplate="%{customdata[2]}<br>최근 %{x:.1f}건/년 · 직전 %{customdata[0]:.1f}<br>" + tr + " (%{customdata[1]})<extra></extra>"))
     _layout(fig, title="관심 Momentum — ● 최근 vs ○ 직전 (색 = 가속/냉각)",
-            xtitle="연간 anchor 인용 건수", height=110 + 34 * len(rows))
+            xtitle="연간 anchor 인용 건수", height=118 + 40 * len(rows))
     fig.update_yaxes(categoryorder="array", categoryarray=comps)
     fig.update_xaxes(rangemode="tozero")
     return fig
@@ -111,7 +125,8 @@ def competition_ladder_px(data):
     if not rows:
         return _empty_px("경쟁 서열 데이터 없음 (임상단계 정보 필요)")
     rows = sorted(rows, key=lambda r: _STAGE_X.get(r.get("stage"), 0))
-    ylab = [_disp(f"{r['company']} ({r.get('asset', '')})") for r in rows]
+    ylab = [_ylab(r["company"]) for r in rows]
+    full = [_disp(f"{r['company']} ({r.get('asset', '')})") for r in rows]
     xs = [_STAGE_X.get(r.get("stage"), 0) for r in rows]
     fig = go.Figure()
     for i in range(len(rows)):
@@ -128,10 +143,10 @@ def competition_ladder_px(data):
             x=[xs[i] for i in idx], y=[ylab[i] for i in idx], mode="markers", name=name,
             marker=dict(symbol=sym, size=[22 if rows[i].get("is_target") else 15 for i in idx],
                         color=col, line=dict(color="white", width=1.5)),
-            customdata=[[_disp(rows[i].get("stage", "")), _disp(rows[i].get("note", "") or "—")] for i in idx],
-            hovertemplate="%{y}<br>단계: %{customdata[0]}<br>%{customdata[1]}<extra></extra>"))
+            customdata=[[_disp(rows[i].get("stage", "")), _disp(rows[i].get("note", "") or "—"), full[i]] for i in idx],
+            hovertemplate="%{customdata[2]}<br>단계: %{customdata[0]}<br>%{customdata[1]}<extra></extra>"))
     _layout(fig, title="경쟁 서열 — 오른쪽일수록 개발 단계 앞섬", xtitle="개발 단계 →",
-            height=130 + 42 * len(rows))
+            height=140 + 46 * len(rows))
     ticks = [("중단", -1.2), ("전임상", 0), ("Ph1", 2), ("Ph2", 3.5), ("Ph3", 5), ("시판", 6.5)]
     fig.update_xaxes(tickmode="array", tickvals=[t[1] for t in ticks], ticktext=[t[0] for t in ticks],
                      range=[-3.7, 7.6], showgrid=True)
@@ -167,7 +182,7 @@ def _stacked_h(rows, cats, val_of, ylab_of, title, xtitle, hover_unit="건"):
                              marker_color=PAL[i % len(PAL)],
                              hovertemplate="%{y}<br>" + str(c) + ": %{x}" + hover_unit + "<extra></extra>"))
     fig.update_layout(barmode="stack")
-    _layout(fig, title=title, xtitle=xtitle, height=130 + 30 * len(rows))
+    _layout(fig, title=title, xtitle=xtitle, height=140 + 40 * len(rows))
     fig.update_xaxes(tickformat="d")
     fig.update_yaxes(categoryorder="array", categoryarray=[ylab_of(r) for r in rows])
     return fig
@@ -190,7 +205,7 @@ def kr_tier_px(kr_rows, top=18, tier_filter=None, domains=None):
         core = sorted(k for k in keys if k not in META and not k.startswith("m_") and not k.startswith("recent"))
     rows = sorted(rows, key=lambda r: (r.get("tier", 9), -float(r.get("total_focus", 0))))[:top][::-1]
     return _stacked_h(rows, core, lambda r, d: r.get(d, 0),
-                      lambda r: f"{_short(r['assignee'])} ·T{r.get('tier')}",
+                      lambda r: f"{_ylab(r['assignee'])} ·T{r.get('tier')}",
                       "KR 3-tier — 위=Tier1(직접) → 아래=Tier3(잠재)", "도메인(IPC)별 특허 건수")
 
 
@@ -209,5 +224,5 @@ def crossmod_px(cm, top=14):
             if mm not in mods:
                 mods.append(mm)
     return _stacked_h(rows, mods, lambda r, mm: (r.get("by_modality") or {}).get(mm, 0),
-                      lambda r: _short(r["company"]),
+                      lambda r: _ylab(r["company"]),
                       "Cross-modality — 같은 적응증, 다른 모달리티", "모달리티별 특허 건수")
