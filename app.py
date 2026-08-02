@@ -18,6 +18,7 @@ import pandas as pd
 import streamlit as st
 
 import viz  # 같은 폴더 (matplotlib, 엔진 무관)
+import viz_px  # Plotly 인터랙티브 버전 (드래그/핀치 줌)
 
 st.set_page_config(page_title="BERA BD", layout="wide", page_icon="🧬")
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -102,6 +103,11 @@ def _para(s):
     s = re.sub(r"(?<=[.。])\s+(?=\S)", "\n\n", s)
     s = re.sub(r"\n{3,}", "\n\n", s)
     return s.strip()
+
+
+def _px(fig):
+    """인터랙티브 차트 렌더 — 드래그 박스줌·스크롤줌·모바일 핀치 지원."""
+    st.plotly_chart(fig, use_container_width=True, config=viz_px.PX_CONFIG)
 
 
 def explain_box(what, how, message):
@@ -209,12 +215,12 @@ with st.container():
                 what=f"「{_fk}」 기전에 실제 특허 활동하는 상업사를 데이터로 발굴(학계 제외).",
                 how="○ 직전/년 → ● 최근/년(anchor 인용) 덤벨. **파랑=가속(이 영역 데워짐=LO 타이밍)/회색=냉각**.",
                 message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보.")
-            st.pyplot(viz.momentum_fig([x for x in _pool if x.get("kind") != "academic"]))
+            _px(viz_px.momentum_px([x for x in _pool if x.get("kind") != "academic"]))
             _ind = _pt.get("clinical_ind", "")
             _clin = _pt.get("clinical_momentum", [])
             if _clin:
                 st.markdown(f"**📈 임상 개시 추세 — 「{_ind}」** (이 적응증에 임상 연 전체 INDUSTRY sponsor, ct.gov · *특허와 다른 축*)")
-                st.pyplot(viz.momentum_fig(_clin))
+                _px(viz_px.momentum_px(_clin))
             st.divider()
 
     fpool = _json(d, "field_pool.json")
@@ -227,7 +233,7 @@ with st.container():
             what=f"「{_fk}」 기전에 실제 특허 활동하는 상업사를 데이터로 발굴(소형 바이오텍 포함, 학계 제외).",
             how="○ 직전 평균/년(anchor 인용) → ● 최근 평균/년 덤벨. **파랑=가속(LO 타이밍)/회색=냉각**. 규모+추세를 한 그래프에.",
             message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보.")
-        st.pyplot(viz.momentum_fig([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
+        _px(viz_px.momentum_px([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
         st.divider()
     # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
     cfm = _json(d, "clinical_field_momentum.json")
@@ -238,7 +244,7 @@ with st.container():
             what=f"적응증 **「{_inds}」**에 임상시험을 개시한 **전체 INDUSTRY sponsor**({cfm.get('meta', {}).get('n_sponsors', 0)}곳, ct.gov)의 추세. 특허 momentum(위 막대 색)과 다른 임상 축.",
             how="○ 직전 → ● 최근(임상 개시 건수) 덤벨. 파랑=임상 데워짐, 회색=냉각. ★14곳 아니라 적응증 검색=전체 sponsor 데이터기반.",
             message=f"「{_inds}」에서 지금 임상 가속 중 = 이 병에 진심. 특허(위)+임상(여기) 둘 다 가속이면 최우선.")
-        st.pyplot(viz.momentum_fig(cfm.get("momentum", [])))
+        _px(viz_px.momentum_px(cfm.get("momentum", [])))
         st.divider()
     with st.expander("구 엔진 스코어 (하드코딩 14곳 · AoI/LO/angle) — 참고용, 데이터 풀이 대체"):
         st.caption("⚠️ 하드코딩 14 buyer 기준이라 분석 타깃과 연관 약하고 대형사 편중. 위 데이터 풀이 대체.")
@@ -286,14 +292,14 @@ with st.container():
                 st.markdown(f"**▸ {_md(_t['asset'])}**" + (f"  ·  {_md(_t['axis'])}" if _t.get("axis") else ""))
             elif _t.get("axis"):
                 st.caption(_md(_t["axis"]))
-            st.pyplot(viz.competition_ladder_fig(_t))
+            _px(viz_px.competition_ladder_px(_t))
             if _t.get("excluded"):
                 st.caption("제외: " + "　·　".join(f"{_md(e['company'])} — {_md(e['reason'])}" for e in _t["excluded"]))
         st.divider()
     _fp_ci = _json(d, "field_pool.json")
     if _fp_ci and _fp_ci.get("field_heat"):
         st.markdown("### 🌡️ 타깃 필드 열기 — 검증·과열 추세 (데이터 기반)")
-        st.pyplot(viz.field_heat_fig({"field_heat": _fp_ci["field_heat"]}))
+        _px(viz_px.field_heat_px({"field_heat": _fp_ci["field_heat"]}))
         st.divider()
     ta = m.get("ta_label", "")
     with st.expander("🔒 Patent Cliff (구 · 하드코딩 14곳 · broad-TA 노이즈) — 참고용", expanded=False):
@@ -331,7 +337,7 @@ with st.container():
                    + (f"\n\n분석에 사용한 IPC 분류: {_ipc}" if _ipc else ""))
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
-        st.pyplot(viz.kr_tier_fig(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt),
+        _px(viz_px.kr_tier_px(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt),
                                   domains=list((m.get("kr_domains") or {}).keys())))
     cm = _json(d, "crossmod.json")
     if cm:
@@ -339,7 +345,7 @@ with st.container():
         st.markdown(f"**Cross-modality 경쟁·co-dev — 적응증 「{ta}」, 다른 모달리티** (상업사)")
         if m.get("indications_display"):
             st.caption(f"적응증(좁힘 질환/타깃): {m['indications_display']}")
-        st.pyplot(viz.crossmod_fig(cm))
+        _px(viz_px.crossmod_px(cm))
         _cmm = cm.get("meta", {})
         st.caption(f"자산 모달리티={_cmm.get('own_modality')} → **다른 모달리티**"
                    f"({', '.join(_cmm.get('other_modalities', []))})로 위 적응증을 치는 상업사. "
