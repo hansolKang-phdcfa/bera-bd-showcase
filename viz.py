@@ -11,6 +11,7 @@ import matplotlib
 matplotlib.use("Agg")
 from matplotlib import font_manager
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 import networkx as nx
 
 import design_tokens as T
@@ -23,6 +24,7 @@ if os.path.exists(_OTF):
     except Exception:
         pass
 matplotlib.rcParams["axes.unicode_minus"] = False
+matplotlib.rcParams["text.parse_math"] = False
 
 BLUE, BLACK, GRAY = T.COLORS["blue"], T.COLORS["black"], T.COLORS["gray"]
 SOFT, LGRAY = "#DCE0E6", "#D3D6DA"
@@ -62,7 +64,7 @@ def cocitation_network_fig(coc, target_label="Target", top_nodes=15, edge_min=0.
     top = [c for c in top if c in G]
 
     pos = nx.spring_layout(G, k=1.4, iterations=200, weight="weight", seed=42)
-    fig, ax = plt.subplots(figsize=(11.5, 6.2), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 6.2), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     for u, v, w in G.edges(data="weight"):
         if TGT in (u, v):
@@ -113,7 +115,7 @@ def cliff_timeline_fig(cliff_rows, expiry_window=(2026, 2031)):
     yrs = [y for _, y, _, _, _ in pts]
     y0 = min(int(min(yrs)), expiry_window[0]); y1 = max(int(max(yrs)) + 1, expiry_window[1])
 
-    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.42 * len(comps)), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.42 * len(comps)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     for c in comps:
         ax.axhline(cy[c], color="#EEF1F4", lw=8, zorder=0)
@@ -137,7 +139,7 @@ def cliff_timeline_fig(cliff_rows, expiry_window=(2026, 2031)):
     ax.set_xlim(y0 - 0.3, y1 + 0.3); ax.set_xticks(range(y0, y1 + 1))
     ax.set_xticklabels([str(y) for y in range(y0, y1 + 1)], fontsize=8.5, color=GRAY)
     ax.set_xlabel("원천특허 만료연도 — 임박할수록 BD 압력↑ (★=OB 실만료, ○=출원+20 근사)",
-                  fontsize=9.5, color=GRAY)
+                  fontsize=11, color=BLACK)
     for sp in ["top", "right", "left"]:
         ax.spines[sp].set_visible(False)
     ax.spines["bottom"].set_color(GRAY)
@@ -165,7 +167,7 @@ def aoi_contrib_fig(aoi_rows, weights):
     clin_c = [weights.get("clinical", 0) * float(r["clinical_signal"]) for r in rows]
     tot = [float(r["aoi_score"]) for r in rows]
     y = range(len(comp))
-    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.42 * len(comp)), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.42 * len(comp)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     ax.barh(y, need_c, color=BLUE, label=f"need·원천특허 만료 ({weights.get('need',0):.2f})", height=0.62)
     ax.barh(y, cit_c, left=need_c, color=GRAY, label=f"citation·anchor 인용 ({weights.get('citation',0):.2f})", height=0.62)
@@ -175,8 +177,8 @@ def aoi_contrib_fig(aoi_rows, weights):
         ax.text(t + 0.008, i, f"{t:.3f}", va="center", ha="left", fontsize=9.5,
                 fontweight="bold", color=BLACK)
     ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
-    ax.set_xlim(0, (max(tot) or 1) * 1.16); ax.set_xlabel("AoI score (가중합)", fontsize=9.5, color=GRAY)
-    ax.tick_params(axis="x", labelsize=9, colors=GRAY)
+    ax.set_xlim(0, (max(tot) or 1) * 1.16); ax.set_xlabel("AoI score (가중합)", fontsize=11, color=BLACK)
+    ax.tick_params(axis="x", labelsize=11, colors=BLACK)
     for sp in ["top", "right", "left"]:
         ax.spines[sp].set_visible(False)
     ax.spines["bottom"].set_color(GRAY)
@@ -214,7 +216,7 @@ def angle_venn_fig(angle_rows, aoi_rows=None, top=12):
     for r in rows:
         r["zone"] = "lo" if r["tc"] == 0 else ("codev" if r["tc"] >= med else "mid")
 
-    fig, ax = plt.subplots(figsize=(11.5, 6.4), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 6.4), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     ax.add_patch(Circle((0.40, 0.48), 0.35, color=GRAY, alpha=0.12, zorder=1))
     ax.add_patch(Circle((0.60, 0.48), 0.35, color=BLUE, alpha=0.12, zorder=1))
@@ -262,7 +264,7 @@ def lo_candidates_fig(lo_rows, top=12):
     activity = [float(r.get("activity", 0) or 0) for r in rows]
     score = [float(r["license_out_score"]) for r in rows]
     y = range(len(comp))
-    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.44 * len(comp)), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.44 * len(comp)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     ax.barh(y, gap, color=BLUE, height=0.6, label="gap · 파이프라인 공백(cliff)")
     ax.barh(y, interest, left=gap, color=GRAY, height=0.6, label="interest · 도메인 인용")
@@ -274,8 +276,8 @@ def lo_candidates_fig(lo_rows, top=12):
                 fontsize=9, fontweight="bold", color=BLACK)
     ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
     ax.set_xlim(0, (max(g + i + a for g, i, a in zip(gap, interest, activity)) or 1) * 1.2)
-    ax.set_xlabel("gap + interest + activity (LO 후보 근거 분해)", fontsize=9.5, color=GRAY)
-    ax.tick_params(axis="x", labelsize=9, colors=GRAY)
+    ax.set_xlabel("gap + interest + activity (LO 후보 근거 분해)", fontsize=11, color=BLACK)
+    ax.tick_params(axis="x", labelsize=11, colors=BLACK)
     for sp in ["top", "right", "left"]:
         ax.spines[sp].set_visible(False)
     ax.spines["bottom"].set_color(GRAY)
@@ -308,7 +310,7 @@ def kr_tier_fig(kr_rows, top=18, tier_filter=None, domains=None):
     PAL = [BLUE, "#E8544B", "#F5A623", "#2BB673", "#7B61FF", "#00A3B4", "#C86DD7", GRAY]
     dcol = {d: PAL[i % len(PAL)] for i, d in enumerate(core)}
     y = list(range(len(rows)))
-    fig, ax = plt.subplots(figsize=(11.5, 0.7 + 0.42 * len(rows)), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 0.7 + 0.42 * len(rows)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     left = [0.0] * len(rows)
     for d in core:
@@ -318,14 +320,15 @@ def kr_tier_fig(kr_rows, top=18, tier_filter=None, domains=None):
     xmax = max(left) or 1
     for i in y:
         ax.text(left[i] + xmax * 0.008, i, f"{int(left[i])}", va="center", fontsize=8, color=BLACK)
-    ax.set_yticks(y); ax.set_yticklabels(comp, fontsize=8.5, color=BLACK)
-    ax.set_xlabel("도메인(IPC)별 특허 건수 — stacked (한 특허가 여러 IPC면 각각 카운트)", fontsize=9, color=GRAY)
-    ax.tick_params(axis="x", labelsize=9, colors=GRAY)
+    ax.set_yticks(y); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
+    ax.set_xlabel("도메인(IPC)별 특허 건수 — stacked (한 특허가 여러 IPC면 각각 카운트)", fontsize=11, color=BLACK)
+    ax.tick_params(axis="x", labelsize=11, colors=BLACK)
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
     for sp in ("top", "right", "left"):
         ax.spines[sp].set_visible(False)
     ax.legend(handles=[Patch(color=dcol[d], label=d) for d in core], loc="lower right",
               fontsize=8, frameon=False, title="IPC 도메인", ncol=2)
-    ax.set_title("KR 3-tier — 회사별 IPC 도메인 분해 (색=도메인, ·T=티어)",
+    ax.set_title("KR 3-tier — 위=Tier1(직접), 아래=Tier3(잠재) · 티어 내 특허건수순",
                  fontsize=12, fontweight="bold", color=BLACK, pad=10)
     fig.tight_layout()
     return fig
@@ -345,7 +348,7 @@ def momentum_fig(mom_rows, top=12):
     recent = [float(r.get("recent_per_yr", 0) or 0) for r in rows]
     tcol = {"가속": BLUE, "냉각": GRAY, "유지": LGRAY}
     y = range(len(comp))
-    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.46 * len(comp)), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.46 * len(comp)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     xmax = max(max(prior), max(recent), 0.1)
     for i in y:
@@ -359,8 +362,9 @@ def momentum_fig(mom_rows, top=12):
                 fontsize=8.2, color=col if tr != "유지" else GRAY, fontweight="bold")
     ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
     ax.set_xlim(-xmax * 0.03, xmax * 1.25)
-    ax.set_xlabel("anchor 인용 / 년  (○ prior 평균 → ● recent 평균)", fontsize=9.5, color=GRAY)
-    ax.tick_params(axis="x", labelsize=9, colors=GRAY)
+    ax.set_xlabel("연간 anchor 인용 건수  (○ 직전 평균 → ● 최근 평균)", fontsize=11, color=BLACK)
+    ax.tick_params(axis="x", labelsize=11, colors=BLACK)
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True, nbins=6))
     for sp in ["top", "right", "left"]:
         ax.spines[sp].set_visible(False)
     ax.spines["bottom"].set_color(GRAY)
@@ -384,7 +388,7 @@ def access_fig(access_rows):
     comp = [r["company"] for r in rows]
     rev = [float(r.get("realizable_rev_M", 0) or 0) for r in rows]
     y = range(len(comp))
-    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.5 * len(comp)), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.5 * len(comp)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     ax.barh(y, rev, color=BLUE, height=0.58)
     for i, r in enumerate(rows):
@@ -393,8 +397,8 @@ def access_fig(access_rows):
     ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
     ax.set_xlim(0, (max(rev) or 1) * 1.35)
     ax.set_xlabel("실현가능 매출 ($M) = access_score × peak_market (상업화 능력 proxy)",
-                  fontsize=9.5, color=GRAY)
-    ax.tick_params(axis="x", labelsize=9, colors=GRAY)
+                  fontsize=11, color=BLACK)
+    ax.tick_params(axis="x", labelsize=11, colors=BLACK)
     for sp in ["top", "right", "left"]:
         ax.spines[sp].set_visible(False)
     ax.spines["bottom"].set_color(GRAY)
@@ -424,7 +428,7 @@ def crossmod_fig(cm, top=14):
     mcol = {mm: PAL[i % len(PAL)] for i, mm in enumerate(mods)}
     comp = [_short(r["company"]) for r in rows]
     y = list(range(len(rows)))
-    fig, ax = plt.subplots(figsize=(11.5, 0.7 + 0.44 * len(rows)), dpi=140)
+    fig, ax = plt.subplots(figsize=(11.5, 0.7 + 0.44 * len(rows)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     left = [0.0] * len(rows)
     for mm in mods:
@@ -436,9 +440,10 @@ def crossmod_fig(cm, top=14):
     xmax = max(left) or 1
     for i in y:
         ax.text(left[i] + xmax * 0.008, i, f"{int(left[i])}", va="center", fontsize=8, color=BLACK)
-    ax.set_yticks(y); ax.set_yticklabels(comp, fontsize=9.5, color=BLACK)
-    ax.set_xlabel("모달리티별 특허 건수 — stacked (같은 적응증, 다른 모달리티)", fontsize=9, color=GRAY)
-    ax.tick_params(axis="x", labelsize=9, colors=GRAY)
+    ax.set_yticks(y); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
+    ax.set_xlabel("모달리티별 특허 건수 — stacked (같은 적응증, 다른 모달리티)", fontsize=11, color=BLACK)
+    ax.tick_params(axis="x", labelsize=11, colors=BLACK)
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
     for sp in ("top", "right", "left"):
         ax.spines[sp].set_visible(False)
     used = [mm for mm in mods if any((r.get("by_modality") or {}).get(mm) for r in rows)]
@@ -466,7 +471,7 @@ def bd_trend_fig(bd):
     ma_s = [yearly[str(y)].get("ma_size", 0) for y in years]
     alpha = [1.0 if y <= cur else 0.4 for y in years]
 
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(11.5, 6.4), dpi=140, sharex=True)
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(11.5, 6.4), dpi=190, sharex=True)
     fig.patch.set_facecolor("white")
     for ax in (ax1, ax2):
         ax.set_facecolor("white")
@@ -522,15 +527,15 @@ def kr_cocitation_fig(data, top=12):
     vals = [c.get("n_patents", 0) for c in comps]
     KR_C = "#E8544B"
     cols = [KR_C if c.get("country") == "KR" else BLUE for c in comps]
-    fig, ax = plt.subplots(figsize=(10, 0.7 + 0.44 * len(comps)), dpi=140)
+    fig, ax = plt.subplots(figsize=(10, 0.7 + 0.44 * len(comps)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     ax.barh(range(len(comps)), vals, color=cols)
     xmax = max(vals) or 1
     for i, v in enumerate(vals):
         ax.text(v + xmax * 0.012, i, str(v), va="center", fontsize=8.5, color=GRAY)
     ax.set_yticks(range(len(comps))); ax.set_yticklabels(names, fontsize=9.5, color=BLACK)
-    ax.set_xlabel("KR 특허 출원 건수 (같은 기전/타깃 키워드)", fontsize=9.5, color=GRAY)
-    ax.tick_params(axis="x", labelsize=9, colors=GRAY)
+    ax.set_xlabel("KR 특허 출원 건수 (같은 기전/타깃 키워드)", fontsize=11, color=BLACK)
+    ax.tick_params(axis="x", labelsize=11, colors=BLACK)
     ax.legend(handles=[Patch(color=KR_C, label="KR(자국)"), Patch(color=BLUE, label="해외(KR 출원)")],
               fontsize=8, loc="lower right", frameon=False)
     for s in ("top", "right"):
@@ -554,15 +559,17 @@ def field_pool_fig(data, top=16):
     vals = [p["n_patents"] for p in pool]
     tcol = {"가속": BLUE, "냉각": GRAY, "유지": LGRAY}
     cols = [tcol.get(p.get("trend"), LGRAY) for p in pool]
-    fig, ax = plt.subplots(figsize=(10, 0.6 + 0.42 * len(pool)), dpi=140)
+    fig, ax = plt.subplots(figsize=(10, 0.6 + 0.42 * len(pool)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     ax.barh(range(len(pool)), vals, color=cols)
     xmax = max(vals) or 1
     for i, p in enumerate(pool):
         ax.text(vals[i] + xmax * 0.01, i, p.get("trend", ""), va="center",
                 fontsize=7.5, color=tcol.get(p.get("trend"), GRAY))
-    ax.set_yticks(range(len(pool))); ax.set_yticklabels(names, fontsize=9, color=BLACK)
-    ax.set_xlabel("도메인 anchor 인용 특허 수 (활동 규모)", fontsize=9.5, color=GRAY)
+    ax.set_yticks(range(len(pool))); ax.set_yticklabels(names, fontsize=10, color=BLACK)
+    ax.set_xlabel("도메인 anchor 인용 특허 수 (활동 규모)", fontsize=11, color=BLACK)
+    ax.tick_params(axis="x", labelsize=11, colors=BLACK)
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
     ax.legend(handles=[Patch(color=BLUE, label="가속"), Patch(color=GRAY, label="냉각"),
                        Patch(color=LGRAY, label="유지")], fontsize=8, loc="lower right",
               frameon=False, title="momentum")
@@ -579,16 +586,19 @@ def field_heat_fig(data):
         return _empty("필드 열기 데이터 없음")
     yrs = sorted(int(y) for y in heat)
     vals = [heat[str(y)] for y in yrs]
-    fig, ax = plt.subplots(figsize=(9, 3.0), dpi=140)
+    fig, ax = plt.subplots(figsize=(9, 3.0), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     ax.fill_between(yrs, vals, color=BLUE, alpha=0.16)
-    ax.plot(yrs, vals, color=BLUE, lw=2, marker="o", ms=4)
-    ax.set_xlabel("filing 연도", fontsize=9.5, color=GRAY)
-    ax.set_ylabel("도메인 인용 특허/년", fontsize=9.5, color=GRAY)
-    ax.set_title("타깃 필드 열기 곡선 (검증·과열 추세)", fontsize=11, color=BLACK, pad=10)
+    ax.plot(yrs, vals, color=BLUE, lw=2.2, marker="o", ms=5)
+    ax.set_xlabel("출원(filing) 연도", fontsize=11, color=BLACK)
+    ax.set_ylabel("도메인 인용 특허 수 / 년", fontsize=11, color=BLACK)
+    ax.set_title("타깃 필드 열기 곡선 (검증·과열 추세)", fontsize=12, fontweight="bold", color=BLACK, pad=10)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
-    ax.tick_params(labelsize=8, colors=GRAY); fig.tight_layout()
+    ax.tick_params(labelsize=11, colors=BLACK)
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.margins(x=0.02); fig.tight_layout()
     return fig
 
 
@@ -606,7 +616,7 @@ def competition_ladder_fig(data):
         return _empty("경쟁 서열 데이터 없음 (임상단계 enrichment 필요)")
     rows = sorted(rows, key=lambda r: xof(r.get("stage")))  # 아래=초기, 위=선두
     n = len(rows)
-    fig, ax = plt.subplots(figsize=(10.5, 0.7 + 0.52 * n), dpi=140)
+    fig, ax = plt.subplots(figsize=(10.5, 0.7 + 0.52 * n), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
     for i, r in enumerate(rows):
         x = xof(r.get("stage"))
@@ -622,9 +632,9 @@ def competition_ladder_fig(data):
             ax.text(x + 0.18, i, r["note"], va="center", fontsize=7.6, color=GRAY)
     ax.set_yticks([]); ax.set_ylim(-0.7, n - 0.3)
     ticks = [("중단", -1.2), ("전임상", 0), ("Ph1", 2), ("Ph2", 3.5), ("Ph3", 5), ("시판", 6.5)]
-    ax.set_xticks([t[1] for t in ticks]); ax.set_xticklabels([t[0] for t in ticks], fontsize=9, color=GRAY)
+    ax.set_xticks([t[1] for t in ticks]); ax.set_xticklabels([t[0] for t in ticks], fontsize=11, color=BLACK)
     ax.set_xlim(-3.4, 8.2)
-    ax.set_xlabel("개발 단계 →  (오른쪽=앞선 경쟁)", fontsize=9.5, color=GRAY)
+    ax.set_xlabel("개발 단계 →  (오른쪽=앞선 경쟁)", fontsize=11, color=BLACK)
     for s in ("top", "right", "left"):
         ax.spines[s].set_visible(False)
     fig.tight_layout()

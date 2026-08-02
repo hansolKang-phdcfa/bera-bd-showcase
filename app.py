@@ -81,6 +81,11 @@ def cliff_rows(d):
 
 
 # ── UI ──
+def _md(s):
+    """Streamlit 마크다운 안전 — $ (LaTeX=폰트/숫자 깨짐)·~ (strikethrough=취소선) 이스케이프."""
+    return str(s).replace("$", "\\$").replace("~", "\\~")
+
+
 def explain_box(what, how, message):
     """분석 친절 해설 — 무엇을/어떻게/그래서. 비전문가도 파악."""
     with st.container(border=True):
@@ -118,18 +123,26 @@ _nar_top = _json(d, "narrative.json") or {}
 _th = _nar_top.get("_thesis")
 if _th:
     st.markdown("### 🎯 종합 판단 (Thesis) — 신호를 묶은 판단·권고")
+    st.caption("이 자산에 대한 결론. 아래는 이 판단을 뒷받침하는 근거입니다. (초안 — 애널리스트 검수 전)")
     with st.container(border=True):
         if _th.get("situation"):
-            st.markdown(f"**① 상황** &nbsp; {_th['situation']}")
+            st.markdown("**①  지금 상황**")
+            st.markdown(_md(_th["situation"]))
+            st.markdown("")
         if _th.get("insight"):
-            st.success(f"💡 **② 핵심 인사이트** &nbsp; {_th['insight']}")
+            st.markdown("**②  핵심 인사이트**")
+            st.success(_md(_th["insight"]))
         if _th.get("lo_play"):
-            st.markdown(f"**③ LO play — 누구·왜·언제** &nbsp; {_th['lo_play']}")
+            st.markdown("**③  그래서 딜은 — 누구·왜·언제**")
+            st.markdown(_md(_th["lo_play"]))
+            st.markdown("")
         if _th.get("risk"):
-            st.markdown(f"**④ 핵심 리스크** &nbsp; {_th['risk']}")
+            st.markdown("**④  핵심 리스크**")
+            st.markdown(_md(_th["risk"]))
         if _th.get("evidence"):
-            st.caption("근거 신호: " + "　·　".join(_th["evidence"]))
-    st.caption("↑ 이게 결론. 아래는 이 판단의 근거. (초안 — 애널리스트 검수)")
+            with st.expander("📎 근거 신호 (아래 분석에서 확인)"):
+                for e in _th["evidence"]:
+                    st.markdown(f"- {_md(e)}")
     st.divider()
 
 with st.expander("📖 용어 설명 — 처음이면 펼쳐보세요"):
@@ -147,14 +160,14 @@ with st.container():
         s = nar[title]; g = s.get("grade")
         st.markdown(f"### {title}" + (f"  ·  {GRADE_BADGE.get(g, g)}" if g else ""))
         if s.get("keymsg"):
-            st.info(s["keymsg"])
+            st.info(_md(s["keymsg"]))
         if s.get("cards"):
             cc = st.columns(2)
             for i, card in enumerate(s["cards"]):
                 with cc[i % 2]:
-                    st.markdown(f"**{card[0]}**"); st.caption(card[1])
+                    st.markdown(f"**{_md(card[0])}**"); st.caption(_md(card[1]))
         for b in s.get("body", []):
-            st.markdown(f"- {b}")
+            st.markdown(f"- {_md(b)}")
         st.divider()
 
 st.divider()
@@ -247,16 +260,17 @@ with st.container():
         explain_box(
             what="이 자산과 같은 기전의 실제 경쟁 자산을 개발 단계로 줄세움 (웹 검증·큐레이션).",
             how="X축=개발 단계(오른쪽=앞섬), ★파랑=우리 자산, 회색=활성 경쟁, 빨강X=이전세대 실패/중단. "
-                "co-citation Jaccard가 아니라 '누가 실제로 앞서 있나'를 직접.",
-            message="선두·차별화·타이밍이 한눈에. **다에셋 회사는 에셋마다 타깃·경쟁이 달라 ▸별로 분리** 표시.")
+                "특허 인용망이 아니라 **'누가 실제로 앞서 있나'를 개발 단계로 직접** 배치.",
+            message="한눈에 **선두가 누구고, 우리가 어디쯤이고, 이전세대가 왜 죽었나**. "
+                    "다에셋 회사는 자산마다 타깃·경쟁이 달라 ▸별로 분리해 보여줍니다.")
         for _t in (_comp.get("tracks") or [_comp]):
             if _t.get("asset"):
-                st.markdown(f"**▸ {_t['asset']}**" + (f"  ·  {_t['axis']}" if _t.get("axis") else ""))
+                st.markdown(f"**▸ {_md(_t['asset'])}**" + (f"  ·  {_md(_t['axis'])}" if _t.get("axis") else ""))
             elif _t.get("axis"):
-                st.caption(_t["axis"])
+                st.caption(_md(_t["axis"]))
             st.pyplot(viz.competition_ladder_fig(_t))
             if _t.get("excluded"):
-                st.caption("제외: " + "　·　".join(f"{e['company']} — {e['reason']}" for e in _t["excluded"]))
+                st.caption("제외: " + "　·　".join(f"{_md(e['company'])} — {_md(e['reason'])}" for e in _t["excluded"]))
         st.divider()
     _fp_ci = _json(d, "field_pool.json")
     if _fp_ci and _fp_ci.get("field_heat"):
@@ -272,7 +286,7 @@ with st.container():
             drugs = [(r["ob_drug"], r["company"], r["est_expiry"]) for r in cr if r.get("ob_ds") and r.get("ob_drug")]
             if drugs:
                 st.markdown("**OB 검증 = 어떤 약(API)의 cliff:** " +
-                            "  ·  ".join(f"**{x}** ({c},~{e})" for x, c, e in drugs[:12]))
+                            "  ·  ".join(f"**{x}** ({c}, {e} 만료)" for x, c, e in drugs[:12]))
             st.pyplot(viz.cliff_timeline_fig(cr, (2026, 2031)))
             st.dataframe(pd.DataFrame(cr)[["company", "ob_drug", "patent_id", "est_expiry", "cites", "source"]],
                          hide_index=True, width="stretch")
@@ -292,6 +306,7 @@ with st.container():
         st.divider(); st.markdown("### 🇰🇷 KR 3-tier — 기술 분류(IPC)로 본 국내 경쟁 계층")
         _ipc = " · ".join(f"{k}({', '.join(v)})" for k, v in (m.get("kr_domains") or {}).items())
         st.caption(f"질문: 기전 키워드 아니라 **기술 분류(IPC)**로 봤을 때 국내 경쟁 계층? Tier1 직접/Tier2 인접/Tier3 다른 modality(=잠재 co-dev). "
+                   f"**정렬 = 위에서 아래로 Tier1→Tier2→Tier3, 같은 티어 안에서는 특허 건수 많은 순**. "
                    f"위 'KR 발굴'(키워드)과 달리 넓은 기술지형." + (f"　★사용 IPC: {_ipc}" if _ipc else ""))
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
