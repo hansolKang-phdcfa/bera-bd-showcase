@@ -41,10 +41,10 @@ import re as _re
 
 
 def _disp(s):
-    """차트 텍스트 표시용 정규화 — $→'USD ', 범위 '~'→'-', 근사 '~'→'약 ' (앱 _md와 동일 규칙)."""
+    """차트 텍스트 표시용 정규화 — $→'USD ', 근사 '~'(앞 공백/'('/시작)→'약 ', 범위 '~'→'-' (앱 _md와 동일)."""
     s = str(s).replace("$", "USD ")
-    s = _re.sub(r"(\d)\s*~\s*(?=\d)", r"-", s)
-    s = s.replace("~", "약 ")
+    s = _re.sub(r"(?:^|(?<=[\s(]))~", "약 ", s)
+    s = s.replace("~", "-")
     return _re.sub(r"USD +", "USD ", s)
 
 

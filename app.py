@@ -82,12 +82,26 @@ def cliff_rows(d):
 
 
 # ── UI ──
+_BULLETS = "①②③④⑤⑥⑦⑧⑨⑩"
+
+
 def _md(s):
-    """표시용 정규화 — $→'USD ', 범위 '~'→'-', 근사 '~'→'약 '. (Streamlit LaTeX/strikethrough 회피 겸)"""
+    """표시용 정규화 — $→'USD ', 근사 '~'(앞 공백/'('/시작)→'약 ', 범위 '~'→'-'."""
     s = str(s).replace("$", "USD ")
-    s = re.sub(r"(\d)\s*~\s*(?=\d)", r"\1-", s)
-    s = s.replace("~", "약 ")
+    s = re.sub(r"(?:^|(?<=[\s(]))~", "약 ", s)
+    s = s.replace("~", "-")
     return re.sub(r"USD +", "USD ", s)
+
+
+def _para(s):
+    """긴 thesis/keymsg 벽 텍스트 완화 — 문장·번호(①②)·★ 단위 줄바꿈."""
+    s = _md(s)
+    for b in _BULLETS:
+        s = s.replace(b, "\n\n" + b)
+    s = s.replace("★", "\n\n★")
+    s = re.sub(r"(?<=[.。])\s+(?=\S)", "\n\n", s)
+    s = re.sub(r"\n{3,}", "\n\n", s)
+    return s.strip()
 
 
 def explain_box(what, how, message):
@@ -131,18 +145,18 @@ if _th:
     with st.container(border=True):
         if _th.get("situation"):
             st.markdown("**①  지금 상황**")
-            st.markdown(_md(_th["situation"]))
+            st.markdown(_para(_th["situation"]))
             st.markdown("")
         if _th.get("insight"):
             st.markdown("**②  핵심 인사이트**")
-            st.success(_md(_th["insight"]))
+            st.success(_para(_th["insight"]))
         if _th.get("lo_play"):
             st.markdown("**③  그래서 딜은 — 누구·왜·언제**")
-            st.markdown(_md(_th["lo_play"]))
+            st.markdown(_para(_th["lo_play"]))
             st.markdown("")
         if _th.get("risk"):
             st.markdown("**④  핵심 리스크**")
-            st.markdown(_md(_th["risk"]))
+            st.markdown(_para(_th["risk"]))
         if _th.get("evidence"):
             with st.expander("📎 근거 신호 (아래 분석에서 확인)"):
                 for e in _th["evidence"]:
@@ -164,7 +178,7 @@ with st.container():
         s = nar[title]; g = s.get("grade")
         st.markdown(f"### {title}" + (f"  ·  {GRADE_BADGE.get(g, g)}" if g else ""))
         if s.get("keymsg"):
-            st.info(_md(s["keymsg"]))
+            st.info(_para(s["keymsg"]))
         if s.get("cards"):
             cc = st.columns(2)
             for i, card in enumerate(s["cards"]):
