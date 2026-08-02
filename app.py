@@ -12,6 +12,7 @@ import glob
 import io
 import json
 import os
+import re
 
 import pandas as pd
 import streamlit as st
@@ -82,8 +83,11 @@ def cliff_rows(d):
 
 # ── UI ──
 def _md(s):
-    """Streamlit 마크다운 안전 — $ (LaTeX=폰트/숫자 깨짐)·~ (strikethrough=취소선) 이스케이프."""
-    return str(s).replace("$", "\\$").replace("~", "\\~")
+    """표시용 정규화 — $→'USD ', 범위 '~'→'-', 근사 '~'→'약 '. (Streamlit LaTeX/strikethrough 회피 겸)"""
+    s = str(s).replace("$", "USD ")
+    s = re.sub(r"(\d)\s*~\s*(?=\d)", r"\1-", s)
+    s = s.replace("~", "약 ")
+    return re.sub(r"USD +", "USD ", s)
 
 
 def explain_box(what, how, message):

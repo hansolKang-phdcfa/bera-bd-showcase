@@ -37,6 +37,17 @@ def _short(name):
     return n.title()[:22]
 
 
+import re as _re
+
+
+def _disp(s):
+    """차트 텍스트 표시용 정규화 — $→'USD ', 범위 '~'→'-', 근사 '~'→'약 ' (앱 _md와 동일 규칙)."""
+    s = str(s).replace("$", "USD ")
+    s = _re.sub(r"(\d)\s*~\s*(?=\d)", r"-", s)
+    s = s.replace("~", "약 ")
+    return _re.sub(r"USD +", "USD ", s)
+
+
 def cocitation_network_fig(coc, target_label="Target", top_nodes=15, edge_min=0.03):
     """co-citation Jaccard 네트워크. 노드=회사(크기∝centrality), 엣지=Jaccard,
     타깃=블루 강조(주변부=독자 IP 공간). coc=cocitation.json dict."""
@@ -625,11 +636,11 @@ def competition_ladder_fig(data):
         ax.plot([-1.35, x], [i, i], color=SOFT, lw=1, zorder=1)
         ax.scatter(x, i, s=(340 if tgt else 150), c=col, edgecolors="white", lw=1.4,
                    marker=("X" if pg else "o"), zorder=3)
-        lbl = f"{r['company']} ({r.get('asset', '')})" + ("  ★자산" if tgt else "")
-        ax.text(-1.5, i, lbl, ha="right", va="center", fontsize=9.2,
+        lbl = _disp(f"{r['company']} ({r.get('asset', '')})") + ("  ★자산" if tgt else "")
+        ax.text(-1.5, i, lbl, ha="right", va="center", fontsize=9.6,
                 color=(BLUE if tgt else BLACK), fontweight=("bold" if tgt else "normal"))
         if r.get("note"):
-            ax.text(x + 0.18, i, r["note"], va="center", fontsize=7.6, color=GRAY)
+            ax.text(x + 0.18, i, _disp(r["note"]), va="center", fontsize=8.8, color=BLACK)
     ax.set_yticks([]); ax.set_ylim(-0.7, n - 0.3)
     ticks = [("중단", -1.2), ("전임상", 0), ("Ph1", 2), ("Ph2", 3.5), ("Ph3", 5), ("시판", 6.5)]
     ax.set_xticks([t[1] for t in ticks]); ax.set_xticklabels([t[0] for t in ticks], fontsize=11, color=BLACK)
