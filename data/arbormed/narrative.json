@@ -2,10 +2,10 @@
   "_README": "ArborMed ARBM-101 내러티브 슬롯 — 웹조사(2026-07 검증) 기반 초안. 분석가 편집 대상. build_spec이 title 키로 매칭. grade FACT=검증 출처, EST=단일출처/미공개 추정.",
   "_thesis": {
     "grade": "REC",
-    "situation": "ARBM-101 = methanobactin SB2(박테리아 유래 구리결합 펩타이드), Wilson병, 전임상(2026 first-in-human 예정). 기존 킬레이터(penicillamine 독성·trientine=소변 배출)는 간 구리를 완치 수준까지 못 낮춰 평생 복용. Wilson병은 2022 Cuvrior 승인 후 유전자치료·mRNA·펩타이드가 동시 진입한 활발한 영역.",
-    "insight": "ARBM-101은 '또 다른 킬레이터'가 아니라 배출 경로 자체가 다르다 — 소변(기존)이 아니라 담즙/분변으로 간 구리를 급속·대량 제거(주 단위 간헐투약 컨셉). 그리고 big pharma는 이 영역에 이미 크게 베팅했다: Alexion이 2018년 Wilson Therapeutics를 $855M에 인수(WTX101). ★비자명 함정: 그 자산은 이후 AstraZeneca→Monopar로 재이전(2024)됐다 = big pharma가 발을 뺐다 = 오히려 차세대 자산이 재진입할 여지. 또 하나 — 'chelator'는 마케팅 언어이고 과학적으론 methanobactin 펩타이드(주사제=경구 대비 편의성 열위).",
-    "lo_play": "누구=희귀질환 프랜차이즈 + Wilson/구리대사에 관심 있으나 자산 비운 곳(AZ가 뺀 자리·Pfizer는 Vivet 유전자치료 보유). 왜=차별적 de-coppering 기전(담즙배출·간헐투약). 언제=전임상이라 프리미엄 LO는 이르나, 지역권 잔여(Hyloris가 EU/터키 이미 라이선스=미국·아시아 등 잔여)로 조기 옵션딜이 현실적. FIH(2026) 데이터가 밸류업 분기점.",
-    "risk": "①전임상=인체 데이터 0 → 프리미엄 LO 난망. 파이프라인 최후미(유전자치료 3종보다도 늦음). ②유전자치료(UX701·VTX-801)가 근본치료로 앞서면 킬레이터/펩타이드 시장 잠식. ③주사제=경구 trientine/WTX101 대비 편의성 열위. ④Hyloris가 EU/터키 이미 가져감 → 잔여 지역권 구조 확인 필요.",
+    "situation": "ARBM-101 = methanobactin SB2(박테리아 유래 구리결합 펩타이드) 기반 Wilson병 자산, 전임상 단계임(2026 first-in-human 예정).\n\n- 기존 킬레이터는 간 구리를 완치 수준까지 못 낮춰 평생 복용해야 함 (penicillamine=독성 · trientine=소변 배출)\n- Wilson병은 2022 Cuvrior 승인 후 유전자치료·mRNA·펩타이드가 동시 진입한 활발한 영역임",
+    "insight": "핵심: ARBM-101은 '또 다른 킬레이터'가 아니라 배출 경로 자체가 다름.\n\n- 소변(기존)이 아니라 담즙/분변으로 간 구리를 급속·대량 제거함 (주 단위 간헐투약 컨셉)\n- big pharma는 이 영역에 이미 크게 베팅함 — Alexion이 2018년 Wilson Therapeutics를 $855M에 인수(WTX101)\n- ★비자명 함정: 그 자산은 이후 AstraZeneca→Monopar로 재이전(2024)됨 = big pharma가 발을 뺐음 = 오히려 차세대 자산이 재진입할 여지\n- 또 하나 — 'chelator'는 마케팅 언어이고 과학적으론 methanobactin 펩타이드임(주사제=경구 대비 편의성 열위)",
+    "lo_play": "- 누구 = 희귀질환 프랜차이즈 + Wilson/구리대사에 관심 있으나 자산 비운 곳 (AZ가 뺀 자리 · Pfizer는 Vivet 유전자치료 보유)\n- 왜 = 차별적 de-coppering 기전임 (담즙배출·간헐투약)\n- 언제 = 전임상이라 프리미엄 LO는 이르나, 지역권 잔여로 조기 옵션딜이 현실적임 (Hyloris가 EU/터키 이미 라이선스=미국·아시아 등 잔여)\n- FIH(2026) 데이터가 밸류업 분기점임",
+    "risk": "- ① 전임상=인체 데이터 0 → 프리미엄 LO 난망함. 파이프라인 최후미임(유전자치료 3종보다도 늦음)\n- ② 유전자치료(UX701·VTX-801)가 근본치료로 앞서면 킬레이터/펩타이드 시장 잠식됨\n- ③ 주사제=경구 trientine/WTX101 대비 편의성 열위임\n- ④ Hyloris가 EU/터키 이미 가져감 → 잔여 지역권 구조 확인 필요함",
     "evidence": [
       "딜 선례: Alexion←Wilson Therapeutics $855M(2018), 단 이후 AZ→Monopar 재이전(2024)=big pharma 발 뺌",
       "경쟁 서열: 유전자치료(UX701·VTX-801)가 앞서고 ARBM-101은 최후미(전임상)",
@@ -73,43 +73,43 @@
   },
   "자산 개요": {
     "grade": "FACT",
-    "keymsg": "ArborMed(한국 아버메드, 2017)의 리드 ARBM-101 = 구리(Cu) modulator, Wilson병(희귀 구리축적 간질환) small molecule. preclinical(P1 준비). Helmholtz Zentrum München에서 in-license. CEO 박교진=前 레고켐바이오-Takeda 기술이전 성사 이력.",
+    "keymsg": "ArborMed(한국 아버메드, 2017)의 리드 ARBM-101 = 구리(Cu) modulator, Wilson병(희귀 구리축적 간질환) small molecule임. preclinical 단계임(P1 준비). Helmholtz Zentrum München에서 in-license함. CEO 박교진=前 레고켐바이오-Takeda 기술이전 성사 이력 보유함.",
     "cards": [
       [
         "ARBM-101 (구리 modulator)",
-        "Wilson병(간렌즈핵변성) 대상 경구 small molecule. 구리 킬레이션/이동 조절 기전(정확 분자기전 미공개). 원천특허 Helmholtz 명의(in-license)"
+        "Wilson병(간렌즈핵변성) 대상 경구 small molecule임. 구리 킬레이션/이동 조절 기전임(정확 분자기전 미공개). 원천특허는 Helmholtz 명의임(in-license)"
       ],
       [
         "희귀질환 포트폴리오",
-        "ARBM-201(Pendrin/SLC26A4 억제·감각신경성난청, unverified)·ARBM-301(anion transport·염증, unverified) 등 희귀질환 집중. 파이프라인 5개 중 4개 small molecule"
+        "ARBM-201(Pendrin/SLC26A4 억제·감각신경성난청, unverified)·ARBM-301(anion transport·염증, unverified) 등 희귀질환에 집중함. 파이프라인 5개 중 4개가 small molecule임"
       ],
       [
         "회사",
-        "Private, 서울, 2017 설립, 10~50명. 미국 자회사 Arbormed Pharma 보유. 라플라스 Deep Dive 리포트 대상사"
+        "Private, 서울, 2017 설립, 10~50명 규모임. 미국 자회사 Arbormed Pharma 보유함. 라플라스 Deep Dive 리포트 대상사임"
       ]
     ],
     "body": [
-      "적응증 축: Wilson병(구리 과축적)=희귀질환. 표준치료(트리엔틴·페니실아민·아연) 대비 차별화 포지션. ★단 ARBM-101 'chelator'는 마케팅 언어, 과학적으론 methanobactin 펩타이드=주사제(경구 트리엔틴/WTX101 대비 편의성 열위)",
-      "★주의(엔진): 자사명 US 특허 0건(Synapse)=리드가 in-license라 원천특허 라이선서 명의 → 회사명 기반 co-citation 신호 희박 예상(gather로 실측)"
+      "적응증 축: Wilson병(구리 과축적)=희귀질환임. 표준치료(트리엔틴·페니실아민·아연) 대비 차별화 포지션임. ★단 ARBM-101 'chelator'는 마케팅 언어이고, 과학적으론 methanobactin 펩타이드=주사제임(경구 트리엔틴/WTX101 대비 편의성 열위)",
+      "★주의(엔진): 자사명 US 특허 0건(Synapse)=리드가 in-license라 원천특허가 라이선서 명의임 → 회사명 기반 co-citation 신호 희박할 것으로 예상됨(gather로 실측)"
     ]
   },
   "임상 & 검증": {
     "grade": "EST",
-    "keymsg": "ARBM-101 preclinical(P1 준비 단계). 임상 readout 전 = 데이터 리스크 높음. 검증 근거는 적응증 precedent(Alexion의 Wilson Therapeutics 인수)와 in-license 원천(Helmholtz)에 의존.",
+    "keymsg": "ARBM-101은 preclinical 단계임(P1 준비). 임상 readout 전 = 데이터 리스크 높음. 검증 근거는 적응증 precedent(Alexion의 Wilson Therapeutics 인수)와 in-license 원천(Helmholtz)에 의존함.",
     "body": [
-      "개발단계: preclinical, Phase 1 준비 중(공개 임상데이터 없음)",
-      "검증 대체근거: Wilson병 영역 빅파마 관심 실재(Alexion $855M 인수 precedent). ★단 그 자산(WTX101/tiomolibdate)은 이후 AZ→Monopar 재이전(2024)=빅파마 발뺌 → precedent가 보이는 만큼 강하지 않음(구리대사 자산의 임상 난도 시사, 동시에 차세대 재진입 여지). ARBM-101 자체 임상효능은 미확보",
-      "★촉매 미확인: 공개 임상 개시/IND 시점 정보 없음 → 분석가 확인 필요"
+      "개발단계: preclinical, Phase 1 준비 중임(공개 임상데이터 없음)",
+      "검증 대체근거: Wilson병 영역에 빅파마 관심 실재함(Alexion $855M 인수 precedent). ★단 그 자산(WTX101/tiomolibdate)은 이후 AZ→Monopar 재이전(2024)=빅파마 발뺌 → precedent가 보이는 만큼 강하지 않음(구리대사 자산의 임상 난도 시사, 동시에 차세대 재진입 여지). ARBM-101 자체 임상효능은 미확보임",
+      "★촉매 미확인: 공개 임상 개시/IND 시점 정보 없음 → 분석가 확인 필요함"
     ]
   },
   "전략 권고": {
     "grade": "REC",
-    "keymsg": "엔진 결과 종합(gather 후 확정): 희귀 대사·간질환 rare-disease acquirer 축. precedent = Alexion(現 AstraZeneca) Wilson Therapeutics 2018 $855M 인수(WTX101). ★단 AZ가 2024 Monopar로 재이전=발을 뺌 → 빈 자리(차세대 재진입 여지)지 강한 buy 신호 아님",
+    "keymsg": "엔진 결과 종합(gather 후 확정): 희귀 대사·간질환 rare-disease acquirer 축임. precedent = Alexion(現 AstraZeneca)이 Wilson Therapeutics 2018 $855M 인수(WTX101). ★단 AZ가 2024 Monopar로 재이전=발을 뺌 → 빈 자리(차세대 재진입 여지)지 강한 buy 신호는 아님",
     "body": [
-      "Lead 트랙: AstraZeneca(Alexion)=Wilson병 precedent이나 WTX101 발뺌 상태=오히려 자산 비운 곳. Takeda(Shire 희귀)·Ultragenyx·Ipsen·Chiesi/Recordati(rare)·Pfizer(Vivet 유전자치료 보유) 인접",
-      "직접 경쟁/파트너: Orphalan(Cuvrior/트리엔틴, Wilson병 상용)=경쟁 겸 잠재 파트너",
-      "딜 각: preclinical=upfront↓+데이터 마일스톤 후행 옵션딜. ★Hyloris가 EU/터키 이미 라이선스 → 미국·아시아 등 잔여 지역권 구조 확인 필요. FIH(2026) 데이터가 밸류업 분기점",
-      "★확정 전 gather 필요: 위는 precedent 기반 가설, AoI/LO 스코어는 STAGE1 gather 후 실데이터로 검증"
+      "Lead 트랙: AstraZeneca(Alexion)=Wilson병 precedent이나 WTX101 발뺌 상태=오히려 자산 비운 곳임. Takeda(Shire 희귀)·Ultragenyx·Ipsen·Chiesi/Recordati(rare)·Pfizer(Vivet 유전자치료 보유)가 인접함",
+      "직접 경쟁/파트너: Orphalan(Cuvrior/트리엔틴, Wilson병 상용)=경쟁 겸 잠재 파트너임",
+      "딜 각: preclinical=upfront↓+데이터 마일스톤 후행 옵션딜임. ★Hyloris가 EU/터키 이미 라이선스함 → 미국·아시아 등 잔여 지역권 구조 확인 필요함. FIH(2026) 데이터가 밸류업 분기점임",
+      "★확정 전 gather 필요함: 위는 precedent 기반 가설이고, AoI/LO 스코어는 STAGE1 gather 후 실데이터로 검증함"
     ]
   }
 }
