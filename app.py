@@ -183,7 +183,7 @@ with st.container():
             cc = st.columns(2)
             for i, card in enumerate(s["cards"]):
                 with cc[i % 2]:
-                    st.markdown(f"**{_md(card[0])}**"); st.caption(_md(card[1]))
+                    st.markdown(f"**{_md(card[0])}**"); st.caption(_para(card[1]))
         for b in s.get("body", []):
             st.markdown(f"- {_md(b)}")
         st.divider()
