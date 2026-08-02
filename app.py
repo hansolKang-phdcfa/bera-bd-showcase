@@ -316,16 +316,19 @@ with st.container():
     if krc and krc.get("kr_competitors"):
         st.divider(); st.markdown("### 🇰🇷 KR 경쟁사 발굴 — 같은 기전을 KR 특허에 쓰는 회사")
         _kw = ", ".join(krc.get("meta", {}).get("keywords", []))
-        st.caption(f"질문: 이 기전(「{_kw}」)을 KR 특허에 실제 쓰는 회사가 누구? = 국내+한국출원 글로벌 직접 경쟁. "
-                   f"자사 {krc.get('self_count', 0)}건 · {krc.get('n_companies', 0)}개사. 빨강=국내/파랑=해외.")
+        st.caption(f"이 기전(「{_kw}」)을 한국 특허에 실제로 사용하는 회사를 찾은 것입니다. "
+                   f"국내 기업과 한국에 출원한 해외 기업이 함께 잡히며, 직접 경쟁군에 해당합니다. "
+                   f"자사 특허 {krc.get('self_count', 0)}건, 경쟁사 {krc.get('n_companies', 0)}곳. 빨강은 국내, 파랑은 해외 기업입니다.")
         st.pyplot(viz.kr_cocitation_fig(krc))
     kr = _json(d, "kr_tiers.json")
     if kr:
         st.divider(); st.markdown("### 🇰🇷 KR 3-tier — 기술 분류(IPC)로 본 국내 경쟁 계층")
         _ipc = " · ".join(f"{k}({', '.join(v)})" for k, v in (m.get("kr_domains") or {}).items())
-        st.caption(f"질문: 기전 키워드 아니라 **기술 분류(IPC)**로 봤을 때 국내 경쟁 계층? Tier1 직접/Tier2 인접/Tier3 다른 modality(=잠재 co-dev). "
-                   f"**정렬 = 위에서 아래로 Tier1→Tier2→Tier3, 같은 티어 안에서는 특허 건수 많은 순**. "
-                   f"위 'KR 발굴'(키워드)과 달리 넓은 기술지형." + (f"　★사용 IPC: {_ipc}" if _ipc else ""))
+        st.caption("특허 기술분류(IPC)를 기준으로 국내 출원인을 경쟁 근접도에 따라 세 계층으로 나눈 지도입니다. "
+                   "Tier 1은 같은 기술영역의 직접 경쟁, Tier 2는 인접 영역, Tier 3은 다른 모달리티로 경쟁이라기보다 잠재적 공동개발 후보에 가깝습니다. "
+                   "위에서 아래로 Tier 1 → 2 → 3 순이며, 같은 계층 안에서는 특허 건수가 많은 순으로 정렬했습니다. "
+                   "앞의 'KR 경쟁사 발굴'이 키워드 기반이라면, 이 지도는 더 넓은 기술 지형을 보여줍니다."
+                   + (f"\n\n분석에 사용한 IPC 분류: {_ipc}" if _ipc else ""))
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
         st.pyplot(viz.kr_tier_fig(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt),
