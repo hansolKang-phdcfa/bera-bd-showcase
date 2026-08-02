@@ -310,7 +310,13 @@ with st.container():
     _fp_ci = _json(d, "field_pool.json")
     if _fp_ci and _fp_ci.get("field_heat"):
         st.markdown("### 🌡️ 타깃 필드 열기 — 검증·과열 추세 (데이터 기반)")
-        _px(viz_px.field_heat_px({"field_heat": _fp_ci["field_heat"]}))
+        _fh = _fp_ci["field_heat"]; _yrs = len(_fh); _tot = sum(_fh.values())
+        if _yrs < 3:   # 데이터 희박 — 곡선 대신 안내
+            _fk = ", ".join(_fp_ci.get("meta", {}).get("keywords", []))
+            st.info(f"「{_fk}」 기전을 인용한 제약 특허가 전 기간 통틀어 {_tot}건(연도 {_yrs}개)에 불과해 추세 곡선은 의미가 없음. "
+                    "이 분야에 R&D가 거의 몰리지 않는다는 뜻으로, 경쟁자가 드문 white space 신호일 수 있음(반대로 아무도 못 푼 난제 영역일 수도 있으니 별도 판단 필요).")
+        else:
+            _px(viz_px.field_heat_px({"field_heat": _fh}))
         st.divider()
     ta = m.get("ta_label", "")
     with st.expander("🔒 Patent Cliff (구 · 하드코딩 14곳 · broad-TA 노이즈) — 참고용", expanded=False):
