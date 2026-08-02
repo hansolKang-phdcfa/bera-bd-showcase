@@ -3,12 +3,12 @@
   "_thesis": {
     "grade": "REC",
     "situation": "- BX-001N(Brixelle)은 PEG-빌리루빈-3α 나노입자임(내인성 항산화제를 용해도와 표적화로 druggable화한 것으로, Advanced Healthcare Materials 2025 게재)\n- ★선도 적응증은 심장수술연관 급성신손상(CSA-AKI, 신장 IR)과 신장이식임(심근 IR/AMI는 확장 적응증)\n- 호주 Ph1 완료(NCT06097702, 51명), 한국 Ph2a(CSA-AKI) 진행 중임\n- KAIST 전상용 스핀아웃임(2018년 설립, CEO 김명립)",
-    "insight": "- 빌리루빈은 내인성 최강 항산화제(Nrf2/HO-1 축)를 용해도와 손상조직 표적화로 druggable화한 정교한 기전임\n- ★그러나 재관류손상과 장기보호는 임상 실패가 반복된 영역임. cardioprotection 승인약이 전무하고 대형 Ph3가 연이어 실패함(elamipretide EMBRACE-STEMI, cyclosporine CIRCUS, 최근 FDY-5301 IOCYTE 2025)\n- 유일하게 성공한 modality는 약물이 아니라 기계관류임(TransMedics, OrganOx)\n- ★빌릭스의 전략적 선택은 임상 실패가 반복된 심근 IR이 아니라 CSA-AKI라는 좁고 측정가능한 수술 세팅을 선도 적응증으로 잡은 것임\n- ★★다만 바로 그 자리에 직접 경쟁자 Renibus RBT-1이 같은 Nrf2/HO-1 축으로 Ph3(FDA BTD)까지 도달해 있음. 이는 해당 축이 임상에 도달했다는 검증인 동시에 빌릭스 차별점을 침식하는 위협임\n- ★즉 임상 실패가 반복된 영역은 피했으나, 선도 자리엔 이미 Ph3 선행자가 있고 HO-1 축은 독점이 아님",
-    "lo_play": "- 대상은 CSA-AKI와 신장보호·이식에 관심 있는 제약사 및 이식 관류사임\n- 근거는 근본원인인 내인성 세포보호 복원을 노리는 첫 나노 접근이라는 점임\n- 시점은 Ph2a PoC(~2027) 이후 조기 아웃라이선싱임(회사 전략)\n- 다만 Renibus RBT-1의 Ph3 결과가 판도를 가름\n- ★나노메디슨 딜 경고: 1세대 타깃 나노입자는 프리미엄 M&A 거의 없이 소멸했음(BIND는 Pfizer에 약 $40M의 저가로 인수됨). 따라서 '풍부한 comp'가 아니라 '모두 실패한 미충족 수요' 논리로 접근해야 함",
-    "risk": "- ① 해당 영역은 cardioprotection/IR에서 임상 실패가 반복된 곳임(elamipretide는 직접 유사 기전으로 실패함)\n- ② ★직접경쟁 Renibus RBT-1이 같은 HO-1 축으로 Ph3를 선행해 차별점을 침식함\n- ③ HO-1 축은 비독점임\n- ④ human 효능이 미증명 상태임(Ph2a 진행 중, 회사 발표 수치 비검증). 미국 IND granted 여부가 모호하고, 나노메디슨 프리미엄 딜은 희소함",
+    "insight": "- 빌리루빈은 내인성 최강 항산화제(Nrf2/HO-1 축)를 용해도와 손상조직 표적화로 druggable화한 정교한 기전임\n- ★그러나 재관류손상과 장기보호는 임상 실패가 반복된 영역임. cardioprotection 승인약이 전무하고 대형 Ph3가 연이어 실패함(elamipretide EMBRACE-STEMI, cyclosporine CIRCUS, 최근 FDY-5301 IOCYTE 2025)\n- 유일하게 성공한 modality는 약물이 아니라 기계관류임(TransMedics, OrganOx)\n- ★빌릭스의 전략적 선택은 임상 실패가 반복된 심근 IR이 아니라 CSA-AKI라는 좁고 측정가능한 수술 세팅을 선도 적응증으로 잡은 것임\n- ★★같은 Nrf2/HO-1 축의 직접 경쟁자 Renibus RBT-1이 CSA-AKI Ph3 PROTECT 1차 종결점에 실패함(2026-04, win-ratio 0.87, p=0.33). 이후 고위험 서브그룹으로 축소 재설정함\n- ★양면 해석이 필요함. 긍정적으로는 Ph3 선행자가 탈락해 빌릭스가 CSA-AKI·HO-1 축의 선두 그룹으로 올라섬. 부정적으로는 기전·타깃·전략이 유사한 경쟁 자산이 Ph3에서 실패했으므로 그 부정적 평가가 빌릭스 에셋에도 전이될 수 있음(HO-1 축의 임상 유효성 자체에 대한 의구심)",
+    "lo_play": "- 대상은 CSA-AKI와 신장보호·이식에 관심 있는 제약사 및 이식 관류사임\n- 근거는 근본원인인 내인성 세포보호 복원을 노리는 첫 나노 접근이라는 점임\n- 시점은 Ph2a PoC(~2027) 이후 조기 아웃라이선싱임(회사 전략)\n- 선행하던 Renibus RBT-1이 Ph3 1차 종결점에 실패해(2026-04) 선두 경쟁 압력은 완화됨. 다만 유사 기전의 실패가 축 전체 평가에 부담을 줄 수 있음\n- ★나노메디슨 딜 경고: 1세대 타깃 나노입자는 프리미엄 M&A 거의 없이 소멸했음(BIND는 Pfizer에 약 $40M의 저가로 인수됨). 따라서 '풍부한 comp'가 아니라 '모두 실패한 미충족 수요' 논리로 접근해야 함",
+    "risk": "- ① 해당 영역은 cardioprotection/IR에서 임상 실패가 반복된 곳임(elamipretide는 직접 유사 기전으로 실패함)\n- ② ★유사기전 전이 리스크임. 같은 Nrf2/HO-1 축의 Renibus RBT-1이 Ph3 1차 종결점에 실패해(2026-04), 기전·타깃이 유사한 빌릭스 에셋으로 부정적 평가가 전이될 수 있음\n- ③ HO-1 축은 비독점이며 축 자체의 임상 유효성이 아직 미입증임\n- ④ human 효능이 미증명 상태임(Ph2a 진행 중, 회사 발표 수치 비검증). 미국 IND granted 여부가 모호하고, 나노메디슨 프리미엄 딜은 희소함",
     "evidence": [
       "자산 실재: 호주 Ph1 완료(NCT06097702, 51명), 한국 Ph2a CSA-AKI 진행, Advanced Healthcare Materials 2025 peer-review",
-      "★직접경쟁: Renibus RBT-1(동일 Nrf2/HO-1 축)이 CSA-AKI Ph3 PROTECT와 FDA BTD로 선행함",
+      "★직접경쟁 Renibus RBT-1(동일 Nrf2/HO-1 축)이 CSA-AKI Ph3 PROTECT 1차 종결점에 실패함(2026-04, win-ratio 0.87, p=0.33). 빌릭스는 선두 그룹으로 부상하나 유사기전 실패의 부정적 전이 리스크가 병존함",
       "cardioprotection 임상 실패 반복: elamipretide·cyclosporine·FDY-5301(2025)이 전멸했고 재관류손상 승인약은 전무함",
       "실제 성공은 약물이 아니라 기계관류 기기임(TransMedics, OrganOx)",
       "나노메디슨 딜 경고: BIND가 Pfizer에 약 $40M의 저가로 인수됐고, 1세대 타깃 나노입자의 프리미엄 M&A는 희소함"
@@ -16,13 +16,13 @@
   },
   "_competition": {
     "grade": "FACT",
-    "axis": "심장수술연관 급성신손상(CSA-AKI)/장기보호 — 빌릭스 선도 적응증. 재관류손상 승인약 0(무덤), 단 CSA-AKI 포켓엔 경쟁 활발. 직접경쟁 Renibus가 같은 HO-1 축 Ph3.",
+    "axis": "심장수술연관 급성신손상(CSA-AKI)/장기보호 — 빌릭스 선도 적응증. 재관류손상 승인약 0(임상 실패 반복 영역), 단 CSA-AKI 포켓엔 경쟁 활발. 선행하던 Renibus(동일 HO-1 축)는 Ph3 1차 종결점 실패(2026-04).",
     "players": [
       {
         "company": "Renibus",
         "asset": "RBT-1",
         "stage": "Phase 3",
-        "note": "★직접경쟁 · 동일 Nrf2/HO-1 축 · FDA BTD · CSA-AKI",
+        "note": "동일 Nrf2/HO-1 축 · Ph3 PROTECT 1차 종결점 실패(2026-04) · 고위험 서브그룹 재설정",
         "is_target": false
       },
       {
@@ -111,7 +111,7 @@
     "grade": "FACT",
     "keymsg": "검증은 3축임. ① CSA-AKI P2a Cohort1에서 AKI 0% 대 대조군 67%로 초기 효능신호를 확인함 ② 호주 P1에서 안전성을 확보함(내인성 분자 기반의 우호적 안전성) ③ Classys에 미용 앰플을 기술이전함(2025.04). 비치료 영역의 로열티로, 기술 상업화 신호에 해당함",
     "body": [
-      "임상신호: CSA-AKI Cohort1 저용량군에서 AKI 0%(대조군 67%)로, 소규모(n=15)이나 방향성이 강함. 심근IR은 계획단계로 활성이 아니며, 현 활성 적응증은 CSA-AKI임. ★★다만 바로 그 선도 자리에 직접경쟁 Renibus RBT-1이 같은 Nrf2/HO-1 축으로 Ph3(FDA BTD)를 선행하고 있어, 차별점이 침식되고 HO-1 축은 비독점임. ★수치와 단계는 확정 전 재확인이 필요함",
+      "임상신호: CSA-AKI Cohort1 저용량군에서 AKI 0%(대조군 67%)로, 소규모(n=15)이나 방향성이 강함. 심근IR은 계획단계로 활성이 아니며, 현 활성 적응증은 CSA-AKI임. ★★같은 Nrf2/HO-1 축의 Renibus RBT-1이 CSA-AKI Ph3 PROTECT 1차 종결점에 실패해(2026-04) 선행 경쟁 압력은 완화됐고 빌릭스가 선두 그룹으로 부상함. 다만 기전·타깃이 유사한 만큼 그 실패가 빌릭스 에셋 평가에 부정적으로 전이될 수 있음(HO-1 축 유효성에 대한 의구심). ★수치와 단계는 확정 전 재확인이 필요함",
       "안전성: 호주 P1 SAD/MAD 무작위 이중맹검 위약대조 시험을 완료했으며, 안전성과 내약성이 양호함. 내인성 빌리루빈 기반이라 신규 화학물질 대비 독성 리스크가 낮음(가설)",
       "자금/파트너: 기관투자 약 $22M(DS자산운용·대교인베·IBK)에 정부지원 약 $3M을 더해 조달함. Classys와 미용 앰플을 기술이전함(비치료 영역). 치료제 글로벌 아웃라이선싱은 P2a POC(~2027) 이후를 목표로 함",
       "촉매: CSA-AKI Cohort2 고위험군 데이터(2026 하반기)와 심근IR/신장IR 확장 IND가 플랫폼 재평가의 분기점임"
@@ -119,9 +119,9 @@
   },
   "전략 권고": {
     "grade": "REC",
-    "keymsg": "엔진 결과를 종합함(★데이터가 얇은 케이스이므로 신중히 해석해야 함): 심혈관·항염·장기보호 프랜차이즈가 상위 buyer임. ★다만 재관류와 장기보호는 cardioprotection에서 임상 실패가 반복된 영역이고(승인약 전무, elamipretide·cyclosporine·FDY-5301 Ph3 실패), 직접경쟁 Renibus RBT-1이 Ph3를 선행하며, 나노메디슨 프리미엄 딜은 희소함(BIND가 Pfizer에 저가로 인수됨). 따라서 '풍부한 comp'가 아니라 '모두 실패한 미충족 수요' 논리로 접근해야 함",
+    "keymsg": "엔진 결과를 종합함(★데이터가 얇은 케이스이므로 신중히 해석해야 함): 심혈관·항염·장기보호 프랜차이즈가 상위 buyer임. ★다만 재관류와 장기보호는 cardioprotection에서 임상 실패가 반복된 영역이고(승인약 전무, elamipretide·cyclosporine·FDY-5301 Ph3 실패), 선행하던 Renibus RBT-1도 Ph3 1차 종결점에 실패했으며(2026-04, 유사기전 실패의 전이 리스크), 나노메디슨 프리미엄 딜은 희소함(BIND가 Pfizer에 저가로 인수됨). 따라서 '풍부한 comp'가 아니라 '모두 실패한 미충족 수요' 논리로 접근해야 함",
     "body": [
-      "Lead 트랙(AoI 상위 buyer): citation 상위권은 심혈관·항염·장기보호 인용을 축적한 회사들임. angle로는 심혈관 프랜차이즈에는 Co-dev를, 나노·전달 역량이 부재한 회사에는 in-license를 제안함. ★다만 이 영역은 임상 실패가 반복된 데다 Renibus가 Ph3를 선행하므로, buyer는 '검증된 comp'가 아니라 '아무도 풀지 못한 미충족 수요' 관점으로 접근해야 함",
+      "Lead 트랙(AoI 상위 buyer): citation 상위권은 심혈관·항염·장기보호 인용을 축적한 회사들임. angle로는 심혈관 프랜차이즈에는 Co-dev를, 나노·전달 역량이 부재한 회사에는 in-license를 제안함. ★다만 이 영역은 임상 실패가 반복된 데다 선행하던 Renibus도 Ph3 1차 종결점에 실패했으므로, buyer는 '검증된 comp'가 아니라 '아무도 풀지 못한 미충족 수요' 관점으로 접근해야 함",
       "국내 co-dev(KR 3-tier): 나노입자 약물전달과 심혈관·신장 IPC를 함께 보유한 상위 assignee가 잠재 공동개발 및 크로스라이선스 후보임",
       "딜 구조: P2a POC(2027) 이후 적응증별 옵션딜과 지역 분할이 현실적임. 현 단계(P1~P2a)는 조기 관심확보 및 스크리닝 성격임",
       "★해석 유의: 이 자산은 US 특허 landscape가 얇아(target 최대 Jaccard 0, 단일 코어 특허패밀리) anchor signature 역추적 검증 앵커가 약함. aprilbio(LO 2건 검증형)와 달리 예측과 landscape 정찰 위주로 활용함"
