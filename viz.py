@@ -315,7 +315,8 @@ def kr_tier_fig(kr_rows, top=18, tier_filter=None, domains=None):
             keys |= set(r.keys())
         core = sorted(k for k in keys if k not in META and not k.startswith("m_")
                       and not k.startswith("recent"))
-    rows = sorted(rows, key=lambda r: (r.get("tier", 9), -float(r.get("total_focus", 0))))[:top]
+    _bar = lambda r: sum(float(r.get(dd, 0) or 0) for dd in core)   # 화면 막대 길이로 정렬
+    rows = sorted(rows, key=lambda r: (r.get("tier", 9), -_bar(r)))[:top]
     rows = rows[::-1]
     comp = [f"{_short(r['assignee'])}  ·T{r.get('tier')}" for r in rows]
     PAL = [BLUE, "#E8544B", "#F5A623", "#2BB673", "#7B61FF", "#00A3B4", "#C86DD7", GRAY]

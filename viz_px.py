@@ -203,7 +203,8 @@ def kr_tier_px(kr_rows, top=18, tier_filter=None, domains=None):
         for r in rows:
             keys |= set(r.keys())
         core = sorted(k for k in keys if k not in META and not k.startswith("m_") and not k.startswith("recent"))
-    rows = sorted(rows, key=lambda r: (r.get("tier", 9), -float(r.get("total_focus", 0))))[:top][::-1]
+    _bar = lambda r: sum(float(r.get(dd, 0) or 0) for dd in core)   # 화면 막대 길이(표시 도메인 합)로 정렬 = 시각 일치
+    rows = sorted(rows, key=lambda r: (r.get("tier", 9), -_bar(r)))[:top][::-1]
     return _stacked_h(rows, core, lambda r, d: r.get(d, 0),
                       lambda r: f"{_ylab(r['assignee'])} ·T{r.get('tier')}",
                       "KR 3-tier — 위=Tier1(직접) → 아래=Tier3(잠재)", "도메인(IPC)별 특허 건수")
