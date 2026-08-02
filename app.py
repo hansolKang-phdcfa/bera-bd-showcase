@@ -202,8 +202,8 @@ with st.container():
     _ptracks = [t for t in (_pn.get("tracks") or []) if t.get("partnering")]
     if _ptracks:
         st.markdown("### 🎯 자산별 파트너 후보 — 트랙마다 기전·적응증이 달라 별도 발굴")
-        st.caption("이 회사는 라이브 자산이 서로 다른 필드에 있어 하나의 풀로 못 묶음. "
-                   "자산(트랙)별로 ①그 기전에 특허 활동하는 상업사 ②그 적응증에 임상 개시하는 sponsor를 각각 데이터로 발굴.")
+        st.caption("이 회사는 라이브 자산들이 서로 다른 기술 영역에 있어 하나의 후보군으로 묶기 어렵습니다. "
+                   "그래서 자산(트랙)마다 (1) 그 기전에 특허 활동을 하는 상업사와 (2) 그 적응증에 임상을 개시하는 sponsor를 각각 데이터로 발굴했습니다.")
         for _t in _ptracks:
             _pt = _t["partnering"]
             st.markdown(f"#### ▸ {_t.get('asset', '')}")
@@ -212,9 +212,10 @@ with st.container():
             _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
                     for x in _pool if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
             explain_box(
-                what=f"「{_fk}」 기전에 실제 특허 활동하는 상업사를 데이터로 발굴(학계 제외).",
-                how="○ 직전/년 → ● 최근/년(anchor 인용) 덤벨. **파랑=가속(이 영역 데워짐=LO 타이밍)/회색=냉각**.",
-                message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보.")
+                what=f"「{_fk}」 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것입니다(학계·공공기관 제외).",
+                how="각 회사의 연간 특허 활동을 직전(○)과 최근(●)으로 이어 표시했습니다. 점이 오른쪽으로 갈수록 활동이 늘고 있다는 뜻이며, "
+                    "파랑은 가속(이 영역이 달아오르는 중 = 라이선스 아웃 타이밍), 회색은 냉각입니다.",
+                message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있습니다.")
             _px(viz_px.momentum_px([x for x in _pool if x.get("kind") != "academic"]))
             _ind = _pt.get("clinical_ind", "")
             _clin = _pt.get("clinical_momentum", [])
@@ -230,9 +231,10 @@ with st.container():
                 for x in fpool["field_pool"] if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
         st.markdown("### 🎯 특허 모멘텀 기반 파트너 후보")
         explain_box(
-            what=f"「{_fk}」 기전에 실제 특허 활동하는 상업사를 데이터로 발굴(소형 바이오텍 포함, 학계 제외).",
-            how="○ 직전 평균/년(anchor 인용) → ● 최근 평균/년 덤벨. **파랑=가속(LO 타이밍)/회색=냉각**. 규모+추세를 한 그래프에.",
-            message=f"지금 가속 중 = {', '.join(_hot) or '없음'} → 우선 접근 후보.")
+            what=f"「{_fk}」 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것입니다(소형 바이오텍 포함, 학계 제외).",
+            how="각 회사의 연간 특허 활동을 직전 평균(○)과 최근 평균(●)으로 이어 표시했습니다. ●가 오른쪽에 있고 클수록 활발하며, "
+                "파랑은 가속(라이선스 아웃 타이밍), 회색은 냉각입니다. 활동 규모와 추세를 한 그래프에 담았습니다.",
+            message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있습니다.")
         _px(viz_px.momentum_px([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
         st.divider()
     # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
@@ -241,9 +243,11 @@ with st.container():
         _inds = " · ".join(cfm.get("meta", {}).get("indications", []))
         st.markdown("### 📈 임상 시험 개시 추세 (가속/냉각) — *특허* momentum과 다른 축")
         explain_box(
-            what=f"적응증 **「{_inds}」**에 임상시험을 개시한 **전체 INDUSTRY sponsor**({cfm.get('meta', {}).get('n_sponsors', 0)}곳, ct.gov)의 추세. 특허 momentum(위 막대 색)과 다른 임상 축.",
-            how="○ 직전 → ● 최근(임상 개시 건수) 덤벨. 파랑=임상 데워짐, 회색=냉각. ★14곳 아니라 적응증 검색=전체 sponsor 데이터기반.",
-            message=f"「{_inds}」에서 지금 임상 가속 중 = 이 병에 진심. 특허(위)+임상(여기) 둘 다 가속이면 최우선.")
+            what=f"적응증 「{_inds}」에 임상시험을 개시한 전체 산업계 sponsor({cfm.get('meta', {}).get('n_sponsors', 0)}곳, ClinicalTrials.gov)의 추세입니다. "
+                 "최근 3년과 직전 5년을 비교했으며, 위의 특허 모멘텀과는 다른 '임상' 축입니다.",
+            how="각 sponsor의 연간 임상 개시 건수를 직전 평균(○)과 최근 평균(●)으로 이어 표시했습니다. 파랑은 임상이 늘고 있는 곳, 회색은 줄고 있는 곳입니다. "
+                "하드코딩한 14곳이 아니라 적응증 검색으로 잡은 전체 sponsor 기준입니다.",
+            message=f"「{_inds}」에서 지금 임상을 늘리는 회사는 그만큼 이 질환에 집중하고 있다는 뜻입니다. 특허와 임상이 모두 가속 중이라면 최우선 접근 대상입니다.")
         _px(viz_px.momentum_px(cfm.get("momentum", [])))
         st.divider()
     with st.expander("구 엔진 스코어 (하드코딩 14곳 · AoI/LO/angle) — 참고용, 데이터 풀이 대체"):
