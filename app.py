@@ -107,6 +107,11 @@ def _para(s):
     return s.strip()
 
 
+def _bd(s):
+    """본문(body) 항목 — 항목 안의 ★ 앞에서 같은 항목 내 줄바꿈(하드 브레이크)."""
+    return re.sub(r"(?<=\S)\s*★", "  \n★", _md(s))
+
+
 def _px(fig):
     """인터랙티브 차트 렌더 — 드래그 박스줌·스크롤줌·모바일 핀치 지원."""
     st.plotly_chart(fig, use_container_width=True, config=viz_px.PX_CONFIG)
@@ -193,7 +198,7 @@ with st.container():
                 with cc[i % 2]:
                     st.markdown(f"**{_md(card[0])}**"); st.caption(_para(card[1]))
         for b in s.get("body", []):
-            st.markdown(f"- {_md(b)}")
+            st.markdown(f"- {_bd(b)}")
         st.divider()
 
 st.divider()
@@ -204,8 +209,8 @@ with st.container():
     _ptracks = [t for t in (_pn.get("tracks") or []) if t.get("partnering")]
     if _ptracks:
         st.markdown("### 🎯 자산별 파트너 후보 — 트랙마다 기전·적응증이 달라 별도 발굴")
-        st.caption("이 회사는 라이브 자산들이 서로 다른 기술 영역에 있어 하나의 후보군으로 묶기 어렵습니다. "
-                   "그래서 자산(트랙)마다 (1) 그 기전에 특허 활동을 하는 상업사와 (2) 그 적응증에 임상을 개시하는 sponsor를 각각 데이터로 발굴했습니다.")
+        st.caption("이 회사는 라이브 자산들이 서로 다른 기술 영역에 있어 하나의 후보군으로 묶기 어려움. "
+                   "그래서 자산(트랙)마다 (1) 그 기전에 특허 활동을 하는 상업사와 (2) 그 적응증에 임상을 개시하는 sponsor를 각각 데이터로 발굴함.")
         for _t in _ptracks:
             _pt = _t["partnering"]
             st.markdown(f"#### ▸ {_t.get('asset', '')}")
@@ -214,10 +219,10 @@ with st.container():
             _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
                     for x in _pool if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
             explain_box(
-                what=f"「{_fk}」 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것입니다(학계·공공기관 제외).",
-                how="각 회사의 연간 특허 활동을 직전(○)과 최근(●)으로 이어 표시했습니다. 점이 오른쪽으로 갈수록 활동이 늘고 있다는 뜻이며, "
-                    "파랑은 가속(이 영역이 달아오르는 중 = 라이선스 아웃 타이밍), 회색은 냉각입니다.",
-                message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있습니다.")
+                what=f"「{_fk}」 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(학계·공공기관 제외).",
+                how="각 회사의 연간 특허 활동을 직전(○)과 최근(●)으로 이어 표시함. 점이 오른쪽으로 갈수록 활동이 늘고 있다는 뜻이고, "
+                    "파랑은 가속(이 영역이 활발해지는 중이며 라이선스 아웃 타이밍), 회색은 냉각임.",
+                message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있음.")
             _px(viz_px.momentum_px([x for x in _pool if x.get("kind") != "academic"]))
             _ind = _pt.get("clinical_ind", "")
             _clin = _pt.get("clinical_momentum", [])
@@ -233,10 +238,10 @@ with st.container():
                 for x in fpool["field_pool"] if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
         st.markdown("### 🎯 특허 모멘텀 기반 파트너 후보")
         explain_box(
-            what=f"「{_fk}」 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것입니다(소형 바이오텍 포함, 학계 제외).",
-            how="각 회사의 연간 특허 활동을 직전 평균(○)과 최근 평균(●)으로 이어 표시했습니다. ●가 오른쪽에 있고 클수록 활발하며, "
-                "파랑은 가속(라이선스 아웃 타이밍), 회색은 냉각입니다. 활동 규모와 추세를 한 그래프에 담았습니다.",
-            message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있습니다.")
+            what=f"「{_fk}」 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(소형 바이오텍 포함, 학계 제외).",
+            how="각 회사의 연간 특허 활동을 직전 평균(○)과 최근 평균(●)으로 이어 표시함. ●가 오른쪽에 있고 클수록 활발하며, "
+                "파랑은 가속(라이선스 아웃 타이밍), 회색은 냉각임. 활동 규모와 추세를 한 그래프에 담음.",
+            message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있음.")
         _px(viz_px.momentum_px([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
         st.divider()
     # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
@@ -245,11 +250,11 @@ with st.container():
         _inds = " · ".join(cfm.get("meta", {}).get("indications", []))
         st.markdown("### 📈 임상 시험 개시 추세 (가속/냉각) — *특허* momentum과 다른 축")
         explain_box(
-            what=f"적응증 「{_inds}」에 임상시험을 개시한 전체 산업계 sponsor({cfm.get('meta', {}).get('n_sponsors', 0)}곳, ClinicalTrials.gov)의 추세입니다. "
-                 "최근 3년과 직전 5년을 비교했으며, 위의 특허 모멘텀과는 다른 '임상' 축입니다.",
-            how="각 sponsor의 연간 임상 개시 건수를 직전 평균(○)과 최근 평균(●)으로 이어 표시했습니다. 파랑은 임상이 늘고 있는 곳, 회색은 줄고 있는 곳입니다. "
-                "하드코딩한 14곳이 아니라 적응증 검색으로 잡은 전체 sponsor 기준입니다.",
-            message=f"「{_inds}」에서 지금 임상을 늘리는 회사는 그만큼 이 질환에 집중하고 있다는 뜻입니다. 특허와 임상이 모두 가속 중이라면 최우선 접근 대상입니다.")
+            what=f"적응증 「{_inds}」에 임상시험을 개시한 전체 산업계 sponsor({cfm.get('meta', {}).get('n_sponsors', 0)}곳, ClinicalTrials.gov)의 추세임. "
+                 "최근 3년과 직전 5년을 비교했으며, 위의 특허 모멘텀과는 다른 '임상' 축임.",
+            how="각 sponsor의 연간 임상 개시 건수를 직전 평균(○)과 최근 평균(●)으로 이어 표시함. 파랑은 임상이 늘고 있는 곳, 회색은 줄고 있는 곳임. "
+                "하드코딩한 14곳이 아니라 적응증 검색으로 잡은 전체 sponsor 기준임.",
+            message=f"「{_inds}」에서 지금 임상을 늘리는 회사는 그만큼 이 질환에 집중하고 있다는 뜻임. 특허와 임상이 모두 가속 중이라면 최우선 접근 대상임.")
         _px(viz_px.momentum_px(cfm.get("momentum", [])))
         st.divider()
     with st.expander("구 엔진 스코어 (하드코딩 14곳 · AoI/LO/angle) — 참고용, 데이터 풀이 대체"):
@@ -289,10 +294,10 @@ with st.container():
         st.markdown("### 🏁 경쟁 서열 — 기전 × 개발 단계 (누가 앞섰나)")
         explain_box(
             what="이 자산과 같은 기전의 실제 경쟁 자산을 개발 단계로 줄세움 (웹 검증·큐레이션).",
-            how="X축=개발 단계(오른쪽=앞섬), ★파랑=우리 자산, 회색=활성 경쟁, 빨강X=이전세대 실패/중단. "
+            how="X축은 개발 단계이며 오른쪽일수록 앞섬, ★파랑=우리 자산, 회색=활성 경쟁, 빨강X=이전세대 실패/중단. "
                 "특허 인용망이 아니라 **'누가 실제로 앞서 있나'를 개발 단계로 직접** 배치.",
-            message="한눈에 **선두가 누구고, 우리가 어디쯤이고, 이전세대가 왜 죽었나**. "
-                    "다에셋 회사는 자산마다 타깃·경쟁이 달라 ▸별로 분리해 보여줍니다.")
+            message="한눈에 **선두가 누구인지, 우리 자산이 어디쯤인지, 이전세대가 왜 실패했는지**. "
+                    "다에셋 회사는 자산마다 타깃·경쟁이 달라 ▸별로 분리해 보여줌.")
         for _t in (_comp.get("tracks") or [_comp]):
             if _t.get("asset"):
                 st.markdown(f"**▸ {_md(_t['asset'])}**" + (f"  ·  {_md(_t['axis'])}" if _t.get("axis") else ""))
@@ -328,18 +333,18 @@ with st.container():
     if krc and krc.get("kr_competitors"):
         st.divider(); st.markdown("### 🇰🇷 KR 경쟁사 발굴 — 같은 기전을 KR 특허에 쓰는 회사")
         _kw = ", ".join(krc.get("meta", {}).get("keywords", []))
-        st.caption(f"이 기전(「{_kw}」)을 한국 특허에 실제로 사용하는 회사를 찾은 것입니다. "
-                   f"국내 기업과 한국에 출원한 해외 기업이 함께 잡히며, 직접 경쟁군에 해당합니다. "
-                   f"자사 특허 {krc.get('self_count', 0)}건, 경쟁사 {krc.get('n_companies', 0)}곳. 빨강은 국내, 파랑은 해외 기업입니다.")
+        st.caption(f"이 기전(「{_kw}」)을 한국 특허에 실제로 사용하는 회사를 찾은 것임. "
+                   f"국내 기업과 한국에 출원한 해외 기업이 함께 잡히며, 직접 경쟁군에 해당함. "
+                   f"자사 특허 {krc.get('self_count', 0)}건, 경쟁사 {krc.get('n_companies', 0)}곳. 빨강은 국내, 파랑은 해외 기업임.")
         st.pyplot(viz.kr_cocitation_fig(krc))
     kr = _json(d, "kr_tiers.json")
     if kr:
         st.divider(); st.markdown("### 🇰🇷 KR 3-tier — 기술 분류(IPC)로 본 국내 경쟁 계층")
         _ipc = " · ".join(f"{k}({', '.join(v)})" for k, v in (m.get("kr_domains") or {}).items())
-        st.caption("특허 기술분류(IPC)를 기준으로 국내 출원인을 경쟁 근접도에 따라 세 계층으로 나눈 지도입니다. "
-                   "Tier 1은 같은 기술영역의 직접 경쟁, Tier 2는 인접 영역, Tier 3은 다른 모달리티로 경쟁이라기보다 잠재적 공동개발 후보에 가깝습니다. "
-                   "위에서 아래로 Tier 1 → 2 → 3 순이며, 같은 계층 안에서는 특허 건수가 많은 순으로 정렬했습니다. "
-                   "앞의 'KR 경쟁사 발굴'이 키워드 기반이라면, 이 지도는 더 넓은 기술 지형을 보여줍니다."
+        st.caption("특허 기술분류(IPC)를 기준으로 국내 출원인을 경쟁 근접도에 따라 세 계층으로 나눈 지도임. "
+                   "Tier 1은 같은 기술영역의 직접 경쟁, Tier 2는 인접 영역, Tier 3은 다른 모달리티로 경쟁이라기보다 잠재적 공동개발 후보에 가까움. "
+                   "위에서 아래로 Tier 1 → 2 → 3 순이며, 같은 계층 안에서는 특허 건수가 많은 순으로 정렬함. "
+                   "앞의 'KR 경쟁사 발굴'이 키워드 기반이라면, 이 지도는 더 넓은 기술 지형을 보여줌."
                    + (f"\n\n분석에 사용한 IPC 분류: {_ipc}" if _ipc else ""))
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
