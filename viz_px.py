@@ -79,7 +79,7 @@ def _layout(fig, title="", xtitle="", ytitle="", height=400, legend=True):
 
 
 def momentum_px(rows, top=12):
-    """Anchor 인용 Momentum 덤벨 — ○직전 → ●최근, 색=추세(가속 BLUE/냉각 GRAY/유지 LGRAY)."""
+    """Anchor 인용 Momentum 덤벨 — ○직전 → ●최근, 색=추세(가속 BLUE/신규 소프트블루/냉각 GRAY/유지 LGRAY)."""
     rows = [r for r in rows if (r.get("recent_per_yr", 0) or 0) > 0 or (r.get("prior_per_yr", 0) or 0) > 0]
     rows = sorted(rows, key=lambda r: (r.get("recent_per_yr", 0) or 0))[-top:]
     if not rows:
@@ -95,7 +95,7 @@ def momentum_px(rows, top=12):
     fig.add_trace(go.Scatter(x=prior, y=comps, mode="markers", name="직전 평균/년",
                              marker=dict(color=LGRAY, size=10, line=dict(color="white", width=1)),
                              customdata=full, hovertemplate="%{customdata}<br>직전 %{x:.1f}건/년<extra></extra>"))
-    for tr, col in [("가속", BLUE), ("냉각", GRAY), ("유지", LGRAY)]:
+    for tr, col in [("가속", BLUE), ("신규", "#8FB4FF"), ("냉각", GRAY), ("유지", LGRAY)]:
         idx = [i for i, r in enumerate(rows) if r.get("trend") == tr]
         if not idx:
             continue
@@ -105,7 +105,7 @@ def momentum_px(rows, top=12):
             marker=dict(color=col, size=17, line=dict(color="white", width=1.5)),
             customdata=[[prior[i], (f"{a}x" if a not in (None, 0.0) else "—"), full[i]] for i, a in zip(idx, acc)],
             hovertemplate="%{customdata[2]}<br>최근 %{x:.1f}건/년 · 직전 %{customdata[0]:.1f}<br>" + tr + " (%{customdata[1]})<extra></extra>"))
-    _layout(fig, title="관심 Momentum — ● 최근 vs ○ 직전 (색 = 가속/냉각)",
+    _layout(fig, title="관심 Momentum — ● 최근 vs ○ 직전 (색 = 가속/신규/냉각)",
             xtitle="연간 anchor 인용 건수", height=118 + 40 * len(rows))
     fig.update_yaxes(categoryorder="array", categoryarray=comps)
     fig.update_xaxes(rangemode="tozero")
