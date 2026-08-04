@@ -357,15 +357,8 @@ with st.container():
                          hide_index=True, width="stretch")
         else:
             st.caption("cliff 데이터 없음.")
-    # co-citation(Jaccard 네트워크) 제거 — 초기 한국자산엔 대부분 빈칸/독자공간이라 무의미(사용자 피드백).
-    #   경쟁지형 = 위 '경쟁 서열' + 아래 3개(KR발굴/3-tier/Cross-modality)로 대체.
-    krc = _json(d, "kr_cocitation.json")
-    if krc and krc.get("kr_competitors"):
-        st.divider(); st.markdown("### 🇰🇷 KR 경쟁사 발굴 — 같은 기전을 KR 특허에 쓰는 회사")
-        st.caption("이 기전을 한국 특허에 실제로 사용하는 회사를 찾은 것임. "
-                   f"국내 기업과 한국에 출원한 해외 기업이 함께 잡히며, 직접 경쟁군에 해당함. "
-                   f"자사 특허 {krc.get('self_count', 0)}건, 경쟁사 {krc.get('n_companies', 0)}곳. 빨강은 국내, 파랑은 해외 기업임.")
-        st.pyplot(viz.kr_cocitation_fig(krc))
+    # co-citation(Jaccard 네트워크)·KR 경쟁사 발굴(kr_cocitation) 둘 다 제거 — 초기 한국자산엔
+    #   대부분 빈칸/독자공간이라 무의미(사용자 피드백). 경쟁지형 = '경쟁 서열' + KR 3-tier + Cross-modality.
     kr = _json(d, "kr_tiers.json")
     if kr:
         st.divider(); st.markdown("### 🇰🇷 KR 3-tier — 기술 분류(IPC)로 본 국내 경쟁 계층")
