@@ -75,5 +75,19 @@
       "CI(경쟁): PCNSL/DLBCL 실경쟁은 covalent BTK 동류가 아니라 CAR-T(예스카타)·이중항체(글로피타맙·mosunetuzumab). 차별화=CNS 침투·적응증 선점·아시아 각. 지연성 림프종 BTK와는 세그먼트 다름",
       "딜 구조: 국내 자체상업화 유지 + Project 202/201 readout 후 글로벌 ex-Korea 지역분할 L/O. self-financing이라 급매 압력 낮음=협상력↑. CStone(중국) ROR1 전임상 파트너십 기존재. comparable=Ibrutinib·anti-CD20 LO(upfront 2~30%)이나 lo_events 입도 coarse → 참고 레인지"
     ]
+  },
+  "회사 · 면역노화 플랫폼": {
+    "grade": "REC",
+    "keymsg": "NB02(포셀티닙)는 단독 자산이 아니라 노보메디슨(구 지놈오피니언) 면역노화(immune aging)/CHIP 정밀의학 플랫폼의 상업화 캐시엔진임. 회사 단위로 보면 파트너 각이 층별로 갈리며, 현 밸류의 대부분은 이 NB02 상업화 성공에 의존함(플랫폼 상층부는 대부분 전임상 초기). 공동대표 이명세·고영일(고영일=SNU 혈액내과)",
+    "cards": [
+      ["1층 · 캐시엔진 (NB02)", "포셀티닙 국내 자체상업화(PCNSL 2027 목표) + 글로벌 데이터기반 L/O(중국 모델)로 플랫폼 자금 조달. self-financing 구조라 급매 압력 낮음 = 협상력↑. IIT→SIT 허가임상 전환으로 비용 10~20%로 데이터 확보"],
+      ["2층 · CHIP 매개 질환 (전임상)", "NB01(pan-caspase, emricasan 백본 → CHIP 매개 혈전증·저출혈 항혈전 각) + JAK2i(JAK2 V617F 변이선택·JH2/namuICT AI → MPN+CHIP 혈전). 심혈관/염증(Novartis CANTOS)·MPN(Incyte·Lilly) 파트너 각. ★전임상 = 상방 옵션이지 현 밸류 본체 아님"],
+      ["3층 · 노화 정밀의학 (장기)", "CHIP 사이언스를 다질환 정밀의학으로 확장(심혈관질환 1/4이 CHIP 연관 추정). 14,000명 CHIP 변이-질환 DB + TET2 gene-edited 검증 마우스 = 반복 발굴 인프라. 대식세포-CHIP 축(면역질환의 T세포→대식세포 전환)"],
+      ["SI · 크로스 인사이트", "유한양행·큐로셀 전략투자(Series C 275억, 누적 440억). ★유한=베라 첫 BD PoC(YH25724) 노드. ★Eli Lilly=반복노드(Poseltinib 과거보유 + pirtobrutinib + Ajax/JAK2 인수 2026-04) = 노보 BTK·JAK2 양쪽 검증 buyer, 회사단위 파트너 유력"]
+    ],
+    "body": [
+      "★밸류 구조: 3층 대부분이 초기라 현 밸류의 대부분은 1층(NB02 상업화 성공)에 의존. 플랫폼 서사는 상방 옵션",
+      "★차별화: 국내 드문 자체상업화 모델 + 대식세포-CHIP 축 + 발굴 인프라. 단 상업화 역량·글로벌 L/O 실현은 미증명"
+    ]
   }
 }
