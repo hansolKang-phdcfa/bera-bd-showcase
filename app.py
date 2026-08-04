@@ -19,7 +19,7 @@ import streamlit as st
 
 import viz  # 같은 폴더 (matplotlib, 엔진 무관)
 import viz_px  # Plotly 인터랙티브 버전 (드래그/핀치 줌)
-import company_class as cc  # 회사 카테고리·시총 tier 색 (그래프 공통 범례)
+import company_class as ccls  # 회사 카테고리·시총 tier 색 (그래프 공통 범례) — cc는 st.columns에서 이미 씀
 
 st.set_page_config(page_title="BERA BD", layout="wide", page_icon="🧬")
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -252,7 +252,7 @@ with st.container():
                 "파랑은 가속(라이선스 아웃 타이밍), 회색은 냉각임. 활동 규모와 추세를 한 그래프에 담음. "
                 "회사명 앞 색점 = 회사 분류(빅파마/바이오텍/스타트업/학계).",
             message=_pool_msg(_hot))
-        st.markdown(cc.legend_html(), unsafe_allow_html=True)
+        st.markdown(ccls.legend_html(), unsafe_allow_html=True)
         _px(viz_px.momentum_px([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
         st.divider()
     # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
@@ -316,7 +316,7 @@ with st.container():
                 "특허 인용망이 아니라 **'누가 실제로 앞서 있나'를 개발 단계로 직접** 배치.",
             message="한눈에 **선두가 누구인지, 우리 자산이 어디쯤인지, 이전세대가 왜 실패했는지**. "
                     "다에셋 회사는 자산마다 타깃·경쟁이 달라 ▸별로 분리해 보여줌.")
-        st.markdown(cc.legend_html(), unsafe_allow_html=True)
+        st.markdown(ccls.legend_html(), unsafe_allow_html=True)
         for _t in (_comp.get("tracks") or [_comp]):
             if _t.get("asset"):
                 st.markdown(f"**▸ {_md(_t['asset'])}**" + (f"  ·  {_md(_t['axis'])}" if _t.get("axis") else ""))
@@ -383,7 +383,7 @@ with st.container():
             st.caption(f"적응증(좁힘 질환/타깃): {m['indications_display']}")
         st.caption("막대=다른 모달리티 특허수, **색=시가총액 tier**(상단 대형→하단 소형). "
                    "스몰/마이크로캡·인수됨·비제약은 실제 협업/매입 가능성이 낮음 → 규모로 걸러 봄. 회사명 앞 색점=회사 분류.")
-        st.markdown(cc.cap_legend_html(), unsafe_allow_html=True)
+        st.markdown(ccls.cap_legend_html(), unsafe_allow_html=True)
         _px(viz_px.crossmod_px(cm))
         _cmm = cm.get("meta", {})
         st.caption(f"자산 모달리티={_cmm.get('own_modality')} → **다른 모달리티**"
