@@ -1,0 +1,29 @@
+{
+  "asset": "노보메디슨 NB01 (pan-caspase 저해제 · CHIP 매개 혈전증)",
+  "ta_label": "심혈관/혈전 · 항염",
+  "indications_display": "thrombosis, atherothrombosis, venous thromboembolism, cardiovascular, clonal hematopoiesis",
+  "weights": {
+    "deal": 0.0,
+    "clinical": 0.2857,
+    "citation": 0.2857,
+    "need": 0.4286
+  },
+  "kr_domains": {
+    "cardiovascular": [
+      "A61P9"
+    ],
+    "blood_thrombosis": [
+      "A61P7"
+    ],
+    "anti_inflammatory": [
+      "A61P29"
+    ],
+    "heterocycle": [
+      "C07D",
+      "A61K31/40",
+      "A61K31/41"
+    ]
+  },
+  "group": "노보메디슨 (면역노화 플랫폼)",
+  "order": 3
+}

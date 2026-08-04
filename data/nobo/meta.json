@@ -1,0 +1,13 @@
+{
+  "asset": "노보메디슨 (회사 · 면역노화/CHIP 플랫폼)",
+  "ta_label": "면역노화 · CHIP 정밀의학",
+  "indications_display": "PCNSL/DLBCL (림프종) · 혈전증 · MPN · 노화 관련 질환",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  },
+  "group": "노보메디슨 (면역노화 플랫폼)",
+  "order": 1
+}

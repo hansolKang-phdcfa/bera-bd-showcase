@@ -154,19 +154,37 @@ assets = discover()
 if not assets:
     st.error("data/ 자산 없음."); st.stop()
 
+GROUP_ORDER = [
+    "우선 PoC 자산",
+    "노보메디슨 (면역노화 플랫폼)",
+    "희귀질환 PoC 자산",
+    "1차 PoC 자산",
+]
+
+# 자산을 group으로 묶고(GROUP_ORDER 순), group 내 order로 정렬.
+_groups = {}
+for _name, _meta in assets.items():
+    _groups.setdefault(_meta.get("group", "기타"), []).append(_name)
+_ordered_groups = [g for g in GROUP_ORDER if g in _groups] + \
+                  [g for g in _groups if g not in GROUP_ORDER]
+_grouped = [(g, sorted(_groups[g], key=lambda n: assets[n].get("order", 99)))
+            for g in _ordered_groups]
+_flat = [n for _, members in _grouped for n in members]
+
 with st.sidebar:
     st.header("분석 자산")
     st.caption("자산을 눌러 선택")
-    names = list(assets)
     if st.session_state.get("asset") not in assets:
-        st.session_state["asset"] = names[0]
-    for name in names:
-        label = name.split("(")[0].strip()  # 짧은 이름(괄호 앞)
-        cur = name == st.session_state["asset"]
-        if st.button(label, key=f"pick_{name}", width="stretch",
-                     type=("primary" if cur else "secondary")):
-            st.session_state["asset"] = name
-            st.rerun()
+        st.session_state["asset"] = _flat[0]
+    for g, members in _grouped:
+        st.markdown(f"**{g}**")
+        for name in members:
+            label = name.split("(")[0].strip()  # 짧은 이름(괄호 앞)
+            cur = name == st.session_state["asset"]
+            if st.button(label, key=f"pick_{name}", width="stretch",
+                         type=("primary" if cur else "secondary")):
+                st.session_state["asset"] = name
+                st.rerun()
     asset = st.session_state["asset"]
     m = assets[asset]; d = m["_dir"]
 

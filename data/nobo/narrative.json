@@ -1,0 +1,64 @@
+{
+  "_README": "노보메디슨 회사·플랫폼 overview — AI tool 초안(바이오스펙테이터 2026-04-06 탐방 + 엔진 3프로그램 종합). 개별 자산 분석은 NB02/NB01/JAK2i 참조. ★회사 전략(자체상업화·SI·로드맵)은 회사 발화 기반, 효능수치는 프로모션 등급.",
+  "_thesis": {
+    "grade": "REC",
+    "situation": "노보메디슨(NOBO Medicine, 구 지놈오피니언, 2017 설립)은 혈액 면역노화(immune aging)/CHIP(클론성조혈증) 정밀의학 바이오텍임. 공동대표 이명세·고영일(고영일=SNU 혈액내과 교수, MD·PhD).\n\n- 출발 = 면역세포 노화·CHIP 진단(pre-malignant 혈액암 조기 발견)\n- 확장 = CHIP가 심혈관·혈전 등 다질환을 일으킨다는 정설화 → 진단에서 치료제로\n- 재설정 = '노화 관련 질환 정밀의학(precision medicine in age-related diseases)' 바이오텍",
+    "insight": "핵심은 대식세포(macrophage) 중심 면역노화 = 역사적 전환임. 그리고 그 플랫폼을 자체 자금으로 굴리는 구조가 국내에서 드문 각임.\n\n- ★자체상업화·self-financing: 국내 바이오텍의 '중간단계 L/O' 모델을 거부. NB02(포셀티닙)를 국내 자체 상업화해 캐시엔진으로 삼고, 글로벌만 데이터기반 L/O(중국 모델)\n- ★대식세포-CHIP 축: 기존 면역질환은 림프구(T세포) 중심이었으나 CHIP는 대식세포가 중심 = 새 축\n- ★플랫폼 자산: 14,000명 CHIP 변이-질환 DB + TET2 gene-edited 검증 마우스 = 반복 발굴 인프라",
+    "lo_play": "회사를 3층으로 봐야 정확함(단일 자산 L/O 아님):\n\n- 1층 캐시엔진: NB02 포셀티닙(국내 자체상업화 + 글로벌 지역분할 L/O) → 플랫폼 자금\n- 2층 CHIP 치료: NB01(pan-caspase, 혈전증) + JAK2i(CHIP 변이 직접) → 심혈관/염증/MPN 빅파마 파트너십\n- 3층 노화(장기): CHIP 정밀의학 확장 → 플랫폼 단위 딜\n- ★파트너는 층마다 다름: 1층=BTK/림프종 빅파마, 2층=CV/염증(Novartis)·MPN(Incyte·Lilly), 3층=aging 플레이어",
+    "risk": "- ① 효능·차별화 수치는 회사발표 IIT/전임상(프로모션 등급). NB02 외 프로그램은 전임상\n- ② 자체상업화 모델은 검증 전(국내 첫 시도급). 국내 상업화 역량·글로벌 L/O 실현은 미증명\n- ③ CHIP 치료개입의 인체 효능은 초기(역학·전임상 강하나 임상 미도달)\n- ④ 플랫폼 서사는 매력적이나 3층 대부분이 초기 = 밸류의 대부분이 NB02 상업화 성공에 의존",
+    "evidence": [
+      "SI: Series C 275억(2025-07), 누적 440억. ★유한양행·큐로셀 전략투자자(유한=베라 첫 BD PoC YH25724 노드)",
+      "★크로스 프로그램 인사이트: Eli Lilly = 반복노드 — Poseltinib 과거보유 + pirtobrutinib(BTK) + Ajax 인수(2026-04, JAK2-selective). 노보 BTK·JAK2 양쪽을 검증한 buyer",
+      "플랫폼 인프라: 14,000명 CHIP DB(심혈관·호흡·신경 10+ 질환) + TET2 gene-edited 검증 마우스",
+      "로드맵: ~2027 CHIP DB+치료제 개발 / 2028~ 포셀티닙 상업화 + CHIP 변이 모달리티 확장"
+    ]
+  },
+  "_competition": {
+    "grade": "FACT",
+    "axis": "면역노화/CHIP 정밀의학 포지셔닝 — 프로그램별 경쟁은 각 자산 참조.",
+    "players": [
+      {"company": "노보메디슨", "asset": "NB02·NB01·JAK2i (CHIP 플랫폼)", "stage": "허가Ph2~전임상", "note": "★혈액암→CHIP질환→노화 3층, 자체상업화 캐시엔진", "is_target": true},
+      {"company": "Novartis", "asset": "canakinumab (CANTOS)", "stage": "승인(염증)", "note": "염증-CV(CHIP 개념 원조), NB01 축 경쟁/파트너", "is_target": false},
+      {"company": "Eli Lilly", "asset": "Ajax(JAK2)·pirtobrutinib", "stage": "인수/승인", "note": "★JAK2-selective+BTK 검증 반복노드", "is_target": false},
+      {"company": "Incyte", "asset": "ruxolitinib·INCB160058", "stage": "승인/전임상", "note": "MPN 리더·JAK2V617F disease-modifying", "is_target": false}
+    ],
+    "prior_gen": [],
+    "excluded": [
+      {"company": "세포노화(senolytics) 기업", "reason": "노화의 다른 축(cellular senescence). 노보=CHIP/면역노화 축으로 차별"}
+    ]
+  },
+  "자산 개요": {
+    "grade": "FACT",
+    "keymsg": "노보메디슨은 면역노화/CHIP 정밀의학 플랫폼임. NB02(포셀티닙, BTK/림프종)를 상업화 캐시엔진으로, CHIP 매개 질환(혈전증·MPN) 치료제와 장기적으로 노화 질환 정밀의학으로 확장하는 3층 구조임. 개별 자산은 NB02·NB01·JAK2i 참조",
+    "cards": [
+      ["1층 · 상업화 캐시엔진 (NB02)", "포셀티닙(경구 BTK 저해제). 재발/불응 PCNSL 허가 Ph2(2027 국내 시판 목표), DLBCL 확장. 국내 자체 상업화 + 글로벌 데이터기반 L/O로 플랫폼 자금 조달. CNS 침투 16.8%(회사주장)가 wedge"],
+      ["2층 · CHIP 매개 질환 (NB01·JAK2i)", "NB01=pan-caspase(emricasan 백본)로 CHIP 매개 혈전증(저출혈 항혈전 각). JAK2i=JAK2 V617F 변이선택(JH2, namuICT AI)으로 CHIP 변이 직접 타깃(MPN+혈전). 심혈관/염증/MPN 빅파마 파트너 각"],
+      ["3층 · 노화 정밀의학 (장기)", "CHIP 사이언스를 여러 질환에 걸쳐 정밀의학으로 확장. 심혈관질환 1/4이 CHIP 연관 추정 = 큰 시장. EGFR-TKI처럼 CHIP 보유 환자 표적 처방 개념"],
+      ["플랫폼 인프라·SI", "14,000명 CHIP 변이-질환 DB + TET2 gene-edited 검증 마우스 = 반복 발굴 자산. 유한양행·큐로셀 전략투자(누적 440억). 자체상업화·self-financing 모델"]
+    ],
+    "body": [
+      "★밸류 구조: 3층 대부분이 초기라 현 밸류의 대부분은 1층(NB02 상업화 성공)에 의존. 플랫폼 서사는 상방 옵션",
+      "★차별화: 국내 드문 자체상업화 모델 + 대식세포-CHIP 축 + 발굴 인프라. 단 상업화 역량·글로벌 L/O 실현은 미증명"
+    ]
+  },
+  "임상 & 검증": {
+    "grade": "EST",
+    "keymsg": "★프로그램별 성숙도 상이(NB02 허가Ph2 / NB01·JAK2i 전임상). 플랫폼 검증은 CHIP 사이언스(역학·DB·모델) 수준",
+    "body": [
+      "CHIP 사이언스: 2014 NEJM(Harvard) CHIP↔전원인 사망·심혈관 연관. CHIP 혈액암 위험 11배(VAF>10%면 50배), JAK2-CHIP 혈전 HR 4+",
+      "발굴 인프라: 14,000명 CHIP DB(10+ 질환 카테고리) + TET2 gene-edited 검증 마우스로 타깃 제어 평가",
+      "NB02(가장 성숙): PCNSL 허가 Ph2 + DLBCL IIT 데이터(회사발표 효능, 프로모션 등급)",
+      "NB01·JAK2i: 전임상/AI 발굴 = 인체 데이터 없음. 역학·기전·시장검증(Lilly-Ajax 등) 기반"
+    ]
+  },
+  "전략 권고": {
+    "grade": "REC",
+    "keymsg": "회사 단위로 보면 파트너 각이 3층으로 갈림. 단일 자산이 아니라 '캐시엔진(NB02)으로 굴러가는 CHIP 플랫폼'으로 프레임해야 정확.",
+    "body": [
+      "1층(NB02): BTK/림프종 빅파마(Roche·AbbVie·AZ·BeiGene) + 오버레이(Ono PCNSL·Gilead 예스카타·Lilly). 국내 자체상업화+글로벌 지역분할 L/O",
+      "2층(NB01): ★Novartis(CANTOS 염증-CV 원조) 최우선 + BMS/J&J(FXIa)·Amgen·Novo Nordisk. 저출혈 항혈전·CHIP-CV 각",
+      "2층(JAK2i): ★Eli Lilly(Ajax 인수로 방금 검증) 최우선 + Incyte(MPN 리더). Prelude는 직접경쟁",
+      "★크로스: Eli Lilly가 BTK·JAK2 양쪽 노드 = 회사 단위 파트너십의 유력 후보. SI 유한양행 연결도 관계 레버. 3층(노화)은 플랫폼 단위 장기 옵션"
+    ]
+  }
+}

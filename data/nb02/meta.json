@@ -9,9 +9,22 @@
     "need": 0.4286
   },
   "kr_domains": {
-    "oncology": ["A61P35"],
-    "immune": ["A61P37"],
-    "fused_pyrimidine": ["A61K31/519", "A61K31/506"],
-    "heterocycle": ["C07D487", "C07D471", "C07D403"]
-  }
+    "oncology": [
+      "A61P35"
+    ],
+    "immune": [
+      "A61P37"
+    ],
+    "fused_pyrimidine": [
+      "A61K31/519",
+      "A61K31/506"
+    ],
+    "heterocycle": [
+      "C07D487",
+      "C07D471",
+      "C07D403"
+    ]
+  },
+  "group": "노보메디슨 (면역노화 플랫폼)",
+  "order": 2
 }

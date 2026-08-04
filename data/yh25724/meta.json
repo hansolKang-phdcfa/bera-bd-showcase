@@ -25,5 +25,7 @@
     "antibody": [
       "C07K16"
     ]
-  }
+  },
+  "group": "1차 PoC 자산",
+  "order": 1
 }

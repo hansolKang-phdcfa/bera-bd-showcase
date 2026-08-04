@@ -29,5 +29,7 @@
     "carrier_conjugate": [
       "A61K47"
     ]
-  }
+  },
+  "group": "우선 PoC 자산",
+  "order": 3
 }
