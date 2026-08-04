@@ -95,7 +95,7 @@
     ],
     "body": [
       "적응증 축은 항암임(Menin은 급성백혈병, GSPT1은 암세포 생존을 겨냥함). 두 타깃 모두 관심이 집중돼 있음(Menin에서는 Syndax revumenib이 승인됐고 Kura ziftomenib이 뒤따름)",
-      "★주의(엔진): 2024 신생이라 등록 US 특허가 사실상 없어(가출원 수준) 회사명 기반 co-citation은 거의 불가능함. 타깃 landscape를 특허로 경유하는 신호만 가능함(gather로 실측)"
+      "★특허 구조: 2024 신생이라 등록 US 특허가 사실상 없어(가출원 수준) 회사명 기반 co-citation은 거의 불가능함. 타깃 landscape를 특허로 경유하는 신호만 가능함"
     ]
   },
   "임상 & 검증": {
@@ -109,12 +109,12 @@
   },
   "전략 권고": {
     "grade": "REC",
-    "keymsg": "엔진 결과를 종합함(gather 후 확정): 항암(백혈병) targeted therapy acquirer 축임. ★강한 precedent는 Kura Oncology와 Kyowa Kirin의 ziftomenib 딜(upfront $330M, 마일스톤 최대 $1.16B, 2024-11)로, 이는 Menin 영역에서 빅파마의 도입 의지를 실증함. Menin·degrader 프랜차이즈 보유사가 우선임.",
+    "keymsg": "종합 판단(precedent 기반): 항암(백혈병) targeted therapy acquirer 축임. ★강한 precedent는 Kura Oncology와 Kyowa Kirin의 ziftomenib 딜(upfront $330M, 마일스톤 최대 $1.16B, 2024-11)로, 이는 Menin 영역에서 빅파마의 도입 의지를 실증함. Menin·degrader 프랜차이즈 보유사가 우선임.",
     "body": [
       "Lead 트랙: Kyowa Kirin(ziftomenib 도입 실적)·Syndax(revumenib, Menin 리더)·BMS(CC-90009 GSPT1, Celgene degrader 유산)가 직접적 선례와 역량을 갖춤",
       "인접: Novartis·AbbVie·J&J·Roche는 백혈병·혈액암 프랜차이즈를 보유하고 있으며, molecular glue degrader로 확장하는 중임",
       "딜 구조: discovery 단계라 옵션딜이나 플랫폼 딜(RaPIDome)이 유력하며, upfront는 최소로 하고 마일스톤을 후행시키는 형태임. 타깃별 분할도 가능함",
-      "★확정 전 gather 필요함: 위는 precedent 기반 가설임. 초기 회사라 특허·임상 신호가 얇을 수 있으므로, AoI와 LO는 실데이터로 재검증해야 함"
+      "단계 유의: 초기(discovery) 회사라 특허·임상 신호가 얇을 수 있어 precedent 의존도가 높은 구간임"
     ]
   }
 }

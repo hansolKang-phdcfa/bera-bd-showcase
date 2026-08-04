@@ -90,7 +90,7 @@
     ],
     "body": [
       "적응증 축: Wilson병(구리 과축적)은 희귀질환임. 표준치료(트리엔틴·페니실아민·아연) 대비 차별화된 포지션임. ★다만 ARBM-101의 'chelator'는 마케팅 언어일 뿐 과학적으로는 methanobactin 펩타이드이며 주사제임(경구 트리엔틴 및 WTX101 대비 편의성 열위)",
-      "★주의(엔진): 자사명 US 특허가 0건임(Synapse). 리드가 in-license라 원천특허가 라이선서 명의이기 때문임. 따라서 회사명 기반 co-citation 신호가 희박할 것으로 예상됨(gather로 실측)"
+      "★특허 구조: 자사명 US 특허가 0건임(Synapse). 리드가 in-license라 원천특허가 라이선서(Helmholtz) 명의이기 때문임. 따라서 회사명 기반 co-citation 신호는 희박함"
     ]
   },
   "임상 & 검증": {
@@ -99,17 +99,17 @@
     "body": [
       "개발단계: preclinical 단계로 Phase 1을 준비 중임(공개 임상데이터 없음)",
       "검증 대체근거: Wilson병 영역에 빅파마 관심이 실재함(Alexion의 USD 855M 인수 precedent). ★다만 그 자산(WTX101/tiomolibdate)은 이후 AstraZeneca가 Monopar로 재이전해(2024) 빅파마가 철수했으므로, precedent가 보이는 만큼 강하지는 않음(구리대사 자산의 임상 난도를 시사하는 동시에 차세대 재진입 여지도 있음). ARBM-101 자체의 임상효능은 미확보임",
-      "★촉매 미확인: 공개 임상 개시 및 IND 시점 정보가 없어 분석가 확인이 필요함"
+      "촉매 시점: 공개된 IND·임상 개시 시점이 아직 없음(preclinical, P1 준비 단계)"
     ]
   },
   "전략 권고": {
     "grade": "REC",
-    "keymsg": "엔진 결과 종합(gather 후 확정): 희귀 대사·간질환 rare-disease acquirer 축임. precedent은 Alexion(現 AstraZeneca)이 2018년 Wilson Therapeutics를 USD 855M에 인수한 사례임(WTX101). ★다만 AZ가 2024년 Monopar로 재이전하며 철수했으므로, 빈 자리가 생겨 차세대 재진입 여지가 있는 것이지 강한 buy 신호는 아님",
+    "keymsg": "종합 판단(precedent 기반): 희귀 대사·간질환 rare-disease acquirer 축임. precedent은 Alexion(現 AstraZeneca)이 2018년 Wilson Therapeutics를 USD 855M에 인수한 사례임(WTX101). ★다만 AZ가 2024년 Monopar로 재이전하며 철수했으므로, 빈 자리가 생겨 차세대 재진입 여지가 있는 것이지 강한 buy 신호는 아님",
     "body": [
       "Lead 트랙: AstraZeneca(Alexion)는 Wilson병 precedent이나 WTX101에서 철수한 상태라 오히려 자산을 비워 둔 곳임. Takeda(Shire 희귀)·Ultragenyx·Ipsen·Chiesi/Recordati(rare)·Pfizer(Vivet 유전자치료 보유)가 인접함",
       "직접 경쟁 및 파트너: Orphalan(Cuvrior/트리엔틴, Wilson병 상용)은 경쟁자이자 잠재 파트너임",
       "딜 각도: preclinical 단계라 upfront가 낮고 데이터 마일스톤이 후행하는 옵션딜임. ★Hyloris가 EU와 터키를 이미 라이선스했으므로 미국·아시아 등 잔여 지역권 구조를 확인할 필요가 있음. FIH(2026) 데이터가 밸류업 분기점임",
-      "★확정 전 gather 필요함: 위 내용은 precedent 기반 가설이며, AoI/LO 스코어는 STAGE1 gather 이후 실데이터로 검증함"
+      "단계 유의: preclinical precedent 기반 가설 구간으로, 인체 데이터·1차출처 확인 시 상향 여지가 있음"
     ]
   }
 }

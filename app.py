@@ -125,8 +125,8 @@ def explain_box(what, how, message):
         st.markdown(f"💡 **그래서 (메시지)** — {message}")
 
 
-st.title("🧬 BERA BD — 스냅샷 대시보드")
-st.caption("커밋된 분석 스냅샷 시각화(라이브 계산·DB 없음). 초안(draft) — 미팅급은 큐레이션 필요.")
+st.title("🧬 BERA BD — 파트너링 분석 대시보드")
+st.caption("자산별 파트너 후보·경쟁 지형·라이선스 비교를 특허·임상·딜 데이터로 발굴합니다.")
 assets = discover()
 if not assets:
     st.error("data/ 자산 없음."); st.stop()
@@ -154,7 +154,7 @@ _nar_top = _json(d, "narrative.json") or {}
 _th = _nar_top.get("_thesis")
 if _th:
     st.markdown("### 🎯 종합 판단 (Thesis) — 신호를 묶은 판단·권고")
-    st.caption("이 자산에 대한 결론. 아래는 이 판단을 뒷받침하는 근거입니다. (초안 — 애널리스트 검수 전)")
+    st.caption("이 자산에 대한 결론. 아래는 이 판단을 뒷받침하는 근거입니다.")
     with st.container(border=True):
         if _th.get("situation"):
             st.markdown("**①  지금 상황**")
@@ -212,12 +212,11 @@ with st.container():
         for _t in _ptracks:
             _pt = _t["partnering"]
             st.markdown(f"#### ▸ {_t.get('asset', '')}")
-            _fk = ", ".join(_pt.get("field_pool_kw", []))
             _pool = _pt.get("field_pool", [])
             _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
                     for x in _pool if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
             explain_box(
-                what=f"「{_fk}」 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(학계·공공기관 제외).",
+                what="이 자산의 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(학계·공공기관 제외).",
                 how="각 회사의 연간 특허 활동을 직전(○)과 최근(●)으로 이어 표시함. 점이 오른쪽으로 갈수록 활동이 늘고 있다는 뜻이고, "
                     "파랑은 가속(이 영역이 활발해지는 중이며 라이선스 아웃 타이밍), 회색은 냉각임.",
                 message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있음.")
@@ -231,12 +230,11 @@ with st.container():
 
     fpool = _json(d, "field_pool.json")
     if fpool and fpool.get("field_pool") and not _ptracks:
-        _fk = ", ".join(fpool.get("meta", {}).get("keywords", []))
         _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
                 for x in fpool["field_pool"] if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
         st.markdown("### 🎯 특허 모멘텀 기반 파트너 후보")
         explain_box(
-            what=f"「{_fk}」 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(소형 바이오텍 포함, 학계 제외).",
+            what="이 자산의 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(소형 바이오텍 포함, 학계 제외).",
             how="각 회사의 연간 특허 활동을 직전 평균(○)과 최근 평균(●)으로 이어 표시함. ●가 오른쪽에 있고 클수록 활발하며, "
                 "파랑은 가속(라이선스 아웃 타이밍), 회색은 냉각임. 활동 규모와 추세를 한 그래프에 담음.",
             message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있음.")
@@ -251,21 +249,21 @@ with st.container():
             what=f"적응증 「{_inds}」에 임상시험을 개시한 전체 산업계 sponsor({cfm.get('meta', {}).get('n_sponsors', 0)}곳, ClinicalTrials.gov)의 추세임. "
                  "최근 3년과 직전 5년을 비교했으며, 위의 특허 모멘텀과는 다른 '임상' 축임.",
             how="각 sponsor의 연간 임상 개시 건수를 직전 평균(○)과 최근 평균(●)으로 이어 표시함. 파랑은 임상이 늘고 있는 곳, 회색은 줄고 있는 곳임. "
-                "하드코딩한 14곳이 아니라 적응증 검색으로 잡은 전체 sponsor 기준임.",
+                "적응증 검색으로 잡은 전체 sponsor 기준임.",
             message=f"「{_inds}」에서 지금 임상을 늘리는 회사는 그만큼 이 질환에 집중하고 있다는 뜻임. 특허와 임상이 모두 가속 중이라면 최우선 접근 대상임.")
         _px(viz_px.momentum_px(cfm.get("momentum", [])))
         st.divider()
-    with st.expander("구 엔진 스코어 (하드코딩 14곳 · AoI/LO/angle) — 참고용, 데이터 풀이 대체"):
-        st.caption("⚠️ 하드코딩 14 buyer 기준이라 분석 타깃과 연관 약하고 대형사 편중. 위 데이터 풀이 대체.")
+    with st.expander("참고 지표 — 대형 바이어 기준 스코어 (보조)"):
+        st.caption("대형 바이어 고정 기준의 보조 스코어임 (참고용).")
         aoi = _csv(d, "aoi_output.csv")
         if aoi is not None:
-            st.markdown("**Revealed AoI (14곳)**"); st.dataframe(aoi, hide_index=True, width="stretch")
+            st.markdown("**Revealed AoI (대형 바이어)**"); st.dataframe(aoi, hide_index=True, width="stretch")
         lo = _csv(d, "lo_output.csv")
         if lo is not None:
-            st.markdown("**License-Out Buyer 랭킹 (14곳)**"); st.dataframe(lo, hide_index=True, width="stretch")
+            st.markdown("**License-Out Buyer 랭킹 (대형 바이어)**"); st.dataframe(lo, hide_index=True, width="stretch")
         ang = _csv(d, "angle_output.csv")
         if ang is not None:
-            st.markdown("**Anchor Signature Angle (14곳)**")
+            st.markdown("**Anchor Signature Angle (대형 바이어)**")
             st.pyplot(viz.angle_venn_fig(ang.to_dict("records"), aoi.to_dict("records") if aoi is not None else None))
     acc = _csv(d, "access_output.csv")
     if acc is not None:
@@ -317,15 +315,14 @@ with st.container():
         st.markdown("### 🌡️ 타깃 필드 열기 — 검증·과열 추세 (데이터 기반)")
         _fh = _fp_ci["field_heat"]; _yrs = len(_fh); _tot = sum(_fh.values())
         if _yrs < 3:   # 데이터 희박 — 곡선 대신 안내
-            _fk = ", ".join(_fp_ci.get("meta", {}).get("keywords", []))
-            st.info(f"「{_fk}」 기전을 인용한 제약 특허가 전 기간 통틀어 {_tot}건(연도 {_yrs}개)에 불과해 추세 곡선은 의미가 없음. "
+            st.info(f"이 기전을 인용한 제약 특허가 전 기간 통틀어 {_tot}건(연도 {_yrs}개)에 불과해 추세 곡선은 의미가 없음. "
                     "이 분야에 R&D가 거의 몰리지 않는다는 뜻으로, 경쟁자가 드문 white space 신호일 수 있음(반대로 아무도 못 푼 난제 영역일 수도 있으니 별도 판단 필요).")
         else:
             _px(viz_px.field_heat_px({"field_heat": _fh}))
         st.divider()
     ta = m.get("ta_label", "")
-    with st.expander("🔒 Patent Cliff (구 · 하드코딩 14곳 · broad-TA 노이즈) — 참고용", expanded=False):
-        st.caption("⚠️ AoI/LO처럼 하드코딩 14 buyer 기준 + broad-TA라 자산 무관 약(예: TRINTELLIX=Lundbeck 항우울제)도 "
+    with st.expander("🔒 Patent Cliff (참고용 · 고정 대형 바이어 · 광범위 TA 노이즈)", expanded=False):
+        st.caption("⚠️ 위 참고 지표처럼 고정 대형 바이어 기준 + 광범위 TA라 자산 무관 약(예: TRINTELLIX=Lundbeck 항우울제)도 "
                    "섞이는 약한 신호. '바이어 원천특허 만료=파이프라인 공백' 가설 — 참고용. (★=OB 검증 실만료 / ○=근사)")
         cr = cliff_rows(d)
         if cr:
@@ -337,26 +334,23 @@ with st.container():
             st.dataframe(pd.DataFrame(cr)[["company", "ob_drug", "patent_id", "est_expiry", "cites", "source"]],
                          hide_index=True, width="stretch")
         else:
-            st.caption("cliff 스냅샷 없음.")
+            st.caption("cliff 데이터 없음.")
     # co-citation(Jaccard 네트워크) 제거 — 초기 한국자산엔 대부분 빈칸/독자공간이라 무의미(사용자 피드백).
     #   경쟁지형 = 위 '경쟁 서열' + 아래 3개(KR발굴/3-tier/Cross-modality)로 대체.
     krc = _json(d, "kr_cocitation.json")
     if krc and krc.get("kr_competitors"):
         st.divider(); st.markdown("### 🇰🇷 KR 경쟁사 발굴 — 같은 기전을 KR 특허에 쓰는 회사")
-        _kw = ", ".join(krc.get("meta", {}).get("keywords", []))
-        st.caption(f"이 기전(「{_kw}」)을 한국 특허에 실제로 사용하는 회사를 찾은 것임. "
+        st.caption("이 기전을 한국 특허에 실제로 사용하는 회사를 찾은 것임. "
                    f"국내 기업과 한국에 출원한 해외 기업이 함께 잡히며, 직접 경쟁군에 해당함. "
                    f"자사 특허 {krc.get('self_count', 0)}건, 경쟁사 {krc.get('n_companies', 0)}곳. 빨강은 국내, 파랑은 해외 기업임.")
         st.pyplot(viz.kr_cocitation_fig(krc))
     kr = _json(d, "kr_tiers.json")
     if kr:
         st.divider(); st.markdown("### 🇰🇷 KR 3-tier — 기술 분류(IPC)로 본 국내 경쟁 계층")
-        _ipc = " · ".join(f"{k}({', '.join(v)})" for k, v in (m.get("kr_domains") or {}).items())
         st.caption("특허 기술분류(IPC)를 기준으로 국내 출원인을 경쟁 근접도에 따라 세 계층으로 나눈 지도임. "
                    "Tier 1은 같은 기술영역의 직접 경쟁, Tier 2는 인접 영역, Tier 3은 다른 모달리티로 경쟁이라기보다 잠재적 공동개발 후보에 가까움. "
                    "위에서 아래로 Tier 1 → 2 → 3 순이며, 같은 계층 안에서는 특허 건수가 많은 순으로 정렬함. "
-                   "앞의 'KR 경쟁사 발굴'이 키워드 기반이라면, 이 지도는 더 넓은 기술 지형을 보여줌."
-                   + (f"\n\n분석에 사용한 IPC 분류: {_ipc}" if _ipc else ""))
+                   "앞의 'KR 경쟁사 발굴'이 키워드 기반이라면, 이 지도는 더 넓은 기술 지형을 보여줌.")
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
         _px(viz_px.kr_tier_px(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt),
@@ -380,4 +374,4 @@ with st.container():
                          hide_index=True, width="stretch")
 
 st.divider()
-st.caption("BERA BD · 스냅샷 시각화 전용(엔진 코드 미포함) · 초안, 미팅급은 큐레이션 필요")
+st.caption("BERA BD · 특허·임상·딜 데이터 기반 파트너링 분석")

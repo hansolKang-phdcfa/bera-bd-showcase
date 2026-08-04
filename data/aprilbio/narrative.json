@@ -1,5 +1,9 @@
 {
   "_README": "에이프릴 내러티브 슬롯 내용 — LLM 초안(웹조사+엔진결과) → 분석가 편집 → 팩트체크 정정(2026-07-31, 1차출처 검증). build_spec이 title 키로 매칭해 덱 narrative 슬라이드를 채움.",
+  "_deck": {
+    "title": "AprilBio SAFA / REMAP 플랫폼",
+    "subtitle": "라이브 파이프라인 파트너링 — APB-R4 · TL1A(IBD) 중심"
+  },
   "_thesis": {
     "grade": "REC",
     "situation": "SAFA(반감기 연장)와 REMAP(다중특이 확장)을 보유한 플랫폼 회사임.\n\n- 대표 자산 2개는 이미 아웃라이선스됨. APB-A1(anti-CD40L)은 룬드벡에, APB-R3(IL-18BP)은 에보뮨에 기술이전함\n- 두 딜 모두 임상 데이터가 거의 없는 이른 단계에 적은 선급금으로 성사됨(APB-A1은 임상 진입 직전 단계에 선급금 USD 16M, APB-R3은 Phase 1 시점에 선급금 USD 15M)\n- 신규 딜 대상은 아직 아웃라이선스되지 않은 라이브 자산들임. APB-R4(IL-2 자가면역), REMAP TL1A×IL-23(IBD), HER2×PD-L1 ADC(고형암), APB-R2(FSHR 불임), APB-A2(CD73 항암)이 해당함\n- 다만 라이브 자산은 전부 전임상에서 초기 단계에 머물러 있음",
@@ -68,15 +72,6 @@
               "acceleration": 0.81
             },
             {
-              "company": "The Trustees of the University of Pennsylvania",
-              "kind": "academic",
-              "n_patents": 61,
-              "recent_per_yr": 4.0,
-              "prior_per_yr": 8.2,
-              "trend": "냉각",
-              "acceleration": 0.49
-            },
-            {
               "company": "AMGEN INC.",
               "kind": "company",
               "n_patents": 53,
@@ -113,24 +108,6 @@
               "acceleration": 1.23
             },
             {
-              "company": "Memorial Sloan Kettering Cancer Center",
-              "kind": "academic",
-              "n_patents": 33,
-              "recent_per_yr": 6.0,
-              "prior_per_yr": 3.0,
-              "trend": "가속",
-              "acceleration": 2.0
-            },
-            {
-              "company": "THE UNIVERSITY OF TOKYO",
-              "kind": "academic",
-              "n_patents": 24,
-              "recent_per_yr": 2.0,
-              "prior_per_yr": 3.2,
-              "trend": "냉각",
-              "acceleration": 0.62
-            },
-            {
               "company": "CRISPR THERAPEUTICS AG",
               "kind": "company",
               "n_patents": 23,
@@ -138,15 +115,6 @@
               "prior_per_yr": 1.0,
               "trend": "가속",
               "acceleration": 5.67
-            },
-            {
-              "company": "The Board of Trustees of the Leland Stanford Junior University",
-              "kind": "academic",
-              "n_patents": 23,
-              "recent_per_yr": 4.67,
-              "prior_per_yr": 1.2,
-              "trend": "가속",
-              "acceleration": 3.89
             },
             {
               "company": "Seres Therapeutics, Inc.",
@@ -207,8 +175,8 @@
               "company": "China Immunotech (Beijing) Biotechnology Co., Ltd.",
               "recent_per_yr": 2.33,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 7
             },
             {
@@ -231,40 +199,40 @@
               "company": "PersonGen BioTherapeutics (Suzhou) Co., Ltd.",
               "recent_per_yr": 1.0,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 3
             },
             {
               "company": "CytoCares Inc",
               "recent_per_yr": 1.0,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 3
             },
             {
               "company": "Bioray Laboratories",
               "recent_per_yr": 1.0,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 3
             },
             {
               "company": "Juno Therapeutics, Inc., a Bristol-Myers Squibb Company",
               "recent_per_yr": 1.0,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 3
             },
             {
               "company": "Nanjing Bioheng Biotech Co., Ltd.",
               "recent_per_yr": 0.67,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 3
             },
             {
@@ -295,8 +263,8 @@
               "company": "Miltenyi Biomedicine GmbH",
               "recent_per_yr": 0.67,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 3
             }
           ]
@@ -351,31 +319,13 @@
           ],
           "field_pool": [
             {
-              "company": "Cedars Sinai Medical Center",
-              "kind": "other",
-              "n_patents": 18,
-              "recent_per_yr": 2.67,
-              "prior_per_yr": 1.4,
-              "trend": "가속",
-              "acceleration": 1.91
-            },
-            {
               "company": "PROMETHEUS BIOSCIENCES, INC.",
               "kind": "company",
               "n_patents": 8,
               "recent_per_yr": 2.0,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9
-            },
-            {
-              "company": "The Regents of the University of California",
-              "kind": "academic",
-              "n_patents": 6,
-              "recent_per_yr": 0.67,
-              "prior_per_yr": 0.6,
-              "trend": "유지",
-              "acceleration": 1.12
+              "trend": "신규",
+              "acceleration": null
             },
             {
               "company": "Cephalon LLC",
@@ -419,8 +369,8 @@
               "n_patents": 2,
               "recent_per_yr": 0.33,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9
+              "trend": "유지",
+              "acceleration": null
             },
             {
               "company": "Kindred Biosciences, Inc.",
@@ -428,7 +378,7 @@
               "n_patents": 2,
               "recent_per_yr": 0.33,
               "prior_per_yr": 0.2,
-              "trend": "가속",
+              "trend": "유지",
               "acceleration": 1.65
             },
             {
@@ -437,17 +387,8 @@
               "n_patents": 2,
               "recent_per_yr": 0.33,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9
-            },
-            {
-              "company": "The United States of America as Represented by the Secretary, Dept. of Health and Human Services",
-              "kind": "other",
-              "n_patents": 2,
-              "recent_per_yr": 0.0,
-              "prior_per_yr": 0.2,
-              "trend": "냉각",
-              "acceleration": 0.0
+              "trend": "유지",
+              "acceleration": null
             },
             {
               "company": "AMGEN INC.",
@@ -455,7 +396,7 @@
               "n_patents": 2,
               "recent_per_yr": 0.33,
               "prior_per_yr": 0.2,
-              "trend": "가속",
+              "trend": "유지",
               "acceleration": 1.65
             },
             {
@@ -473,7 +414,7 @@
               "n_patents": 1,
               "recent_per_yr": 0.0,
               "prior_per_yr": 0.2,
-              "trend": "냉각",
+              "trend": "유지",
               "acceleration": 0.0
             }
           ],
@@ -499,8 +440,8 @@
               "company": "Sanofi",
               "recent_per_yr": 2.0,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 12
             },
             {
@@ -539,8 +480,8 @@
               "company": "Biocad",
               "recent_per_yr": 1.0,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 3
             },
             {
@@ -571,8 +512,8 @@
               "company": "Xian-Janssen Pharmaceutical Ltd.",
               "recent_per_yr": 1.0,
               "prior_per_yr": 0.0,
-              "trend": "가속",
-              "acceleration": 99.9,
+              "trend": "신규",
+              "acceleration": null,
               "n_trials": 4
             },
             {
