@@ -2,7 +2,7 @@
   "_README": "노보메디슨 NB02(Poseltinib) 내러티브 — AI tool 초안(웹조사+엔진결과+바이오스펙테이터 2026-04-06 탐방기사) → 분석가(BLP) 편집. ★효능수치는 회사발표 소규모 IIT·단일군·cross-trial 비교 = 프로모션 등급(EST/회사주장)이지 head-to-head FACT 아님. 엔진 독립도출(Ono·Roche·Gilead 특허/딜신호)과 회사주장(효능·best-in-class·BBB)을 라벨 분리. ★NB02=노보메디슨 면역노화/CHIP 플랫폼의 상업화 캐시엔진(회사 overview 별도 자산 참조).",
   "_thesis": {
     "grade": "REC",
-    "situation": "NB02(Poseltinib)는 경구 선택적 비가역 BTK 저해제로, 노보메디슨(NOBO Medicine, 구 지놈오피니언)의 첫 상업화 자산임. 회사는 면역노화(immune aging)/CHIP 정밀의학 플랫폼으로 재포지셔닝했고, NB02는 그 플랫폼을 자체 자금조달(self-financing)하는 캐시엔진 역할임.\n\n- 리드 = 재발/불응 원발성 CNS 림프종(PCNSL) 허가 임상2상(Project 202, NCT06737250, 33명, 2차치료 세팅, 국내 15개기관, 목표 2/3 이상 등록, 2027 국내 시판허가 목표)\n- 확장 = 미만성거대B세포림프종(DLBCL, Project 201 IIT) + 여포성/외투/변연부 림프종(NHL) 단독 Ph1(NCT07114367)\n- 물질 = 한미 HM71224. 2015년 Lilly에 자가면역(RA)으로 최대 USD 690M L/O → RA Ph2(2016-2018) 효능부족 중단 → 2019 반환 → 2021-10 한미-노보 공동개발 → 2024-06 노보 전세계 독점권 도입",
+    "situation": "NB02(Poseltinib)는 경구 비가역 다중키나아제(BTK·TEC·BMX) 저해제로, 노보메디슨(NOBO Medicine, 구 지놈오피니언)의 첫 상업화 자산임. 회사는 면역노화(immune aging)/CHIP 정밀의학 플랫폼으로 재포지셔닝했고, NB02는 그 플랫폼을 자체 자금조달(self-financing)하는 캐시엔진 역할임.\n\n- 리드 = 재발/불응 원발성 CNS 림프종(PCNSL) 허가 임상2상(Project 202, NCT06737250, 33명, 2차치료 세팅, 국내 15개기관, 목표 2/3 이상 등록, 2027 국내 시판허가 목표)\n- 확장 = 미만성거대B세포림프종(DLBCL, Project 201 IIT) + 여포성/외투/변연부 림프종(NHL) 단독 Ph1(NCT07114367)\n- 물질 = 한미 HM71224. 2015년 Lilly에 자가면역(RA)으로 최대 USD 690M L/O → RA Ph2(2016-2018) 효능부족 중단 → 2019 반환 → 2021-10 한미-노보 공동개발 → 2024-06 노보 전세계 독점권 도입",
     "insight": "자가면역에서 좌초한 BTK를 B세포 악성종양으로 재배치한 케이스이며, 차별화 축은 계열 우위가 아니라 CNS 침투 + 공격적 림프종 선점임.\n\n- ★핵심 차별화(회사주장): 뇌 투과율 16.8% vs 이브루티닙 9.8% = 경쟁 BTK 중 최고 CNS 침투 → PCNSL/CNS 림프종에 최적 wedge\n- ★적응증 백지영역: 기존 BTK는 지연성(indolent) 림프종(CLL/MCL/MZL) 단독요법에 갇혀 있었는데, NB02는 공격적 LBCL/PCNSL을 레날리도마이드 백본 + 항체 병용(chemo-free)으로 겨냥 = 계열 내 미개척 각\n- ★검증경로 존재: Ono tirabrutinib이 PCNSL BTK로 일본 승인 + 美 FDA 허가절차 = BTK가 PCNSL에서 통함이 입증됨(NB02는 뒤따르되 CNS 침투 우위 주장)",
     "lo_play": "★딜 논리 flip(기사 반영): 노보메디슨은 '자산 통째 매각'이 아니라 국내 자체 상업화(in-house 영업) + 글로벌만 데이터 기반 L/O(중국 바이오텍 모델)를 명시함.\n\n- 국내(PCNSL): 환자·전문의 수 제한적 → 자체 인하우스 영업으로 직접 상업화(외부 자금 불요)\n- 글로벌: Project 202/201 readout 기반 지역분할 L/O(ex-Korea) 모색 → territory-split 딜이 자연스러움\n- 레버리지: self-financing 구조라 급매 압력 낮음 = 딜 협상력 높음\n- 이미 CStone(중국)과 poseltinib+ROR1 전임상 프로그램 진행 = 콜드 상태 아님",
     "risk": "- ① 효능수치(DLBCL ORR 84.1%·PFS 16.4개월, PCNSL ORR 55.6%)는 회사발표 소규모 IIT·단일군·cross-trial 비교(vs 예스카타 RWD) = 프로모션 등급, head-to-head 아님. buyer 실사에서 검증 필요\n- ② BTK 계열 승인 자산 다수(ibrutinib·acalabrutinib·zanubrutinib·pirtobrutinib) + ibrutinib 일부 림프종 미국 자진철회(2023) = 후발 differentiation 부담\n- ③ Poseltinib RA Ph2 무효 반환 이력(자가면역 한정이나 실사 필수 항목)\n- ④ 리드가 재발/불응 salvage·병용이라 단독 효능기여 분리 과제. CNS 침투율 16.8%는 내부데이터(회사주장)",
@@ -11,7 +11,7 @@
       "★DLBCL IIT(Project 201, 83명): 삼중요법(poseltinib+레날리도마이드+글로피타맙) ORR 84.1%·CR 58.5%·PFS 16.4개월(회사발표, vs 예스카타 RWD PFS 7.3개월)",
       "★선례: Ono tirabrutinib PCNSL 일본 승인 + 美 FDA 허가절차(Gilead→Ono 2021 반환) = BTK-PCNSL 검증 + 지역 딜 precedent",
       "안전성(회사발표): CRS 24%(3등급 5%), ICANS 0%, 임상중단율 18%. RA Ph2 부작용 중단율 4.4%",
-      "SI: Series C 275억(2025-07), 누적 440억. ★유한양행·큐로셀 전략투자자 참여(유한=우리 첫 BD PoC YH25724 노드)",
+      "SI: Series C 275억(2025-07), 누적 440억. ★유한양행 전략투자자 참여(스틱·스톤브릿지·이수만 등 공동, 유한=우리 첫 BD PoC YH25724 노드)",
       "★엔진 검증: patent citation anchor signature가 BTK 실보유사(AbbVie/ibrutinib 106·Roche 42·BMS 41·AstraZeneca·BeiGene)를 파트너 상위로 자동 식별"
     ]
   },
@@ -44,15 +44,15 @@
   },
   "자산 개요": {
     "grade": "FACT",
-    "keymsg": "NB02(Poseltinib)는 경구 선택적 비가역 BTK 저해제로, 노보메디슨(구 지놈오피니언)의 첫 상업화 자산이자 면역노화/CHIP 플랫폼의 캐시엔진임. 리드 적응증은 재발/불응 원발성 CNS 림프종(PCNSL)이며, 물질은 한미약품 창출(HM71224)임. 공동대표 이명세·고영일(고영일=SNU 혈액내과 교수)임",
+    "keymsg": "NB02(Poseltinib)는 경구 비가역 다중키나아제(BTK·TEC·BMX) 저해제로, 노보메디슨(구 지놈오피니언)의 첫 상업화 자산이자 면역노화/CHIP 플랫폼의 캐시엔진임. 리드 적응증은 재발/불응 원발성 CNS 림프종(PCNSL)이며, 물질은 한미약품 창출(HM71224)임. 공동대표 이명세·고영일(고영일=SNU 혈액내과 교수)임",
     "cards": [
-      ["BTK 기전", "BTK는 B세포 수용체(BCR) 하류 티로신인산화효소로 B세포 악성종양 생존·증식에 핵심. NB02는 비가역 저해(IC50 약 1.95nM, BMX/TEC/TXK 대비 BTK 선택). ABC-DLBCL에서 BTK가 BCR→NF-κB 상위 차단, 레날리도마이드가 IRF4→IKK 차단 = 서로 다른 경로로 NF-κB 이중 억제"],
+      ["BTK 기전", "BTK는 B세포 수용체(BCR) 하류 티로신인산화효소로 B세포 악성종양 생존·증식에 핵심. NB02는 BTK를 비가역 저해하면서 TEC·BMX까지 함께 억제하는 다중키나아제 저해제(넓은 타깃범위가 회사 차별화 포인트 — 2세대 BTK-선택형[아칼라/자누]과 반대 컨셉). ABC-DLBCL에서 BTK가 BCR→NF-κB 상위 차단, 레날리도마이드가 IRF4→IKK 차단 = 서로 다른 경로로 NF-κB 이중 억제"],
       ["CNS 침투 wedge", "회사 내부데이터상 뇌 투과율 16.8%(이브루티닙 9.8%) = 경쟁 BTK 중 최고 CNS 침투. 공격적 림프종의 뇌 전이 특성상 PCNSL 리드 적응증에 최적 차별화(회사주장, 검증 전)"],
       ["재포지셔닝", "한미 HM71224 → 2015 Lilly LO(최대 USD 690M, 자가면역) → RA Ph2 무효 반환 2019 → 노보 종양 재배치. '적응증을 잘못 골라 효능 문제였던(안전성은 OK) 약물'을 골라 best-in-class로 개발하는 전략"],
       ["상업화 모델", "국내 PCNSL 자체 인하우스 영업 직접 상업화(self-financing) + 글로벌 데이터기반 L/O(중국 모델). IIT→SIT 허가임상 전환으로 비용 10~20%로 유사 퀄 데이터 확보"]
     ],
     "body": [
-      "SI/펀딩: Series C 275억(2025-07), 누적 440억. 유한양행·큐로셀 전략투자자. ★유한=베라 첫 BD PoC(YH25724) 연결 노드",
+      "SI/펀딩: Series C 275억(2025-07-28). 유한양행 전략투자자(스틱·스톤브릿지·이수만 등 공동). ★유한=베라 첫 BD PoC(YH25724) 연결 노드",
       "차별점: 검증된 BTK 계열 안에서 CNS 침투 + 공격적 LBCL/PCNSL 선점(기존 BTK는 지연성 림프종 단독에 갇힘). PCNSL은 tirabrutinib 일본 외 글로벌 공백"
     ]
   },
@@ -83,7 +83,7 @@
       ["1층 · 캐시엔진 (NB02)", "포셀티닙 국내 자체상업화(PCNSL 2027 목표) + 글로벌 데이터기반 L/O(중국 모델)로 플랫폼 자금 조달. self-financing 구조라 급매 압력 낮음 = 협상력↑. IIT→SIT 허가임상 전환으로 비용 10~20%로 데이터 확보"],
       ["2층 · CHIP 매개 질환 (전임상)", "NB01(pan-caspase, emricasan 백본 → CHIP 매개 혈전증·저출혈 항혈전 각) + JAK2i(JAK2 V617F 변이선택·JH2/namuICT AI → MPN+CHIP 혈전). 심혈관/염증(Novartis CANTOS)·MPN(Incyte·Lilly) 파트너 각. ★전임상 = 상방 옵션이지 현 밸류 본체 아님"],
       ["3층 · 노화 정밀의학 (장기)", "CHIP 사이언스를 다질환 정밀의학으로 확장(심혈관질환 1/4이 CHIP 연관 추정). 14,000명 CHIP 변이-질환 DB + TET2 gene-edited 검증 마우스 = 반복 발굴 인프라. 대식세포-CHIP 축(면역질환의 T세포→대식세포 전환)"],
-      ["SI · 크로스 인사이트", "유한양행·큐로셀 전략투자(Series C 275억, 누적 440억). ★유한=베라 첫 BD PoC(YH25724) 노드. ★Eli Lilly=반복노드(Poseltinib 과거보유 + pirtobrutinib + Ajax/JAK2 인수 2026-04) = 노보 BTK·JAK2 양쪽 검증 buyer, 회사단위 파트너 유력"]
+      ["SI · 크로스 인사이트", "유한양행 전략투자(Series C 275억, 2025-07). ★유한=베라 첫 BD PoC(YH25724) 노드. ★Eli Lilly=반복노드(Poseltinib 과거보유 + pirtobrutinib + Ajax/JAK2 인수 2026-04) = 노보 BTK·JAK2 양쪽 검증 buyer, 회사단위 파트너 유력"]
     ],
     "body": [
       "★밸류 구조: 3층 대부분이 초기라 현 밸류의 대부분은 1층(NB02 상업화 성공)에 의존. 플랫폼 서사는 상방 옵션",
