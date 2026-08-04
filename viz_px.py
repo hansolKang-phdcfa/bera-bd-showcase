@@ -11,6 +11,7 @@ import re
 import plotly.graph_objects as go
 
 import design_tokens as T
+import company_class as cc  # 회사 카테고리·시총 tier 색 (그래프 공통)
 
 BLUE, BLACK, GRAY = T.COLORS["blue"], T.COLORS["black"], T.COLORS["gray"]
 SOFT, LGRAY = "#DCE0E6", "#C3CAD3"
@@ -84,7 +85,7 @@ def momentum_px(rows, top=12):
     rows = sorted(rows, key=lambda r: (r.get("recent_per_yr", 0) or 0))[-top:]
     if not rows:
         return _empty_px("momentum 데이터 없음 (anchor 피인용 희박)")
-    comps = [_ylab(r["company"]) for r in rows]
+    comps = [cc.dot(r["company"]) + " " + _ylab(r["company"]) for r in rows]  # 회사 카테고리 색점
     full = [_disp(r["company"]) for r in rows]
     prior = [float(r.get("prior_per_yr", 0) or 0) for r in rows]
     recent = [float(r.get("recent_per_yr", 0) or 0) for r in rows]
@@ -125,7 +126,7 @@ def competition_ladder_px(data):
     if not rows:
         return _empty_px("경쟁 서열 데이터 없음 (임상단계 정보 필요)")
     rows = sorted(rows, key=lambda r: _STAGE_X.get(r.get("stage"), 0))
-    ylab = [_ylab(r["company"]) for r in rows]
+    ylab = [cc.dot(r["company"]) + " " + _ylab(r["company"]) for r in rows]  # 회사 카테고리 색점
     full = [_disp(f"{r['company']} ({r.get('asset', '')})") for r in rows]
     xs = [_STAGE_X.get(r.get("stage"), 0) for r in rows]
     fig = go.Figure()
@@ -205,25 +206,51 @@ def kr_tier_px(kr_rows, top=18, tier_filter=None, domains=None):
         core = sorted(k for k in keys if k not in META and not k.startswith("m_") and not k.startswith("recent"))
     _bar = lambda r: sum(float(r.get(dd, 0) or 0) for dd in core)   # 화면 막대 길이(표시 도메인 합)로 정렬 = 시각 일치
     rows = sorted(rows, key=lambda r: (r.get("tier", 9), -_bar(r)))[:top][::-1]
-    return _stacked_h(rows, core, lambda r, d: r.get(d, 0),
-                      lambda r: f"{_ylab(r['assignee'])} ·T{r.get('tier')}",
-                      "KR 3-tier — 위=Tier1(직접) → 아래=Tier3(잠재)", "도메인(IPC)별 특허 건수")
+    # ★한인수 점3: 회사 규모(cap tier) 라벨 병기 — LG화학(라지캡) 429건 vs Voronoi(스몰캡) 83건 =
+    #   규모 대비 도메인 집약도로 읽게. 색점=카테고리(빅파마/바이오텍/스타트업).
+    def _kr_label(r):
+        cap = cc.classify(r["assignee"])["cap_ko"]
+        return f"{cc.dot(r['assignee'])} {_ylab(r['assignee'])} ·{cap}"
+    return _stacked_h(rows, core, lambda r, d: r.get(d, 0), _kr_label,
+                      "KR 3-tier — 도메인 특허(색점=회사 분류·규모 병기)", "도메인(IPC)별 특허 건수")
 
 
-def crossmod_px(cm, top=14):
-    """Cross-modality — 회사별 모달리티별 특허 건수 stacked (같은 적응증, 다른 모달리티)."""
-    _ACAD = re.compile(r'univ|institut|hospital|united states|department|dept of|helmholtz|zentrum|'
-                       r'national inst|cancer (center|institut)|academ|foundation|대학|연구|병원|정부', re.I)
+def crossmod_px(cm, top=16):
+    """Cross-modality 파트너 — ★한인수 점2·4: 총합순 아닌 **시가총액 tier** 로 색·정렬.
+    상단=대형(협업/매입 가능), 하단=스몰/마이크로캡·인수됨·비제약(협업가능성↓). 막대=다른
+    모달리티 특허수, 색=cap tier, 모달리티 내역은 hover. 학계는 제외."""
     rows = cm.get("crossmod", []) if isinstance(cm, dict) else cm
-    rows = [r for r in rows if (r.get("n_patents", 0) or 0) > 0 and not _ACAD.search(r.get("company", ""))]
-    rows = rows[:top][::-1]
-    if not rows:
-        return _empty_px("cross-modality 상업사 데이터 없음(학계 제외 후)")
-    mods = list((cm.get("meta", {}).get("other_modalities") if isinstance(cm, dict) else None) or [])
+    enr = []
     for r in rows:
-        for mm in (r.get("by_modality") or {}):
-            if mm not in mods:
-                mods.append(mm)
-    return _stacked_h(rows, mods, lambda r, mm: (r.get("by_modality") or {}).get(mm, 0),
-                      lambda r: _ylab(r["company"]),
-                      "Cross-modality — 같은 적응증, 다른 모달리티", "모달리티별 특허 건수")
+        if (r.get("n_patents", 0) or 0) <= 0:
+            continue
+        c = cc.classify(r.get("company", ""))
+        if c["category"] == "academic":            # 학계=라이선스 원천, 파트너 아님 → 제외
+            continue
+        enr.append((r, c))
+    if not enr:
+        return _empty_px("cross-modality 상업사 데이터 없음(학계 제외 후)")
+    enr.sort(key=lambda rc: rc[0].get("n_patents", 0), reverse=True)   # 특허수 top N
+    enr = enr[:top]
+    # 표시 정렬: cap tier asc(마이크로→메가) → 특허수. plotly는 index0=하단이라 메가가 위로.
+    enr.sort(key=lambda rc: (cc.CAP_TIER[rc[1]["cap_tier"]]["rank"], rc[0].get("n_patents", 0)))
+    ylabs = [cc.dot(r["company"]) + " " + _ylab(r["company"]) for r, _ in enr]
+    fig = go.Figure()
+    for tier in ["mega", "large", "mid", "small", "micro", "unknown"]:
+        idx = [i for i, (r, c) in enumerate(enr) if c["cap_tier"] == tier]
+        if not idx:
+            continue
+        fig.add_trace(go.Bar(
+            orientation="h", name=cc.CAP_TIER[tier]["ko"],
+            y=[ylabs[i] for i in idx], x=[enr[i][0].get("n_patents", 0) for i in idx],
+            marker_color=cc.CAP_TIER[tier]["color"],
+            customdata=[[_disp(enr[i][0]["company"]), enr[i][1]["cat_ko"] +
+                         (f" · {enr[i][1]['note']}" if enr[i][1]["note"] else ""),
+                         ", ".join(f"{k} {v}" for k, v in (enr[i][0].get("by_modality") or {}).items())[:60]]
+                        for i in idx],
+            hovertemplate="%{customdata[0]}<br>%{customdata[1]} · 특허 %{x}건<br>%{customdata[2]}<extra></extra>"))
+    _layout(fig, title="Cross-modality 파트너 — 시가총액 tier별 (상단=대형·협업가능)",
+            xtitle="다른 모달리티 특허 건수", height=140 + 40 * len(enr))
+    fig.update_yaxes(categoryorder="array", categoryarray=ylabs)
+    fig.update_xaxes(rangemode="tozero")
+    return fig

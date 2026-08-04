@@ -19,6 +19,7 @@ import streamlit as st
 
 import viz  # 같은 폴더 (matplotlib, 엔진 무관)
 import viz_px  # Plotly 인터랙티브 버전 (드래그/핀치 줌)
+import company_class as cc  # 회사 카테고리·시총 tier 색 (그래프 공통 범례)
 
 st.set_page_config(page_title="BERA BD", layout="wide", page_icon="🧬")
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -241,12 +242,17 @@ with st.container():
     if fpool and fpool.get("field_pool") and not _ptracks:
         _hot = [x["company"].replace(", Inc.", "").replace(" Inc.", "")
                 for x in fpool["field_pool"] if x.get("kind") == "company" and x.get("trend") == "가속"][:5]
+        _kw = fpool.get("meta", {}).get("keywords", [])
+        _kwlabel = " · ".join(_kw) if _kw else ta
         st.markdown("### 🎯 특허 모멘텀 기반 파트너 후보")
+        st.caption(f"🔎 타깃 필드(anchor 인용 도메인) = **{_kwlabel}** — 이 도메인들을 인용한 제약 특허 주체를 발굴한 것임.")
         explain_box(
-            what="이 자산의 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(소형 바이오텍 포함, 학계 제외).",
+            what=f"이 자산의 기전(「{_kwlabel}」)에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(소형 바이오텍 포함, 학계 제외).",
             how="각 회사의 연간 특허 활동을 직전 평균(○)과 최근 평균(●)으로 이어 표시함. ●가 오른쪽에 있고 클수록 활발하며, "
-                "파랑은 가속(라이선스 아웃 타이밍), 회색은 냉각임. 활동 규모와 추세를 한 그래프에 담음.",
+                "파랑은 가속(라이선스 아웃 타이밍), 회색은 냉각임. 활동 규모와 추세를 한 그래프에 담음. "
+                "회사명 앞 색점 = 회사 분류(빅파마/바이오텍/스타트업/학계).",
             message=_pool_msg(_hot))
+        st.markdown(cc.legend_html(), unsafe_allow_html=True)
         _px(viz_px.momentum_px([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
         st.divider()
     # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
@@ -310,6 +316,7 @@ with st.container():
                 "특허 인용망이 아니라 **'누가 실제로 앞서 있나'를 개발 단계로 직접** 배치.",
             message="한눈에 **선두가 누구인지, 우리 자산이 어디쯤인지, 이전세대가 왜 실패했는지**. "
                     "다에셋 회사는 자산마다 타깃·경쟁이 달라 ▸별로 분리해 보여줌.")
+        st.markdown(cc.legend_html(), unsafe_allow_html=True)
         for _t in (_comp.get("tracks") or [_comp]):
             if _t.get("asset"):
                 st.markdown(f"**▸ {_md(_t['asset'])}**" + (f"  ·  {_md(_t['axis'])}" if _t.get("axis") else ""))
@@ -321,7 +328,11 @@ with st.container():
         st.divider()
     _fp_ci = _json(d, "field_pool.json")
     if _fp_ci and _fp_ci.get("field_heat"):
-        st.markdown("### 🌡️ 타깃 필드 열기 — 검증·과열 추세 (데이터 기반)")
+        _kw2 = _fp_ci.get("meta", {}).get("keywords", [])
+        _kw2label = " · ".join(_kw2) if _kw2 else m.get("ta_label", "")
+        st.markdown(f"### 🌡️ 타깃 필드 열기 — 「{_kw2label}」 인용 특허 추세")
+        st.caption(f"타깃 필드 = anchor 인용 도메인 **{_kw2label}** (이 기전 키워드를 인용한 제약 특허 건수/년). "
+                   "곡선이 오를수록 이 분야에 R&D·검증이 몰리는 중(과열), 평평/희박하면 white space.")
         _fh = _fp_ci["field_heat"]; _yrs = len(_fh); _tot = sum(_fh.values())
         if _yrs < 3:   # 데이터 희박 — 곡선 대신 안내
             st.info(f"이 기전을 인용한 제약 특허가 전 기간 통틀어 {_tot}건(연도 {_yrs}개)에 불과해 추세 곡선은 의미가 없음. "
@@ -360,6 +371,10 @@ with st.container():
                    "Tier 1은 같은 기술영역의 직접 경쟁, Tier 2는 인접 영역, Tier 3은 다른 모달리티로 경쟁이라기보다 잠재적 공동개발 후보에 가까움. "
                    "위에서 아래로 Tier 1 → 2 → 3 순이며, 같은 계층 안에서는 특허 건수가 많은 순으로 정렬함. "
                    "앞의 'KR 경쟁사 발굴'이 키워드 기반이라면, 이 지도는 더 넓은 기술 지형을 보여줌.")
+        st.caption("⚠️ 특허 건수는 **회사 규모에 비례**하는 경향(LG화학·유한 등 대기업은 원래 특허가 많음). "
+                   "회사명 뒤 **시총 tier**(라지캡/미들캡/스몰캡)와 함께 봐서 **규모 대비 도메인 집약도**로 읽을 것 — "
+                   "스몰캡인데 도메인 특허가 많으면 그 회사가 진짜 이 분야에 집중한다는 신호.")
+        st.markdown(cc.legend_html(), unsafe_allow_html=True)
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
         _px(viz_px.kr_tier_px(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt),
@@ -370,6 +385,9 @@ with st.container():
         st.markdown(f"**Cross-modality 경쟁·co-dev — 적응증 「{ta}」, 다른 모달리티** (상업사)")
         if m.get("indications_display"):
             st.caption(f"적응증(좁힘 질환/타깃): {m['indications_display']}")
+        st.caption("막대=다른 모달리티 특허수, **색=시가총액 tier**(상단 대형→하단 소형). "
+                   "스몰/마이크로캡·인수됨·비제약은 실제 협업/매입 가능성이 낮음 → 규모로 걸러 봄. 회사명 앞 색점=회사 분류.")
+        st.markdown(cc.cap_legend_html(), unsafe_allow_html=True)
         _px(viz_px.crossmod_px(cm))
         _cmm = cm.get("meta", {})
         st.caption(f"자산 모달리티={_cmm.get('own_modality')} → **다른 모달리티**"
