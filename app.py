@@ -161,9 +161,14 @@ GROUP_ORDER = [
     "1차 PoC 자산",
 ]
 
+# 송부용 숨김 그룹(타 고객사 자산 노출 방지). 복구하려면 빈 set으로.
+HIDDEN_GROUPS = {"희귀질환 PoC 자산"}
+
 # 자산을 group으로 묶고(GROUP_ORDER 순), group 내 order로 정렬.
 _groups = {}
 for _name, _meta in assets.items():
+    if _meta.get("group") in HIDDEN_GROUPS:
+        continue
     _groups.setdefault(_meta.get("group", "기타"), []).append(_name)
 _ordered_groups = [g for g in GROUP_ORDER if g in _groups] + \
                   [g for g in _groups if g not in GROUP_ORDER]
