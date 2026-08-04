@@ -218,7 +218,9 @@ with st.container():
     _ptracks = [t for t in (_pn.get("tracks") or []) if t.get("partnering")]
     if _ptracks:
         st.markdown("### 🎯 자산별 파트너 후보")
-        st.caption("자산(트랙)마다 (1) 그 기전에 특허 활동하는 상업사와 (2) 그 적응증에 임상을 개시하는 sponsor를 각각 데이터로 발굴함.")
+        st.caption("자산(트랙)마다 (1) 그 기전에 특허 활동하는 상업사와 (2) 그 적응증에 임상을 개시하는 sponsor를 각각 데이터로 발굴함. "
+                   "회사명 앞 색점 = 회사 분류.")
+        st.markdown(ccls.legend_html(), unsafe_allow_html=True)
         for _t in _ptracks:
             _pt = _t["partnering"]
             st.markdown(f"#### ▸ {_t.get('asset', '')}")
