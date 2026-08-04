@@ -1,0 +1,125 @@
+{
+  "_README": "노보메디슨 NB02(Poseltinib) 내러티브 슬롯 — AI tool 초안(웹조사+엔진결과) → 분석가(BLP) 편집. build_spec이 title 키로 매칭해 덱 narrative 슬라이드를 채움. ★사실 확정 전 확인 필요(특히 임상단계·딜조건). grade=FACT는 웹출처 있음/REC는 엔진기반 권고/EST는 추정. ★greenfield 예측형(노보메디슨 자체 LO 이력 없음).",
+  "_thesis": {
+    "grade": "REC",
+    "situation": "NB02(Poseltinib)는 경구 선택적 비가역 BTK(Bruton 티로신인산화효소) 저해제로, 원발성 중추신경계 림프종(PCNSL)을 리드 적응증으로 개발 중임.\n\n- 재발/불응 PCNSL 대상 Phase 2 진행 중임(NCT06737250, 리툭시맙·레날리도마이드 병용 salvage, 2024-11 개시, 스폰서 NOBO Medicine)\n- 재발/불응 비호지킨 림프종(NHL) 대상 Phase 1 단독 용량증량 병행함(NCT07114367, 2025-12 개시)\n- 물질 자체는 한미약품이 창출한 HM71224로, 2015년 Eli Lilly에 자가면역(류마티스관절염·루푸스) 적응증으로 최대 USD 690M 규모로 기술이전됐으나 Phase 2 류마티스 무효로 반환됨. 노보메디슨이 이를 B세포 림프종으로 재포지셔닝한 자산임",
+    "insight": "자가면역에서 좌초한 BTK 저해제를 B세포 악성종양으로 재배치한 것이며, BTK-in-림프종은 이미 검증된 축임.\n\n- BTK 저해제는 B세포 수용체 신호를 차단해 B세포 림프종·백혈병에서 확립된 계열임(ibrutinib·acalabrutinib·zanubrutinib·pirtobrutinib)\n- ★핵심 선례: Ono의 tirabrutinib(Velexbru)이 재발/불응 PCNSL로 일본 허가를 받은 유일한 BTK 저해제임 = BTK가 PCNSL에서 실제로 통하는 검증경로이며, 그 딜을 한 아시아 빅파마 buyer가 실재함\n- 자가면역 실패(Lilly RA)는 오히려 정보임. 그 실패는 효능 부재가 아니라 자가면역 적응증에서의 것으로, 종양 적응증(BTK가 이미 통하는 곳)으로의 재배치는 리스크 성격이 다름",
+    "lo_play": "- 대상은 BTK/B세포 프랜차이즈를 보유했거나 PCNSL·CNS 림프종 각을 원하는 글로벌사임\n- 이유는 NB02가 검증된 계열(BTK) 안에서 PCNSL이라는 미충족 니치를 겨냥하기 때문임\n- 시점은 Phase 2 PCNSL readout 이전의 조기 옵션 window이며, 아시아(일본) 승인 선례(tirabrutinib)가 존재해 지역 라이선스 분할이 자연스러움\n- ★단 초기 단계(Ph2 salvage)라 프리미엄 upfront보다는 옵션·마일스톤 중심 구조가 현실적임",
+    "risk": "- ① BTK 계열은 이미 승인 자산이 다수라(ibrutinib·acalabrutinib·zanubrutinib·pirtobrutinib) 후발 differentiation 부담이 큼. NB02의 각은 계열 내 신약이 아니라 PCNSL이라는 적응증 선점임\n- ② ibrutinib은 일부 림프종 적응증에서 확증 실패로 미국 자진철회(2023) 이력이 있어, BTK-in-림프종도 적응증별로 결과가 갈림\n- ③ Poseltinib 자체가 Lilly 하에서 Phase 2 류마티스 무효로 반환된 이력이 있음(자가면역 한정이나 buyer 실사에서 반드시 등장할 항목)\n- ④ 리드가 재발/불응 salvage·병용이라 단독 효능 기여 분리가 과제이며, 인체 종양 효능 데이터는 아직 초기임",
+    "evidence": [
+      "리드 적응증: 재발/불응 PCNSL Phase 2 진행(NCT06737250, NB02+리툭시맙+레날리도마이드, 스폰서 NOBO Medicine, 2024-11 개시)",
+      "확장: 재발/불응 NHL Phase 1 단독 용량증량(NCT07114367, 2025-12 개시)",
+      "★선례: Ono tirabrutinib이 재발/불응 PCNSL로 일본 허가 = BTK의 PCNSL 검증경로 + 지역 딜 precedent",
+      "물질 이력: 한미 HM71224 → 2015 Lilly LO(최대 USD 690M, 자가면역) → Phase 2 RA 무효 반환 → 노보메디슨 인수·종양 재포지셔닝",
+      "★엔진 검증: patent citation anchor signature가 BTK 실보유사(AbbVie/ibrutinib·AstraZeneca/acalabrutinib·BeiGene/zanubrutinib·Roche B세포 프랜차이즈)를 파트너 상위로 자동 식별함(=신호가 도메인을 옳게 잡음)"
+    ]
+  },
+  "_competition": {
+    "grade": "FACT",
+    "axis": "BTK 저해제 계열(B세포 악성종양) — 승인/개발 단계로 서열. PCNSL 적응증 각을 별도 표시.",
+    "players": [
+      {
+        "company": "Ono",
+        "asset": "tirabrutinib (Velexbru)",
+        "stage": "승인(일본)",
+        "note": "★재발/불응 PCNSL 일본 허가 = NB02 리드 적응증의 유일 직접 선례",
+        "is_target": false
+      },
+      {
+        "company": "AbbVie/J&J",
+        "asset": "ibrutinib (Imbruvica)",
+        "stage": "승인",
+        "note": "1세대 covalent BTK(CLL/MCL/WM) · 일부 림프종 적응증 미국 자진철회(2023)",
+        "is_target": false
+      },
+      {
+        "company": "AstraZeneca",
+        "asset": "acalabrutinib (Calquence)",
+        "stage": "승인",
+        "note": "2세대 선택적 covalent BTK(CLL/MCL)",
+        "is_target": false
+      },
+      {
+        "company": "BeiGene",
+        "asset": "zanubrutinib (Brukinsa)",
+        "stage": "승인",
+        "note": "2세대 covalent BTK · 광범위 B세포 적응증 best-in-class 지향",
+        "is_target": false
+      },
+      {
+        "company": "Eli Lilly",
+        "asset": "pirtobrutinib (Jaypirca)",
+        "stage": "승인",
+        "note": "noncovalent(가역) BTK · covalent 불응 이후 · ★Lilly는 과거 Poseltinib 보유 이력",
+        "is_target": false
+      },
+      {
+        "company": "노보메디슨 NB02",
+        "asset": "Poseltinib",
+        "stage": "Phase 2",
+        "note": "재발/불응 PCNSL Ph2 salvage(R+레날리도마이드 병용) + R/R NHL Ph1 단독",
+        "is_target": true
+      }
+    ],
+    "prior_gen": [
+      {
+        "company": "Eli Lilly/Hanmi",
+        "asset": "Poseltinib (HM71224)",
+        "stage": "반환",
+        "note": "자가면역(RA) Phase 2 무효로 2019 개발 중단 → 노보메디슨이 종양으로 재배치"
+      }
+    ],
+    "excluded": [
+      {
+        "company": "리툭시맙·레날리도마이드",
+        "reason": "PCNSL Ph2의 병용 파트너(백본)이지 BTK 경쟁 아님"
+      }
+    ]
+  },
+  "자산 개요": {
+    "grade": "FACT",
+    "keymsg": "NB02(Poseltinib)는 경구 선택적 비가역 BTK 저해제임. B세포 수용체(BCR) 신호의 핵심 인산화효소인 BTK를 차단해 B세포 림프종의 증식·생존 신호를 억제함. 원발성 중추신경계 림프종(PCNSL)을 리드 적응증으로 하며, 물질은 한미약품 창출(HM71224), 현 개발사는 노보메디슨(NOBO Medicine)임",
+    "cards": [
+      [
+        "BTK 기전",
+        "BTK는 B세포 수용체 하류의 티로신인산화효소로, B세포 악성종양의 생존·증식에 핵심임. NB02는 이를 비가역적으로 저해함(IC50 약 1.95 nM, BMX/TEC/TXK 대비 BTK 선택성). ibrutinib과 같은 covalent 계열임"
+      ],
+      [
+        "리드 적응증 PCNSL",
+        "재발/불응 원발성 중추신경계 림프종(PCNSL) 대상 Phase 2 진행(리툭시맙·레날리도마이드 병용 salvage). PCNSL은 표준요법 후 예후가 나쁜 미충족 니치이며, BTK가 통하는 것이 tirabrutinib 일본 허가로 입증된 영역임"
+      ],
+      [
+        "재포지셔닝 스토리",
+        "물질은 한미 HM71224로 2015년 Lilly에 자가면역(RA·루푸스)으로 최대 USD 690M 기술이전됐으나 Ph2 RA 무효로 반환됨. 노보메디슨이 종양(B세포 림프종)으로 재배치함 = 실패한 자산이 아니라 적응증을 옳게 옮긴 케이스로 해석됨"
+      ],
+      [
+        "확장 파이프라인",
+        "재발/불응 비호지킨 림프종(NHL) 대상 Phase 1 단독 용량증량 병행(NCT07114367). PCNSL 리드 외 B세포 악성종양 전반으로의 확장 각도임"
+      ]
+    ],
+    "body": [
+      "개발사: 노보메디슨(NOBO Medicine), 한미로부터 Poseltinib 권리 확보 후 종양 적응증으로 개발 중인 한국 바이오텍임(비상장)",
+      "차별점: 신규 계열이 아니라 검증된 BTK 계열 안에서 PCNSL이라는 적응증 선점을 노리는 전략임. 계열 내 후발 differentiation은 과제이나, PCNSL 각은 경쟁이 얇음(tirabrutinib 일본 외 글로벌 공백)"
+    ]
+  },
+  "임상 & 검증": {
+    "grade": "FACT",
+    "keymsg": "검증축은 세 가지임. ① BTK-in-B세포림프종은 승인 계열로 기전이 확립됨, ② BTK가 PCNSL에서 통하는 것은 Ono tirabrutinib 일본 허가로 입증됨, ③ NB02는 재발/불응 PCNSL Ph2(병용)와 R/R NHL Ph1(단독)로 임상 진입함",
+    "body": [
+      "리드 근거: 재발/불응 PCNSL Phase 2(NCT06737250) — NB02 + 리툭시맙 + 레날리도마이드 salvage 요법, 다기관 단일군, 스폰서 NOBO Medicine, 2024-11 개시. ★인체 종양 효능 데이터는 아직 초기이며 병용 설계라 단독 기여 분리가 과제임",
+      "계열 검증: BTK 저해제는 B세포 악성종양에서 확립된 계열임(ibrutinib·acalabrutinib·zanubrutinib·pirtobrutinib 승인). 단 ibrutinib은 일부 림프종 적응증에서 확증 실패로 미국 자진철회(2023) 이력이 있어 적응증별로 결과가 갈림",
+      "★적응증 선례: Ono tirabrutinib이 재발/불응 PCNSL로 일본 허가를 받은 유일 BTK임. PCNSL에서 BTK가 통한다는 직접 임상근거이자, 그 딜을 한 아시아 빅파마 buyer의 실재를 뜻함",
+      "물질 이력(실사 대비): Poseltinib은 Lilly 하에서 Ph2 류마티스 무효로 반환된 이력이 있음(자가면역 한정). 종양 재배치의 논리와 자가면역 실패의 무관함을 buyer에게 선제 설명할 항목임"
+    ]
+  },
+  "전략 권고": {
+    "grade": "REC",
+    "keymsg": "엔진 결과 종합(★greenfield 예측형, 노보메디슨 LO 이력 없음): patent citation anchor signature 상위 = BTK 실보유·B세포 프랜차이즈 빅파마임(Roche·AbbVie·AstraZeneca·BMS·BeiGene). LO 각도는 PCNSL/CNS 림프종 공백을 메우려는 곳, Co-dev 각도는 자체 BTK/B세포 자산 보유사임.",
+    "body": [
+      "Lead 트랙(AoI/LO 상위 buyer): Roche(B세포 프랜차이즈 Rituxan/Gazyva·fenebrutinib)·AbbVie(ibrutinib 보유)·AstraZeneca(acalabrutinib)·BeiGene(zanubrutinib)가 상위임. BTK 자산 보유사엔 계열 확장/적응증 보강(PCNSL) 각, 미보유사엔 in-license 각임",
+      "★Ono 오버레이(엔진 보정): 엔진은 US 특허 citation 기반이라 일본 파마(Ono)를 과소평가함(AoI 하위). 그러나 Ono tirabrutinib은 PCNSL BTK의 유일 선례로 전략적 관련성 최상임 = 엔진 랭킹에 분석가가 반드시 상향 보정할 buyer임",
+      "CI(경쟁): BTK 계열 승인 자산 다수(ibrutinib·acalabrutinib·zanubrutinib·pirtobrutinib). 차별화 지점은 계열 우위가 아니라 PCNSL/CNS 침투·적응증 선점·지역(아시아) 각임. cross-modality로는 anti-CD20(리툭시맙 계열)이 병용 백본이지 경쟁 아님",
+      "딜 구조: 재발/불응 salvage Ph2 초기 단계라 프리미엄 upfront보다 조기 옵션·마일스톤 중심이 현실적임. tirabrutinib 일본 선례로 지역(아시아 vs 글로벌) 라이선스 분할이 자연스러움. ★comparable 딜은 Ibrutinib·anti-CD20 LO(upfront 비중 2~30% 스프레드)이나 lo_events의 기전/적응증 입도가 coarse해 참고 레인지로만 사용함"
+    ]
+  }
+}

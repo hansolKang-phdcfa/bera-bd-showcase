@@ -1,0 +1,17 @@
+{
+  "asset": "노보메디슨 NB02 (Poseltinib, 경구 BTK 저해제 · B세포 림프종)",
+  "ta_label": "혈액암/림프종(항암) · 면역",
+  "indications_display": "primary CNS lymphoma (PCNSL), diffuse large B-cell lymphoma, non-Hodgkin lymphoma, follicular lymphoma, chronic lymphocytic leukemia, mantle cell lymphoma",
+  "weights": {
+    "citation": 0.2857,
+    "clinical": 0.2857,
+    "deal": 0.0,
+    "need": 0.4286
+  },
+  "kr_domains": {
+    "oncology": ["A61P35"],
+    "immune": ["A61P37"],
+    "fused_pyrimidine": ["A61K31/519", "A61K31/506"],
+    "heterocycle": ["C07D487", "C07D471", "C07D403"]
+  }
+}

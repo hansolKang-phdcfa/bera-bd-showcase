@@ -1,0 +1,15 @@
+rank,company,license_out_score,gap,interest,activity,buyer_tier,cash_usd_bn,ma_lo,valuechain
+1,Roche,0.6496,1.0,0.632,0.04,mega,15,high,integrated
+2,AbbVie,0.5822,0.349,1.0,0.24,mega,13,high,integrated
+3,AstraZeneca,0.4912,0.185,0.255,1.0,mega,8,high,integrated
+4,BMS,0.4106,0.402,0.566,0.0,mega,11,high,integrated
+5,BeiGene,0.279,0.011,0.151,0.8,unknown,,unknown,unknown
+6,Novartis,0.2744,0.254,0.085,0.24,mega,11,high,integrated
+7,J&J,0.2518,0.19,0.217,0.08,mega,25,high,integrated
+8,Eli Lilly,0.2483,0.053,0.066,0.44,mega,4,med,integrated
+9,Sanofi,0.2345,0.153,0.236,0.04,mega,13,high,integrated
+10,Gilead,0.2079,0.122,0.151,0.2,large,6,high,integrated
+11,Merck,0.2063,0.19,0.132,0.0,mega,13,high,integrated
+12,Pfizer,0.1854,0.159,0.066,0.04,mega,13,high,integrated
+13,Takeda,0.1433,0.132,0.057,0.04,large,5,med,integrated
+14,Ono,0.1107,0.063,0.028,0.16,mid,3,med,commercial
