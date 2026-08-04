@@ -125,6 +125,15 @@ def explain_box(what, how, message):
         st.markdown(f"💡 **그래서 (메시지)** — {message}")
 
 
+def _pool_msg(hot):
+    """가속 상업사 유무로 파트너 후보 메시지 분기 — 빈 필드는 white-space로 프레이밍."""
+    if hot:
+        return f"현재 가속 중인 곳은 {', '.join(hot)}이며, 우선 접근 후보로 볼 수 있음."
+    return ("지금 가속 중인 상업사가 없음 = 이 기전은 특허 활동이 얇은 white space임"
+            "(크라우딩 없음의 이점이자, 활성 파트너가 드물다는 경고). "
+            "이 자산은 momentum보다 종합 판단(thesis)·경쟁 지형으로 봐야 함.")
+
+
 st.title("🧬 BERA BD — 파트너링 분석 대시보드")
 st.caption("자산별 파트너 후보·경쟁 지형·라이선스 비교를 특허·임상·딜 데이터로 발굴합니다.")
 assets = discover()
@@ -219,7 +228,7 @@ with st.container():
                 what="이 자산의 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(학계·공공기관 제외).",
                 how="각 회사의 연간 특허 활동을 직전(○)과 최근(●)으로 이어 표시함. 점이 오른쪽으로 갈수록 활동이 늘고 있다는 뜻이고, "
                     "파랑은 가속(이 영역이 활발해지는 중이며 라이선스 아웃 타이밍), 회색은 냉각임.",
-                message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있음.")
+                message=_pool_msg(_hot))
             _px(viz_px.momentum_px([x for x in _pool if x.get("kind") != "academic"]))
             _ind = _pt.get("clinical_ind", "")
             _clin = _pt.get("clinical_momentum", [])
@@ -237,7 +246,7 @@ with st.container():
             what="이 자산의 기전에 실제로 특허 활동을 하는 상업사를 데이터로 발굴한 것임(소형 바이오텍 포함, 학계 제외).",
             how="각 회사의 연간 특허 활동을 직전 평균(○)과 최근 평균(●)으로 이어 표시함. ●가 오른쪽에 있고 클수록 활발하며, "
                 "파랑은 가속(라이선스 아웃 타이밍), 회색은 냉각임. 활동 규모와 추세를 한 그래프에 담음.",
-            message=f"현재 가속 중인 곳은 {', '.join(_hot) or '없음'}이며, 우선 접근 후보로 볼 수 있음.")
+            message=_pool_msg(_hot))
         _px(viz_px.momentum_px([x for x in fpool.get("field_pool", []) if x.get("kind") != "academic"]))
         st.divider()
     # 임상 momentum — 데이터기반(적응증 전체 sponsor). 특허 momentum과 다른 축
