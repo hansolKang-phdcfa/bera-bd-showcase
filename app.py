@@ -135,6 +135,19 @@ def _pool_msg(hot):
             "이 자산은 momentum보다 종합 판단(thesis)·경쟁 지형으로 봐야 함.")
 
 
+def _match_domain(match, *, max_each=8):
+    """gather match dict(indication/modality/mechanism_like, %와일드카드) → 읽기 좋은 도메인 라벨.
+    한인수 점1: BD 추세·비교딜이 '정확히 어느 시장(도메인)의 historical BD냐' 병기용."""
+    if not match:
+        return ""
+    parts = []
+    for key, lab in (("mechanism_like", "기전"), ("indication_like", "적응증"), ("modality_like", "모달리티")):
+        vals = [str(v).strip("%").strip() for v in (match.get(key) or []) if str(v).strip("%").strip()]
+        if vals:
+            parts.append(f"{lab}: {' · '.join(vals[:max_each])}")
+    return "  |  ".join(parts)
+
+
 st.title("🧬 BERA BD — 파트너링 분석 대시보드")
 st.caption("자산별 파트너 후보·경쟁 지형·라이선스 비교를 특허·임상·딜 데이터로 발굴합니다.")
 assets = discover()
@@ -293,10 +306,18 @@ with st.container():
     bd = _json(d, "bd_trend.json")
     if bd:
         st.divider(); st.markdown("**BD 시장 추세 — LO/M&A 딜 빈도·규모**")
+        _bddom = _match_domain(bd.get("meta", {}).get("match", {}))
+        if _bddom:
+            st.caption(f"📌 집계 시장(어떤 도메인의 historical BD인가) — {_bddom}  "
+                       f"·  이 조건에 매칭된 lo_backtest 딜의 연도별 빈도·규모임(LO=라이선스·파트너십 / M&A=인수). "
+                       "규모는 total 금액 있는 딜만(~17%)이라 빈도보다 표본 작음.")
         st.pyplot(viz.bd_trend_fig(bd))
     deals = _json(d, "lo_comparables.json")
     if deals and deals.get("lo_comparables"):
         st.divider(); st.markdown("**License-Out 딜 경제성 — 치료영역·단계 매칭 시장 벤치**")
+        _lodom = _match_domain(deals.get("meta", {}).get("match", {}))
+        if _lodom:
+            st.caption(f"📌 매칭 도메인(어떤 시장의 비교딜인가) — {_lodom}")
         _lodf = pd.DataFrame(deals["lo_comparables"])
         _locols = [c for c in ["lo_date", "buyer", "seller", "indication", "stage",
                                "upfront_usd_m", "milestone_usd_m", "total_usd_m", "upfront_pct", "territory"]
