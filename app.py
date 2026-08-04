@@ -371,10 +371,6 @@ with st.container():
                    "Tier 1은 같은 기술영역의 직접 경쟁, Tier 2는 인접 영역, Tier 3은 다른 모달리티로 경쟁이라기보다 잠재적 공동개발 후보에 가까움. "
                    "위에서 아래로 Tier 1 → 2 → 3 순이며, 같은 계층 안에서는 특허 건수가 많은 순으로 정렬함. "
                    "앞의 'KR 경쟁사 발굴'이 키워드 기반이라면, 이 지도는 더 넓은 기술 지형을 보여줌.")
-        st.caption("⚠️ 특허 건수는 **회사 규모에 비례**하는 경향(LG화학·유한 등 대기업은 원래 특허가 많음). "
-                   "회사명 뒤 **시총 tier**(라지캡/미들캡/스몰캡)와 함께 봐서 **규모 대비 도메인 집약도**로 읽을 것 — "
-                   "스몰캡인데 도메인 특허가 많으면 그 회사가 진짜 이 분야에 집중한다는 신호.")
-        st.markdown(cc.legend_html(), unsafe_allow_html=True)
         opt = st.segmented_control("티어", ["전체", "Tier1", "Tier2", "Tier3"], default="전체",
                                    key=f"kr_{asset}", label_visibility="collapsed")
         _px(viz_px.kr_tier_px(kr.get("kr_tiers", []), tier_filter={"Tier1": 1, "Tier2": 2, "Tier3": 3}.get(opt),

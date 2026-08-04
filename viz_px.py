@@ -206,13 +206,10 @@ def kr_tier_px(kr_rows, top=18, tier_filter=None, domains=None):
         core = sorted(k for k in keys if k not in META and not k.startswith("m_") and not k.startswith("recent"))
     _bar = lambda r: sum(float(r.get(dd, 0) or 0) for dd in core)   # 화면 막대 길이(표시 도메인 합)로 정렬 = 시각 일치
     rows = sorted(rows, key=lambda r: (r.get("tier", 9), -_bar(r)))[:top][::-1]
-    # ★한인수 점3: 회사 규모(cap tier) 라벨 병기 — LG화학(라지캡) 429건 vs Voronoi(스몰캡) 83건 =
-    #   규모 대비 도메인 집약도로 읽게. 색점=카테고리(빅파마/바이오텍/스타트업).
-    def _kr_label(r):
-        cap = cc.classify(r["assignee"])["cap_ko"]
-        return f"{cc.dot(r['assignee'])} {_ylab(r['assignee'])} ·{cap}"
-    return _stacked_h(rows, core, lambda r, d: r.get(d, 0), _kr_label,
-                      "KR 3-tier — 도메인 특허(색점=회사 분류·규모 병기)", "도메인(IPC)별 특허 건수")
+    # ※KR 회사 카테고리/시총 분류는 KB 커버리지 부족(33곳 중 17곳 미확인)이라 미적용 — 원 라벨 유지.
+    return _stacked_h(rows, core, lambda r, d: r.get(d, 0),
+                      lambda r: f"{_ylab(r['assignee'])} ·T{r.get('tier')}",
+                      "KR 3-tier — 위=Tier1(직접) → 아래=Tier3(잠재)", "도메인(IPC)별 특허 건수")
 
 
 def crossmod_px(cm, top=16):
