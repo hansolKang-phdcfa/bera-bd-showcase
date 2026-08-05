@@ -122,5 +122,28 @@
       "숙제: 이중작용 단일분자가 병용요법보다 우월하다는 입증이 열쇠임(Novo는 병용으로 동일 목표를 겨냥함). 이 입증이 없으면 희소성만으로는 논리가 약함",
       "딜 구조: Ph1 초기 단계이므로 옵션딜과 마일스톤 후행 구조가 되고, 지역 분할(아시아는 자체 개발, 글로벌은 파트너)이 현실적임. 베링거 반환 이력은 딜 협상에서 설명이 필요함(non-refundable 수령 및 중복 사유)"
     ]
+  },
+  "_partner_rec": {
+    "keymsg": "★핵심은 개별 경쟁력(후발)이 아니라 '독립 FGF21 자산의 희소성'. 순수 FGF21 3종 전량 인수(Akero→Novo·89bio→Roche·Boston→GSK)로 독립 FGF21 소진 → YH25724는 남은 몇 안 되는 독립 FGF21-함유 자산. 딜=Ph1 clean 이후 지역분할(아시아 자체·글로벌 파트너).",
+    "rows": [
+      {
+        "tier": "1",
+        "target": "FGF21 미확보 후발 빅파마 + 아시아·중화권",
+        "rationale": "MASH 스펙트럼 전략을 원하나 FGF21 인수전에서 빠진 곳 → 희소 독립 FGF21 확보 각. GLP-1 병합형이라도 독립 FGF21-함유 자산은 희소",
+        "deal": "옵션딜·마일스톤 후행 + 지역분할",
+        "confidence": "중",
+        "caveat": "Ph1 clean 전제(현 시점 시기상조) + 이중작용이 병용요법 대비 우위 입증이 열쇠"
+      }
+    ],
+    "demoted": [
+      {
+        "target": "Novo Nordisk · Roche · GSK",
+        "reason": "이미 FGF21 확보(Akero·89bio·Boston 인수)=우선순위 낮음 — 보유=충족(경쟁자)"
+      },
+      {
+        "target": "Madrigal·Viking(THR-β)·Boehringer/Zealand",
+        "reason": "다른 기전 MASH 경쟁(직접 buyer 아님). ★단 Lilly(retatrutide)는 FGF21 미보유 후발이라 조건부 buyer 여지 있음"
+      }
+    ]
   }
 }

@@ -592,5 +592,38 @@
       "실제 각도: SAFA가 선두 경쟁사도 갖지 못한 이점을 제공하는 라이브 자산을 발굴하는 것이 핵심임. APB-R2(FSHR), APB-A2(CD73), HER2×PD-L1 ADC에서 Fc-free·반감기·이중특이가 '남이 해결하지 못한 문제'인지 검증. 없다면 솔직히 공백으로 보고",
       "딜 구조: 조기 옵션이라 선급금이 작고 마일스톤이 후행함(APB-A1의 선급금 USD 16M, 총 USD 448M 참고). 플랫폼은 넘기는 대상이 아니라 다음 APB-A1급 자산을 만들어내는 엔진으로 유지함"
     ]
+  },
+  "_partner_rec": {
+    "keymsg": "★두 대표 트랙(APB-R4·REMAP) 모두 SAFA 고유 이점이 상쇄돼(선두가 이미 이중항체·장기반감기 보유) 클린 gap-fill 타겟이 약함. 결론=명단 강행이 아니라 SAFA가 유일하게 차별화되는 라이브 자산(APB-R2 FSHR·APB-A2 CD73·HER2×PD-L1 ADC) 발굴 또는 공백의 솔직한 인정. 아래는 트랙별 조건부 각.",
+    "rows": [
+      {
+        "track": "REMAP (TL1A×IL-23, IBD)",
+        "tier": "이론상",
+        "target": "IL-23 보유·TL1A 미보유 빅파마",
+        "rationale": "TL1A×IL-23 이중항체는 IL-23만 가진 곳의 공백을 메움 — 단 이 트랙 선두(Merck·Teva/Sanofi·Roche)는 이미 TL1A 보유=경쟁자라 클린 buyer가 비어 있음",
+        "deal": "조기 옵션 L/O(선급 소·마일스톤 후행)",
+        "confidence": "하",
+        "caveat": "SAFA 이중특이 이점을 Xencor가 이미 보유(반감기 60~70d)=차별점 겹침"
+      },
+      {
+        "track": "APB-R4 (IL-2R, 자가면역)",
+        "tier": "약함",
+        "target": "장기작용 IL-2 미보유사",
+        "rationale": "Nektar·Amgen·Eledon이 이미 장기작용 IL-2 자산 보유 → SAFA 반감기 이점 상쇄, 조기 옵션 매력 약함(후발이라서가 아니라 차별점이 겹쳐서)",
+        "deal": "조기 옵션(조건부)",
+        "confidence": "하",
+        "caveat": "SAFA 고유 이점을 선두가 이미 커버"
+      }
+    ],
+    "demoted": [
+      {
+        "target": "Merck(←Prometheus)·Teva/Sanofi·Roche/Pfizer·Xencor",
+        "reason": "TL1A/이중항체·장기반감기 이미 보유 = REMAP에서 경쟁자, gap-fill buyer 아님"
+      },
+      {
+        "target": "Nektar·Amgen·Eledon",
+        "reason": "장기작용 IL-2 이미 보유 = APB-R4 경쟁자"
+      }
+    ]
   }
 }

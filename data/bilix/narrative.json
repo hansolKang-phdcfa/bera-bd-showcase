@@ -126,5 +126,32 @@
       "딜 구조: P2a POC(2027) 이후 적응증별 옵션딜과 지역 분할이 현실적임. 현 단계(P1~P2a)는 조기 관심확보 및 스크리닝 성격임",
       "★해석 유의: 이 자산은 US 특허 landscape가 얇아(target 최대 Jaccard 0, 단일 코어 특허패밀리) anchor signature 역추적 검증 앵커가 약함. aprilbio(LO 2건 검증형)와 달리 예측과 landscape 정찰 위주로 활용함"
     ]
+  },
+  "_partner_rec": {
+    "keymsg": "★데이터 얇은 케이스(US 특허 landscape 얇음, target Jaccard 0)라 anchor signature 역추적이 약해 예측·정찰 위주. 이 영역은 cardioprotection 임상 실패 반복(승인약 전무)+선두 Renibus RBT-1 Ph3 1차 종결점 실패(2026-04)+나노메디슨 프리미엄 딜 희소(BIND→Pfizer ~$40M). 따라서 '풍부한 comp'가 아니라 '아무도 못 푼 미충족 수요' 논리로 접근. 딜=Ph2a PoC(~2027) 이후 조기 아웃라이선싱.",
+    "rows": [
+      {
+        "tier": "각(불특정)",
+        "target": "심혈관·신장보호·이식 관류 프랜차이즈",
+        "rationale": "근본원인(내인성 세포보호 복원) 노리는 첫 나노 접근 → CV/장기보호 franchise에 in-license·Co-dev. 단 특정 대형 buyer를 데이터가 지목하지 못함(landscape 얇음)",
+        "deal": "적응증별 옵션딜·지역분할(P2a 이후)",
+        "confidence": "하",
+        "caveat": "임상 실패 반복 영역, 미충족수요 논리 필수"
+      },
+      {
+        "tier": "인접",
+        "target": "Alexion(ravulizumab)",
+        "rationale": "심장수술 AKI(ARTEMIS)에서 경쟁이자, 나노 전달 역량 미보유 → 잠재 파트너 양면",
+        "deal": "잠재 co-dev/경쟁",
+        "confidence": "하",
+        "caveat": "보체 C5=다른 축"
+      }
+    ],
+    "demoted": [
+      {
+        "target": "Renibus(RBT-1)·CalciMedica(Auxora)·Dimerix",
+        "reason": "동일 CSA-AKI/장기보호 축 직접 경쟁(Renibus Ph3 실패=축 평가 부담 전이)"
+      }
+    ]
   }
 }

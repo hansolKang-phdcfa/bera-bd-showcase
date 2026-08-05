@@ -116,5 +116,40 @@
       "딜 구조: discovery 단계라 옵션딜이나 플랫폼 딜(RaPIDome)이 유력하며, upfront는 최소로 하고 마일스톤을 후행시키는 형태임. 타깃별 분할도 가능함",
       "단계 유의: 초기(discovery) 회사라 특허·임상 신호가 얇을 수 있어 precedent 의존도가 높은 구간임"
     ]
+  },
+  "_partner_rec": {
+    "keymsg": "★precedent 기반(전임상). 강한 precedent=Kura-Kyowa ziftomenib(upfront $330M·최대 $1.16B, Ph2 기준). covalent·degrader가 post-revumenib 내성의 해답. 딜=discovery 단계 옵션딜/플랫폼딜(RaPIDome), upfront 최소·마일스톤 후행.",
+    "rows": [
+      {
+        "tier": "1",
+        "target": "Kyowa Kirin · Syndax",
+        "rationale": "이미 reversible Menin 승인약(ziftomenib·revumenib) 보유하나 내성대비 2세대(covalent)는 공백 → covalent cobx가 내성 sub-gap 채우는 lifecycle in-license",
+        "deal": "lifecycle in-license/옵션딜",
+        "confidence": "중",
+        "caveat": "자기 reversible과 포지션 겹칠 수 있음"
+      },
+      {
+        "tier": "2",
+        "target": "Novartis · AbbVie · Roche",
+        "rationale": "Menin을 놓친 혈액암 프랜차이즈 + molecular glue degrader 확장 중 → 진입 in-license 각",
+        "deal": "in-license(진입)",
+        "confidence": "중하",
+        "caveat": "Menin 우선순위 각사 상이"
+      },
+      {
+        "tier": "오버레이",
+        "target": "BMS",
+        "rationale": "CC-90009(GSPT1)=Celgene degrader 유산, cobx GSPT1 degrader와 기전 인접",
+        "deal": "degrader 인접 co-dev",
+        "confidence": "하",
+        "caveat": "GSPT1 자체 프로그램 보유"
+      }
+    ],
+    "demoted": [
+      {
+        "target": "J&J(bleximenib)·Sumitomo(enzomenib)·Servier(BN104)",
+        "reason": "임상 reversible Menin 이미 보유=경쟁자, 2세대 자체개발 가능성"
+      }
+    ]
   }
 }

@@ -127,5 +127,40 @@
       "CI(경쟁): ENPP1 경구저해제 직접경쟁이 다수임(Stingray SR-8541A·Riboscience RBS2418·Insilico ISM5939·Angarus·Avammune). cocitation/landscape에서 확인됨. 차별화 지점은 경구 PK, 병용 폭, 적응증 선점임",
       "딜 구조: Ph1~Ph2 초기 단계에서는 조기 옵션딜/마일스톤 중심이 현실적임. 비상장이라 territory/지분이 유연함. KR 3-tier로 국내 소분자 항암 co-dev 후보를 병행 검토함"
     ]
+  },
+  "_partner_rec": {
+    "keymsg": "★예측형(LO 이력 없는 greenfield 타깃발굴). 종양 ENPP1 빅파마 딜이 아직 없는 '조용한 window' 진입 — 선두 Riboscience Ph2 데이터가 국면을 바꾸기 전. 딜=조기 옵션/마일스톤.",
+    "rows": [
+      {
+        "tier": "1",
+        "target": "Merck · BMS · GSK · Novartis",
+        "rationale": "STING agonist 임상 이력사인데 경구 ENPP1은 미보유 → ENPP1이 STING 재도전의 de-risked 경로 = 공백 채우는 in-license (특히 Mavupharma를 놓친 곳)",
+        "deal": "in-license(조기 옵션)",
+        "confidence": "중",
+        "caveat": "greenfield 예측(LO 선례 없음)·각사 STING 프로그램 상태 확인 필요"
+      },
+      {
+        "tier": "오버레이",
+        "target": "AbbVie",
+        "rationale": "Mavupharma 인수로 경구 ENPP1 확보한 유일 빅파마 → 후속 in-license 또는 경쟁의 양면(방어적 buyer)",
+        "deal": "방어/후속 in-license",
+        "confidence": "중",
+        "caveat": "이미 경구 ENPP1 확보 = 경쟁자일 수도"
+      },
+      {
+        "tier": "Co-dev",
+        "target": "자체 ICB/STING 보유사",
+        "rationale": "경구 ENPP1 병용 시너지 → in-license 아닌 공동개발(병용) 각",
+        "deal": "Co-dev(병용)",
+        "confidence": "중하",
+        "caveat": "병용 데이터 전제"
+      }
+    ],
+    "demoted": [
+      {
+        "target": "Riboscience(RBS2418)·Stingray·Insilico·Cyana·Avammune",
+        "reason": "경구 ENPP1i 직접 경쟁자(buyer 아님) — 차별화=경구 PK·병용 폭·적응증 선점"
+      }
+    ]
   }
 }

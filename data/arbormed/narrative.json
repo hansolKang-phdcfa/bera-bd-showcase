@@ -111,5 +111,40 @@
       "딜 각도: preclinical 단계라 upfront가 낮고 데이터 마일스톤이 후행하는 옵션딜임. ★Hyloris가 EU와 터키를 이미 라이선스했으므로 미국·아시아 등 잔여 지역권 구조를 확인할 필요가 있음. FIH(2026) 데이터가 밸류업 분기점임",
       "단계 유의: preclinical precedent 기반 가설 구간으로, 인체 데이터·1차출처 확인 시 상향 여지가 있음"
     ]
+  },
+  "_partner_rec": {
+    "keymsg": "★precedent 기반(전임상, 인체 데이터 없음). precedent=Alexion(現 AZ)이 2018 Wilson Therapeutics를 $855M 인수(WTX101). ★단 AZ가 2024 Monopar로 재이전·철수=빈자리(재진입 여지)지 강한 buy 신호 아님. Hyloris가 EU·터키 라이선스=미국·아시아 잔여 지역권. 딜=옵션딜(선급 낮음), FIH(2026)가 밸류업 분기점.",
+    "rows": [
+      {
+        "tier": "1",
+        "target": "Takeda(Shire 희귀) · Ipsen · Chiesi/Recordati",
+        "rationale": "희귀 대사·간질환 프랜차이즈 보유하나 Wilson병 자산은 비워둠 → de-coppering 소분자 펩타이드(담즙 배출·간헐투약) gap-fill",
+        "deal": "옵션딜·잔여 지역권(미국·아시아)",
+        "confidence": "중하",
+        "caveat": "전임상 precedent 기반 가설 구간"
+      },
+      {
+        "tier": "조건부",
+        "target": "AstraZeneca",
+        "rationale": "Wilson precedent(WTX101 $855M)이나 2024 Monopar 재이전·철수=빈자리 재진입 여지 — 약한 신호",
+        "deal": "재진입",
+        "confidence": "하",
+        "caveat": "이미 철수한 자리"
+      },
+      {
+        "tier": "파트너/경쟁",
+        "target": "Orphalan(Cuvrior)",
+        "rationale": "트리엔틴 상용=경쟁자이자 지역권·상업 파트너 양면",
+        "deal": "지역/상업 파트너",
+        "confidence": "하",
+        "caveat": "구세대 킬레이터"
+      }
+    ],
+    "demoted": [
+      {
+        "target": "Monopar(WTX101)·Ultragenyx(UX701)·Vivet/Pfizer(VTX-801)·Innorna(mRNA)",
+        "reason": "이미 Wilson 자산 보유(재이전받음·AAV 유전자치료·mRNA)=경쟁자 — 적응증 정면(모달리티만 다름)"
+      }
+    ]
   }
 }

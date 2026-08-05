@@ -19,37 +19,91 @@
     "grade": "FACT",
     "axis": "BTK 저해제 계열(B세포 악성종양) + PCNSL/DLBCL 경쟁(CAR-T·이중항체 포함). 승인/개발 단계로 서열.",
     "players": [
-      {"company": "Ono", "asset": "tirabrutinib (Velexbru)", "stage": "승인(일본)+美 허가절차",
-       "note": "★재발/불응 PCNSL BTK 유일 선례 · Gilead→Ono 2021 반환", "is_target": false},
-      {"company": "Gilead", "asset": "axi-cel 예스카타 (CD19 CAR-T)", "stage": "승인(美 PCNSL)",
-       "note": "★美 유일 PCNSL 승인요법(2026-02 라벨제한 해제) · CAR-T = 실제 경쟁+잠재 buyer", "is_target": false},
-      {"company": "AbbVie/J&J", "asset": "ibrutinib (Imbruvica)", "stage": "승인",
-       "note": "1세대 covalent BTK · 일부 림프종 미국 자진철회(2023) · 뇌투과 9.8%", "is_target": false},
-      {"company": "AstraZeneca", "asset": "acalabrutinib (Calquence)", "stage": "승인",
-       "note": "2세대 선택적 covalent BTK(CLL/MCL)", "is_target": false},
-      {"company": "BeiGene", "asset": "zanubrutinib (Brukinsa)", "stage": "승인",
-       "note": "2세대 covalent BTK · 광범위 B세포 best-in-class 지향", "is_target": false},
-      {"company": "Eli Lilly", "asset": "pirtobrutinib (Jaypirca)", "stage": "승인",
-       "note": "noncovalent BTK · ★Lilly는 과거 Poseltinib 보유 이력(반복노드)", "is_target": false},
-      {"company": "노보메디슨 NB02", "asset": "Poseltinib", "stage": "Phase 2(허가)",
-       "note": "재발/불응 PCNSL Ph2(R+레날리도마이드) + DLBCL IIT(글로피타맙 삼중) · 뇌투과 16.8%(회사주장)", "is_target": true}
+      {
+        "company": "Ono",
+        "asset": "tirabrutinib (Velexbru)",
+        "stage": "승인(일본)+美 허가절차",
+        "note": "★재발/불응 PCNSL BTK 유일 선례 · Gilead→Ono 2021 반환",
+        "is_target": false
+      },
+      {
+        "company": "Gilead",
+        "asset": "axi-cel 예스카타 (CD19 CAR-T)",
+        "stage": "승인(美 PCNSL)",
+        "note": "★美 유일 PCNSL 승인요법(2026-02 라벨제한 해제) · CAR-T = 실제 경쟁+잠재 buyer",
+        "is_target": false
+      },
+      {
+        "company": "AbbVie/J&J",
+        "asset": "ibrutinib (Imbruvica)",
+        "stage": "승인",
+        "note": "1세대 covalent BTK · 일부 림프종 미국 자진철회(2023) · 뇌투과 9.8%",
+        "is_target": false
+      },
+      {
+        "company": "AstraZeneca",
+        "asset": "acalabrutinib (Calquence)",
+        "stage": "승인",
+        "note": "2세대 선택적 covalent BTK(CLL/MCL)",
+        "is_target": false
+      },
+      {
+        "company": "BeiGene",
+        "asset": "zanubrutinib (Brukinsa)",
+        "stage": "승인",
+        "note": "2세대 covalent BTK · 광범위 B세포 best-in-class 지향",
+        "is_target": false
+      },
+      {
+        "company": "Eli Lilly",
+        "asset": "pirtobrutinib (Jaypirca)",
+        "stage": "승인",
+        "note": "noncovalent BTK · ★Lilly는 과거 Poseltinib 보유 이력(반복노드)",
+        "is_target": false
+      },
+      {
+        "company": "노보메디슨 NB02",
+        "asset": "Poseltinib",
+        "stage": "Phase 2(허가)",
+        "note": "재발/불응 PCNSL Ph2(R+레날리도마이드) + DLBCL IIT(글로피타맙 삼중) · 뇌투과 16.8%(회사주장)",
+        "is_target": true
+      }
     ],
     "prior_gen": [
-      {"company": "Eli Lilly/Hanmi", "asset": "Poseltinib (HM71224)", "stage": "반환",
-       "note": "자가면역(RA) Ph2 무효로 2019 중단 → 노보메디슨이 종양으로 재배치"}
+      {
+        "company": "Eli Lilly/Hanmi",
+        "asset": "Poseltinib (HM71224)",
+        "stage": "반환",
+        "note": "자가면역(RA) Ph2 무효로 2019 중단 → 노보메디슨이 종양으로 재배치"
+      }
     ],
     "excluded": [
-      {"company": "리툭시맙·레날리도마이드·글로피타맙", "reason": "PCNSL/DLBCL 병용 백본·파트너(글로피타맙=Roche 이중항체)이지 BTK 경쟁 아님"}
+      {
+        "company": "리툭시맙·레날리도마이드·글로피타맙",
+        "reason": "PCNSL/DLBCL 병용 백본·파트너(글로피타맙=Roche 이중항체)이지 BTK 경쟁 아님"
+      }
     ]
   },
   "자산 개요": {
     "grade": "FACT",
     "keymsg": "NB02(Poseltinib)는 경구 비가역 다중키나아제(BTK·TEC·BMX) 저해제로, 노보메디슨(구 지놈오피니언)의 첫 상업화 자산이자 면역노화/CHIP 플랫폼의 캐시엔진임. 리드 적응증은 재발/불응 원발성 CNS 림프종(PCNSL)이며, 물질은 한미약품 창출(HM71224)임. 공동대표 이명세·고영일(고영일=SNU 혈액내과 교수)임",
     "cards": [
-      ["BTK 기전", "BTK는 B세포 수용체(BCR) 하류 티로신인산화효소로 B세포 악성종양 생존·증식에 핵심. NB02는 BTK를 비가역 저해하면서 TEC·BMX까지 함께 억제하는 다중키나아제 저해제(넓은 타깃범위가 회사 차별화 포인트 — 2세대 BTK-선택형[아칼라/자누]과 반대 컨셉). ABC-DLBCL에서 BTK가 BCR→NF-κB 상위 차단, 레날리도마이드가 IRF4→IKK 차단 = 서로 다른 경로로 NF-κB 이중 억제"],
-      ["CNS 침투 wedge", "회사 내부데이터상 뇌 투과율 16.8%(이브루티닙 9.8%) = 경쟁 BTK 중 최고 CNS 침투. 공격적 림프종의 뇌 전이 특성상 PCNSL 리드 적응증에 최적 차별화(회사주장, 검증 전)"],
-      ["재포지셔닝", "한미 HM71224 → 2015 Lilly LO(최대 USD 690M, 자가면역) → RA Ph2 무효 반환 2019 → 노보 종양 재배치. '적응증을 잘못 골라 효능 문제였던(안전성은 OK) 약물'을 골라 best-in-class로 개발하는 전략"],
-      ["상업화 모델", "국내 PCNSL 자체 인하우스 영업 직접 상업화(self-financing) + 글로벌 데이터기반 L/O(중국 모델). IIT→SIT 허가임상 전환으로 비용 10~20%로 유사 퀄 데이터 확보"]
+      [
+        "BTK 기전",
+        "BTK는 B세포 수용체(BCR) 하류 티로신인산화효소로 B세포 악성종양 생존·증식에 핵심. NB02는 BTK를 비가역 저해하면서 TEC·BMX까지 함께 억제하는 다중키나아제 저해제(넓은 타깃범위가 회사 차별화 포인트 — 2세대 BTK-선택형[아칼라/자누]과 반대 컨셉). ABC-DLBCL에서 BTK가 BCR→NF-κB 상위 차단, 레날리도마이드가 IRF4→IKK 차단 = 서로 다른 경로로 NF-κB 이중 억제"
+      ],
+      [
+        "CNS 침투 wedge",
+        "회사 내부데이터상 뇌 투과율 16.8%(이브루티닙 9.8%) = 경쟁 BTK 중 최고 CNS 침투. 공격적 림프종의 뇌 전이 특성상 PCNSL 리드 적응증에 최적 차별화(회사주장, 검증 전)"
+      ],
+      [
+        "재포지셔닝",
+        "한미 HM71224 → 2015 Lilly LO(최대 USD 690M, 자가면역) → RA Ph2 무효 반환 2019 → 노보 종양 재배치. '적응증을 잘못 골라 효능 문제였던(안전성은 OK) 약물'을 골라 best-in-class로 개발하는 전략"
+      ],
+      [
+        "상업화 모델",
+        "국내 PCNSL 자체 인하우스 영업 직접 상업화(self-financing) + 글로벌 데이터기반 L/O(중국 모델). IIT→SIT 허가임상 전환으로 비용 10~20%로 유사 퀄 데이터 확보"
+      ]
     ],
     "body": [
       "SI/펀딩: Series C 275억(2025-07-28). 유한양행 전략투자자(스틱·스톤브릿지·이수만 등 공동). ★유한=베라 첫 BD PoC(YH25724) 연결 노드",
@@ -80,14 +134,61 @@
     "grade": "REC",
     "keymsg": "NB02(포셀티닙)는 단독 자산이 아니라 노보메디슨(구 지놈오피니언) 면역노화(immune aging)/CHIP 정밀의학 플랫폼의 상업화 캐시엔진임. 회사 단위로 보면 파트너 각이 층별로 갈리며, 현 밸류의 대부분은 이 NB02 상업화 성공에 의존함(플랫폼 상층부는 대부분 전임상 초기). 공동대표 이명세·고영일(고영일=SNU 혈액내과)",
     "cards": [
-      ["1층 · 캐시엔진 (NB02)", "포셀티닙 국내 자체상업화(PCNSL 2027 목표) + 글로벌 데이터기반 L/O(중국 모델)로 플랫폼 자금 조달. self-financing 구조라 급매 압력 낮음 = 협상력↑. IIT→SIT 허가임상 전환으로 비용 10~20%로 데이터 확보"],
-      ["2층 · CHIP 매개 질환 (전임상)", "NB01(pan-caspase, emricasan 백본 → CHIP 매개 혈전증·저출혈 항혈전 각) + JAK2i(JAK2 V617F 변이선택·JH2/namuICT AI → MPN+CHIP 혈전). 심혈관/염증(Novartis CANTOS)·MPN(Incyte·Lilly) 파트너 각. ★전임상 = 상방 옵션이지 현 밸류 본체 아님"],
-      ["3층 · 노화 정밀의학 (장기)", "CHIP 사이언스를 다질환 정밀의학으로 확장(심혈관질환 1/4이 CHIP 연관 추정). 14,000명 CHIP 변이-질환 DB + TET2 gene-edited 검증 마우스 = 반복 발굴 인프라. 대식세포-CHIP 축(면역질환의 T세포→대식세포 전환)"],
-      ["SI · 크로스 인사이트", "유한양행 전략투자(Series C 275억, 2025-07). ★유한=베라 첫 BD PoC(YH25724) 노드. ★Eli Lilly=반복노드(Poseltinib 과거보유 + pirtobrutinib + Ajax/JAK2 인수 2026-04) = 노보 BTK·JAK2 양쪽 검증 buyer, 회사단위 파트너 유력"]
+      [
+        "1층 · 캐시엔진 (NB02)",
+        "포셀티닙 국내 자체상업화(PCNSL 2027 목표) + 글로벌 데이터기반 L/O(중국 모델)로 플랫폼 자금 조달. self-financing 구조라 급매 압력 낮음 = 협상력↑. IIT→SIT 허가임상 전환으로 비용 10~20%로 데이터 확보"
+      ],
+      [
+        "2층 · CHIP 매개 질환 (전임상)",
+        "NB01(pan-caspase, emricasan 백본 → CHIP 매개 혈전증·저출혈 항혈전 각) + JAK2i(JAK2 V617F 변이선택·JH2/namuICT AI → MPN+CHIP 혈전). 심혈관/염증(Novartis CANTOS)·MPN(Incyte·Lilly) 파트너 각. ★전임상 = 상방 옵션이지 현 밸류 본체 아님"
+      ],
+      [
+        "3층 · 노화 정밀의학 (장기)",
+        "CHIP 사이언스를 다질환 정밀의학으로 확장(심혈관질환 1/4이 CHIP 연관 추정). 14,000명 CHIP 변이-질환 DB + TET2 gene-edited 검증 마우스 = 반복 발굴 인프라. 대식세포-CHIP 축(면역질환의 T세포→대식세포 전환)"
+      ],
+      [
+        "SI · 크로스 인사이트",
+        "유한양행 전략투자(Series C 275억, 2025-07). ★유한=베라 첫 BD PoC(YH25724) 노드. ★Eli Lilly=반복노드(Poseltinib 과거보유 + pirtobrutinib + Ajax/JAK2 인수 2026-04) = 노보 BTK·JAK2 양쪽 검증 buyer, 회사단위 파트너 유력"
+      ]
     ],
     "body": [
       "★밸류 구조: 3층 대부분이 초기라 현 밸류의 대부분은 1층(NB02 상업화 성공)에 의존. 플랫폼 서사는 상방 옵션",
       "★차별화: 국내 드문 자체상업화 모델 + 대식세포-CHIP 축 + 발굴 인프라. 단 상업화 역량·글로벌 L/O 실현은 미증명"
+    ]
+  },
+  "_partner_rec": {
+    "keymsg": "딜 형태는 자산매각이 아니라 국내 자체상업화 + 글로벌 ex-Korea 지역분할 L/O. 아래는 글로벌 파트너 후보. ★greenfield 예측형(대형 L/O 이력 없음)이라 확신도는 보수적.",
+    "rows": [
+      {
+        "tier": "1",
+        "target": "Roche",
+        "rationale": "B세포 프랜차이즈 + 글로피타맙(실제 DLBCL 병용 파트너) 보유, 자체 covalent BTK는 없음 → 병용·지역 L/O 가장 클린한 각",
+        "deal": "글로벌 지역분할 L/O + DLBCL 병용",
+        "confidence": "중상",
+        "caveat": "PCNSL 자체 기전은 Roche 미보유"
+      },
+      {
+        "tier": "2(조건부)",
+        "target": "AbbVie/J&J · AstraZeneca",
+        "rationale": "자기 BTK(ibrutinib/acalabrutinib) 보유하나 CNS 침투 약함 → poseltinib이 CNS·공격형 림프종 sub-gap 보강(방어적 lifecycle 매수)",
+        "deal": "sub-gap in-license",
+        "confidence": "중",
+        "caveat": "CNS 침투 우위(회사주장 16.8%) 검증 전제"
+      },
+      {
+        "tier": "오버레이",
+        "target": "Ono · Gilead · Eli Lilly",
+        "rationale": "Ono=tirabrutinib PCNSL 유일선례(일본 territory·검증)·Gilead=예스카타 PCNSL 상업권(방어적 buyer)·Lilly=과거 Poseltinib 보유+pirtobrutinib(반복노드). 엔진 US-citation이 과소평가하는 전략적 관련 3사",
+        "deal": "territory/방어적",
+        "confidence": "중",
+        "caveat": "3사 모두 자기 PCNSL/BTK 자산 보유 = 방어적·조건부"
+      }
+    ],
+    "demoted": [
+      {
+        "target": "BeiGene(zanubrutinib)",
+        "reason": "광범위 best-in-class 지향 = 정면 경쟁자, in-license 유인 약함"
+      }
     ]
   }
 }

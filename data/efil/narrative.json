@@ -103,5 +103,32 @@
       "딜 각도: preclinical 단계이고 precedent가 약하므로, upfront를 최소화하고 데이터 마일스톤 위주로 구성한 옵션딜임",
       "신뢰도 유의: 직접 precedent가 약해 가설 의존도가 높은 구간임(1차출처 검증 시 재평가 여지)"
     ]
+  },
+  "_partner_rec": {
+    "keymsg": "★precedent 전무(전임상, ACAT 특이 딜 선례 없음=밸류 앵커 부재, 신뢰도 낮음). GLP-1 병용 add-on 포지션. 딜=upfront 최소·데이터 마일스톤 위주 옵션딜, 부신독성 확인+병용효능 데이터 이후.",
+    "rows": [
+      {
+        "tier": "1(가설)",
+        "target": "Novo Nordisk · Eli Lilly",
+        "rationale": "경구 GLP-1 백본에 얹을 add-on 물색 중 → GLP-1과 직교하는 대사·면역·간 축(ACAT1) = 병용 파트너십(in-license 아닌 co-dev 각)",
+        "deal": "GLP-1 add-on 병용 파트너십",
+        "confidence": "하",
+        "caveat": "ACAT 딜 선례 전무·부신독성 확인 전·병용효능 미확보"
+      },
+      {
+        "tier": "2",
+        "target": "Pfizer · Amgen · Boehringer",
+        "rationale": "비만 파이프라인 확장 중 → 경구 add-on 보완재 관심 여지",
+        "deal": "옵션딜",
+        "confidence": "하",
+        "caveat": "가설 의존"
+      }
+    ],
+    "demoted": [
+      {
+        "target": "Millendo/Tempest(nevanimibe)·Kowa(K-604)",
+        "reason": "ACAT1 기전 보유이나 부신질환·죽상경화(비만 아님)·부신독성으로 중단/정체 — buyer 아닌 기전 경고 사례"
+      }
+    ]
   }
 }

@@ -222,6 +222,37 @@ if _th:
                     st.markdown(f"- {_md(e)}")
     st.divider()
 
+# ── ⭐ 파트너링 권고 — 근거 기반 우선 타겟 (결론) ──
+_pr = _nar_top.get("_partner_rec")
+if _pr:
+    st.markdown("### ⭐ 파트너링 권고 — 우선 접촉 타겟 (결론)")
+    st.caption("위 신호를 종합한 결론입니다. **파트너링 성사·확정 예측이 아니라 접촉 우선순위 추천**이며(딜 실행·성사 판단은 별도), "
+               "각 행의 ‘근거’ = 왜 이 회사인지(공백을 메우는지 vs 이미 보유해 경쟁자인지).")
+    if _pr.get("keymsg"):
+        st.info(_para(_pr["keymsg"]))
+    _prows = _pr.get("rows", [])
+    if _prows:
+        _has_track = any(r.get("track") for r in _prows)
+        _cols = (["트랙"] if _has_track else []) + ["순위", "타겟", "근거 (왜 이 회사)", "딜 형태", "확신", "유의"]
+        _pdata = []
+        for r in _prows:
+            row = {}
+            if _has_track:
+                row["트랙"] = r.get("track", "")
+            row["순위"] = r.get("tier", "")
+            row["타겟"] = r.get("target", "")
+            row["근거 (왜 이 회사)"] = r.get("rationale", "")
+            row["딜 형태"] = r.get("deal", "")
+            row["확신"] = r.get("confidence", "")
+            row["유의"] = r.get("caveat", "")
+            _pdata.append(row)
+        st.table(pd.DataFrame(_pdata, columns=_cols).style.hide(axis="index"))
+    if _pr.get("demoted"):
+        st.markdown("**⬇️ 제외·강등 (이미 기전 보유 = 경쟁자 / 직접 경쟁):**")
+        for dm in _pr["demoted"]:
+            st.markdown(f"- {_md(dm.get('target',''))} — {_md(dm.get('reason',''))}")
+    st.divider()
+
 with st.expander("📖 용어 설명 — 처음이면 펼쳐보세요"):
     st.markdown("""
 - **AoI**(타겟기업 관심도) = need(원천특허 만료=다급) + citation(우리 기술 인용=관심) + clinical(활성 임상=상용화 핏).
