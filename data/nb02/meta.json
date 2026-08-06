@@ -3,9 +3,9 @@
   "ta_label": "혈액암/림프종(항암) · 면역",
   "indications_display": "primary CNS lymphoma (PCNSL), diffuse large B-cell lymphoma, non-Hodgkin lymphoma, follicular lymphoma, chronic lymphocytic leukemia, mantle cell lymphoma",
   "weights": {
-    "citation": 0.2857,
-    "clinical": 0.2857,
     "deal": 0.0,
+    "clinical": 0.2857,
+    "citation": 0.2857,
     "need": 0.4286
   },
   "kr_domains": {
