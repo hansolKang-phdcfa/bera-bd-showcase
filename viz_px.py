@@ -10,8 +10,12 @@ import re
 
 import plotly.graph_objects as go
 
-import design_tokens as T
-import company_class as cc  # 회사 카테고리·시총 tier 색 (그래프 공통)
+try:                                    # 엔진: bd_asset_pipeline.ui.viz_px 로 import
+    from . import design_tokens as T
+    from . import company_class as cc   # 회사 카테고리·시총 tier 색 (그래프 공통)
+except ImportError:                     # showcase 배포본: streamlit 이 플랫 폴더에서 실행
+    import design_tokens as T
+    import company_class as cc
 
 BLUE, BLACK, GRAY = T.COLORS["blue"], T.COLORS["black"], T.COLORS["gray"]
 SOFT, LGRAY = "#DCE0E6", "#C3CAD3"

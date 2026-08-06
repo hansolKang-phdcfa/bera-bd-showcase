@@ -14,7 +14,12 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 import networkx as nx
 
-import design_tokens as T
+try:                                    # 엔진: bd_asset_pipeline.ui.viz 로 import
+    from . import design_tokens as T
+    from . import company_class as cc   # 회사 카테고리·시총 tier 색(대시보드 공통)
+except ImportError:                     # showcase 배포본: streamlit 이 플랫 폴더에서 실행
+    import design_tokens as T
+    import company_class as cc
 
 _OTF = os.path.join(T.ASSETS_DIR, "Pretendard-Regular.otf")
 if os.path.exists(_OTF):
@@ -24,7 +29,7 @@ if os.path.exists(_OTF):
     except Exception:
         pass
 matplotlib.rcParams["axes.unicode_minus"] = False
-matplotlib.rcParams["text.parse_math"] = False
+matplotlib.rcParams["text.parse_math"] = False   # $…$ 를 수식 아닌 리터럴로($10.8B 등 깨짐 방지)
 
 BLUE, BLACK, GRAY = T.COLORS["blue"], T.COLORS["black"], T.COLORS["gray"]
 SOFT, LGRAY = "#DCE0E6", "#D3D6DA"
@@ -187,7 +192,7 @@ def aoi_contrib_fig(aoi_rows, weights):
     for i, t in enumerate(tot):
         ax.text(t + 0.008, i, f"{t:.3f}", va="center", ha="left", fontsize=9.5,
                 fontweight="bold", color=BLACK)
-    ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
+    ax.set_yticks(list(y)); ax.set_yticklabels([_shortco(c) for c in comp], fontsize=9.5, color=BLACK)
     ax.set_xlim(0, (max(tot) or 1) * 1.16); ax.set_xlabel("AoI score (가중합)", fontsize=11, color=BLACK)
     ax.tick_params(axis="x", labelsize=11, colors=BLACK)
     for sp in ["top", "right", "left"]:
@@ -285,7 +290,7 @@ def lo_candidates_fig(lo_rows, top=12):
         tot = gap[i] + interest[i] + activity[i]
         ax.text(tot + 0.02, i, f"score {score[i]:.2f}", va="center", ha="left",
                 fontsize=9, fontweight="bold", color=BLACK)
-    ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
+    ax.set_yticks(list(y)); ax.set_yticklabels([_shortco(c) for c in comp], fontsize=9.5, color=BLACK)
     ax.set_xlim(0, (max(g + i + a for g, i, a in zip(gap, interest, activity)) or 1) * 1.2)
     ax.set_xlabel("gap + interest + activity (LO 후보 근거 분해)", fontsize=11, color=BLACK)
     ax.tick_params(axis="x", labelsize=11, colors=BLACK)
@@ -299,7 +304,9 @@ def lo_candidates_fig(lo_rows, top=12):
 
 
 def kr_tier_fig(kr_rows, top=18, tier_filter=None, domains=None):
-    """KR 경쟁 3-tier — 회사별 도메인(IPC)별 특허 건수 stacked 막대(색=도메인). y라벨 ·T=티어."""
+    """KR 경쟁 3-tier — 회사별 **도메인(IPC)별 특허 건수 stacked 막대**(색=도메인).
+    total_focus 단순 sum 대신 어느 IPC에서 몇 건인지 분해. y라벨 ·T1/2/3=티어.
+    domains=core 도메인 순서(config kr.domains 키). 없으면 자동감지(메타·m_·recent 제외)."""
     from matplotlib.patches import Patch
     rows = [r for r in kr_rows if float(r.get("total_focus", 0) or 0) > 0 and r.get("tier") in (1, 2, 3)]
     if tier_filter in (1, 2, 3):
@@ -339,11 +346,30 @@ def kr_tier_fig(kr_rows, top=18, tier_filter=None, domains=None):
     for sp in ("top", "right", "left"):
         ax.spines[sp].set_visible(False)
     ax.legend(handles=[Patch(color=dcol[d], label=d) for d in core], loc="lower right",
-              fontsize=8, frameon=False, title="IPC 도메인", ncol=2)
+              fontsize=9, frameon=False, title="IPC 도메인", ncol=2)
     ax.set_title("KR 3-tier — 위=Tier1(직접), 아래=Tier3(잠재) · 티어 내 특허건수순",
                  fontsize=12, fontweight="bold", color=BLACK, pad=10)
     fig.tight_layout()
     return fig
+
+
+def _shortco(name, width=18):
+    """y축 회사명 표시용 — 법인격 접미사 제거 + 길면 2줄 줄바꿈(왼쪽 폭 절감)."""
+    import re
+    s = str(name or "").strip()
+    for _ in range(3):
+        s2 = re.sub(r"[,\s]+(?:INC|Inc|LLC|LTD|Ltd|Limited|CORP|Corp|Corporation|COMPANY|Company"
+                    r"|CO|Co|AG|PLC|Pty|PTY|GmbH|S\.?A|N\.?V)\.?$", "", s).strip().rstrip(",")
+        if s2 == s:
+            break
+        s = s2
+    if len(s) > width:
+        mid = len(s) / 2
+        sp = [i for i, c in enumerate(s) if c == " "]
+        if sp:
+            b = min(sp, key=lambda i: abs(i - mid))
+            s = s[:b] + "\n" + s[b + 1:]
+    return s
 
 
 def momentum_fig(mom_rows, top=12):
@@ -358,7 +384,7 @@ def momentum_fig(mom_rows, top=12):
     comp = [r["company"] for r in rows]
     prior = [float(r.get("prior_per_yr", 0) or 0) for r in rows]
     recent = [float(r.get("recent_per_yr", 0) or 0) for r in rows]
-    tcol = {"가속": BLUE, "냉각": GRAY, "유지": LGRAY}
+    tcol = {"가속": BLUE, "신규": "#8FB4FF", "냉각": GRAY, "유지": LGRAY}
     y = range(len(comp))
     fig, ax = plt.subplots(figsize=(11.5, 0.6 + 0.46 * len(comp)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
@@ -372,7 +398,7 @@ def momentum_fig(mom_rows, top=12):
         lbl = tr + (f" {acc}x" if acc not in (None, 0.0) else "")
         ax.text(max(prior[i], recent[i]) + xmax * 0.02, i, lbl, va="center",
                 fontsize=8.2, color=col if tr != "유지" else GRAY, fontweight="bold")
-    ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
+    ax.set_yticks(list(y)); ax.set_yticklabels([_shortco(c) for c in comp], fontsize=9.5, color=BLACK)
     ax.set_xlim(-xmax * 0.03, xmax * 1.25)
     ax.set_xlabel("연간 anchor 인용 건수  (○ 직전 평균 → ● 최근 평균)", fontsize=11, color=BLACK)
     ax.tick_params(axis="x", labelsize=11, colors=BLACK)
@@ -380,10 +406,18 @@ def momentum_fig(mom_rows, top=12):
     for sp in ["top", "right", "left"]:
         ax.spines[sp].set_visible(False)
     ax.spines["bottom"].set_color(GRAY)
-    ax.legend(handles=[Patch(color=BLUE, label="가속 (≥1.2x)"),
-                       Patch(color=GRAY, label="냉각 (<0.8x)"),
-                       Patch(color=LGRAY, label="유지")],
-              loc="lower right", fontsize=9, frameon=False)
+    for tk, r in zip(ax.get_yticklabels(), rows):   # 라벨색=회사 카테고리(빅파마/바이오텍/스타트업/학계…)
+        tk.set_color(cc.color_of(r["company"]))
+    _tl = ax.legend(handles=[Patch(color=BLUE, label="가속 (≥1.2x)"),
+                             Patch(color="#8FB4FF", label="신규 (prior 0)"),
+                             Patch(color=GRAY, label="냉각 (<0.8x)"),
+                             Patch(color=LGRAY, label="유지")],
+                    loc="lower right", fontsize=9, frameon=False)
+    ax.add_artist(_tl)
+    _cats = [c for c in cc.CAT if any(cc.classify(r["company"])["category"] == c for r in rows)]
+    if _cats:
+        ax.legend(handles=[Patch(color=cc.CAT[c]["color"], label=cc.CAT[c]["ko"]) for c in _cats],
+                  loc="upper right", fontsize=8, frameon=False, title="회사")
     ax.set_title("Anchor 인용 Momentum — 그 영역 관심이 가속/냉각 중인가 (● 최근 · 색=추세)",
                  fontsize=13, fontweight="bold", color=BLACK, pad=10)
     fig.tight_layout()
@@ -406,7 +440,7 @@ def access_fig(access_rows):
     for i, r in enumerate(rows):
         ax.text(rev[i] + (max(rev) or 1) * 0.01, i, str(r.get("access_note", "")),
                 va="center", fontsize=8.3, color=BLACK)
-    ax.set_yticks(list(y)); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
+    ax.set_yticks(list(y)); ax.set_yticklabels([_shortco(c) for c in comp], fontsize=9.5, color=BLACK)
     ax.set_xlim(0, (max(rev) or 1) * 1.35)
     ax.set_xlabel("실현가능 매출 ($M) = access_score × peak_market (상업화 능력 proxy)",
                   fontsize=11, color=BLACK)
@@ -420,48 +454,47 @@ def access_fig(access_rows):
     return fig
 
 
-def crossmod_fig(cm, top=14):
-    """Cross-modality — 회사별 모달리티별 특허 건수 stacked 막대(색=모달리티). by_modality 사용."""
+def crossmod_fig(cm, top=16):
+    """Cross-modality 파트너 — 시가총액 tier별(상단=대형=협업가능). 학계 제외, 막대색=cap tier, 라벨색=카테고리.
+    한인수 8/4 피드백: 총합순 아니라 시총 tier로 색·정렬(스몰/마이크로캡·인수됨=협업가능성↓)."""
     from matplotlib.patches import Patch
-    import re
-    _ACAD = re.compile(r'univ|institut|hospital|united states|department|dept of|helmholtz|zentrum|'
-                       r'national inst|cancer (center|institut)|academ|foundation|대학|연구|병원|정부', re.I)
     rows = cm.get("crossmod", []) if isinstance(cm, dict) else cm
-    rows = [r for r in rows if (r.get("n_patents", 0) or 0) > 0 and not _ACAD.search(r.get("company", ""))]
-    rows = rows[:top][::-1]
-    if not rows:
-        return _empty("cross-modality 상업사 데이터 없음(학계 제외 후)")
-    mods = list((cm.get("meta", {}).get("other_modalities") if isinstance(cm, dict) else None) or [])
-    for r in rows:
-        for mm in (r.get("by_modality") or {}):
-            if mm not in mods:
-                mods.append(mm)
-    PAL = [BLUE, "#E8544B", "#F5A623", "#2BB673", "#7B61FF", "#00A3B4", "#C86DD7", GRAY]
-    mcol = {mm: PAL[i % len(PAL)] for i, mm in enumerate(mods)}
-    comp = [_short(r["company"]) for r in rows]
-    y = list(range(len(rows)))
-    fig, ax = plt.subplots(figsize=(11.5, 0.7 + 0.44 * len(rows)), dpi=190)
-    fig.patch.set_facecolor("white"); ax.set_facecolor("white")
-    left = [0.0] * len(rows)
-    for mm in mods:
-        vals = [float((r.get("by_modality") or {}).get(mm, 0) or 0) for r in rows]
-        if sum(vals) == 0:
+    enr = []
+    for r in rows or []:
+        if (r.get("n_patents", 0) or 0) <= 0:
             continue
-        ax.barh(y, vals, left=left, color=mcol[mm], height=0.64)
-        left = [l + v for l, v in zip(left, vals)]
-    xmax = max(left) or 1
+        c = cc.classify(r.get("company", ""))
+        if c["category"] == "academic":          # 학계=라이선스 원천, 파트너 아님 → 제외
+            continue
+        enr.append((r, c))
+    if not enr:
+        return _empty("cross-modality 상업사 데이터 없음(학계 제외 후)")
+    enr.sort(key=lambda rc: rc[0].get("n_patents", 0), reverse=True)
+    enr = enr[:top]
+    enr.sort(key=lambda rc: (cc.CAP_TIER[rc[1]["cap_tier"]]["rank"], rc[0].get("n_patents", 0)))  # 하단=micro, 상단=mega
+    comp = [_shortco(r["company"]) for r, _ in enr]
+    vals = [float(r.get("n_patents", 0) or 0) for r, _ in enr]
+    cols = [cc.CAP_TIER[c["cap_tier"]]["color"] for _, c in enr]
+    y = list(range(len(enr)))
+    fig, ax = plt.subplots(figsize=(11.5, 0.7 + 0.44 * len(enr)), dpi=190)
+    fig.patch.set_facecolor("white"); ax.set_facecolor("white")
+    ax.barh(y, vals, color=cols, height=0.64)
+    xmax = max(vals) or 1
     for i in y:
-        ax.text(left[i] + xmax * 0.008, i, f"{int(left[i])}", va="center", fontsize=8, color=BLACK)
-    ax.set_yticks(y); ax.set_yticklabels(comp, fontsize=10, color=BLACK)
-    ax.set_xlabel("모달리티별 특허 건수 — stacked (같은 적응증, 다른 모달리티)", fontsize=11, color=BLACK)
+        ax.text(vals[i] + xmax * 0.008, i, f"{int(vals[i])}", va="center", fontsize=8, color=BLACK)
+    ax.set_yticks(y); ax.set_yticklabels(comp, fontsize=9.5, color=BLACK)
+    for tk, (_, c) in zip(ax.get_yticklabels(), enr):   # 라벨색=회사 카테고리
+        tk.set_color(cc.CAT[c["category"]]["color"])
+    ax.set_xlabel("다른 모달리티 특허 건수 (같은 적응증)", fontsize=11, color=BLACK)
     ax.tick_params(axis="x", labelsize=11, colors=BLACK)
     ax.xaxis.set_major_locator(MaxNLocator(integer=True))
     for sp in ("top", "right", "left"):
         ax.spines[sp].set_visible(False)
-    used = [mm for mm in mods if any((r.get("by_modality") or {}).get(mm) for r in rows)]
-    ax.legend(handles=[Patch(color=mcol[mm], label=mm) for mm in used], loc="lower right",
-              fontsize=8, frameon=False, title="모달리티", ncol=2)
-    ax.set_title("Cross-modality — 회사별 모달리티 분해 (색=모달리티)",
+    tiers = [t for t in ("mega", "large", "mid", "small", "micro", "unknown")
+             if any(c["cap_tier"] == t for _, c in enr)]
+    ax.legend(handles=[Patch(color=cc.CAP_TIER[t]["color"], label=cc.CAP_TIER[t]["ko"]) for t in tiers],
+              loc="lower right", fontsize=8, frameon=False, title="시가총액", ncol=2)
+    ax.set_title("Cross-modality 파트너 — 시가총액 tier별 (상단=대형·협업가능)",
                  fontsize=12, fontweight="bold", color=BLACK, pad=10)
     fig.tight_layout()
     return fig
@@ -526,6 +559,7 @@ def bd_trend_fig(bd):
     fig.tight_layout()
     return fig
 
+
 def kr_cocitation_fig(data, top=12):
     """KR 경쟁사 발굴 — kr_patents 정밀키워드 매칭 랭킹(초기 한국자산 US cocitation 빈칸 대체).
     자국(KR) 강조/해외(KR 출원) 구분. data=kr_cocitation.json."""
@@ -560,6 +594,7 @@ def kr_cocitation_fig(data, top=12):
 def field_pool_fig(data, top=16):
     """데이터 기반 필드 풀 — 도메인 활동 주체(하드코딩 buyer 대체). 색=momentum(가속 BLUE/냉각 GRAY), (학계) 태그."""
     from matplotlib.patches import Patch
+    # 학계/공공은 파트너/경쟁 후보로 무의미 → 제외(상업사만).
     pool = [p for p in (data or {}).get("field_pool", []) if p.get("kind") != "academic"][:top]
     if not pool:
         return _empty("필드 풀 없음 — 키워드 확인")
@@ -569,7 +604,7 @@ def field_pool_fig(data, top=16):
         return p["company"].replace(", Inc.", "").replace(" Inc.", "").replace(" LLC", "").replace(" Ltd.", "")[:30]
     names = [lab(p) for p in pool]
     vals = [p["n_patents"] for p in pool]
-    tcol = {"가속": BLUE, "냉각": GRAY, "유지": LGRAY}
+    tcol = {"가속": BLUE, "신규": "#8FB4FF", "냉각": GRAY, "유지": LGRAY}
     cols = [tcol.get(p.get("trend"), LGRAY) for p in pool]
     fig, ax = plt.subplots(figsize=(10, 0.6 + 0.42 * len(pool)), dpi=190)
     fig.patch.set_facecolor("white"); ax.set_facecolor("white")
@@ -608,8 +643,8 @@ def field_heat_fig(data):
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
     ax.tick_params(labelsize=11, colors=BLACK)
-    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.xaxis.set_major_locator(MaxNLocator(integer=True))   # 연도 정수만(소수점 제거)
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))   # 건수 정수만
     ax.margins(x=0.02); fig.tight_layout()
     return fig
 
@@ -638,8 +673,9 @@ def competition_ladder_fig(data):
         ax.scatter(x, i, s=(340 if tgt else 150), c=col, edgecolors="white", lw=1.4,
                    marker=("X" if pg else "o"), zorder=3)
         lbl = _disp(f"{r['company']} ({r.get('asset', '')})") + ("  ★자산" if tgt else "")
+        lcol = BLUE if tgt else ("#E8544B" if pg else cc.color_of(r["company"]))  # 활성=카테고리 색
         ax.text(-1.5, i, lbl, ha="right", va="center", fontsize=9.6,
-                color=(BLUE if tgt else BLACK), fontweight=("bold" if tgt else "normal"))
+                color=lcol, fontweight=("bold" if tgt else "normal"))
         if r.get("note"):
             ax.text(x + 0.18, i, _disp(r["note"]), va="center", fontsize=8.8, color=BLACK)
     ax.set_yticks([]); ax.set_ylim(-0.7, n - 0.3)
@@ -649,5 +685,11 @@ def competition_ladder_fig(data):
     ax.set_xlabel("개발 단계 →  (오른쪽=앞선 경쟁)", fontsize=11, color=BLACK)
     for s in ("top", "right", "left"):
         ax.spines[s].set_visible(False)
+    from matplotlib.patches import Patch
+    _acts = [r for r in rows if not r.get("is_target") and not r.get("_prior")]
+    _cats = [c for c in cc.CAT if any(cc.classify(r["company"])["category"] == c for r in _acts)]
+    if _cats:
+        ax.legend(handles=[Patch(color=cc.CAT[c]["color"], label=cc.CAT[c]["ko"]) for c in _cats],
+                  loc="lower right", fontsize=8, frameon=False, title="활성 경쟁사 분류")
     fig.tight_layout()
     return fig
